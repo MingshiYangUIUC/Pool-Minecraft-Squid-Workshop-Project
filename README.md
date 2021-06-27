@@ -1,4 +1,4 @@
-# _Squid Workshop's_ Pool Datapack Evolved Version
+# _Squid Workshop's_ Pool Datapack (Evolved) Version
 Play pool (cue sports) in Minecraft, like in real life!
 
 - [Abstract](#Abstract)
