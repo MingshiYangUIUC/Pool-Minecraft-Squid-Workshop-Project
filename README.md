@@ -32,6 +32,8 @@ Enable it by:
 # Usage
 You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
 
+Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project).
+
 # How it Works
 Conservation of momentum and angular momentum. Neglected deformations, and interactions with edge of pockets. Assumed constant coefficients of friction.
 
