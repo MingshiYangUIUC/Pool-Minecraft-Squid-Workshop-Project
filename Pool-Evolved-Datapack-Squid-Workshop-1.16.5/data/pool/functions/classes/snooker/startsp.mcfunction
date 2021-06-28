@@ -4,6 +4,8 @@ kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 tag @a remove swPool_poolplay
+tag @a remove swPool_freeball
+tag @a remove swPool_freeball_obj
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
 clear @a carrot_on_a_stick{CustomModelData:99}
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls

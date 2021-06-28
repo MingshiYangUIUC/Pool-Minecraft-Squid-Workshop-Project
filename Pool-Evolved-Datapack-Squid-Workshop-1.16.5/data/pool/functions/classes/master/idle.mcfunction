@@ -8,6 +8,7 @@ tag @e[tag=swPool_uk8ballmode] remove swPool_pocketing
 
 execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
 execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_uk8ballmode,tag=!swPool_pocketing] run function pool:classes/master/uk8ball/progression
+execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_practicemode,tag=!swPool_pocketing] run function pool:classes/master/practice/progression
 
 tag @e[tag=swPool_a1] remove swPool_a1
 
