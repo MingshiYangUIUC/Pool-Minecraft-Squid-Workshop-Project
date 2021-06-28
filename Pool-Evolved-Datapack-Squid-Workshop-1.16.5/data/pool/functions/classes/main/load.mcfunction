@@ -94,7 +94,7 @@ scoreboard players set C_r swPool_C 1250
 scoreboard players set C_muk swPool_C 3000
 
 #mur*10000 rolling friction
-scoreboard players set C_mur swPool_C 200
+scoreboard players set C_mur swPool_C 350
 
 #g*10000 W = Mg
 scoreboard players set C_g swPool_C 98100

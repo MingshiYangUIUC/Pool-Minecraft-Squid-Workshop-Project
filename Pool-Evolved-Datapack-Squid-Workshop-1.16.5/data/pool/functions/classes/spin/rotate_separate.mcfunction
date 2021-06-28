@@ -6,14 +6,23 @@
 #cos and sin
 scoreboard players operation Cue_ca1 swPool_v = Cue_A1 swPool_v
 execute if score Cue_ca1 swPool_v matches 10000 run scoreboard players set Cue_sa1 swPool_v 0
+execute if score Cue_ca1 swPool_v matches 9962 run scoreboard players set Cue_sa1 swPool_v 872
 execute if score Cue_ca1 swPool_v matches 9848 run scoreboard players set Cue_sa1 swPool_v 1736
+execute if score Cue_ca1 swPool_v matches 9659 run scoreboard players set Cue_sa1 swPool_v 2588
 execute if score Cue_ca1 swPool_v matches 9397 run scoreboard players set Cue_sa1 swPool_v 3420
+execute if score Cue_ca1 swPool_v matches 9063 run scoreboard players set Cue_sa1 swPool_v 4226
 execute if score Cue_ca1 swPool_v matches 8660 run scoreboard players set Cue_sa1 swPool_v 5000
+execute if score Cue_ca1 swPool_v matches 8192 run scoreboard players set Cue_sa1 swPool_v 5736
 execute if score Cue_ca1 swPool_v matches 7660 run scoreboard players set Cue_sa1 swPool_v 6428
+execute if score Cue_ca1 swPool_v matches 7071 run scoreboard players set Cue_sa1 swPool_v 7071
 execute if score Cue_ca1 swPool_v matches 6428 run scoreboard players set Cue_sa1 swPool_v 7660
+execute if score Cue_ca1 swPool_v matches 5736 run scoreboard players set Cue_sa1 swPool_v 8192
 execute if score Cue_ca1 swPool_v matches 5000 run scoreboard players set Cue_sa1 swPool_v 8660
+execute if score Cue_ca1 swPool_v matches 4226 run scoreboard players set Cue_sa1 swPool_v 9063
 execute if score Cue_ca1 swPool_v matches 3420 run scoreboard players set Cue_sa1 swPool_v 9397
+execute if score Cue_ca1 swPool_v matches 2588 run scoreboard players set Cue_sa1 swPool_v 9659
 execute if score Cue_ca1 swPool_v matches 1736 run scoreboard players set Cue_sa1 swPool_v 9848
+execute if score Cue_ca1 swPool_v matches 872 run scoreboard players set Cue_sa1 swPool_v 9962
 
 
 #separate wh and add with rotation of wv
