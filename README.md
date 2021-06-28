@@ -45,7 +45,7 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 
 # Project Tree
 
-	PackName-Datapack-Squid-Workshop-GameVersion
+	Pool-Evolved-Datapack-Squid-Workshop-1.16.5
 	│  pack.mcmeta
 	│  pack.png
 	│
