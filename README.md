@@ -70,7 +70,6 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 	    │      │      ├─friction
 	    │      │      │      rolling.mcfunction
 	    │      │      │      sliding.mcfunction
-	    │      │      │      this as storage, also change load.mcfunction
 	    │      │      │      
 	    │      │      └─reload
 	    │      │              cleanongoingsession.mcfunction
@@ -92,6 +91,11 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 	    └─pool
 		└─functions
 		    └─classes
+			├─main
+			│      clean.mcfunction
+			│      load.mcfunction
+			│      tick.mcfunction
+			│      
 			├─collision
 			│      collide.mcfunction
 			│      join.mcfunction
@@ -199,11 +203,6 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 			│          main.mcfunction
 			│          tp.mcfunction
 			│          
-			├─main
-			│      clean.mcfunction
-			│      load.mcfunction
-			│      tick.mcfunction
-			│      
 			├─master
 			│  │  idle.mcfunction
 			│  │  main.mcfunction
@@ -298,10 +297,6 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 			│      loop.mcfunction
 			│      set.mcfunction
 			│      start.mcfunction
-			│      
-			├─test
-			│      place.mcfunction
-			│      setfood.mcfunction
 			│      
 			└─uk8ball
 				balls.mcfunction
