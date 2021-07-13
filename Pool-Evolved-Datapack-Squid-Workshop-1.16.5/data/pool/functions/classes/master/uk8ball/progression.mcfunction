@@ -26,10 +26,11 @@ execute if entity @s[tag=swPool_foulpass] run tag @a[tag=swPool_foul] remove swP
 #pocketed black ball, unless rerack...
 tag @s[tag=!swPool_rerack,tag=swPool_pktblk] add swPool_endgame 
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] run tag @a[tag=swPool_hitcue,tag=!swPool_aimblk] add swPool_foul
-execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] if score Pocketed_Total swPool_hidScore matches 2.. run tag @a[tag=swPool_hitcue] add swPool_foul
-execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Won. "}]
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] if score Pocketed_Turn swPool_hidScore matches 2.. run tag @a[tag=swPool_hitcue] add swPool_foul
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Won. "}]
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Lost. "}]
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" Won."}]
-execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Lost!"}]
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Won."}]
 
 #streak if no foul and pocketed correct ball and remaining ball of same color
 execute if entity @s[tag=swPool_pktred] run tag @a[tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimred] add swPool_streak

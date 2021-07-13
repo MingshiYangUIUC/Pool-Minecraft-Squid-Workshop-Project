@@ -12,7 +12,7 @@ tag @s add swPool_colliding
 
 #set information of first hit ball to swPool_player
 tag @s add swPool_c
-tag @e[tag=swPool_c2] add swPool_c
+tag @e[tag=swPool_col2] add swPool_c
 execute if entity @e[tag=swPool_snookermode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/snooker_hitball
 execute if entity @e[tag=swPool_uk8ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/uk8ball_hitball
 tag @e[tag=swPool_c] remove swPool_c
@@ -22,15 +22,17 @@ tag @e[tag=swPool_c] remove swPool_c
 tag @e[tag=swPool_rhp1] add swPool_t1
 execute at @s run tp @e[tag=swPool_t1,limit=1] ~ ~ ~
 tag @e[tag=swPool_rhp2] add swPool_t2
-execute at @e[tag=swPool_c2,limit=1] run tp @e[tag=swPool_t2,limit=1] ~ ~ ~
+execute at @e[tag=swPool_col2,limit=1] run tp @e[tag=swPool_t2,limit=1] ~ ~ ~
 tag @e[tag=swPool_rhp3] add swPool_facerc
 execute at @s run tp @e[tag=swPool_facerc,limit=1] ~ ~ ~
 
 #execute at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_t1"],Duration:1}
-#execute at @e[tag=swPool_c2,limit=1] run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_t2"],Duration:1}
+#execute at @e[tag=swPool_col2,limit=1] run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_t2"],Duration:1}
 #execute at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_facerc"],Duration:1}
 
 
+scoreboard players operation @s swPool_vrx = COL swPool_vrx
+scoreboard players operation @s swPool_vrz = COL swPool_vrz
 
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
@@ -66,19 +68,19 @@ data modify entity @e[tag=swPool_t1,limit=1] Rotation set from entity @e[tag=swP
 #separate the x,z component, add back the x,z component of c2, then combine back
 execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vseparate
 execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vseparate
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx += @e[tag=swPool_c2,limit=1] swPool_vx
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz += @e[tag=swPool_c2,limit=1] swPool_vz
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vx += @e[tag=swPool_c2,limit=1] swPool_vx
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPool_c2,limit=1] swPool_vz
+scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
+scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
+scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
+scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
 execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
 execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine
 
 
 #merge stuff back to c1, c2
-scoreboard players operation @e[tag=swPool_c1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
-scoreboard players operation @e[tag=swPool_c2,limit=1] swPool_v = @e[tag=swPool_t2,limit=1] swPool_v
-data modify entity @e[tag=swPool_c1,limit=1] Rotation set from entity @e[tag=swPool_t1,limit=1] Rotation
-data modify entity @e[tag=swPool_c2,limit=1] Rotation set from entity @e[tag=swPool_t2,limit=1] Rotation
+scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
+scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = @e[tag=swPool_t2,limit=1] swPool_v
+data modify entity @e[tag=swPool_col1,limit=1] Rotation set from entity @e[tag=swPool_t1,limit=1] Rotation
+data modify entity @e[tag=swPool_col2,limit=1] Rotation set from entity @e[tag=swPool_t2,limit=1] Rotation
 
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1
@@ -89,20 +91,20 @@ tag @e[tag=swPool_rhp3] remove swPool_facerc
 
 #reset swPool_hittime, swPool_vr
 scoreboard players reset @s swPool_hittime
-scoreboard players reset @e[tag=swPool_c1] swPool_vx
-scoreboard players reset @e[tag=swPool_c1] swPool_vz
-scoreboard players reset @e[tag=swPool_c1] swPool_vrx
-scoreboard players reset @e[tag=swPool_c1] swPool_vrz
-scoreboard players reset @e[tag=swPool_c2] swPool_vx
-scoreboard players reset @e[tag=swPool_c2] swPool_vz
+scoreboard players reset @e[tag=swPool_col1] swPool_vx
+scoreboard players reset @e[tag=swPool_col1] swPool_vz
+scoreboard players reset @e[tag=swPool_col1] swPool_vrx
+scoreboard players reset @e[tag=swPool_col1] swPool_vrz
+scoreboard players reset @e[tag=swPool_col2] swPool_vx
+scoreboard players reset @e[tag=swPool_col2] swPool_vz
 
 #add a drag as energy loss
-#execute as @e[tag=swPool_c2,limit=1] run function pool:classes/motion/drag
+#execute as @e[tag=swPool_col2,limit=1] run function pool:classes/motion/drag
 
 playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 
 
-scoreboard players set @e[tag=swPool_c2,limit=1] swPool_T 0
+scoreboard players set @e[tag=swPool_col2,limit=1] swPool_T 0
 scoreboard players set @s swPool_T 0
-execute at @e[tag=swPool_c2,limit=1] run function pool:classes/spin/change_of_state
+execute at @e[tag=swPool_col2,limit=1] run function pool:classes/spin/change_of_state
 execute at @s run function pool:classes/spin/change_of_state

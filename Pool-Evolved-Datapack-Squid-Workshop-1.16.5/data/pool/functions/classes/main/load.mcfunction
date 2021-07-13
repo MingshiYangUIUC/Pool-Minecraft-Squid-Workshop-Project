@@ -75,6 +75,7 @@ scoreboard objectives add swPool_T_end dummy
 
 #define constants
 #decimal places and math constants
+scoreboard players set C_100000000 swPool_C 100000000
 scoreboard players set C_10000 swPool_C 10000
 scoreboard players set C_7143 swPool_C 7143
 scoreboard players set C_2000 swPool_C 2000
@@ -86,6 +87,7 @@ scoreboard players set C_50 swPool_C 50
 scoreboard players set C_20 swPool_C 20
 scoreboard players set C_10 swPool_C 10
 scoreboard players set C_2 swPool_C 2
+scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000
 scoreboard players set C_r swPool_C 1250
@@ -94,7 +96,7 @@ scoreboard players set C_r swPool_C 1250
 scoreboard players set C_muk swPool_C 3000
 
 #mur*10000 rolling friction
-scoreboard players set C_mur swPool_C 350
+scoreboard players set C_mur swPool_C 200
 
 #g*10000 W = Mg
 scoreboard players set C_g swPool_C 98100

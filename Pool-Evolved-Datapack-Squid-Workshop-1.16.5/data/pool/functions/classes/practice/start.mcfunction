@@ -1,3 +1,5 @@
+execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
+
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please place a table first.","color":"red"}]
 
 kill @e[tag=swPool_pool]
@@ -6,6 +8,8 @@ kill @e[tag=swPool_temppin]
 tag @a remove swPool_poolplay
 tag @a remove swPool_freeball
 tag @a remove swPool_freeball_obj
+tag @a remove swPool_streak
+tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
 clear @a carrot_on_a_stick{CustomModelData:101}
 clear @a carrot_on_a_stick{CustomModelData:102}

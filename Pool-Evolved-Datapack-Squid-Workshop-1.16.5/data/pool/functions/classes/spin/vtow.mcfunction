@@ -1,5 +1,10 @@
 #w = (n X v)/r
 
+function pool:classes/physics/vseparate_1
+
+scoreboard players operation @s swPool_vex /= C_500 swPool_C
+scoreboard players operation @s swPool_vez /= C_500 swPool_C
+
 scoreboard players set A swPool_Vi 0
 scoreboard players set A swPool_Vj 1
 scoreboard players set A swPool_Vk 0

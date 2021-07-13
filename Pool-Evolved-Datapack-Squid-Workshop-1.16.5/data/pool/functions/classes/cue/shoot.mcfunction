@@ -26,7 +26,7 @@ function pool:classes/physics/sqrt
 
 
 
-scoreboard players set @s swPool_var01 1500
+scoreboard players set @s swPool_var01 2000
 #tellraw @a [{"text":" V00, "},{"score":{"objective":"swPool_var00","name":"@s"}}]
 scoreboard players operation @s swPool_var00 *= @s swPool_var01
 scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 

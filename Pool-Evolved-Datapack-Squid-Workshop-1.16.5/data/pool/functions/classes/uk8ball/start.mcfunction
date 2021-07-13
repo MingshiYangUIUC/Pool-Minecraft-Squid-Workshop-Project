@@ -6,6 +6,8 @@ kill @e[tag=swPool_temppin]
 tag @a remove swPool_poolplay
 tag @a remove swPool_freeball
 tag @a remove swPool_freeball_obj
+tag @a remove swPool_streak
+tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 
