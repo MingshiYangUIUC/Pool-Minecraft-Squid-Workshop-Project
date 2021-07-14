@@ -80,13 +80,17 @@ scoreboard players set C_10000 swPool_C 10000
 scoreboard players set C_7143 swPool_C 7143
 scoreboard players set C_2000 swPool_C 2000
 scoreboard players set C_1000 swPool_C 1000
+scoreboard players set C_625 swPool_C 625
 scoreboard players set C_500 swPool_C 500
+scoreboard players set C_256 swPool_C 256
 scoreboard players set C_250 swPool_C 250
 scoreboard players set C_100 swPool_C 100
 scoreboard players set C_50 swPool_C 50
 scoreboard players set C_20 swPool_C 20
+scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10
 scoreboard players set C_2 swPool_C 2
+scoreboard players set C_1 swPool_C 1
 scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000

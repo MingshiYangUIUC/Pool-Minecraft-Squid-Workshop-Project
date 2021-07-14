@@ -57,6 +57,8 @@ scoreboard players operation @s swPool_ax /= C_20 swPool_C
 scoreboard players operation @s swPool_ay /= C_20 swPool_C
 scoreboard players operation @s swPool_az /= C_20 swPool_C
 
+
+
 #get t
 #0.0291=2/7/g
 scoreboard players set @s swPool_T_roll 291
@@ -102,3 +104,10 @@ scoreboard players operation @s swPool_alx /= C_20 swPool_C
 scoreboard players operation @s swPool_aly /= C_20 swPool_C
 scoreboard players operation @s swPool_alz /= C_20 swPool_C
 
+
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_ax 0
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_ay 0
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_az 0
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_alx 0
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_aly 0
+execute if score O swPool_Vmag matches 0 run scoreboard players set @s swPool_alz 0

@@ -24,4 +24,9 @@ execute if score @s swPool_var01 matches 97656..195312 run scoreboard players re
 
 scoreboard players reset @s swPool_var01
 execute at @s if entity @e[tag=swPool_pool,distance=0.001..0.25] run function pool:classes/motion/retreat
+
+#tellraw @a [{"text":" vprev, "},{"score":{"objective":"swPool_v","name":"@s"}}]
+
 function pool:classes/spin/change_of_motion
+
+#tellraw @a [{"text":" vaft, "},{"score":{"objective":"swPool_v","name":"@s"}}]

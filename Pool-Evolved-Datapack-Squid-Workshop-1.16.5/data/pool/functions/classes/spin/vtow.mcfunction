@@ -19,10 +19,10 @@ scoreboard players operation @s swPool_wx = O swPool_Vi
 scoreboard players operation @s swPool_wy = O swPool_Vj
 scoreboard players operation @s swPool_wz = O swPool_Vk
 
-scoreboard players operation @s swPool_wx *= C_r swPool_C
-scoreboard players operation @s swPool_wy *= C_r swPool_C
-scoreboard players operation @s swPool_wz *= C_r swPool_C
+scoreboard players operation @s swPool_wx /= C_r swPool_C
+scoreboard players operation @s swPool_wy /= C_r swPool_C
+scoreboard players operation @s swPool_wz /= C_r swPool_C
 
-scoreboard players operation @s swPool_wx /= C_10000 swPool_C
-scoreboard players operation @s swPool_wy /= C_10000 swPool_C
-scoreboard players operation @s swPool_wz /= C_10000 swPool_C
+scoreboard players operation @s swPool_wx *= C_10000 swPool_C
+scoreboard players operation @s swPool_wy *= C_10000 swPool_C
+scoreboard players operation @s swPool_wz *= C_10000 swPool_C
