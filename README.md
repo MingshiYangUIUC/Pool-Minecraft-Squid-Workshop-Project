@@ -79,11 +79,7 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 	    │              pool.mcfunction
 	    │              
 	    ├─minecraft
-	    │  │  .DS_Store
-	    │  │  
 	    │  └─tags
-	    │      │  .DS_Store
-	    │      │  
 	    │      └─functions
 	    │              load.json
 	    │              tick.json
