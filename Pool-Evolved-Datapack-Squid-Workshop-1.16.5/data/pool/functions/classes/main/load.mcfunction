@@ -1,3 +1,15 @@
+#save parameters
+
+execute store result storage minecraft:swpool fimpact int 1 run scoreboard players get C_mui swPool_C
+execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
+
+execute store result storage minecraft:swpool froll int 1 run scoreboard players get C_mur swPool_C
+execute store result score C_mur swPool_C run data get storage minecraft:swpool froll
+
+execute store result storage minecraft:swpool fslide int 1 run scoreboard players get C_muk swPool_C
+execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
+
+#clean and reload
 execute unless data storage minecraft:swpool keepsession run function pool:classes/main/clean
 
 scoreboard objectives add swPool_C dummy
@@ -85,12 +97,14 @@ scoreboard players set C_500 swPool_C 500
 scoreboard players set C_256 swPool_C 256
 scoreboard players set C_250 swPool_C 250
 scoreboard players set C_100 swPool_C 100
+scoreboard players set C_99 swPool_C 99
 scoreboard players set C_50 swPool_C 50
 scoreboard players set C_20 swPool_C 20
 scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10
+scoreboard players set C_5 swPool_C 5
 scoreboard players set C_2 swPool_C 2
-scoreboard players set C_1 swPool_C 1
+scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000
@@ -98,9 +112,18 @@ scoreboard players set C_r swPool_C 1250
 
 #muk*10000 kinetic friction
 scoreboard players set C_muk swPool_C 3000
+#set from storage!
+execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
 
 #mur*10000 rolling friction
 scoreboard players set C_mur swPool_C 200
+#set from storage!
+execute store result score C_mur swPool_C run data get storage minecraft:swpool froll
+
+#mur*10000 impact friction
+scoreboard players set C_mui swPool_C 1000
+#set from storage!
+execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
 
 #g*10000 W = Mg
 scoreboard players set C_g swPool_C 98100
