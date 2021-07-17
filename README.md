@@ -5,6 +5,7 @@ Play pool (cue sports) in Minecraft, like in real life!
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [How It Works](#How-It-Works)
+- [Notes](#Notes)
 - [Project Tree](#Project-Tree)
 - [Terms of Use](#Terms-of-Use)
 - [More About Squid Workshop](#More-About-Squid-Workshop)
@@ -42,6 +43,10 @@ I have not cited any specific references while making it work. Wait for the writ
 The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular common sense. _The rule enforcement of 8 ball is still under development._
 
 I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow!
+
+# Notes
+1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.\
+However, making the change is not hard. We'll see.
 
 # Project Tree
 
