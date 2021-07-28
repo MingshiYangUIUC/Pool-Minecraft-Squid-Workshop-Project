@@ -1,0 +1,2 @@
+While changing radius:
+some radius values are enbedded in other equations. Need to split that.

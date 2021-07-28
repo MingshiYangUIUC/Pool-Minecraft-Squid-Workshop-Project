@@ -19,3 +19,4 @@ execute if score @s swPool_T = @s swPool_T_roll run function pool:classes/spin/g
 
 #tellraw @a [{"text":"Time til roll, "},{"score":{"objective":"swPool_T_roll","name":"@s"}}]
 
+#tellraw @a [{"text":" w, "},{"score":{"objective":"swPool_wx","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_wy","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_wz","name":"@s"}}]

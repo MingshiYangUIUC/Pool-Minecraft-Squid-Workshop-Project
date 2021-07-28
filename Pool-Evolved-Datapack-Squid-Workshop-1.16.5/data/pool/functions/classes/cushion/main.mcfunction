@@ -19,22 +19,22 @@ scoreboard players operation @s swPool_posz -= TABLE swPool_posz
 
 #add velocity for new distance in components
 execute at @s run function pool:classes/physics/vseparate
-scoreboard players set @s swPool_var04 10000
+#scoreboard players set @s swPool_var04 10000
 scoreboard players operation @s swPool_var00 = @s swPool_vx
-scoreboard players operation @s swPool_var00 /= @s swPool_var04
+scoreboard players operation @s swPool_var00 /= C_10000 swPool_C
 scoreboard players operation @s swPool_posx += @s swPool_var00
 scoreboard players operation @s swPool_var01 = @s swPool_vz
-scoreboard players operation @s swPool_var01 /= @s swPool_var04
+scoreboard players operation @s swPool_var01 /= C_10000 swPool_C
 scoreboard players operation @s swPool_posz += @s swPool_var01
 
 #test
-scoreboard players set @s swPool_var03 -1
+#scoreboard players set @s swPool_var03 -1
 scoreboard players operation @s swPool_sizex = @s swPool_posx
 scoreboard players operation @s swPool_sizez = @s swPool_posz
 execute if score @s swPool_sizex > TABLE swPool_sizex run tag @s add swPool_cush
 execute if score @s swPool_sizez > TABLE swPool_sizez run tag @s add swPool_cush
-scoreboard players operation @s swPool_sizex *= @s swPool_var03
-scoreboard players operation @s swPool_sizez *= @s swPool_var03
+scoreboard players operation @s swPool_sizex *= C_-1 swPool_C
+scoreboard players operation @s swPool_sizez *= C_-1 swPool_C
 execute if score @s swPool_sizex > TABLE swPool_sizex run tag @s add swPool_cush
 execute if score @s swPool_sizez > TABLE swPool_sizez run tag @s add swPool_cush
 
@@ -67,9 +67,9 @@ tag @s[tag=swPool_z3,scores={swPool_posz=-1250..1250}] add swPool_pktm
 
 scoreboard players operation @s[tag=swPool_cush] swPool_var00 = @s swPool_posx
 scoreboard players operation @s[tag=swPool_cush] swPool_var01 = @s swPool_posz
-scoreboard players set @s swPool_var02 -1
-scoreboard players operation @s[tag=swPool_cush,scores={swPool_var00=..-1}] swPool_var00 *= @s swPool_var02
-scoreboard players operation @s[tag=swPool_cush,scores={swPool_var01=..-1}] swPool_var01 *= @s swPool_var02
+#scoreboard players set @s swPool_var02 -1
+scoreboard players operation @s[tag=swPool_cush,scores={swPool_var00=..-1}] swPool_var00 *= C_-1 swPool_C
+scoreboard players operation @s[tag=swPool_cush,scores={swPool_var01=..-1}] swPool_var01 *= C_-1 swPool_C
 
 scoreboard players operation @s[tag=swPool_cush] swPool_var00 -= TABLE swPool_sizex
 scoreboard players operation @s[tag=swPool_cush] swPool_var01 -= TABLE swPool_sizez

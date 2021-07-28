@@ -99,6 +99,7 @@ scoreboard players set C_250 swPool_C 250
 scoreboard players set C_100 swPool_C 100
 scoreboard players set C_99 swPool_C 99
 scoreboard players set C_50 swPool_C 50
+scoreboard players set C_30 swPool_C 30
 scoreboard players set C_20 swPool_C 20
 scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10

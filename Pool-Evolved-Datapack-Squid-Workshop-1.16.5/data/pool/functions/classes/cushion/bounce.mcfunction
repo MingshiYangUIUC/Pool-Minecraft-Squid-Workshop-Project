@@ -24,9 +24,9 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_va
 execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_var02 /= @s swPool_var01
 execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_var04 = @s swPool_var02
 execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_var04 = @s swPool_var02
-scoreboard players set @s swPool_var03 10000
+#scoreboard players set @s swPool_var03 10000
 scoreboard players operation @s swPool_var02 = @s swPool_v
-scoreboard players operation @s swPool_v /= @s swPool_var03
+scoreboard players operation @s swPool_v /= C_10000 swPool_C
 scoreboard players operation @s swPool_v *= @s swPool_var04
 scoreboard players set @s swPool_var04 -1
 scoreboard players operation @s[scores={swPool_v=..-1}] swPool_v *= @s swPool_var04
