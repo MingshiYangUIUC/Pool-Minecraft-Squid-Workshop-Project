@@ -56,7 +56,8 @@ Please wait for the update.
 Feel free to play around with this datapack. \
 As developer, feel free to use this datapack as a module to develop free datapacks. \
 But you **must** add the link to this github page! \
-**NO COMMERCIAL USE OR EVEN POTENTIALLY (AT MY DISCRETION) COMMERTIAL USE, ASK WHEN YOU ARE UNCLEAR**
+**NO COMMERCIAL USE** \
+**EVEN POTENTIALLY (AT MY DISCRETION) COMMERTIAL USE IS PROHIBITED AND MAY BE PROSECUTED, ASK BY WRITING WHEN YOU ARE UNCLEAR**
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
