@@ -49,13 +49,26 @@ scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 #get distance
 tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_d2
+#tag @e[type=area_effect_cloud,tag=swPool_fake,tag=swPool_a2,limit=1] add swPool_d2
 tag @s add swPool_d1
 execute at @s run function pool:classes/physics/distance1
-tag @e[type=armor_stand,tag=swPool_a2,limit=1] remove swPool_d2
+tag @e[tag=swPool_a2,limit=1] remove swPool_d2
 tag @s remove swPool_d1
 
-#equation: swPool_ontgt=0.5/d-sin(dr)
+#tellraw @a [{"text":"variable dist is "},{"score":{"objective":"swPool_dist","name":"@s"}}]
+
+#equation: swPool_ontgt=0.25/d-sin(dr)
+#modify equation for different radius...
 scoreboard players set @s swPool_var01 25000000
+
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
+
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
+
+#tellraw @a [{"text":"variable swPool_v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
+
 scoreboard players operation @s swPool_var01 /= @s swPool_dist
 scoreboard players operation @s swPool_var00 = @s swPool_drot
 execute at @s run function pool:classes/physics/sindeg
@@ -63,16 +76,20 @@ execute at @s run function pool:classes/physics/sindeg
 execute if entity @s[scores={swPool_var00=1..}] run scoreboard players operation @s swPool_var01 -= @s swPool_var00
 execute if entity @s[scores={swPool_var00=..0}] run scoreboard players operation @s swPool_var01 += @s swPool_var00
 
+#tellraw @a [{"text":"variable v01 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
+
 #	flip if target is behind object
 scoreboard players set @s swPool_var02 -1
 execute if entity @s[scores={swPool_drot=900000..2700000}] if entity @s[scores={swPool_var01=1..}] run scoreboard players operation @s swPool_var01 *= @s swPool_var02
 scoreboard players operation @s swPool_ontgt = @s swPool_var01
 
+#tellraw @a [{"text":"variable ontgt is "},{"score":{"objective":"swPool_ontgt","name":"@s"}}]
+
 #find relative distance
 execute if entity @s[scores={swPool_ontgt=1..}] at @s run function pool:classes/physics/relativedist
 execute unless entity @s[scores={swPool_ontgt=1..}] run scoreboard players set @s swPool_drel -1
 
-
+#tellraw @a [{"text":"variable drel is "},{"score":{"objective":"swPool_drel","name":"@s"}}]
 
 #begin collision
 #link to collision function

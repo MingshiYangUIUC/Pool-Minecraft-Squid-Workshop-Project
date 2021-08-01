@@ -1,3 +1,5 @@
+#say compare
+
 #if touch cushions
 #compare ratio of x,z and magnitude
 #re-compute stuff before pocketing

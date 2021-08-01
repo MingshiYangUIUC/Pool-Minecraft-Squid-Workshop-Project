@@ -63,7 +63,42 @@ tag @e[tag=swPool_pxside,tag=swPool_pzside] add swPool_corner
 tag @e[tag=swPool_nxside,tag=swPool_pzside] add swPool_corner
 tag @e[tag=swPool_nxside,tag=swPool_nzside] add swPool_corner
 
+#summon fake balls!!!
+#center is 0.5 0.03125 0.5, summon ball at y = ~-0.03125
+#corner pockets:
+#    corner edges
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.37 ~-0.03125 ~0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.44 ~-0.03125 ~-0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.37 ~-0.03125 ~-0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.44 ~-0.03125 ~0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.37 ~-0.03125 ~-0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~0.44 ~-0.03125 ~0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.37 ~-0.03125 ~0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~0.44 ~-0.03125 ~-0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
 
+#    side edges
+execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~-0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~-0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~-0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_pzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_nzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~-0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+
+#    corner cntrs
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.235 ~-0.03125 ~-0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.235 ~-0.03125 ~0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.235 ~-0.03125 ~0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.235 ~-0.03125 ~-0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+
+#    side cntrs
+execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.25 ~-0.03125 ~-0.49 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.25 ~-0.03125 ~0.49 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.49 ~-0.03125 ~0.25 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.49 ~-0.03125 ~-0.25 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+
+#equip items
 execute as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:10}}}
 execute as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:11}}}
 execute as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:12}}}
@@ -92,5 +127,9 @@ scoreboard players operation TABLE swPool_sizex = @e[tag=swPool_pooltable,limit=
 scoreboard players operation TABLE swPool_sizez = @e[tag=swPool_pooltable,limit=1] swPool_sizez
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
+
+
+
+#end_output
 tellraw @s [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
 tellraw @s [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]

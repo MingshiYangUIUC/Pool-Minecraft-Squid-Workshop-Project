@@ -70,7 +70,7 @@ data modify entity @e[tag=swPool_t2,limit=1] Rotation set from entity @e[tag=swP
 #rotate facerc back by 90 so that it faces towards final direction of t1, and swPool_v of t1 is vi*sin(dr)
 execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=..0}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
 execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=1..}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
-scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1] swPool_drot
+scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1,limit=1] swPool_drot
 execute at @s run function pool:classes/physics/sindeg
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v /= C_10000 swPool_C
