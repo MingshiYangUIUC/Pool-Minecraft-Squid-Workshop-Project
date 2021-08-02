@@ -1,7 +1,7 @@
 #get magnitude of V of A. sqrt(Vi**2+Vj**2+Vk**2)
 #reutn O's magnitude (vmag)
 
-execute unless score A swPool_Vi matches 10001.. unless score A swPool_Vj matches 10001.. unless score A swPool_Vk matches 10001.. run tag @s add swPool_svalue 
+execute if score A swPool_Vi matches -10000..10000 if score A swPool_Vj matches -10000..10000 if score A swPool_Vk matches -10000..10000 run tag @s add swPool_svalue 
 
 execute if entity @s[tag=!swPool_svalue] run scoreboard players operation A swPool_Vi /= C_100 swPool_C
 execute if entity @s[tag=!swPool_svalue] run scoreboard players operation A swPool_Vj /= C_100 swPool_C

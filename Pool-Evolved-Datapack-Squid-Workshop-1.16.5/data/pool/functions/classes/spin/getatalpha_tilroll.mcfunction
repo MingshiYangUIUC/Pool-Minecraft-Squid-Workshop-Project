@@ -1,5 +1,5 @@
 #a = -vp*g*muk/mag(vp)
-
+#tellraw @a [{"text":"vpx, "},{"score":{"objective":"swPool_vpx","name":"@s"}},{"text":"vpy, "},{"score":{"objective":"swPool_vpy","name":"@s"}},{"text":"vpz, "},{"score":{"objective":"swPool_vpz","name":"@s"}}]
 scoreboard players set @s swPool_ax 0
 scoreboard players set @s swPool_ay 0
 scoreboard players set @s swPool_az 0
@@ -61,8 +61,12 @@ scoreboard players operation @s swPool_az /= C_20 swPool_C
 
 #get t
 #0.0291=2/7/g
+
+#tellraw @a [{"text":"vmag, "},{"score":{"objective":"swPool_Vmag","name":"O"}}]
+
 scoreboard players set @s swPool_T_roll 291
 scoreboard players operation @s swPool_T_roll *= O swPool_Vmag
+#tellraw @a [{"text":"291vmag, "},{"score":{"objective":"swPool_T_roll","name":"@s"}}]
 scoreboard players operation @s swPool_T_roll /= C_muk swPool_C
 
 #translate to ticks
@@ -79,7 +83,7 @@ execute if score Res swPool_var00 matches 250.. run scoreboard players add @s sw
 scoreboard players operation @s swPool_alx -= O swPool_Vi
 scoreboard players operation @s swPool_aly -= O swPool_Vj
 scoreboard players operation @s swPool_alz -= O swPool_Vk
-tellraw @s [{"text":"alpha, "},{"score":{"objective":"swPool_alx","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_aly","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_alz","name":"@s"}}]
+#tellraw @s [{"text":"alpha, "},{"score":{"objective":"swPool_alx","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_aly","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_alz","name":"@s"}}]
 scoreboard players operation @s swPool_alx *= C_250 swPool_C
 scoreboard players operation @s swPool_aly *= C_250 swPool_C
 scoreboard players operation @s swPool_alz *= C_250 swPool_C

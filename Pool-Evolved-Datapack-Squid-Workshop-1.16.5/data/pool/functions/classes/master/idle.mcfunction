@@ -13,3 +13,4 @@ execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_practicemode,tag=!swPoo
 tag @e[tag=swPool_a1] remove swPool_a1
 
 tag @e[tag=swPool_colliding] remove swPool_colliding
+

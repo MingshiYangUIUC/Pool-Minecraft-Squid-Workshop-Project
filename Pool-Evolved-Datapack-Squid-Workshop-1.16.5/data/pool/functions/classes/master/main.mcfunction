@@ -12,7 +12,9 @@ scoreboard players set MinTime swPool_hittime 10000
 execute at @s[scores={swPool_T=0}] run function pool:classes/spin/change_of_state
 
 tag @e[tag=swPool_fake] add swPool_pool
-execute at @s[scores={swPool_v=1..}] run tag @e[tag=swPool_pool,distance=0.001..2.5,sort=nearest,limit=4] add swPool_near
+execute at @s[scores={swPool_v=1..}] unless entity @e[tag=swPool_fake,distance=..2.5] run tag @e[tag=swPool_pool,distance=0.001..2.5,sort=nearest,limit=4] add swPool_near
+
+execute at @s[scores={swPool_v=1..}] if entity @e[tag=swPool_fake,distance=..2.5] run tag @e[tag=swPool_pool,distance=0.001..2.5,sort=nearest,limit=6] add swPool_near
 
 execute at @s as @e[tag=swPool_near,sort=random] at @s run function pool:classes/master/select
 
