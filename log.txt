@@ -1,9 +1,0 @@
-Priority 2   WILL NOT BE DONE
-While changing radius:
-some radius values are enbedded in other equations. Need to split that.
-
-Priority 0   DONE
-Use fake ball to represent pocket edges and pocket holes
-
-Priority 1   DONE
-Collision conflict between cushion and balls: Compare together the time needed to hit [a ball/a cushion]. dont always collide with ball before trying to detect cushion...
