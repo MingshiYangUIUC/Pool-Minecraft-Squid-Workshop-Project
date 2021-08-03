@@ -45,7 +45,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 为了方便游玩，简化后的斯诺克[规则](https://en.wikipedia.org/wiki/Rules_of_snooker)和英式八球[规则](https://en.wikipedia.org/wiki/Blackball_(pool))被加入了数据包 _英式八球的规则还在完善中。_ 球桌袋口的规格近似于2005年的斯诺克标准，它可以在资源包贴图文件中找到。
 
-由于代码量较多，如果游戏卡顿，可以考虑换电脑，或者玩[原始版本](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)。因为球桌模型也经过简化，资源包暂不兼容。
+由于代码量较多，如果游戏卡顿，可以考虑换电脑，或者玩[原始版本](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)。
 
 # Notes
 略
