@@ -32,6 +32,11 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 	/datapack enable "datapackname"
   
 # 使用
+如果第一次在世界中加载数据包，请先设置参数 \
+
+	/function app:settings/pool/friction
+建议值: Impact:100-200, Rolling:150-300, Sliding:1500-3000.
+
 重新加载（reload）数据包后，聊天框中会出现 <<ins>可点击的文字</ins>> ，点击它可以打开指令窗口。试着点击其它<<ins>此格式</ins>>的文字进行探索吧。
 
 多个设置可以修改：作用力的参数，以及是否允许撤销上一次击球。
