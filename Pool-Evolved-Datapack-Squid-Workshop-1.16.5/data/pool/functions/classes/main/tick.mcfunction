@@ -8,7 +8,7 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_snookermode] as @a[tag=swPo
 execute if entity @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] as @a[tag=swPool_freeball] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/freeball/uk8ball/main
 execute if entity @e[tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_freeball] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/freeball/practice/main
 execute if entity @e[tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_freeball_obj] at @s[nbt={SelectedItem:{tag:{swPool_obj:1b},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/freeball/practice/main_obj
-execute as @a[nbt={OnGround:1b,SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] at @s run function pool:classes/cue/main
+execute as @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] at @s run function pool:classes/cue/main
 #execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",tag:{CustomModelData:1}}]}] at @s run function pool:classes/cue/aim
 execute if entity @e[tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pool] at @s[scores={swPool_DXX=1..}] run function pool:classes/master/main
 execute as @e[tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/retreat
