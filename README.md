@@ -14,14 +14,15 @@ Play pool (cue sports) in Minecraft, like in real life!
 
 
 # Installation
-- Step 1 Download this repository as a zip and unpack.
-- Step 2 Go to minecraft saves directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft/saves".
-- Step 3 Choose the world folder in which you want to install the packs.
-- Step 4 Go to .../world/datapacks folder.
-- Step 5 Move your "Pool-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) into .../world/datapacks folder.
-- Step 6 Open Minecraft and open the world.
-- Step 7 Type "/reload" command then press enter.
-- Step 8 Enjoy
+- Step 01 Download this repository as a zip and unpack.
+- Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
+- Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder.
+- Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
+- Step 05 Move your "Pool-Evolved-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) into .../saves/world/datapacks folder.
+- Step 06 Open Minecraft and open the world.
+- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right.
+- Step 08 Type "/reload" command then press enter.
+- Step 09 Enjoy
 
 PS: If not working, check whether the datapack is enabled by:
 
@@ -31,7 +32,7 @@ Enable it by:
 	/datapack enable "datapackname"
   
 # Usage
-You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
+You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup. Please turn off "Force Unicode".
 
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project).
 
