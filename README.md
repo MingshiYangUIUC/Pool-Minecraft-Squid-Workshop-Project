@@ -32,12 +32,16 @@ Enable it by:
 	/datapack enable "datapackname"
   
 # Usage
-If the pack is loaded for the first time, please set the coefficients otherwise there will be zero friction (not a bad thing to try)! \
+You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
+
+If the pack is loaded for the first time, please follow the instruction, or set the coefficients manually by filling the following command. Otherwise, there will be zero friction (not a bad thing to try)!
+
+	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000.
 
-You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup. Please turn off "Force Unicode".
+Beside the coefficients, other settings such about redoing the stroke and reloading can be modified.
 
-Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project).
+Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
 # How it Works
 Conservation of momentum and angular momentum, recently added interactions with edge of pockets (friction is neglected there). Neglected deformations.
