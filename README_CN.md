@@ -58,7 +58,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 如与其它内容有冲突，请参照此条款下内容。 \
 请随意游玩此数据包，您也可以用它开发新的数据包。但是您 **必须** 在文件中提供并明显地引用此GitHub页面。\
 **请勿用作商用** \
-**若未经允许，禁止潜在的 (由我决定) 商用行为，此行为可能被追究。** 
+**若未经允许，禁止潜在的 (由我裁决) 商用行为，此行为可能被追究。** 
 ## 协议
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
