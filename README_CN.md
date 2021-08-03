@@ -32,7 +32,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 	/datapack enable "datapackname"
   
 # 使用
-如果第一次在世界中加载数据包，请通过在游戏中补全以下命令设置参数 \
+如果第一次在世界中加载数据包，请通过在游戏中补全以下命令设置参数
 
 	/function app:settings/pool/friction/
 建议值: Impact:100-200, Rolling:150-300, Sliding:1500-3000.
