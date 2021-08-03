@@ -39,7 +39,7 @@ If the pack is loaded for the first time, please follow the instruction, or set 
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000.
 
-Beside the coefficients, other settings such about redoing the stroke and reloading can be modified.
+Beside the coefficients, other settings such as redoing the stroke and reloading can be modified.
 
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
