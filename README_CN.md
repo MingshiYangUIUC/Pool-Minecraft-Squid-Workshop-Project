@@ -1,6 +1,5 @@
-提取自readme.md
-# _Squid Workshop's_ Pool Datapack (Evolved) Version
-Play pool (cue sports) in Minecraft, like in real life!
+# _鱿鱼MC工作室_ 台球数据包（进化版）
+在Minecraft里体验最真实的台球游戏！
 
 - [Abstract](#Abstract)
 - [安装](#安装)
@@ -9,63 +8,65 @@ Play pool (cue sports) in Minecraft, like in real life!
 - [Notes](#Notes)
 - [Project Tree](#Project-Tree)
 - [使用条款](#使用条款)
-- [More About Squid Workshop](#More-About-Squid-Workshop)
+- [更多关于鱿鱼MC工作室](#更多关于鱿鱼MC工作室)
 
 # Abstract
-
+略
 
 # 安装
-- Step 1 Download this repository as a zip and unpack.
-- Step 2 Go to minecraft saves directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft/saves".
-- Step 3 Choose the world folder in which you want to install the packs.
-- Step 4 Go to .../world/datapacks folder.
-- Step 5 Move your "Pool-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) into .../world/datapacks folder.
-- Step 6 Open Minecraft and open the world.
-- Step 7 Type "/reload" command then press enter.
-- Step 8 Enjoy
+- Step 01 下载代码压缩包并解压；
+- Step 02 打开Minecraft路径，通常是 "C:/Users/youUserName/AppData/Roaming/.minecraft"；
+- Step 03 将资源包压缩文件 "Pool-Resourcepack-Squid-Workshop-1.16.5" 放入 .../resourcepacks 文件夹；
+- Step 04 选择一个世界安装数据包，进入 .../saves/world/datapacks 文件夹；
+- Step 05 将数据包文件夹 "Pool-Evolved-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) 放入 .../saves/world/datapacks 文件夹；
+- Step 06 打开Minecraft，进入对应世界；
+- Step 07 按下Esc，进入设置...\资源包...，将资源包压缩文件移动到界面右上角；
+- Step 08 输入运行 "/reload" 指令；
+- Step 09 开始游玩。
 
-PS: If not working, check whether the datapack is enabled by:
+PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 	/datapack list
-Enable it by:
+以下指令可以开启数据包：
 
 	/datapack enable "datapackname"
   
 # 使用
-You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
+重新加载（reload）数据包后，聊天框中会出现 <<ins>可点击的文字</ins>> ，点击它可以打开指令窗口。试着点击其它<<ins>此格式</ins>>的文字进行探索吧。
 
-Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project).
+多个设置可以修改：作用力的参数，以及是否允许撤销上一次击球。
 
-# How it Works
-Conservation of momentum and angular momentum, recently added interactions with edge of pockets (friction is neglected there). Neglected deformations.
+注意：[旧版台球数据包](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)和本数据包不兼容；暂不支持多个球桌同时运行；请关闭强制Unicode字体功能后体验。
 
-I have not cited any specific references while making the physics work. Wait for the writeup or try search "not so simple billiards physics" online.
+# 原理
+基础的牛顿力学。省略了袋角和球之间的摩擦力，以及所有物体的形变等。
 
-The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular common sense. _The rule enforcement of 8 ball is still under development._ The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
+让这个数据包运行，编写时我没有引用文献。您可以参考基础物理课本或者在互联网搜索“台球物理”。
 
-I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow!
+为了方便游玩，简化后的斯诺克[规则](https://en.wikipedia.org/wiki/Rules_of_snooker)和英式八球[规则](https://en.wikipedia.org/wiki/Blackball_(pool))被加入了数据包 _英式八球的规则还在完善中。_ 球桌袋口的规格近似于2005年的斯诺克标准，它可以在资源包贴图文件中找到。
+
+由于代码量较多，如果游戏卡顿，可以考虑换电脑，或者玩[原始版本](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)。因为球桌模型也经过简化，资源包暂不兼容。
 
 # Notes
-1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.\
-However, making the change is not hard, but will make the game run considerably slower. We'll see.
+略
 
 # Project Tree
 
-Please wait for the update.
+略
 	
 # 使用条款
-This section shall be honored when in conflict with the license or other documents. \
-Feel free to play around with this datapack. \
-As developer, feel free to use this datapack as a module to develop free datapacks. \
-But you **must** add the link to this github page! \
-**NO COMMERCIAL USE** \
-**POTENTIALLY (AT MY DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS PROHIBITED AND MAY BE PROSECUTED** 
-## License
+如与其它内容有冲突，请参照此条款下内容。 \
+请随意游玩此数据包，您也可以用它开发新的数据包。但是您 **必须** 在文件中提供并明显地引用此GitHub页面。\
+**请勿用作商用** \
+**若未经允许，禁止潜在的 (由我决定) 商用行为，此行为可能被追究。** 
+## 协议
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
 
-# More About Squid Workshop
-See more datapacks developed by us [here](https://github.com/Squid-Workshop/MinecraftDatapacksProject) \
-Watch our videos on bilibili [here](https://space.bilibili.com/649645265?from=search&seid=778816111336987286) \
-Join our QQ group: 74681732 \
-Subscribe on wechat: 鱿鱼MC工作室 
+# 更多关于鱿鱼MC工作室
+我们开发的更多[数据包](https://github.com/Squid-Workshop/MinecraftDatapacksProject) \
+我们的[B站主页](https://space.bilibili.com/649645265?from=search&seid=778816111336987286) \
+QQ群: 74681732 \
+微信公众号: 鱿鱼MC工作室 
+
+*本文件转录自README.md
