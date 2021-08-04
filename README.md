@@ -43,7 +43,7 @@ Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000. Extereme v
 
 Beside the friction coefficients, other settings such as redoing the stroke and reloading can be modified.
 
-	/function app:settings
+	/function app:settings/
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
 # How it Works
