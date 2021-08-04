@@ -37,7 +37,7 @@ You will be displayed a piece of <<ins>Clickable text</ins>> to open "command wi
 If the pack is loaded for the first time, please follow the instruction, or set the coefficients manually by filling the following command. Otherwise, there will be zero friction (not a bad thing to try)!
 
 	/function app:settings/pool/friction/
-Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000.
+Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000. Extereme values may cause the scoreboard to overflow during calculations.
 
 Beside the coefficients, other settings such as redoing the stroke and reloading can be modified.
 
