@@ -1,2 +1,3 @@
 #change storage
-tellraw @s [{"text":"Impact friction * 10000: ","color":"gray"},{"text":"Current: "},{"score":{"objective":"swPool_C","name":"C_mui"}},{"text":". "},{"underlined":true,"text":"<Click and type>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set C_mui swPool_C "}}]
+tellraw @s[tag=swPool_EN] [{"text":"Impact friction coef. Suggested: 150. ","color":"gray"},{"text":"Current: "},{"score":{"objective":"swPool_C","name":"C_mui"}},{"text":". "},{"underlined":true,"text":"<Click and type>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set C_mui swPool_C "}}]
+tellraw @s[tag=swPool_CN] [{"text":"撞击摩擦系数。建议：150。","color":"gray"},{"text":"当前值: "},{"score":{"objective":"swPool_C","name":"C_mui"}},{"text":". "},{"underlined":true,"text":"<点此处后输入>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set C_mui swPool_C "}}]

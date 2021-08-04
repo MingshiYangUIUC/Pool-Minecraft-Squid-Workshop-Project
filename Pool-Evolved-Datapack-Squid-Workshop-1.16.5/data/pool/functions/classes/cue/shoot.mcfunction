@@ -32,7 +32,7 @@ scoreboard players operation @s swPool_var00 *= @s swPool_var01
 scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
 scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_v = @s swPool_var00
 execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run function pool:classes/cue/initialize
-kill @e[type=arrow,tag=swPool_sb]
+execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1.. run kill @e[type=arrow,tag=swPool_sb]
 
 scoreboard players reset @s swPool_shoot
 tag @s add swPool_hitcue

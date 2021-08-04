@@ -66,3 +66,6 @@ scoreboard objectives remove swPool_Vmag
 scoreboard objectives remove swPool_T
 scoreboard objectives remove swPool_T_roll
 scoreboard objectives remove swPool_T_end
+
+tag @a remove swPool_CN
+tag @a remove swPool_EN

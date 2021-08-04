@@ -58,4 +58,5 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 #execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_poolplay
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/cue/reset
-tellraw @a[tag=swPool_poolplay] [{"text":"Practice mode is on! No rules, just have fun."}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Switched to Practice Mode."}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"切换至练习模式。"}]

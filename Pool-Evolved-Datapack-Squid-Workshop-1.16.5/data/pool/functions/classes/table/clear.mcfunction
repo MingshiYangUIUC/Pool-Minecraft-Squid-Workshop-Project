@@ -6,10 +6,7 @@ execute as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 air
 execute as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ air
 execute as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 air
 
-kill @e[tag=swPool_pktedge_s]
-kill @e[tag=swPool_pktedge_c]
-kill @e[tag=swPool_pktcntr_s]
-kill @e[tag=swPool_pktcntr_c]
+kill @e[tag=swPool_fake]
 kill @e[tag=swPool_cloth]
 kill @e[tag=swPool_pooltable]
 kill @e[tag=swPool_pool]

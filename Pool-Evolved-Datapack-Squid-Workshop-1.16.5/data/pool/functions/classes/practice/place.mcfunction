@@ -24,7 +24,8 @@ scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
 #execute as @e[tag=swPool_free,tag=!swPool_cue] at @s run tp @s ~ ~-1 ~
 
-execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_poolplay] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
 tag @e[tag=swPool_free] remove swPool_free
 tag @e[tag=swPool_pool] add swPool_placed

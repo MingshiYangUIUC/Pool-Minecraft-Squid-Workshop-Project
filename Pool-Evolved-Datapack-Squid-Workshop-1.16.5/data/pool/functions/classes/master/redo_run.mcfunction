@@ -77,9 +77,9 @@ scoreboard players set @a[tag=swPool_poolplay] swPool_foul 0
 scoreboard players reset @a[tag=swPool_hitcue] swPool_firsthit
 tag @a[tag=swPool_hitcue] remove swPool_hitcue
 
-execute if entity @e[tag=swPool_pooltable,tag=swPool_snookermode] run tellraw @a[tag=swPool_poolplay] [{"text":"Done. The balls and scores have returned to their previous states."}]
-execute if entity @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] run tellraw @a[tag=swPool_poolplay] [{"text":"Done. The balls and conditions have returned to their previous states."}]
-tellraw @a[tag=swPool_poolplay] [{"text":"The previous player, please try again."}]
+execute if entity @e[tag=swPool_pooltable,tag=swPool_EN] run tellraw @a[tag=swPool_poolplay] [{"text":"Done. Backed to the previous turn. The last player, please try again."}]
+
+execute if entity @e[tag=swPool_pooltable,tag=swPool_CN] run tellraw @a[tag=swPool_poolplay] [{"text":"完成回到上一回合。上回合击球方请重新击球。"}]
 
 function pool:classes/master/record
 

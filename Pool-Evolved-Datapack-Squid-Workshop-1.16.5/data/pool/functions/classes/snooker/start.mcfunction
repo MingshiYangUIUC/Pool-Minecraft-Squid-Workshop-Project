@@ -1,4 +1,5 @@
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please place a table first.","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"Please place a table first.","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"请先放置球桌。","color":"red"}]
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
@@ -37,7 +38,8 @@ tag @e[tag=swPool_pooltable] remove swPool_awdrec
 tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 tag @a[limit=1,sort=random] add swPool_poolplay
-execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s [{"text":"Not enough players, switched to singleplayer.","color":"red"}]
+execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"Not enough players, switched to singleplayer.","color":"red"}]
+execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"没有足够的玩家，切换至单人模式。","color":"red"}]
 execute unless entity @a[tag=!swPool_poolplay] run scoreboard players set Opponent swPool_Score 0
 execute if entity @a[tag=!swPool_poolplay] run tag @a[limit=1,sort=random,tag=!swPool_poolplay] add swPool_poolplay
 scoreboard objectives setdisplay sidebar swPool_Score

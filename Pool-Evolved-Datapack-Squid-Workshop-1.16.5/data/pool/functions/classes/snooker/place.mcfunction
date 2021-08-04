@@ -39,7 +39,9 @@ execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_placed] run summon ar
 
 execute unless entity @e[tag=swPool_free] run scoreboard players set @s swPool_firsthit 1
 scoreboard players set @s swPool_var05 0
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a [{"text":"Please place the cueball and aim at Red."}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"The player holding the cueball may place the cueball and aim at Red."}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"请持母球方放置母球并击打红球。"}]
+
 scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
 tag @e[tag=swPool_cue,tag=swPool_free] remove swPool_free
@@ -62,4 +64,5 @@ execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 
 
 function pool:classes/master/record
 
-tellraw @a[tag=swPool_poolplay] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
