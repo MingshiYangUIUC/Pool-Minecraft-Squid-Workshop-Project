@@ -32,15 +32,18 @@ Enable it by:
 	/datapack enable "datapackname"
   
 # Usage
-You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
+Most interactions do not require heavy typing. You just need to click on texts in <<ins>this format</ins>> or choose functions suggested by the game in command line. 
 
-If the pack is (re)installed, please follow the instruction, choose the language and set the friction coefficients by clicking the texts. You can also use the following command to modify later. Otherwise, there will be zero friction (not a bad thing to try)!
+You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore, or wait for the writeup.
+
+If the pack is _(re)installed_, please follow the instruction, choose the language and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (not a bad thing to try)!
 
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000. Extereme values may cause the scoreboard to overflow during calculations.
 
-Beside the coefficients, other settings such as redoing the stroke and reloading can be modified.
+Beside the friction coefficients, other settings such as redoing the stroke and reloading can be modified.
 
+	/function app:settings
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
 # How it Works
