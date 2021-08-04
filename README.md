@@ -34,7 +34,7 @@ Enable it by:
 # Usage
 You will be displayed a piece of <<ins>Clickable text</ins>> to open "command window" after (re)loaded the datapack, try clicking on the texts and explore, or wait for the writeup.
 
-If the pack is loaded for the first time, please follow the instruction, or set the coefficients manually by filling the following command. Otherwise, there will be zero friction (not a bad thing to try)!
+If the pack is (re)installed, please follow the instruction, choose the language and set the friction coefficients by clicking the texts. You can also use the following command to modify later. Otherwise, there will be zero friction (not a bad thing to try)!
 
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000. Extereme values may cause the scoreboard to overflow during calculations.
