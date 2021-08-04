@@ -43,6 +43,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 多个设置可以修改：作用力的参数，以及是否允许撤销上一次击球。
 
+	/function app:settings/
 注意：[旧版台球数据包](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)和本数据包不兼容；暂不支持多个球桌同时运行；请关闭强制Unicode字体功能后体验。
 
 # 原理
