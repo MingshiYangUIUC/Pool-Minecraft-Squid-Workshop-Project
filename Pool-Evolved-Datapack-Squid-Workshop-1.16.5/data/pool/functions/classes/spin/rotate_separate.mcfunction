@@ -2,6 +2,14 @@
 #wv = wv*cos(A1)-wh*sin(A1)
 #wh = wv*sin(A1)+wh*cos(A1)
 
+function pool:classes/spin/gridtov
+
+scoreboard players operation @s swPool_var00 = Cue_v swPool_v
+function pool:classes/physics/sqrt
+scoreboard players operation @s swPool_var00 *= C_100 swPool_C
+scoreboard players operation Cue_v swPool_v = @s swPool_var00
+
+
 
 #cos and sin
 scoreboard players operation Cue_ca1 swPool_v = Cue_A1 swPool_v
