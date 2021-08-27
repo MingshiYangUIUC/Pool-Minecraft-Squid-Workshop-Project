@@ -7,4 +7,3 @@ execute if data storage minecraft:swpool allowcheats unless entity @e[tag=swPool
 #execute if data storage minecraft:swpool allowcheats unless entity @e[tag=swPool_pooltable,tag=swPool_endgame] run schedule function pool:classes/master/redo_run 2t
 
 execute unless data storage minecraft:swpool allowcheats run tellraw @s [{"text":"Cheat not enabled.","color":"red"}]
-

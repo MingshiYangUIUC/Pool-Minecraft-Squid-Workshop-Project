@@ -105,6 +105,11 @@ scoreboard players reset COL swPool_vrz
 #add a drag as energy loss
 #execute as @e[tag=swPool_col2,limit=1] run function pool:classes/motion/drag
 
+#scoreboard players set @e[tag=swPool_col1,limit=1] swPool_D100 100000
+#scoreboard players set @e[tag=swPool_col1,limit=1] swPool_DXX 99000
+#scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v /= @e[tag=swPool_col1,limit=1] swPool_D100
+#scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v *= @e[tag=swPool_col1,limit=1] swPool_DXX
+
 playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 playsound minecraft:entity.arrow.hit_player ambient @a[tag=swPool_beep] ~ ~ ~ 1 1 1
 

@@ -36,6 +36,8 @@ execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=
 
 #execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run say valid
 
+execute if entity @s[scores={swPool_crtclk=1..}] if entity @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run function pool:classes/master/record
+
 #execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
 execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:101},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_red"],NoGravity:1,Small:1,Invisible:1}
 execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:102},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
@@ -57,6 +59,7 @@ scoreboard players set @s swPool_crtclk 0
 execute if entity @e[tag=swPool_free,tag=swPool_pool] run tag @a[tag=swPool_freeball_obj] remove swPool_given
 #execute if entity @e[tag=swPool_free,tag=swPool_pool] run tag @a[tag=swPool_freeball_obj] remove swPool_freeball_obj
 execute if entity @e[tag=swPool_free,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset
+
 
 tag @e[tag=swPool_cueplace] remove swPool_valid
 tag @e[tag=swPool_cueplace] remove swPool_cueplace

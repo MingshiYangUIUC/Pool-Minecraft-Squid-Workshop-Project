@@ -1,5 +1,5 @@
 execute as @a[tag=swPool_freeball,limit=1] at @s store result score @s swPool_posy run data get entity @s Pos[1] 100
-execute at @s run tp @s ^ ^ ^0.1
+execute at @s run tp @s ^ ^ ^0.01
 execute store result score @s swPool_posy run data get entity @s Pos[1] 100
 scoreboard players operation @s swPool_posy -= @a[tag=swPool_freeball,limit=1] swPool_posy
 

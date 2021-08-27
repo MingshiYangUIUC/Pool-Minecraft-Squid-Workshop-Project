@@ -1,5 +1,7 @@
 #scoreboard players remove RedoTime swPool_hidScore 1
 
+
+
 kill @e[tag=swPool_pool]
 
 tag @e[tag=swPool_temppin] add swPool_pool
@@ -77,10 +79,12 @@ scoreboard players set @a[tag=swPool_poolplay] swPool_foul 0
 scoreboard players reset @a[tag=swPool_hitcue] swPool_firsthit
 tag @a[tag=swPool_hitcue] remove swPool_hitcue
 
-execute if entity @e[tag=swPool_pooltable] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Done. Backed to the previous turn. The last player, please try again."}]
+execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Done. Backed to the previous turn. The last player, please try again."}]
 
-execute if entity @e[tag=swPool_pooltable] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"完成回到上一回合。上回合击球方请重新击球。"}]
+execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"完成回到上一回合。上回合击球方请重新击球。"}]
 
 function pool:classes/master/record
 
 
+tag @a[tag=swPool_placingcue] add swPool_freeball
+tag @a[tag=swPool_placingcue] remove swPool_placingcue

@@ -1,3 +1,5 @@
+tag @s[tag=swPool_freeball] add swPool_placingcue
+
 kill @e[tag=swPool_temppin]
 
 execute as @e[tag=swPool_pool] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b}

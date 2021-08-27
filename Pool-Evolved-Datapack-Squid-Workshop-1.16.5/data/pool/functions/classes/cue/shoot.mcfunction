@@ -6,6 +6,11 @@ execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player =
 
 
 data modify entity @e[tag=swPool_pool,tag=swPool_cue,limit=1] Rotation[0] set from entity @s Rotation[0]
+
+#correction
+execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.15 ~
+#
+
 scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1] swPool_player = @s swPool_player
 stopsound @a * minecraft:entity.arrow.shoot
 #execute at @p rotated as @s run tp @p ~ ~ ~ ~ 0
@@ -26,7 +31,7 @@ function pool:classes/physics/sqrt
 
 
 
-scoreboard players set @s swPool_var01 2000
+scoreboard players set @s swPool_var01 2200
 #tellraw @a [{"text":" V00, "},{"score":{"objective":"swPool_var00","name":"@s"}}]
 scoreboard players operation @s swPool_var00 *= @s swPool_var01
 scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
