@@ -77,8 +77,8 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 	|       english.mcfunction                         英语
 	|       
 	+---reload                                 重新加载时
-	|       cleanongoingsession.mcfunction             清除现有游戏
-	|       keepongoingsession.mcfunction              保留现有游戏
+	|       cleanongoingsession.mcfunction             停止台球并清除现有设施（球桌、球等）
+	|       keepongoingsession.mcfunction              保留现有设施以待继续游戏
 	|       
 	\---version                                地图版本设置
 		1_16.mcfunction                            1.16.x
