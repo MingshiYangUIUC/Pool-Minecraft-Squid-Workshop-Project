@@ -60,29 +60,29 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 # Project Tree
 ## 设置目录
-	+---cheating
-	|       allow.mcfunction
-	|       disallow.mcfunction
+	+---cheating                               作弊设置
+	|       allow.mcfunction                           开
+	|       disallow.mcfunction                        关
 	|       
-	+---friction
-	|       clear.mcfunction
-	|       default.mcfunction
-	|       impact.mcfunction
-	|       rolling.mcfunction
-	|       sliding.mcfunction
+	+---friction                               摩擦系数设置
+	|       clear.mcfunction                           清除设置
+	|       default.mcfunction                         全部使用默认设置
+	|       impact.mcfunction                          碰撞系数单独设置
+	|       rolling.mcfunction                         滚动系数单独设置
+	|       sliding.mcfunction                         滑动系数单独设置
 	|       
-	+---language
-	|       chinese_simplified.mcfunction
-	|       english.mcfunction
+	+---language                               语言设置
+	|       chinese_simplified.mcfunction              简体中文
+	|       english.mcfunction                         英语
 	|       
-	+---reload
-	|       cleanongoingsession.mcfunction
-	|       keepongoingsession.mcfunction
+	+---reload                                 重新加载时
+	|       cleanongoingsession.mcfunction             清除现有游戏
+	|       keepongoingsession.mcfunction              保留现有游戏
 	|       
-	\---version
-		1_16.mcfunction
-		1_17.mcfunction
-		reset.mcfunction
+	\---version                                地图版本设置
+		1_16.mcfunction                            1.16.x
+		1_17.mcfunction                            1.17.x
+		reset.mcfunction                           重设
 
 # 使用条款
 如与其它内容有冲突，请参照此条款下内容。 \
