@@ -61,8 +61,32 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 However, making the change is not hard, but will make the game run considerably slower. We'll see.
 
 # Project Tree
-
-Please wait for the update.
+## Settings
+data/app/functions/settings                        Comment
+	+---cheating                               Self explanatory
+	|       allow.mcfunction                   
+	|       disallow.mcfunction                
+	|       
+	+---friction                               Set coefficients of frictions
+	|       clear.mcfunction                           Clear all values
+	|       default.mcfunction                         Use default values for all
+	|       impact.mcfunction                          indiv. value setting
+	|       rolling.mcfunction                         indiv. value setting
+	|       sliding.mcfunction                         indiv. value setting
+	|       
+	+---language                               Self explanatory
+	|       chinese_simplified.mcfunction              
+	|       english.mcfunction                         
+	|       
+	+---reload                                 Upon Reload...
+	|       cleanongoingsession.mcfunction             Clear the current game session
+	|       keepongoingsession.mcfunction              Not clear the current game session
+	|       
+	\---version                                The game version of the map
+		1_16.mcfunction                            1.16.x
+		1_17.mcfunction                            1.17.x
+		reset.mcfunction                           
+Other directories is omitted
 	
 # Terms of Use
 This section shall be honored when in conflict with the license or other documents. \
