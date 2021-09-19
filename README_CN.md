@@ -18,7 +18,7 @@
 - Step 02 打开Minecraft路径，通常是 "C:/Users/youUserName/AppData/Roaming/.minecraft"；
 - Step 03 将资源包压缩文件 "Pool-Resourcepack-Squid-Workshop-1.16.5" 放入 .../resourcepacks 文件夹；
 - Step 04 选择一个世界安装数据包，进入 .../saves/world/datapacks 文件夹；
-- Step 05 将数据包文件夹 "Pool-Evolved-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) 放入 .../saves/world/datapacks 文件夹；
+- Step 05 将数据包文件夹 "Pool-Evolved-Datapack-Squid-Workshop-1.16-1.17" folder(not the root folder) 放入 .../saves/world/datapacks 文件夹；
 - Step 06 打开Minecraft，进入对应世界；
 - Step 07 按下Esc，进入设置...\资源包...，将资源包压缩文件移动到界面右上角；
 - Step 08 输入运行 "/reload" 指令；
@@ -36,7 +36,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 安装（reload）数据包后，聊天框中会出现 <<ins>可点击的文字</ins>> ，点击它可以打开“命令窗口”，一个多功能控制台。试着点击其中的文字进行探索吧。
 
-如果第一次在世界中加载数据包，请点击文字选择语言，打开并补全提示指令设置摩擦系数，您之后也可以通过在游戏中补全以下命令调整：
+如果第一次在世界中加载数据包，请点击文字选择语言和游戏版本，打开并补全提示指令设置摩擦系数，您之后也可以通过在游戏中补全以下命令调整：
 
 	/function app:settings/pool/friction/
 建议值: Impact:100-200, Rolling:150-300, Sliding:1500-3000。过于极端的值可能会使计分板溢出。
