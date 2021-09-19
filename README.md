@@ -17,11 +17,11 @@ Play pool (cue sports) in Minecraft, like in real life! \
 # Installation
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
-- Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder.
+- Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder. Pack compatible with 1.17
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
 - Step 05 Move your "Pool-Evolved-Datapack-Squid-Workshop-1.16-1.17" folder(not the root folder) into .../saves/world/datapacks folder.
 - Step 06 Open Minecraft and open the world.
-- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right.
+- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right. Do this everytime you change the game version.
 - Step 08 Type "/reload" command then press enter.
 - Step 09 Enjoy
 
