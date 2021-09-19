@@ -19,7 +19,7 @@ Play pool (cue sports) in Minecraft, like in real life! \
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
 - Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder.
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
-- Step 05 Move your "Pool-Evolved-Datapack-Squid-Workshop-1.16.5" folder(not the root folder) into .../saves/world/datapacks folder.
+- Step 05 Move your "Pool-Evolved-Datapack-Squid-Workshop-1.16-1.17" folder(not the root folder) into .../saves/world/datapacks folder.
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right.
 - Step 08 Type "/reload" command then press enter.
@@ -37,7 +37,7 @@ Most interactions do not require heavy typing. You just need to click on texts i
 
 You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore, or wait for the writeup.
 
-If the pack is _(re)installed_, please follow the instruction, choose the language and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (not a bad thing to try)!
+If the pack is _(re)installed_, please follow the instruction, choose the language, game version, and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (not a bad thing to try)!
 
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000. Extereme values may cause the scoreboard to overflow during calculations.
