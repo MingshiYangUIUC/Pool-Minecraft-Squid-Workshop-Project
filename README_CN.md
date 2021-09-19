@@ -60,6 +60,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 
 # Project Tree
 ## 设置目录
+	data/app/functions/settings		   注释
 	+---cheating                               作弊设置
 	|       allow.mcfunction                           开
 	|       disallow.mcfunction                        关
