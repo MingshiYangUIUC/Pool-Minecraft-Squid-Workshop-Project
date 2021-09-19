@@ -62,7 +62,7 @@ However, making the change is not hard, but will make the game run considerably 
 
 # Project Tree
 ## Settings
-data/app/functions/settings                        Comment
+	data/app/functions/settings                Comment
 	+---cheating                               Self explanatory
 	|       allow.mcfunction                   
 	|       disallow.mcfunction                
