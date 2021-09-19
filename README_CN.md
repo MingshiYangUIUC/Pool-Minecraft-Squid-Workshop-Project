@@ -59,9 +59,31 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 略
 
 # Project Tree
+## 设置目录
+	+---cheating
+	|       allow.mcfunction
+	|       disallow.mcfunction
+	|       
+	+---friction
+	|       clear.mcfunction
+	|       default.mcfunction
+	|       impact.mcfunction
+	|       rolling.mcfunction
+	|       sliding.mcfunction
+	|       
+	+---language
+	|       chinese_simplified.mcfunction
+	|       english.mcfunction
+	|       
+	+---reload
+	|       cleanongoingsession.mcfunction
+	|       keepongoingsession.mcfunction
+	|       
+	\---version
+		1_16.mcfunction
+		1_17.mcfunction
+		reset.mcfunction
 
-略
-	
 # 使用条款
 如与其它内容有冲突，请参照此条款下内容。 \
 请随意游玩此数据包，您也可以用它开发新的数据包。但是您 **必须** 在文件中提供并明显地引用此GitHub页面。\
