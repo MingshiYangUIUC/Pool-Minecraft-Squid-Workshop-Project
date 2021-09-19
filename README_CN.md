@@ -6,7 +6,7 @@
 - [使用](#使用)
 - [原理](#原理)
 - [Notes](#Notes)
-- [Project Tree](#Project-Tree)
+- [目录](#目录)
 - [使用条款](#使用条款)
 - [更多关于鱿鱼MC工作室](#更多关于鱿鱼MC工作室)
 
@@ -41,7 +41,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 	/function app:settings/pool/friction/
 建议值: Impact:100-200, Rolling:150-300, Sliding:1500-3000。过于极端的值可能会使计分板溢出。
 
-多个设置可以修改：作用力的参数，以及是否允许撤销上一次击球。
+多个设置可以修改：作用力的参数，以及是否允许撤销上一次击球等。具体请参照下方设置目录。
 
 	/function app:settings/
 注意：[旧版台球数据包](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project)和本数据包不兼容；暂不支持多个球桌同时运行；请关闭强制Unicode字体功能后体验。
@@ -58,7 +58,7 @@ PS: 如果不能正常运行，以下指令可检查数据包是否被开启：
 # Notes
 略
 
-# Project Tree
+# 目录
 ## 设置目录
 	data/app/functions/settings		   注释
 	+---cheating                               作弊设置
