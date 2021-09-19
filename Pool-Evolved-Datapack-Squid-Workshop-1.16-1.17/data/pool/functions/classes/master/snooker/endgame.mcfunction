@@ -3,7 +3,7 @@ tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var
 
 execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score > Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@s","color":"yellow"},{"text":" won."}]
 execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score < Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Opponent","color":"yellow"},{"text":" won."}]
-execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score < Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Tied.","color":"yellow"}]
+execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score = Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Tied.","color":"yellow"}]
 
 execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1] if score @s swPool_Score > @a[tag=swPool_hitcue,limit=1] swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@s","color":"yellow"},{"text":" won."}]
 execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_hitcue,limit=1] if score @s swPool_Score > @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1] swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@s","color":"yellow"},{"text":" won."}]
@@ -14,7 +14,7 @@ tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var
 
 execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score > Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@s","color":"yellow"},{"text":"获胜。"}]
 execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score < Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"对手","color":"yellow"},{"text":"获胜。"}]
-execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score < Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"平局。","color":"yellow"}]
+execute if entity @s[tag=swPool_singleplayer] as @a[tag=swPool_poolplay] if score @s swPool_Score = Opponent swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"平局。","color":"yellow"}]
 
 execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1] if score @s swPool_Score > @a[tag=swPool_hitcue,limit=1] swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@s","color":"yellow"},{"text":"获胜。"}]
 execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_hitcue,limit=1] if score @s swPool_Score > @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1] swPool_Score run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@s","color":"yellow"},{"text":"获胜。"}]

@@ -39,6 +39,9 @@ execute if entity @s[tag=swPool_+x] run scoreboard players operation K swPool_va
 execute if entity @s[tag=swPool_-x] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_+z] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_-z] run scoreboard players operation K swPool_var00 -= WR swPool_var00
+#execute if score K swPool_var00 matches 1.. run scoreboard players set K swPool_var00 10000
+#execute if score K swPool_var00 matches ..-1 run scoreboard players set K swPool_var00 -10000
+#tellraw @a [{"text":"K, "},{"score":{"objective":"swPool_var00","name":"K"}}]
 
 #step4 get magnitude of Δv_parallel  v_normal*2*K*mui
 scoreboard players operation dVP swPool_var00 = VN swPool_var00
@@ -47,8 +50,11 @@ scoreboard players operation dVP swPool_var00 /= C_100 swPool_C
 scoreboard players operation dVP swPool_var00 *= K swPool_var00
 scoreboard players operation dVP swPool_var00 /= C_100 swPool_C
 scoreboard players operation dVP swPool_var00 *= C_mui swPool_C
+#scoreboard players operation dVP swPool_var00 *= C_10 swPool_C
 scoreboard players operation dVP swPool_var00 /= C_10000 swPool_C
 execute if score dVP swPool_var00 matches ..-1 run scoreboard players operation dVP swPool_var00 *= C_-1 swPool_C
+
+#tellraw @a [{"text":"dVP, "},{"score":{"objective":"swPool_var00","name":"dVP"}}]
 
 #step5 get magnitude of Δomega_y = Δv_parallel/r/2*5
 scoreboard players operation dWY swPool_var00 = dVP swPool_var00

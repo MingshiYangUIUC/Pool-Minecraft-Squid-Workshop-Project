@@ -10,7 +10,7 @@ execute store result storage minecraft:swpool fslide int 1 run scoreboard player
 execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
 
 #clean and reload
-execute unless data storage minecraft:swpool keepsession run function pool:classes/main/clean
+execute unless data storage minecraft:swpool keepsession if data storage minecraft:swpool {version:[1]} run function pool:classes/main/clean
 
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
@@ -136,8 +136,10 @@ function pool:classes/cue/reset
 tellraw @a[tag=swPool_EN] [{"text":"[Server]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 tellraw @a[tag=swPool_CN] [{"text":"[伺服器]: 台球数据包-鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"[Server]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Chick here to choose>","color":"white","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"[伺服器]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<点此处选择>","color":"white","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
 
-execute if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"[Server]: Firstly, please use these 3 settings to set some coefficients. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Friction Settings>","color":"white","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}}]
-execute if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"[伺服器]: 请先点击运行三个函数设置参数值。","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<摩擦系数设置>","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"[Server]: Now, please use these 3 settings to set some coefficients. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Friction Settings>","color":"white","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"[伺服器]: 请再点击运行三个函数设置参数值。","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<摩擦系数设置>","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}}]
 
 tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"[Server]: 欢迎 Welcome. 语言 Language: " },{"underlined":true,"text":" <简体中文> ","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/chinese_simplified"}},{"underlined":true,"text":" <English>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/english"}}]
