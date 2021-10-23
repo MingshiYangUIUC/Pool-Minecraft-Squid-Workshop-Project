@@ -50,6 +50,8 @@ Note: problems may occur if this datapack is enabled together with [the original
 # How it Works
 Conservation of momentum and angular momentum, recently added interactions with edge of pockets (friction is neglected there). Neglected deformations.
 
+The detailed physics is summarized [here](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6wYUuCXp9/view?usp=sharing) (to be updated) and note that part 5 is recent and not yet implemented to the game.
+
 I have not cited any specific references while making the physics work. Wait for the writeup or try search "not so simple billiards physics" online.
 
 The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular common sense. _The rule enforcement of 8 ball is still under development._ The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
