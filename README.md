@@ -50,7 +50,7 @@ Note: problems may occur if this datapack is enabled together with [the original
 # How it Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there). Neglected deformations.
 
-The detailed physics I have derived and used is summarized [here](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6wYUuCXp9/view?usp=sharing) _(Ongoing timely update, and note that part 5 is recent and not yet implemented to the game)._ Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently.
+The [detailed physics](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6wYUuCXp9/view?usp=sharing) I have derived and used is summarized. _(Ongoing timely update, and note that part 5 is recent and not yet implemented to the game)._ Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently.
 
 I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
 
