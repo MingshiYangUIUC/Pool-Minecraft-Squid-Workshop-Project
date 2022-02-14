@@ -139,6 +139,14 @@ scoreboard players set C_g swPool_C 98100
 #g*100 W = Mg
 scoreboard players set C_0.01g swPool_C 981
 
+#constants needed for strike, predefined.
+scoreboard players set m_ball swPool_C 1700
+scoreboard players set m_stick swPool_C 6000
+scoreboard players set C_r2 swPool_C 286
+scoreboard players set i_ball_100 swPool_C 56
+scoreboard players set C_l swPool_C 12500
+scoreboard players set i_stick swPool_C 2700
+
 function pool:classes/cue/reset
 
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"[PoolDatapack]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]

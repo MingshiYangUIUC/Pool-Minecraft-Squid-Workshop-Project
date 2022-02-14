@@ -113,13 +113,13 @@ execute as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:iron_trapdo
 execute as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:iron_trapdoor[open=true,facing=west]
 execute as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:iron_trapdoor[open=true,facing=north]
 
-execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_sqh"],Duration:99999999}
-execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_thp1","swPool_thp"],Duration:99999999}
-execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_thp2","swPool_thp"],Duration:99999999}
-execute unless entity @e[tag=swPool_rhp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_rhp","swPool_rhp1"]}
-execute unless entity @e[tag=swPool_rhp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_rhp","swPool_rhp2"]}
-execute unless entity @e[tag=swPool_rhp3] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_rhp","swPool_rhp3"]}
-execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_rhp","swPool_vcomb"]}
+execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999}
+execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999}
+execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp2","swPool_thp"],Duration:99999999}
+execute unless entity @e[tag=swPool_rhp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp1"]}
+execute unless entity @e[tag=swPool_rhp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp2"]}
+execute unless entity @e[tag=swPool_rhp3] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp3"]}
+execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_vcomb"]}
 
 tp @s ~ ~1 ~
 
@@ -129,7 +129,13 @@ execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run dat
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
 
 
-
 #end_output
 tellraw @s [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
 tellraw @s [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+
+
+#allow temporary cheat as workaround initialization bug
+data merge storage minecraft:swpool {allowonecheat:1}
+
+#execute as @e[tag=swPool_pooltable,limit=1] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_cue","swPool_pool"]}
+#scoreboard players set @e[tag=swPool_cue] swPool_v 100000

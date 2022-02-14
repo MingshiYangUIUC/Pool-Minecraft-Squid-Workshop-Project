@@ -1,6 +1,9 @@
 #0.25 is 25000000
 
 scoreboard players operation @s swPool_var01 = @s swPool_v
+
+#tellraw @a [{"text":" var01, "},{"score":{"objective":"swPool_var01","name":"@s"}}]
+
 execute if score @s swPool_var01 matches 50000000..99999999 at @s run tp @s ^ ^ ^0.5
 execute if score @s swPool_var01 matches 50000000..99999999 run scoreboard players remove @s swPool_var01 50000000
 execute if score @s swPool_var01 matches 25000000..50000000 at @s run tp @s ^ ^ ^0.25

@@ -7,11 +7,9 @@ tag @s add swPool_shooting
 execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player = @a[tag=swPool_shooting,limit=1] swPool_player run tag @s add swPool_sb
 
 
-data modify entity @e[tag=swPool_pool,tag=swPool_cue,limit=1] Rotation[0] set from entity @s Rotation[0]
-
-#correction
+data modify entity @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] Rotation[0] set from entity @s Rotation[0]
 execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.15 ~
-#
+
 
 scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1] swPool_player = @s swPool_player
 stopsound @a * minecraft:entity.arrow.shoot

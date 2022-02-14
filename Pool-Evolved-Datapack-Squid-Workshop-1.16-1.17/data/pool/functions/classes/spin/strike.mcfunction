@@ -30,10 +30,10 @@
 # define m and I of ball and stick. later put this to load.mcfunction. use real ball dimension for more real output
 # m: 170g and 600g
 #scoreboard players set m_ball swPool_C 1700
-scoreboard players set m_ball swPool_C 1700
-scoreboard players set m_stick swPool_C 6000
+#scoreboard players set m_ball swPool_C 1700
+#scoreboard players set m_stick swPool_C 6000
 
-scoreboard players set C_r2 swPool_C 286
+#scoreboard players set C_r2 swPool_C 286
 #scoreboard players operation i_ball swPool_C = m_ball swPool_C
 #scoreboard players operation i_ball swPool_C *= C_r2 swPool_C
 #scoreboard players operation i_ball swPool_C /= C_10000 swPool_C
@@ -41,11 +41,11 @@ scoreboard players set C_r2 swPool_C 286
 #scoreboard players operation i_ball swPool_C /= C_5 swPool_C
 #scoreboard players operation i_ball swPool_C *= C_2 swPool_C
 #scoreboard players operation i_ball swPool_C /= C_10000 swPool_C
-scoreboard players set i_ball_100 swPool_C 56
+#scoreboard players set i_ball_100 swPool_C 56
 # I stick ~ 0.2mL^2
 # L of stick: 1.5m. long end to pivot: 1.25m (set for later calculation) calculation omitted
-scoreboard players set C_l swPool_C 12500
-scoreboard players set i_stick swPool_C 2700
+#scoreboard players set C_l swPool_C 12500
+#scoreboard players set i_stick swPool_C 2700
 
 #////////////////////////// BELOW USES stka //////////////////////////
 
@@ -325,9 +325,24 @@ scoreboard players set @s swPool_vy 0
 
 scoreboard players operation @s swPool_vx *= C_500 swPool_C
 scoreboard players operation @s swPool_vz *= C_500 swPool_C
-function pool:classes/physics/vcombine
+
+scoreboard players operation @s swPool_var00 = @s swPool_vx
+scoreboard players operation @s swPool_var01 = @s swPool_vz
+
+scoreboard players operation @s swPool_var00 /= C_2000 swPool_C
+scoreboard players operation @s swPool_var01 /= C_2000 swPool_C
+scoreboard players operation @s swPool_var00 *= @s swPool_var00
+scoreboard players operation @s swPool_var01 *= @s swPool_var01
+scoreboard players operation @s swPool_var00 += @s swPool_var01
+execute at @s run function pool:classes/physics/sqrt
+scoreboard players operation @s swPool_var00 *= C_2000 swPool_C
+scoreboard players operation @s swPool_v = @s swPool_var00
+
+#function pool:classes/physics/vcombine
 #tellraw @a [{"text":" V, "},{"score":{"objective":"swPool_v","name":"@s"}}]
 
+#execute store result score r2 swPool_var00 run data get entity @s Rotation[0] -10000
+#tellraw @a [{"text":" r, "},{"score":{"objective":"swPool_var00","name":"r2"}}]
 
 # Omega is here!
 scoreboard players operation @s swPool_wx = wx swPool_var00

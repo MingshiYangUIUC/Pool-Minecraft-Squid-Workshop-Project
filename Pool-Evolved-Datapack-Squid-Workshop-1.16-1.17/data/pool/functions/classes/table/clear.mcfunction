@@ -12,9 +12,7 @@ kill @e[tag=swPool_pooltable]
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
-kill @e[tag=swPool_sqh]
-kill @e[tag=swPool_thp]
-kill @e[tag=swPool_rhp]
+kill @e[tag=swPool_helper,type=area_effect_cloud]
 kill @e[tag=swPool_temppin]
 scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
 tag @a remove swPool_poolplay
