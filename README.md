@@ -12,9 +12,9 @@ Play pool (cue sports) in Minecraft, like in real life! \
 - [More About Squid Workshop](#More-About-Squid-Workshop)
 
 # Abstract
-This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc. Supported game versions: 1.16+.
+This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world. Let us hope minecraft datapacks run much faster in the future.
+Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world. Let us hope minecraft datapacks run much faster in the future.
 
 Supported game modes are _practice_ and _snooker_. Underdevelopment is UK 8 ball.
 
@@ -63,8 +63,7 @@ The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rule
 I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
 
 # Notes
-1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.\
-However, making the change is not hard, but will make the game run considerably slower. We'll see.
+1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
 
 # Project Tree
 ## Settings
