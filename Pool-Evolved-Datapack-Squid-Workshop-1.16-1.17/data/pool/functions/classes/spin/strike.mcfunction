@@ -25,7 +25,7 @@
 
 # Use v = 1m/s for testing, it is a typical speed, amplify this for big table, maximum is 20m/s
 #scoreboard players set v_stick swPool_var00 10000
-scoreboard players set C_mus swPool_C 7000
+#scoreboard players set C_mus swPool_C 7000
 
 # define m and I of ball and stick. later put this to load.mcfunction. use real ball dimension for more real output
 # m: 170g and 600g

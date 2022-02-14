@@ -9,6 +9,9 @@ execute store result score C_mur swPool_C run data get storage minecraft:swpool 
 execute store result storage minecraft:swpool fslide int 1 run scoreboard players get C_muk swPool_C
 execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
 
+execute store result storage minecraft:swpool fstrike int 1 run scoreboard players get C_mus swPool_C
+execute store result score C_mus swPool_C run data get storage minecraft:swpool fstrike
+
 #clean and reload
 execute unless data storage minecraft:swpool keepsession if data storage minecraft:swpool {version:[1]} run function pool:classes/main/clean
 
@@ -122,9 +125,14 @@ scoreboard players set C_mur swPool_C 200
 execute store result score C_mur swPool_C run data get storage minecraft:swpool froll
 
 #mur*10000 impact friction
-scoreboard players set C_mui swPool_C 1000
+scoreboard players set C_mui swPool_C 150
 #set from storage!
 execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
+
+#mus*10000 striking friction
+scoreboard players set C_mus swPool_C 7000
+#set from storage!
+execute store result score C_mus swPool_C run data get storage minecraft:swpool fstrike
 
 #g*10000 W = Mg
 scoreboard players set C_g swPool_C 98100
@@ -141,8 +149,8 @@ execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=sw
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"[PoolDatapack-installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"[台球数据包-安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<点此处选择>","color":"white","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
 
-execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
-execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_muk swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"gray"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
 
 tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"[台球数据包PoolDatapack]: 欢迎 Welcome.","italic":true,"color":"gray"}]
 tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"[台球数据包PoolDatapack]: ","italic":true,"color":"gray"},{"text":"语言 Language: ","italic":true,"color":"gray"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/chinese_simplified"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/english"}}]
