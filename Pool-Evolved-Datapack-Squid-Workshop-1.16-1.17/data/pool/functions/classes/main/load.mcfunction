@@ -108,7 +108,7 @@ scoreboard players set C_2 swPool_C 2
 scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
 
-#radius*10000
+#radius*10000 #Don't change this! This is somehow hard coded.
 scoreboard players set C_r swPool_C 1250
 
 #muk*10000 kinetic friction
@@ -149,3 +149,5 @@ tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"[台球数据包PoolDatapack
 
 
 scoreboard players set Resetf swPool_var00 0
+
+execute as @a store result score @s swPool_player run data get entity @s UUID[1]

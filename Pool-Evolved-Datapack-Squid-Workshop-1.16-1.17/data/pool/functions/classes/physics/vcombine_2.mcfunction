@@ -11,7 +11,7 @@ scoreboard players operation @s swPool_var00 *= @s swPool_var00
 scoreboard players operation @s swPool_var01 *= @s swPool_var01
 scoreboard players operation @s swPool_var00 += @s swPool_var01
 execute at @s run function pool:classes/physics/sqrt
-scoreboard players operation @s swPool_var00 *= @s C_1000 swPool_C
+scoreboard players operation @s swPool_var00 *= C_1000 swPool_C
 scoreboard players operation @s swPool_v = @s swPool_var00
 
 #add rotation based on xz values
