@@ -1,6 +1,6 @@
 # _Squid Workshop's_ Pool Datapack (Evolved) Version
 Play pool (cue sports) in Minecraft, like in real life! \
-[中文](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/README_CN.md)
+[中文](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
 - [Abstract](#Abstract)
 - [Installation](#Installation)
