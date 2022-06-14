@@ -1,6 +1,7 @@
 function pool:classes/table/clear
 tag @s remove swPool_success
-tellraw @s [{"text":"Wait..."}]
+tellraw @s[tag=swPool_EN] [{"text":"Wait..."}]
+tellraw @s[tag=swPool_CN] [{"text":"请稍候..."}]
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
@@ -130,12 +131,14 @@ execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run dat
 
 
 #end_output
-tellraw @s [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
-tellraw @s [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
+tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
 
+tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
+tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<多人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<多人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
 
-#allow temporary cheat as workaround initialization bug
-data merge storage minecraft:swpool {allowonecheat:1}
+tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
+
 
 #execute as @e[tag=swPool_pooltable,limit=1] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_cue","swPool_pool"]}
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000

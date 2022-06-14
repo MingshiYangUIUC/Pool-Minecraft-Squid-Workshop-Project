@@ -22,5 +22,6 @@ tag @e[tag=swPool_cue,tag=swPool_free] remove swPool_free
 tag @e[tag=swPool_pool] add swPool_placed
 tag @e[tag=swPool_start] remove swPool_start
 
+execute as @e[tag=swPool_pool] at @s run function pool:classes/uk8ball/tp_random
 
 function pool:classes/master/record
