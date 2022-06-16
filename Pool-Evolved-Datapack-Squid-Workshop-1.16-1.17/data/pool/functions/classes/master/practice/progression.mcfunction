@@ -1,6 +1,7 @@
 tag @a remove swPool_hitcue
 scoreboard players reset @a swPool_firsthit
 
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_poolplay] remove swPool_freeball
 execute if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Freeball."}]
 execute if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"自由球。"}]
 

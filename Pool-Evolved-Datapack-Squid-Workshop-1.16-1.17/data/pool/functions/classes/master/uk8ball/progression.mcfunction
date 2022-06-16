@@ -3,20 +3,24 @@ tag @s[tag=swPool_endaward] remove swPool_awarded
 tag @s[tag=swPool_endaward] remove swPool_endaward
 tag @a remove swPool_streak
 
-#general fouls: not hitting aimed ball, not pocket or hit rail. this one does not foul if in awarded turn.
+#foul if not hitball&hitrail (exclude breakshot, and not foul if both hitball and hitrail)
+execute unless score Stroke swPool_hidScore matches 1.. run tag @a[tag=swPool_hitcue] add swPool_foul
+execute unless score Stroke swPool_hidScore matches 1.. if entity @s[tag=swPool_hitrail] if entity @s[scores={swPool_firsthit=1..7}] run tag @a[tag=swPool_hitcue,tag=swPool_foul] remove swPool_foul
+
+#other general fouls: not hitting aimed ball, not pocket or hit rail. this one does not foul if in awarded turn.
 execute unless entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_foul
 
 # if awarded but foul, clear streak
 execute if entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_endstreak
 
-#no foul if no pkted ball and if not hitting black
+#no foul if not any pkted ball and if not hitting black
 execute if score Pocketed_Total swPool_hidScore matches 0 unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=7}] run tag @a[tag=swPool_foul] remove swPool_foul
 
-#foul of hitrail and pocket cueball and pocket opponent's ball
+#foul of no hitrail and pocket cueball and pocket opponent's ball (not an issue if in 1st award visit) [NOT CLEAR, NOT A RULE BECAUSE IT IS HARD] 
 execute unless entity @s[tag=swPool_hitrail] unless score Pocketed_Turn swPool_hidScore matches 1.. run tag @a[tag=swPool_hitcue] add swPool_foul
-execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue] add swPool_foul
-execute if entity @s[tag=swPool_pktylw] run tag @a[tag=swPool_hitcue,tag=swPool_aimred] add swPool_foul
-execute if entity @s[tag=swPool_pktred] run tag @a[tag=swPool_hitcue,tag=swPool_aimylw] add swPool_foul
+#execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue] add swPool_foul
+#execute unless entity @s[tag=swPool_awarded] if entity @s[tag=swPool_pktylw] run tag @a[tag=swPool_hitcue,tag=swPool_aimred] add swPool_foul
+#execute unless entity @s[tag=swPool_awarded] if entity @s[tag=swPool_pktred] run tag @a[tag=swPool_hitcue,tag=swPool_aimylw] add swPool_foul
 
 #freeball
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
@@ -130,6 +134,7 @@ tag @a[tag=swPool_poolplay] remove swPool_foul
 scoreboard players set @a[tag=swPool_poolplay] swPool_firsthit 0
 scoreboard players set Pocketed_Turn swPool_hidScore 0
 
+scoreboard players add Stroke swPool_hidScore 1
 
 
 tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"</back>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/redo"}}]

@@ -93,6 +93,7 @@ scoreboard objectives add swPool_T_end dummy
 scoreboard players set C_100000000 swPool_C 100000000
 scoreboard players set C_10000 swPool_C 10000
 scoreboard players set C_7143 swPool_C 7143
+scoreboard players set C_5000 swPool_C 5000
 scoreboard players set C_2000 swPool_C 2000
 scoreboard players set C_1000 swPool_C 1000
 scoreboard players set C_625 swPool_C 625
