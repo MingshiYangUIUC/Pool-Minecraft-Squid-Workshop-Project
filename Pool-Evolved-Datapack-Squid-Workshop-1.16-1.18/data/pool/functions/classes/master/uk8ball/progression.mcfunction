@@ -1,11 +1,20 @@
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+
 tag @s remove swPool_foul
 tag @s[tag=swPool_endaward] remove swPool_awarded
 tag @s[tag=swPool_endaward] remove swPool_endaward
 tag @a remove swPool_streak
 
-#foul if not hitball&hitrail (exclude breakshot, and not foul if both hitball and hitrail)
-execute unless score Stroke swPool_hidScore matches 1.. run tag @a[tag=swPool_hitcue] add swPool_foul
-execute unless score Stroke swPool_hidScore matches 1.. if entity @s[tag=swPool_hitrail] if entity @s[scores={swPool_firsthit=1..7}] run tag @a[tag=swPool_hitcue,tag=swPool_foul] remove swPool_foul
+#foul if not hitball&hitrail (exclude breakshot, and not foul if both hitball and hitrail) (this foul overwrite any awards)
+execute unless score Stroke swPool_hidScore matches 1.. run tag @a[tag=swPool_hitcue] add swPool_foul_large
+execute unless score Stroke swPool_hidScore matches 1.. if entity @s[tag=swPool_hitrail] if entity @s[scores={swPool_firsthit=1..7}] run tag @a[tag=swPool_hitcue,tag=swPool_foul] remove swPool_foul_large
+execute if entity @a[tag=swPool_foul_large] run tag @s remove swPool_awarded
+execute if entity @a[tag=swPool_foul_large] run tag @s add swPool_endaward
+execute if entity @a[tag=swPool_foul_large] run tag @s add swPool_foul
 
 #other general fouls: not hitting aimed ball, not pocket or hit rail. this one does not foul if in awarded turn.
 execute unless entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_foul
@@ -37,13 +46,14 @@ execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] run tag @a[tag=swPool
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk] if score Pocketed_Turn swPool_hidScore matches 2.. run tag @a[tag=swPool_hitcue] add swPool_foul
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
-execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" Won."}]
-execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Won."}]
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" Wins."}]
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pktblk,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Wins."}]
 
-#streak if no foul and pocketed correct ball and remaining ball of same color
+#streak if no foul and pocketed correct ball and remaining ball of same color, also pocket the first ball
 # also no instance of endstreak
 execute if entity @s[tag=swPool_pktred] run tag @a[tag=!swPool_endstreak,tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimred] add swPool_streak
 execute if entity @s[tag=swPool_pktylw] run tag @a[tag=!swPool_endstreak,tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimylw] add swPool_streak
+execute if score Pocketed_Total swPool_hidScore matches 1 unless entity @s[tag=swPool_pktblk] run tag @a[tag=!swPool_endstreak,tag=swPool_hitcue,tag=!swPool_foul] add swPool_streak
 tag @a[tag=swPool_endstreak] remove swPool_endstreak
 
 #change to black if no ball of same color
@@ -54,21 +64,24 @@ tag @a[tag=swPool_aimblk] remove swPool_aimylw
 
 #time passes by awards if not streak
 execute as @a[tag=swPool_hitcue] if entity @s[tag=!swPool_streak] run tag @e[tag=swPool_pooltable,tag=swPool_awarded] add swPool_endaward
+execute as @a[tag=swPool_hitcue] if entity @s[tag=!swPool_streak] run tag @e[tag=swPool_pooltable,tag=swPool_awarded] remove swPool_awarded
 
 #awards. awarded player can firstly hit any ball but cannot pocket black unless there is only black left
 execute if entity @a[tag=swPool_foul] run tag @s add swPool_awarded
 execute if entity @a[tag=swPool_foul] run tag @s remove swPool_endaward
 
+#    MP: does not change player if in streak, first valid ball in pocket count as streak
 execute if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" gets two visits."}]
-execute if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" gets two visits."}]
+execute unless entity @a[tag=swPool_streak] if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" gets two visits."}]
+execute if entity @a[tag=swPool_streak] if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" gets two visits."}]
 execute if entity @s[tag=!swPool_endgame,tag=swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" gets one visit left."}]
 
 
 
-#change target if single player, unless streak, and unless endaward, but always do so if foul
-execute if entity @s[tag=swPool_singleplayer,tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tag @s add swPool_switch
-execute if entity @s[tag=swPool_singleplayer,tag=!swPool_endgame] unless entity @s[tag=swPool_endaward] unless entity @a[tag=swPool_streak] run tag @s add swPool_switch
-execute if entity @s[tag=swPool_switch,tag=!swPool_endgame] run execute as @a[tag=swPool_poolplay] run function pool:classes/master/uk8ball/switch
+#change target (switch) if single player, unless streak, and unless endaward, but always do so if foul
+execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tag @s add swPool_switch
+execute if entity @s[tag=!swPool_endgame] unless entity @s[tag=swPool_endaward] unless entity @a[tag=swPool_streak] run tag @s add swPool_switch
+execute if entity @s[tag=swPool_singleplayer,tag=swPool_switch,tag=!swPool_endgame] run execute as @a[tag=swPool_poolplay] run function pool:classes/master/uk8ball/switch
 
 
 
@@ -81,8 +94,10 @@ execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_freeball] run 
 #if there is no target...
 #SP
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at any except black."}]
-#MP
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at any except black."}]
+#MP include whether endaward
+#say mpnotarget
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at any except black."}]
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=!swPool_endaward] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at any except black."}]
 
 #single player non-switch output
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
@@ -90,24 +105,32 @@ execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
 
 #Multiplayer non-switch
+#say mpnonswitch
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=!swPool_switch] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=!swPool_switch] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=!swPool_switch] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
 
 #Multiplayer switch
+#say mpswitch
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=swPool_switch] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=swPool_switch] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=!swPool_awarded,tag=swPool_multiplayer,tag=swPool_switch] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
 
-#Multiplayer awarded
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
+#Multiplayer awarded, consider cases of streak or not
+#say mpaw1
+execute unless entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
+execute unless entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
+execute unless entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
+#say mpaw2
+execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
+execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
+execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
 
 #Multiplayer endaward
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
-execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_awarded,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
+#say mpend
+#execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_endaward,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"red","text":"red"},{"text":"."}]
+#execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_endaward,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimylw] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"yellow","text":"yellow"},{"text":"."}]
+#execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_endaward,tag=swPool_multiplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimblk] run tellraw @a[tag=swPool_poolplay] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Please aim at "},{"color":"black","text":"black"},{"text":"."}]
 
 #execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_aimred] run say aim red
 #execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_aimylw] run say aim yellow
@@ -131,6 +154,7 @@ tag @s remove swPool_switch
 tag @s remove swPool_rerack
 tag @a[tag=swPool_poolplay] remove swPool_hitcue
 tag @a[tag=swPool_poolplay] remove swPool_foul
+tag @a[tag=swPool_poolplay] remove swPool_foul_large
 scoreboard players set @a[tag=swPool_poolplay] swPool_firsthit 0
 scoreboard players set Pocketed_Turn swPool_hidScore 0
 

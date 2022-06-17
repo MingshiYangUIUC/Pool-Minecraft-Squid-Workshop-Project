@@ -14,6 +14,8 @@ tag @s add swPool_colliding
 
 #NO need to set information of first hit ball to swPool_player
 
+#if uk8ball: count as hitting cushion
+tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode,limit=1] add swPool_hitrail
 
 
 #record parameters

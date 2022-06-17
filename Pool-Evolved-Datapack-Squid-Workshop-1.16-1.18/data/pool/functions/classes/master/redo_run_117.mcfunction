@@ -88,3 +88,5 @@ function pool:classes/master/record
 
 tag @a[tag=swPool_placingcue] add swPool_freeball
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
+
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_freeball

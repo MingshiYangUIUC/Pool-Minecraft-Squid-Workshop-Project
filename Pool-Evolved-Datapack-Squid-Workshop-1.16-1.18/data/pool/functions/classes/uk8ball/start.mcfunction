@@ -1,3 +1,6 @@
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please place a table first.","color":"red"}]
 
 kill @e[tag=swPool_pool]

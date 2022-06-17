@@ -2,9 +2,9 @@ tag @e[tag=swPool_pooltable,limit=1] add swPool_pocketing
 
 
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_red] run tag @a[tag=swPool_hitcue] add swPool_aimred
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_red] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue] add swPool_aimred
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_red] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue] add swPool_aimylw
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_yellow] run tag @a[tag=swPool_hitcue] add swPool_aimylw
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_yellow] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue] add swPool_aimylw
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_yellow] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue] add swPool_aimred
 
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_black] run tag @e[tag=swPool_pooltable,limit=1] add swPool_rerack
 
