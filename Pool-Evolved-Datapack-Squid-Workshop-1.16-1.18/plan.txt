@@ -1,0 +1,11 @@
+Plan of this pack
+
+1.  Improvements
+    i.  Snooker: an option to show score by dialog instead of sidebar after each turn and at the end of game.
+    ii. Snooker: split stroke count of two players, and calculate performance (average score per stroke) respectively.
+    iii.All games: change phrase of shoot for to 目标球为xx球/target ball is xx
+
+2.  Added features to consider
+    i.  Straight pool, a game with easy rule and does not need numbered balls
+    ii. (NOT SURE) an feature of 'Redo'ing what is undone
+    iii.

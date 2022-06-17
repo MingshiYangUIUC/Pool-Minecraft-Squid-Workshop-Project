@@ -148,7 +148,7 @@ execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidSc
 #execute if entity @s[tag=!swPool_endgame] if score Pocketed_Total swPool_hidScore matches 0 run say aim any except black
 
 #rerack request
-execute if entity @s[tag=swPool_rerack] run function pool:classes/master/redo_run
+execute if entity @s[tag=swPool_rerack] run function pool:classes/master/undo_run
 
 
 
@@ -171,8 +171,8 @@ scoreboard players set Pocketed_Turn swPool_hidScore 0
 scoreboard players add Stroke swPool_hidScore 1
 
 
-tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"</back>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/redo"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"</back>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
-tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":""},{"underlined":true,"text":"<命令窗口>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/redo"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":""},{"underlined":true,"text":"<命令窗口>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

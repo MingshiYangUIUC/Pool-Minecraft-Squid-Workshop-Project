@@ -24,8 +24,8 @@ scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
 #execute as @e[tag=swPool_free,tag=!swPool_cue] at @s run tp @s ~ ~-1 ~
 
-tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/redo"}}]
-tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":""},{"underlined":true,"text":"<命令窗口>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/redo"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":""},{"underlined":true,"text":"<命令窗口>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 
 execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
