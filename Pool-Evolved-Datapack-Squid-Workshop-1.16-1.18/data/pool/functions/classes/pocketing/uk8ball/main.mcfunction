@@ -8,6 +8,7 @@ execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPoo
 
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=swPool_black] run tag @e[tag=swPool_pooltable,limit=1] add swPool_rerack
 
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_cue] run tag @e[tag=swPool_pooltable,limit=1] add swPool_pkt1st
 
 
 execute if entity @s[tag=swPool_cue] run tag @e[tag=swPool_pooltable,limit=1] add swPool_pktcue

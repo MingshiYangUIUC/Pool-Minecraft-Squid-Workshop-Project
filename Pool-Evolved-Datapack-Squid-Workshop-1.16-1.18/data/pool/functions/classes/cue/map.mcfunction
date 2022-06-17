@@ -17,5 +17,5 @@ tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":
 tellraw @s[tag=swPool_EN] [{"text":"      Ball hit point  "},{"text":"   Stick lift angle"}]
 tellraw @s[tag=swPool_EN] [{"text":"<Drag the adjuster down>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
-tellraw @s[tag=swPool_CN] [{"text":"          击球点  "},{"text":"          后手抬起角度"}]
+tellraw @s[tag=swPool_CN] [{"text":"          击球点  "},{"text":"          球杆抬起角度"}]
 tellraw @s[tag=swPool_CN] [{"text":"<下拉此调整界面>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

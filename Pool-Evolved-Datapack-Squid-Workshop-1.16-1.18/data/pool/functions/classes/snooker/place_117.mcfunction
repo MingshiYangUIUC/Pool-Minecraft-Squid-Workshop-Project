@@ -39,8 +39,8 @@ execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_placed] run summon ar
 
 execute unless entity @e[tag=swPool_free] run scoreboard players set @s swPool_firsthit 1
 scoreboard players set @s swPool_var05 0
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"The player holding the cueball may place the cueball and aim at Red."}]
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"请持母球方放置母球并击打红球。"}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":"may place the cueball and aim at Red."}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"请"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":"放置母球并击打红球。"}]
 
 scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
