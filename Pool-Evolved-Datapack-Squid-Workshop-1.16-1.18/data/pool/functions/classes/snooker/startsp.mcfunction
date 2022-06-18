@@ -1,3 +1,6 @@
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"Please place a table first.","color":"red"}]
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"请先放置球桌。","color":"red"}]
 
@@ -39,6 +42,15 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 tag @a[limit=1,tag=swPool_near] add swPool_poolplay
 tag @a[tag=swPool_near] remove swPool_near
 scoreboard players set Opponent swPool_Score 0
-scoreboard objectives setdisplay sidebar swPool_Score
+scoreboard objectives setdisplay sidebar
 
 scoreboard players set Stroke swPool_hidScore 0
+
+tag @e[tag=swPool_pooltable] remove swPool_dialogue
+tag @e[tag=swPool_pooltable] remove swPool_sidebar
+execute if data storage minecraft:swpool {displayscore:'dialogue'} run tag @e[tag=swPool_pooltable] add swPool_dialogue
+execute if data storage minecraft:swpool {displayscore:'sidebar'} run scoreboard objectives setdisplay sidebar swPool_Score
+execute if data storage minecraft:swpool {displayscore:'sidebar'} run tag @e[tag=swPool_pooltable] add swPool_sidebar
+
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.01..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.01..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer

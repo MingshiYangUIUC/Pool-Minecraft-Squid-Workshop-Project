@@ -48,6 +48,10 @@ execute if entity @s[tag=swPool_singleplayer] run scoreboard players operation O
 
 
 
+#score messages:
+execute if entity @s[tag=swPool_singleplayer,tag=swPool_dialogue] as @a[tag=swPool_poolplay,limit=1] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@s"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@s"}},{"text":" | Opponent: "},{"score":{"objective":"swPool_Score","name":"Opponent"}}]
+execute if entity @s[tag=swPool_singleplayer,tag=swPool_dialogue] as @a[tag=swPool_poolplay,limit=1] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@s"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@s"}},{"text":" | 对手: "},{"score":{"objective":"swPool_Score","name":"Opponent"}}]
+execute if entity @s[tag=swPool_multiplayer,tag=swPool_dialogue] as @a[tag=swPool_poolplay,limit=1] at @s run tellraw @a[tag=swPool_poolplay] [{"selector":"@s"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@s"}},{"text":" | "},{"selector":"@p[distance=0.01..,tag=swPool_poolplay]"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@p[distance=0.01..,tag=swPool_poolplay]"}}]
 
 #english messages...
 execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] unless entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Foul. Opponent "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":"."}]
@@ -56,14 +60,14 @@ execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] if entity @a[tag
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] unless entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Foul. "},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":" "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":"."}]
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Foul. "},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":" "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":", freeball."}]
 
-execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Red."}]
-execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Yellow."}]
-execute if entity @s[scores={swPool_firsthit=3}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Green."}]
-execute if entity @s[scores={swPool_firsthit=4}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Brown."}]
-execute if entity @s[scores={swPool_firsthit=5}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Blue."}]
-execute if entity @s[scores={swPool_firsthit=6}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Pink."}]
-execute if entity @s[scores={swPool_firsthit=7}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Black."}]
-execute if entity @s[scores={swPool_firsthit=8}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Please aim at Colour."}]
+execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Red."}]
+execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Yellow."}]
+execute if entity @s[scores={swPool_firsthit=3}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Green."}]
+execute if entity @s[scores={swPool_firsthit=4}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Brown."}]
+execute if entity @s[scores={swPool_firsthit=5}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Blue."}]
+execute if entity @s[scores={swPool_firsthit=6}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Pink."}]
+execute if entity @s[scores={swPool_firsthit=7}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Black."}]
+execute if entity @s[scores={swPool_firsthit=8}] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Colour."}]
 
 
 #chinese messages...
@@ -73,14 +77,14 @@ execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] if entity @a[tag
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] unless entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"犯规。"},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":"得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分。"}]
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"犯规。"},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":"得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分，自由球。"}]
 
-execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打红球。"}]
-execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打黄球。"}]
-execute if entity @s[scores={swPool_firsthit=3}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打绿球。"}]
-execute if entity @s[scores={swPool_firsthit=4}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打咖啡球。"}]
-execute if entity @s[scores={swPool_firsthit=5}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打蓝球。"}]
-execute if entity @s[scores={swPool_firsthit=6}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打粉球。"}]
-execute if entity @s[scores={swPool_firsthit=7}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打黑球。"}]
-execute if entity @s[scores={swPool_firsthit=8}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，请击打任一彩球。"}]
+execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为红球。"}]
+execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为黄球。"}]
+execute if entity @s[scores={swPool_firsthit=3}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为绿球。"}]
+execute if entity @s[scores={swPool_firsthit=4}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为咖啡球。"}]
+execute if entity @s[scores={swPool_firsthit=5}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为蓝球。"}]
+execute if entity @s[scores={swPool_firsthit=6}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为粉球。"}]
+execute if entity @s[scores={swPool_firsthit=7}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为黑球。"}]
+execute if entity @s[scores={swPool_firsthit=8}] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为任一彩球。"}]
 
 
 #commands

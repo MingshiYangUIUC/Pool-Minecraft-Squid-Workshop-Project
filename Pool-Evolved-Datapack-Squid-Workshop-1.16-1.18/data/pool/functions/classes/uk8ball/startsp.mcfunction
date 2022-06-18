@@ -48,8 +48,8 @@ scoreboard players set Pocketed_Turn swPool_hidScore 0
 execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
-tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and aim at any except black."}]
-tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and aim at any except black."}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and target any except black."}]
+tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and target any except black."}]
 
 tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
