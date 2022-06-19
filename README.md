@@ -17,7 +17,7 @@ This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker
 
 Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world. Let us hope minecraft datapacks run much faster in the future.
 
-Supported game modes are _practice_ and _snooker_. Underdevelopment is UK 8 ball.
+Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
 # Installation
 - Step 01 Download this repository as a zip and unpack.
@@ -59,7 +59,7 @@ The [detailed physics](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6
 
 I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
 
-The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular common sense. _The rule enforcement of 8 ball is still under development._ The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
+The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
 
 I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
 
