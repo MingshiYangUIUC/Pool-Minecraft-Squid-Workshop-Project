@@ -15,7 +15,7 @@ tag @e[type=armor_stand,tag=swPool_fake] add swPool_pool
 execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.001..0.26,sort=nearest,limit=4] add swPool_near
 execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.26..0.51,sort=nearest,limit=2] add swPool_near
 execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.51..1.5,sort=nearest,limit=2] add swPool_near
-execute at @s[scores={swPool_v=50000000..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=1.5..2.25,sort=nearest,limit=2] add swPool_near
+execute at @s[scores={swPool_v=50000000..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=1.5..2.5,sort=nearest,limit=2] add swPool_near
 
 execute at @s[scores={swPool_v=1..}] if entity @e[type=armor_stand,tag=swPool_fake,distance=..1.5] run tag @e[type=armor_stand,tag=swPool_fake,distance=0.001..1.5,sort=nearest,limit=3] add swPool_near
 
@@ -35,7 +35,7 @@ execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
 
-execute if entity @s[tag=!swPool_bounce] run scoreboard players set @e[tag=swPool_col] swPool_v 0
+execute if entity @s[tag=!swPool_bounce] run scoreboard players set @e[type=armor_stand,tag=swPool_col] swPool_v 0
 
 execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] at @s run function pool:classes/collision/helper
 
@@ -49,7 +49,7 @@ tag @e[type=armor_stand,tag=swPool_col] remove swPool_col2
 tag @e[type=armor_stand,tag=swPool_col] remove swPool_col
 tag @s remove swPool_bounce
 tag @s remove swPool_nobounce
-tag @e remove swPool_near
+tag @e[type=armor_stand] remove swPool_near
 tag @e[type=armor_stand,tag=swPool_fake] remove swPool_pool
 #execute at @s run function pool:classes/cushion/main
 tag @s remove swPool_a1

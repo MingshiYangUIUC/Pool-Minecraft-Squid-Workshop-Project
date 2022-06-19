@@ -53,3 +53,9 @@ scoreboard players reset @s swPool_shoot
 tag @s add swPool_hitcue
 tag @s remove swPool_shooting
 tag @e[tag=swPool_pooltable] remove swPool_resetcue
+
+
+#tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
+
+execute if score V_addon swPool_v matches 1.. run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v += V_addon swPool_v
+execute if score V_addon swPool_v matches 1.. run scoreboard players set V_addon swPool_v 0

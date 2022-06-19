@@ -7,7 +7,7 @@ scoreboard players set @s swPool_var04 10000
 
 #cos(dr)=var00
 scoreboard players operation @s swPool_var00 = @s swPool_drot
-execute at @s run function pool:classes/physics/cosdeg
+execute at @s run function pool:classes/math/cosdeg
 
 # swPool_drel part1: var01=d*cos(dr)
 scoreboard players operation @s swPool_var01 = @s swPool_dist

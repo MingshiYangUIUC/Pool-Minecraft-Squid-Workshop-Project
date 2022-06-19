@@ -51,11 +51,11 @@
 
 #	mus_eff and save sin and cos in memory (men_sin/cos in var00). C_mus is around 0.7 (7000), stka is strike angle theta
 scoreboard players operation @s swPool_var00 = stka swPool_var00
-function pool:classes/physics/sindeg
+function pool:classes/math/sindeg
 scoreboard players operation mem_sin swPool_var00 = @s swPool_var00
 
 scoreboard players operation @s swPool_var00 = stka swPool_var00
-function pool:classes/physics/cosdeg
+function pool:classes/math/cosdeg
 scoreboard players operation mem_cos swPool_var00 = @s swPool_var00
 
 scoreboard players operation mus_eff swPool_var00 = C_mus swPool_C
@@ -181,22 +181,22 @@ execute store result score r swPool_var00 run data get entity @s Rotation[0] -10
 ########################### get omega use x,pitch, (r=-1*y_rotation)
 # calculate sin and cos of 3 angles
 scoreboard players operation @s swPool_var00 = x swPool_var00
-function pool:classes/physics/sindeg
+function pool:classes/math/sindeg
 scoreboard players operation sinx swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = x swPool_var00
-function pool:classes/physics/cosdeg
+function pool:classes/math/cosdeg
 scoreboard players operation cosx swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = pitch swPool_var00
-function pool:classes/physics/sindeg
+function pool:classes/math/sindeg
 scoreboard players operation sinpitch swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = pitch swPool_var00
-function pool:classes/physics/cosdeg
+function pool:classes/math/cosdeg
 scoreboard players operation cospitch swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = r swPool_var00
-function pool:classes/physics/sindeg
+function pool:classes/math/sindeg
 scoreboard players operation sinr swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = r swPool_var00
-function pool:classes/physics/cosdeg
+function pool:classes/math/cosdeg
 scoreboard players operation cosr swPool_var00 = @s swPool_var00
 
 

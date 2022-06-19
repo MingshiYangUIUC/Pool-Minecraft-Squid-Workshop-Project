@@ -40,6 +40,7 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 execute as @e[tag=swPool_pooltable] at @s run tag @a[sort=nearest,limit=1] add swPool_poolplay
 
+scoreboard players set V_addon swPool_v 40000000
 scoreboard players set Stroke swPool_hidScore 0
 
 scoreboard players set Pocketed_Total swPool_hidScore 0

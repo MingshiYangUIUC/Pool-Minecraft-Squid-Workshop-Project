@@ -91,6 +91,8 @@ scoreboard objectives add swPool_T_end dummy
 #define constants
 #decimal places and math constants
 scoreboard players set C_100000000 swPool_C 100000000
+scoreboard players set C_3600000 swPool_C 3600000
+scoreboard players set C_1800000 swPool_C 1800000
 scoreboard players set C_10000 swPool_C 10000
 scoreboard players set C_7143 swPool_C 7143
 scoreboard players set C_5000 swPool_C 5000

@@ -5,8 +5,8 @@
 
 #get old distance in components
 #pooltable dimensions and position is stored in variable TABLE
-execute as @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
-execute as @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute store result score @s swPool_posz run data get entity @s Pos[2] 10000
 #execute as @e[tag=swPool_pooltable] store result score @s swPool_posx run data get entity @s Pos[0] 10000
 #execute as @e[tag=swPool_pooltable] store result score @s swPool_posz run data get entity @s Pos[2] 10000
 
@@ -65,6 +65,7 @@ scoreboard players operation @s[tag=swPool_cush] swPool_var01 -= TABLE swPool_si
 tag @s[tag=swPool_cush,scores={swPool_var00=-3150..3150}] add swPool_pktx
 tag @s[tag=swPool_cush,scores={swPool_var01=-3150..3150}] add swPool_pktz
 
+# above is for saving bounce computing time
 
 
 #add nobounce tag and detect edge/cntr fake balls, similar to the old pocketing tag

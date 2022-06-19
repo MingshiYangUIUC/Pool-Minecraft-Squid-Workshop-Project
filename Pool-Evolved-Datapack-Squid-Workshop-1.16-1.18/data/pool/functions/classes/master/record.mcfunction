@@ -17,6 +17,7 @@ scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_hidScore = Stroke swPool_hidScore
 scoreboard players operation FirstHit swPool_hidScore = @e[tag=swPool_pooltable,limit=1] swPool_firsthit
 
+scoreboard players operation V_addon swPool_hidScore = V_addon swPool_v
 
 scoreboard players operation Pocketed_T_rec swPool_hidScore = Pocketed_Total swPool_hidScore
 

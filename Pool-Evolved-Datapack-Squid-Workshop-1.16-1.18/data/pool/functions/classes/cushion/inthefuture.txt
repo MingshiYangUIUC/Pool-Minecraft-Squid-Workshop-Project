@@ -1,9 +1,0 @@
-while determining the effect of tilted cushion...
-
-normal reflection: just add 2*tilt to the reflected angle
-
-effect of/on spin: 
-	way 1: split the angles based on tilt so that vex and vez is different: treat the plane as 0 degree always, then rotate back subsequent motion
-	way 2:
-
-#see log for a better way... for now, just ignore the effect of/on spin in the small scale

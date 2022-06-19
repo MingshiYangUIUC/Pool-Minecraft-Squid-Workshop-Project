@@ -46,7 +46,7 @@ scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_drot -= @e[tag=swP
 #swPool_v of t2 is vi*cos(dr) and direction is along the line between the two
 #scoreboard players set @s swPool_var04 10000
 scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1] swPool_drot
-execute at @s run function pool:classes/physics/cosdeg
+execute at @s run function pool:classes/math/cosdeg
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v /= C_10000 swPool_C
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v *= @s swPool_var00
@@ -57,7 +57,7 @@ data modify entity @e[tag=swPool_t2,limit=1] Rotation set from entity @e[tag=swP
 execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=..0}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
 execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=1..}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
 scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1] swPool_drot
-execute at @s run function pool:classes/physics/sindeg
+execute at @s run function pool:classes/math/sindeg
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v /= C_10000 swPool_C
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v *= @s swPool_var00

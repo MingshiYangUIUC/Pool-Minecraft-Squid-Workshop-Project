@@ -71,7 +71,7 @@ execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s
 
 scoreboard players operation @s swPool_var01 /= @s swPool_dist
 scoreboard players operation @s swPool_var00 = @s swPool_drot
-execute at @s run function pool:classes/physics/sindeg
+execute at @s run function pool:classes/math/sindeg
 #	minus absolute value
 execute if entity @s[scores={swPool_var00=1..}] run scoreboard players operation @s swPool_var01 -= @s swPool_var00
 execute if entity @s[scores={swPool_var00=..0}] run scoreboard players operation @s swPool_var01 += @s swPool_var00
