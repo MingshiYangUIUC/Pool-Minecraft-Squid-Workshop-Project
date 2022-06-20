@@ -21,11 +21,11 @@ Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
 ## Product spec
 
-	6800 entity selectors
-	5000 tag operations
-	2300 scoreboard operations
-	400 nested functions
-	63 scoreboard objectives
+6800 entity selectors
+5000 tag operations
+2300 scoreboard operations
+400 nested functions
+63 scoreboard objectives
 	
 # Installation
 - Step 01 Download this repository as a zip and unpack.
