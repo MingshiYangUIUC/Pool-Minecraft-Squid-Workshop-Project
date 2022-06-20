@@ -19,7 +19,7 @@ Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.
 
 Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
-Product spec.
+## Product spec
 
 	6800 entity selectors
 	5000 tag operations
