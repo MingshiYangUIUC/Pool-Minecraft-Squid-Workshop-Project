@@ -65,19 +65,21 @@ Install the datapack following instructions of the [Installation](#Installation)
 
 When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
 
-Click to open the <<ins>Command Window</ins>>, explore the [settings](#settings) and change them if you want.
+Click to open the command window, explore the [settings](#settings) and change them if you want.
 
 Click to set a new table if you haven't done so. Choose two side lengths of the table and place it following text prompts.
 
-Open the game lobby in command window, if you want to participate in multiplayer game, you can click to join the lobby beginning with MP. After you joined, other players will receive your invitation and are able to join you.
+Open the game lobby in command window, if you want to participate in multiplayer game, you can click to join the queue beginning with MP. After you join a queue, other players will receive your invitation and are able to join you.
 
-You will be notified when another player joins your lobby. Click on BEGIN! to play with that player. 
+You will be notified when another player joins your queue. Click on BEGIN! to play with that player. 
 
-You can also play singleplayer mode, in Snooker you just aim to score more than you foul. In UK 8 Ball you just pretend to be two players, so there is no win or loss.
+You can also play singleplayer mode, in singleplayer Snooker you just try to score more than you foul. In singleplayer UK 8 Ball you just pretend to be two players, so there is no win or loss in this game.
 
-After snooker game finishes, players will receive a rating based on average point they get per turn.
+After a snooker game finishes, players will receive a rating based on average point they get per strike (per turn).
 
 You can terminate the game at any time using the command window.
+
+_Under Development:_ Each window will eventually be attached a clickable instruction in game.
 
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
