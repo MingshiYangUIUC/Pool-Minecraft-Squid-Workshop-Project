@@ -4,11 +4,30 @@ Plan of this pack
     i.  Snooker: an option to show score by dialog instead of sidebar after each turn and at the end of game. (DONE)
     ii. Snooker: split stroke count of two players, and calculate performance (average score per stroke) respectively. (NOT NECESSARY)
     iii.All games: change phrase of shoot for to 目标球为xx球/target ball is xx  (DONE)
+    iv. choosing ball color error 8 ball???
 
 2.  Added features to consider
     i.  Straight pool, a game with easy rule and does not need numbered balls
     ii. (NOT SURE) an feature of 'Redo'ing what is undone
-    iii.
+    iii.Add aiming zoom
+    iv. prompt players to choose language
+    v.  invitation system and spectator system
 
 
-a.  Invitation and waiting room
+2.  v.  Invitation system
+        Ppl who dont need the messages can get tag swPool_mute in settings.
+            Broadcast an invitation with link to join each game, spectate, and begin.
+            When one player is summoning the PROMPT, all people without language tag will be asked to select language.
+            ppl joined got tag of swPool_waiting; swPool_"gamename", maximum 2.
+                Another starting game prompt to the 2 waiting players if two player are waiting for the same game.
+            ppl chose spectate got tag of swPool_spec, unlimited.
+                Spectator can see messages but has no swPool_poolplay tag. Cannot interact with game formally.
+            When choose to begin with 1 player, if there is more player in the server, ask again, if not begin directly.
+
+        Check if player drops after every turn (progression). 
+            If multiplayer game is going on and only one player with tag swPool_poolplay, prompt to wait for that player or cancel/start new game.
+                Future: HARD: migrate the player profile to another player?
+
+        Detail
+            a.  All swPool_poolplay players get swPool_spec and are removed swPool_mute. 
+            b.  swPool_spec players don't get swPool_poolplay.
