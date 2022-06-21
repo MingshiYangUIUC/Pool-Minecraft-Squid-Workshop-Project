@@ -5,7 +5,7 @@ tellraw @s[tag=swPool_CN] [{"text":"请稍候..."}]
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable","swPool_snookermode"]}
+summon armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"]}
 scoreboard players operation @e[type=armor_stand,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
 scoreboard players operation @e[type=armor_stand,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
 
@@ -131,11 +131,15 @@ execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run dat
 
 
 #end_output
-tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
-tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+#tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
+#tellraw @s[tag=swPool_EN] [{"underlined":true,"text":"<MP Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<MP UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
 
-tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
-tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<多人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<多人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+#tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
+#tellraw @s[tag=swPool_CN] [{"underlined":true,"text":"<多人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<多人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+
+tellraw @s[tag=swPool_EN] [{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/call"}}]
+tellraw @s[tag=swPool_CN] [{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/call"}}]
+
 
 tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
 

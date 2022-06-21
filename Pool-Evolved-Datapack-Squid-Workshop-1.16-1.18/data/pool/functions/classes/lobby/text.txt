@@ -1,0 +1,12 @@
+call: set up invitation link to join game, spectate, and begin/cancel.
+
+all players get swPool_poolplay and swPool_spec, spectator only gets swPool_spec
+
+game begin when you join and hit begin.
+can't join if already two players chose the same room.
+if another player register for your same game, you two can go.
+    Now: remove everyone in the waiting room when one game starts, keep the 1/2 players and all spectators.
+
+consider placing players in teams if display the score in sidebar.
+
+swPool_mute does not see the tellraw in this section.

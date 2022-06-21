@@ -39,8 +39,8 @@ execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_placed] run summon ar
 
 execute unless entity @e[tag=swPool_free] run scoreboard players set @s swPool_firsthit 1
 scoreboard players set @s swPool_var05 0
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":"may place the cueball and target Red."}]
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"请"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":"放置母球，目标球为红球。"}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":" may place the cueball and target Red."}]
+execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"请"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":"放置母球，目标球为红球。"}]
 
 scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
@@ -64,5 +64,5 @@ execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 
 
 function pool:classes/master/record
 
-tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
-tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

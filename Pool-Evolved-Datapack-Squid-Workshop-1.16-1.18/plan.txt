@@ -9,3 +9,6 @@ Plan of this pack
     i.  Straight pool, a game with easy rule and does not need numbered balls
     ii. (NOT SURE) an feature of 'Redo'ing what is undone
     iii.
+
+
+a.  Invitation and waiting room

@@ -1,3 +1,6 @@
+tag @a[distance=0.001..] remove swPool_wait
+tag @a[distance=0.001..] remove swPool_wait_snooker
+
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
@@ -14,12 +17,11 @@ tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
 clear @a carrot_on_a_stick{CustomModelData:99}
-execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
+
 scoreboard players set @a swPool_Score 0
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[sort=nearest,limit=1] add swPool_near
-tag @a[tag=swPool_near,limit=1,sort=nearest] add swPool_freeball
-give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+#execute as @e[tag=swPool_pooltable] at @s run tag @a[sort=nearest,limit=1] add swPool_near
+
 
 tag @e[tag=swPool_pooltable] add swPool_start
 tag @e[tag=swPool_pooltable] remove swPool_fouled
@@ -39,8 +41,11 @@ tag @a remove swPool_blkrec
 tag @e[tag=swPool_pooltable] remove swPool_awdrec
 tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
-tag @a[limit=1,tag=swPool_near] add swPool_poolplay
-tag @a[tag=swPool_near] remove swPool_near
+tag @a[tag=swPool_wait_snooker,limit=1] add swPool_poolplay
+
+tag @a[tag=swPool_poolplay,limit=1] add swPool_freeball
+
+give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
 scoreboard players set Opponent swPool_Score 0
 scoreboard objectives setdisplay sidebar
 
@@ -54,3 +59,10 @@ execute if data storage minecraft:swpool {displayscore:'sidebar'} run tag @e[tag
 
 execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.01..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.01..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+
+execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
+
+tag @a remove swPool_wait
+tag @a remove swPool_wait_snooker
+
+tag @a[tag=swPool_poolplay] add swPool_spec

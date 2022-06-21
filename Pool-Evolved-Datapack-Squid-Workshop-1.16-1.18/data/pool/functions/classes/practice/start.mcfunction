@@ -1,3 +1,5 @@
+function pool:classes/lobby/terminate_game
+
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
 
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"Please place a table first.","color":"red"}]
@@ -59,5 +61,5 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_poolplay
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/cue/reset
-tellraw @a[tag=swPool_poolplay,tag=swPool_EN] [{"text":"Practice mode is on! No rules, just have fun."}]
-tellraw @a[tag=swPool_poolplay,tag=swPool_CN] [{"text":"练习模式开启。没有规则，请随意摆球击打。"}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"Practice mode is on! No rules, just have fun."}]
+tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"练习模式开启。没有规则，请随意摆球击打。"}]
