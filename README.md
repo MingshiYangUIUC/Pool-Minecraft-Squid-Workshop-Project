@@ -65,7 +65,7 @@ Install the datapack following instructions of the [Installation](#Installation)
 
 When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
 
-Click to open the <<ins>Command Window</ins>>, explore the [settings](##Settings) and change them the way you want.
+Click to open the <<ins>Command Window</ins>>, explore the [settings](##Settings) and change them if you want.
 
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
@@ -82,7 +82,8 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
 
 # Project Tree
-## Settings (to be updated)
+## Settings
+### (to be updated)
 	data/app/functions/settings                Comment
 	+---cheating                               Self explanatory
 	|       allow.mcfunction                   
