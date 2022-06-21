@@ -65,7 +65,7 @@ Install the datapack following instructions of the [Installation](#Installation)
 
 When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
 
-Click to open the <<ins>Command Window</ins>>, explore the [settings](##settings) and change them if you want.
+Click to open the <<ins>Command Window</ins>>, explore the [settings](#settings) and change them if you want.
 
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
