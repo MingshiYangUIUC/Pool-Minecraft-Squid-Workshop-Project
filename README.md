@@ -60,7 +60,14 @@ Beside the friction coefficients, other settings such as redoing the stroke and 
 	/function app:settings/
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
-# How it Works
+## Basic Instructions
+Install the datapack following instructions of the [Installation](#Installation) section.
+
+When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
+
+Click to open the <<ins>Command Window</ins>>, explore the [settings](##Settings) and change them the way you want.
+
+# How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
 The [detailed physics](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6wYUuCXp9/view?usp=sharing) I have derived and used is summarized. _(Ongoing timely update, and note that part 5 is recent and not yet implemented to the game)._ Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently.
@@ -75,7 +82,7 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
 
 # Project Tree
-## Settings
+## Settings (to be updated)
 	data/app/functions/settings                Comment
 	+---cheating                               Self explanatory
 	|       allow.mcfunction                   
@@ -94,8 +101,8 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 	|       english.mcfunction                         
 	|       
 	+---reload                                 Upon Reload...
-	|       cleanongoingsession.mcfunction             Clear the current game session
-	|       keepongoingsession.mcfunction              Not clear the current game session
+	|       cleanongoingsession.mcfunction             Clear the current game session when you reload the pack
+	|       keepongoingsession.mcfunction              Not clear the current game session when you reload the pack
 	|       
 	\---version                                The game version of the map
 		1_16.mcfunction                            1.16.x
