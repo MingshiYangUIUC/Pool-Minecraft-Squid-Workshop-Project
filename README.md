@@ -67,6 +67,14 @@ When prompted, set language, game version, friction parameters, and how the play
 
 Click to open the <<ins>Command Window</ins>>, explore the [settings](#settings) and change them if you want.
 
+Click to set a new table if you haven't done so. Choose two side lengths of the table and place it following text prompts.
+
+Open the game lobby in command window, if you want to participate in multiplayer game, you can click to join the lobby beginning with MP. After you joined, other players will receive your invitation and are able to join you.
+
+You will be notified when another player joins your lobby. Click on BEGIN! to play with that player. 
+
+You can terminate the game at any time using the command window.
+
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
