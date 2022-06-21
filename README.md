@@ -73,6 +73,10 @@ Open the game lobby in command window, if you want to participate in multiplayer
 
 You will be notified when another player joins your lobby. Click on BEGIN! to play with that player. 
 
+You can also play singleplayer mode, in Snooker you just aim to score more than you foul. In UK 8 Ball you just pretend to be two players, so there is no win or loss.
+
+After snooker game finishes, players will receive a rating based on average point they get per turn.
+
 You can terminate the game at any time using the command window.
 
 # How It Works
@@ -87,7 +91,7 @@ The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rule
 I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
 
 # Notes
-1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool experience. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
+1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
 
 # Project Tree
 ## Settings
