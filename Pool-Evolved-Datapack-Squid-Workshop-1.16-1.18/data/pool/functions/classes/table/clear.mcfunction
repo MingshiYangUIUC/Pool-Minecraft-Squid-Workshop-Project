@@ -21,3 +21,5 @@ scoreboard objectives setdisplay sidebar
 
 scoreboard players reset TABLE swPool_dl
 scoreboard players reset TABLE swPool_ds
+
+function pool:classes/lobby/terminate_game

@@ -63,6 +63,7 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poo
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
 
 tag @a remove swPool_wait
+tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
 
 tag @a[tag=swPool_poolplay] add swPool_spec

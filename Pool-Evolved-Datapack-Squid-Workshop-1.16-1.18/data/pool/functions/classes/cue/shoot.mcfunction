@@ -8,7 +8,7 @@ execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player =
 
 
 data modify entity @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] Rotation[0] set from entity @s Rotation[0]
-execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.15 ~
+execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.06 ~
 
 
 scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1] swPool_player = @s swPool_player
@@ -52,7 +52,7 @@ execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1..
 scoreboard players reset @s swPool_shoot
 tag @s add swPool_hitcue
 tag @s remove swPool_shooting
-tag @e[tag=swPool_pooltable] remove swPool_resetcue
+#tag @e[tag=swPool_pooltable] remove swPool_resetcue
 
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]

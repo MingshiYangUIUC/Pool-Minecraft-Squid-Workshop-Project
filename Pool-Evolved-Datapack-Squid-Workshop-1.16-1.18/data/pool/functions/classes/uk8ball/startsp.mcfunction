@@ -1,3 +1,6 @@
+tag @a[distance=0.001..] remove swPool_wait
+tag @a[distance=0.001..] remove swPool_wait_uk8ball
+
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
@@ -14,8 +17,9 @@ tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[sort=nearest,limit=1] add swPool_near
-tag @a[tag=swPool_near,limit=1,sort=random] add swPool_freeball
+execute as @e[tag=swPool_pooltable] at @s run tag @a[tag=swPool_wait_uk8ball,limit=1] add swPool_poolplay
+tag @a[tag=swPool_poolplay,limit=1] add swPool_freeball
+
 give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
 tag @a[tag=swPool_near] remove swPool_near
 tag @e[tag=swPool_pooltable] add swPool_start
@@ -38,7 +42,7 @@ tag @e[tag=swPool_pooltable] remove swPool_awdrec
 tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[sort=nearest,limit=1] add swPool_poolplay
+
 
 scoreboard players set V_addon swPool_v 40000000
 scoreboard players set Stroke swPool_hidScore 0

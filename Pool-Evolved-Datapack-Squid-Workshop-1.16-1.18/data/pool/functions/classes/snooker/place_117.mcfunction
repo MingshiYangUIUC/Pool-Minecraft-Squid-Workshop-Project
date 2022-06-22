@@ -64,5 +64,5 @@ execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 
 
 function pool:classes/master/record
 
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
-tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute unless entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute unless entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

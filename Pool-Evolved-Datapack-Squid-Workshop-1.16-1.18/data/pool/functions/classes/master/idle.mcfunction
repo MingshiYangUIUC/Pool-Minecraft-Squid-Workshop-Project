@@ -1,4 +1,4 @@
-execute unless entity @s[tag=swPool_resetcue] run function pool:classes/cue/reset
+#execute unless entity @s[tag=swPool_resetcue] run function pool:classes/cue/reset
 
 execute if entity @s[tag=swPool_snookermode] run scoreboard players set @s[scores={swPool_foul=..3}] swPool_foul 4
 

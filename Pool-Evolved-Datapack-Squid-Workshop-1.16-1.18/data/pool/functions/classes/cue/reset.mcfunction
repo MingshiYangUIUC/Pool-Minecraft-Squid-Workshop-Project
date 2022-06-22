@@ -11,4 +11,4 @@ scoreboard players set Cue_sa1 swPool_v 0
 scoreboard players set Cue_ca1 swPool_v 10000
 scoreboard players set Cue_dwx swPool_v 0
 scoreboard players set Cue_dwz swPool_v 0
-tag @s add swPool_resetcue
+#tag @s add swPool_resetcue

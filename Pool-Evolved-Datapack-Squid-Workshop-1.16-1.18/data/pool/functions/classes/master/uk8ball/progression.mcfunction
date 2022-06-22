@@ -4,24 +4,32 @@ tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
+#rerack request
+execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec] [{"text":"Pocketed black. Rerack!"}]
+execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] add swPool_spectemp
+execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] remove swPool_spec
+execute if entity @s[tag=swPool_rerack] run function pool:classes/master/undo_run
+
 tag @s remove swPool_foul
 tag @s[tag=swPool_endaward] remove swPool_awarded
 tag @s[tag=swPool_endaward] remove swPool_endaward
 # tag @a remove swPool_streak BELOW!!!
 
-#foul if not hitball&hitrail (exclude breakshot, and not foul if both hitball and hitrail) (this foul overwrite any awards)
+#foul if not hitball&hitrail and not pocket (exclude breakshot, and not foul if both hitball and hitrail) (this foul overwrite any awards)
 #    hitrail needs not to happen after hitball
-execute unless score Stroke swPool_hidScore matches 0 run tag @a[tag=swPool_hitcue] add swPool_foul_large
-execute unless score Stroke swPool_hidScore matches 0 if entity @s[tag=swPool_hitrail] if entity @s[scores={swPool_firsthit=1..7}] run tag @a[tag=swPool_hitcue,tag=swPool_foul_large] remove swPool_foul_large
+execute unless score Stroke swPool_hidScore matches 0 if score Pocketed_Turn swPool_hidScore matches 0 run tag @a[tag=swPool_hitcue] add swPool_foul_large
+execute unless score Stroke swPool_hidScore matches 0 if entity @s[tag=swPool_hitrail] if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] run tag @a[tag=swPool_hitcue,tag=swPool_foul_large] remove swPool_foul_large
 execute if entity @a[tag=swPool_foul_large] run tag @s remove swPool_awarded
 execute if entity @a[tag=swPool_foul_large] run tag @s add swPool_endaward
 #execute if entity @a[tag=swPool_foul_large] run say foul_large
+#execute if entity @s[tag=swPool_hitrail] run say hitrail
 tag @a[tag=swPool_foul_large] add swPool_foul
 
 #other general fouls: not hitting aimed ball, not pocket or hit rail. 
 # this one does not foul if in 1st awarded turn (not streak).
-execute unless entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_foul
+execute unless entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue,limit=1] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_foul
 execute if entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue,tag=swPool_streak] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_foul
+#execute if entity @a[tag=swPool_foul] run say foul_aim
 tag @a remove swPool_streak
 
 # if awarded but foul, clear streak
@@ -43,7 +51,7 @@ execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=s
 execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_freeball] run function app:get/pool/cueball
 
 #remove foul if foulpass
-execute if entity @s[tag=swPool_foulpass] run tag @a[tag=swPool_foul] remove swPool_foul
+execute if entity @s[tag=swPool_foulpass] unless entity @a[tag=swPool_freeball] run tag @a[tag=swPool_foul] remove swPool_foul
 
 #pocketed black ball, unless rerack...
 tag @s[tag=!swPool_rerack,tag=swPool_pktblk] add swPool_endgame 
@@ -150,9 +158,10 @@ execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidSc
 #execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_aimblk] run say aim black
 #execute if entity @s[tag=!swPool_endgame] if score Pocketed_Total swPool_hidScore matches 0 run say aim any except black
 
-#rerack request
-execute if entity @s[tag=swPool_rerack] run function pool:classes/master/undo_run
 
+
+execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spectemp] add swPool_spec
+execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spectemp] remove swPool_spectemp
 
 
 #end of progression

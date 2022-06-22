@@ -40,8 +40,8 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 tag @a[tag=swPool_wait_snooker,limit=1,sort=random] add swPool_poolplay
 
-execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"Not enough players, switched to singleplayer.","color":"red"}]
-execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"没有足够的玩家，切换至单人模式。","color":"red"}]
+#execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"Not enough players, switched to singleplayer.","color":"red"}]
+#execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"没有足够的玩家，切换至单人模式。","color":"red"}]
 execute unless entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run scoreboard players set Opponent swPool_Score 0
 execute if entity @a[tag=swPool_wait_snooker,tag=!swPool_poolplay] run tag @a[tag=swPool_wait_snooker,limit=1,sort=random,tag=!swPool_poolplay] add swPool_poolplay
 scoreboard objectives setdisplay sidebar
@@ -62,7 +62,12 @@ give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:
 
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
 
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[MP Snooker]: Game initialization failed! Please join again from lobby.","color":"red"}]
+
 tag @a remove swPool_wait
+tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
 
 tag @a[tag=swPool_poolplay] add swPool_spec
+
+
