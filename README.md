@@ -24,21 +24,20 @@ Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 Compatible with Minecraft Java Edition 1.16+.
 
 ## Product spec
-
-6800 entity selectors\
-5100 tag usage\
-4200 lines of code\
-2300 scoreboard operations\
-1600 executes\
-400 entity data operations\
-250 tellraw messages\
-230 unique functions\
-150 teleport commands\
-80 hours spent developing\
-70 possible table shapes\
-63 scoreboard objectives\
-40 max armor stands in a game\
-27 equations derived
+- 6800 entity selectors\
+- 5100 tag usage\
+- 4200 lines of code\
+- 2300 scoreboard operations\
+- 1600 executes\
+- 400 entity data operations\
+- 250 tellraw messages\
+- 230 unique functions\
+- 150 teleport commands\
+- 80 hours spent developing\
+- 70 possible table shapes\
+- 63 scoreboard objectives\
+- 40 max armor stands in a game\
+- 27 equations derived
 
 	
 # Installation
