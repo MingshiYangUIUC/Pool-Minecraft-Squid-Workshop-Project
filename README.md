@@ -28,7 +28,7 @@ Compatible with Minecraft Java Edition 1.16+.
 - 5100 tag usage
 - 4200 lines of code
 - 2300 scoreboard operations
-- 1600 executes
+- 1600 execute operations
 - 400 entity data operations
 - 250 tellraw messages
 - 230 unique functions
