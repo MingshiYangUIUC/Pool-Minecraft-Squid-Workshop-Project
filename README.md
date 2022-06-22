@@ -36,7 +36,7 @@ Compatible with Minecraft Java Edition 1.16+.
 - 80 hours spent developing
 - 70 possible table shapes
 - 63 scoreboard objectives
-- 40 max armor stands in a game
+- 41 max armor stands in a game
 - 27 equations derived
 
 	
