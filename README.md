@@ -36,6 +36,7 @@ Compatible with Minecraft Java Edition 1.16+.
 - 80 hours spent developing
 - 70 possible table shapes
 - 63 scoreboard objectives
+- 31 cubes in a ball model
 - 27 equations derived
 - 5 degrees of freedom
 
