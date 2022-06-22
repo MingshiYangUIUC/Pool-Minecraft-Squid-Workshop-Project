@@ -38,6 +38,7 @@ Compatible with Minecraft Java Edition 1.16+.
 - 63 scoreboard objectives
 - 41 max armor stands in a game
 - 27 equations derived
+- 5 degrees of freedom
 
 	
 # Installation
