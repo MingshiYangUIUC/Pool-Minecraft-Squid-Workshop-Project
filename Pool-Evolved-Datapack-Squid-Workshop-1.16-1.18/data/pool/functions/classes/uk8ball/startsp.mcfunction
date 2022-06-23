@@ -58,3 +58,10 @@ tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,t
 
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+
+
+tag @a remove swPool_wait
+tag @a remove swPool_wait_uk8ball
+tag @a remove swPool_wait_snooker
+
+tag @a[tag=swPool_poolplay] add swPool_spec
