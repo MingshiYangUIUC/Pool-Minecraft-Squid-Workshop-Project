@@ -141,7 +141,7 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 Other directories are omitted.
 	
 # Terms of Use
-This section shall be honored when in conflict with the license or other documents. \
+This section shall be honored when in conflict with other documents, including the license. \
 Feel free to play around with this datapack. \
 As developer, feel free to use this datapack as a module to develop free datapacks. \
 But you **must** add the link to this github page! \
