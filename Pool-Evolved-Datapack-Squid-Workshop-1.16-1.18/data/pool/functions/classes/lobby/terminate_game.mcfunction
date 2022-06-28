@@ -33,7 +33,10 @@ tag @a remove swPool_blkrec
 tag @e[tag=swPool_pooltable] remove swPool_awdrec
 tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
-
+scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
+scoreboard players reset @a swPool_Score
+scoreboard players reset Opponent swPool_Score
+scoreboard players reset Stroke swPool_hidScore
 
 #tag @a remove swPool_wait
 #tag @a remove swPool_wait_snooker

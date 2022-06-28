@@ -27,17 +27,17 @@ execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_poolplay] run func
 
 
 scoreboard objectives setdisplay sidebar
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"underlined":true,"text":"<Restart Multiplayer>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Restart Singleplayer>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"underlined":true,"text":"<Kill current game>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/terminate_helper"}},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
-tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"underlined":true,"text":"<重新开始多人游戏>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<重新开始单人游戏>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"underlined":true,"text":"<结束当前游戏>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/terminate_helper"}},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
 kill @e[tag=swPool_pin]
-scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
-tag @a[tag=swPool_poolplay] remove swPool_poolplay
+#scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
+#tag @a[tag=swPool_poolplay] remove swPool_poolplay
 tag @a[tag=swPool_spec] add swPool_spectemp 
 tag @a[tag=swPool_spec] remove swPool_spec
 
-scoreboard players reset @a swPool_Score
-scoreboard players reset Opponent swPool_Score
-scoreboard players reset Stroke swPool_hidScore
+#scoreboard players reset @a swPool_Score
+#scoreboard players reset Opponent swPool_Score
+#scoreboard players reset Stroke swPool_hidScore
 

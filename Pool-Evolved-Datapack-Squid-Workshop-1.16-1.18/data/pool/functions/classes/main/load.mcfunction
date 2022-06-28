@@ -55,7 +55,6 @@ scoreboard objectives add swPool_shoot dummy
 scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
 scoreboard objectives add swPool_hidScore dummy
-scoreboard objectives modify swPool_Score displayname "Score"
 
 
 scoreboard objectives add swPool_vex dummy
@@ -87,6 +86,17 @@ scoreboard objectives add swPool_Vmag dummy
 scoreboard objectives add swPool_T dummy
 scoreboard objectives add swPool_T_roll dummy
 scoreboard objectives add swPool_T_end dummy
+
+# rename some scores
+scoreboard objectives modify swPool_Score displayname "Score"
+
+scoreboard objectives modify swPool_var00 displayname "*"
+scoreboard objectives modify swPool_var01 displayname "*"
+scoreboard objectives modify swPool_var02 displayname "*"
+scoreboard objectives modify swPool_var03 displayname "*"
+scoreboard objectives modify swPool_var04 displayname "*"
+scoreboard objectives modify swPool_var05 displayname "*"
+scoreboard objectives modify swPool_v displayname "*"
 
 #define constants
 #decimal places and math constants
