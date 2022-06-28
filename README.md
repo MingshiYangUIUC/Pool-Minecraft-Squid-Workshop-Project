@@ -67,7 +67,7 @@ You will be displayed a piece of <<ins>Clickable text</ins>> to open the "comman
 If the pack is _(re)installed_, please follow the instruction, choose the language, game version, and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (you may try it for fun)!
 
 	/function app:settings/pool/friction/
-Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard to overflow during calculations.
+Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard calculations to overflow and the game may behave unexpectedly.
 
 Beside the friction coefficients, other settings such as redoing the stroke and reloading can be modified. Please consult the settings explained below.
 
