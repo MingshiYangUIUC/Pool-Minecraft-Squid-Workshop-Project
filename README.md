@@ -133,9 +133,10 @@ I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-
 	|       cleanongoingsession.mcfunction             Clear the current game session when you reload the pack
 	|       keepongoingsession.mcfunction              Not clear the current game session when you reload the pack
 	|       
-	\---version                                The game version of the map
+	\---version                                The game version of the world
 		1_16.mcfunction                            1.16.x
-		1_17.mcfunction                            1.17.x and above (tentative)
+		1_17.mcfunction                            1.17.x
+		1_18.mcfunction                            1.18.x and above (tentative)
 		reset.mcfunction                           
 
 Other directories are omitted.
@@ -146,7 +147,7 @@ Feel free to play around with this datapack. \
 As developer, feel free to use this datapack as a module to develop free datapacks. \
 But you **must** add the link to this github page! \
 **NO COMMERCIAL USE** \
-**POTENTIALLY (AT MY DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS PROHIBITED AND MAY BE PROSECUTED** 
+**POTENTIALLY (AT SQUID MINECRAFT WORKSHOP'S DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS PROHIBITED.** 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
