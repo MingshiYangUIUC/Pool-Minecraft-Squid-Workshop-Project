@@ -58,6 +58,10 @@ PS: If not working, check whether the datapack is enabled by:
 Enable it by:
 
 	/datapack enable "datapackname"
+## Compatibility Notice
+The datapack and resourcepack will work for various game versions, although the game may notify you the packs are incompatible when you install them. Nonetheless, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+
+**Please let me know if the packs are actually incompatible with any versions higher than 1.16.1.**
   
 # Usage
 ## Interactions
