@@ -60,6 +60,7 @@ Enable it by:
 	/datapack enable "datapackname"
   
 # Usage
+## Interactions
 Most interactions do not require typing. You just need to click on texts in <<ins>this format</ins>> or choose functions suggested by the game in command line. 
 
 You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore. You can get the command window by running this command at any time:
@@ -76,12 +77,24 @@ Beside the friction coefficients, other settings such as redoing the stroke and 
 	/function app:settings/
 Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
 
+## Hitting the ball
+When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
+
+When you are holding the cue stick, press shift to face the cue ball.
+
+You can choose whether you will be applied slowness effect when pressing shift. This may help you aim, but is not recommended without smooth connection. You can set by completing the following command.
+
+	/function app:settings/pool/aim/
+Before each strike you can click <<ins>Adjust the next strike angles<ins>> to change the strike positions and angles. Or using the following command.
+
+	/function pool:classes/cue/map
+
 ## Basic Instructions
 Install the datapack following instructions of the [Installation](#Installation) section.
 
 When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
 
-Click to open the command window, explore the [settings](#settings) and change them if you want.
+Click to open the command window, get the cue stick, explore the [settings](#settings) and change them if you want.
 
 Click to set a new table if you haven't done so. Choose two side lengths of the table and place it following text prompts.
 
@@ -100,16 +113,11 @@ _Under Development:_ Each window will eventually be attached a clickable instruc
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
-The [detailed physics](https://drive.google.com/file/d/18CSY8MuYcNKqhW4IkWf4lJV6wYUuCXp9/view?usp=sharing) I have derived and used is summarized. Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently.
-
-I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
-
-The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
-
-I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
-
 # Notes
 1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
+2. Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
+3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
+4. I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
 
 # Project Tree
 ## Settings
