@@ -60,9 +60,11 @@ Enable it by:
 	/datapack enable "datapackname"
   
 # Usage
-Most interactions do not require heavy typing. You just need to click on texts in <<ins>this format</ins>> or choose functions suggested by the game in command line. 
+Most interactions do not require typing. You just need to click on texts in <<ins>this format</ins>> or choose functions suggested by the game in command line. 
 
-You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore, or wait for the writeup.
+You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore. You can get the command window by running this command at any time:
+
+	/function app:help/pool/commandwindow
 
 If the pack is _(re)installed_, please follow the instruction, choose the language, game version, and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (you may try it for fun)!
 
