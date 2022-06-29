@@ -49,6 +49,7 @@ execute as @s[tag=swPool_cush] store result score @s swPool_posz run data get en
 
 scoreboard players operation @s[tag=swPool_cush] swPool_posx -= TABLE swPool_posx
 scoreboard players operation @s[tag=swPool_cush] swPool_posz -= TABLE swPool_posz
+# inside 4900, use fake side edge
 tag @s[tag=swPool_x3,scores={swPool_posx=-4900..4900}] add swPool_pktm
 tag @s[tag=swPool_z3,scores={swPool_posz=-4900..4900}] add swPool_pktm
 
@@ -61,7 +62,7 @@ scoreboard players operation @s[tag=swPool_cush,scores={swPool_var01=..-1}] swPo
 scoreboard players operation @s[tag=swPool_cush] swPool_var00 -= TABLE swPool_sizex
 scoreboard players operation @s[tag=swPool_cush] swPool_var01 -= TABLE swPool_sizez
 
-#3150=4400-1250
+#3150=4400-1250, use fake corner edge
 tag @s[tag=swPool_cush,scores={swPool_var00=-3150..3150}] add swPool_pktx
 tag @s[tag=swPool_cush,scores={swPool_var01=-3150..3150}] add swPool_pktz
 

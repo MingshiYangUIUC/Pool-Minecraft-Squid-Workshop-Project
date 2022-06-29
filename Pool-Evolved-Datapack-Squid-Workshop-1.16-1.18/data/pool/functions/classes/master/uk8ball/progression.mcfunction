@@ -163,11 +163,11 @@ execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidSc
 
 #CHINESE
 #SP
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"目标球为红球和黄球。"}]
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]
 #MP include whether endaward
 #say mpnotarget
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"目标球为红球和黄球。"}]
-execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"请击球。"},{"text":"目标球为红球和黄球。"}]
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]
+execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]
 
 #single player non-switch output
 execute unless score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] if entity @a[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_aimred] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"目标球为"},{"text":"红","color":"red"},{"text":"球。"}]
