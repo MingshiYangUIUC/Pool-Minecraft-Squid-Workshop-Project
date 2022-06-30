@@ -1,7 +1,7 @@
 # _Squid Workshop's_ Pool Datapack
 [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
-![_MingshiYangUIUC_](Gallery/Images/many_balls_on_the_table.png)
+![_MingshiYangUIUC_](Gallery/Images/many_balls_on_the_table.png|width=100)
 
 Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
 
