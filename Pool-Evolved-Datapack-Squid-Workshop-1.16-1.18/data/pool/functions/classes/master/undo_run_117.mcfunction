@@ -81,9 +81,9 @@ scoreboard players set @a[tag=swPool_poolplay] swPool_foul 0
 scoreboard players reset @a[tag=swPool_hitcue] swPool_firsthit
 tag @a[tag=swPool_hitcue] remove swPool_hitcue
 
-execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"Done. Backed to the previous turn. The last player, please try again."}]
+execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Done. Backed to the previous turn. The last player, please try again."}]
 
-execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"完成回到上一回合。上回合击球方请重新击球。"}]
+execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"完成回到上一回合。上回合击球方请重新击球。"}]
 
 function pool:classes/master/record
 
@@ -92,3 +92,7 @@ tag @a[tag=swPool_placingcue] add swPool_freeball
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
 
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_freeball
+
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_endgame

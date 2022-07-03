@@ -1,5 +1,5 @@
-tellraw @s[tag=swPool_EN] [{"text":"Strike angle adjuster. Do NOT adjust if it is not your turn. Do not force Unicode."}]
-tellraw @s[tag=swPool_CN] [{"text":"击球调整界面：请在自己的回合击球前调整，不要打开强制使用Unicode设置。"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Strike angle adjuster. Do NOT adjust if it is not your turn. Do not force Unicode."}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"击球调整界面：请在自己的回合击球前调整，不要打开强制使用Unicode设置。"}]
 
 tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":" "}]
 tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/cue/points_v2/p-4000_8000"}},{"text":"<>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/cue/points_v2/p-2000_8000"}},{"text":"<>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/cue/points_v2/p0_8000"}},{"text":"<>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/cue/points_v2/p2000_8000"}},{"text":"<>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/cue/points_v2/p4000_8000"}},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":" "},{"text":"⊡ 80°","color":"white","clickEvent":{"action":"run_command","value":"/scoreboard players set pitch swPool_var00 800000"}},{"text":"  ⊡ 85°","color":"white","clickEvent":{"action":"run_command","value":"/scoreboard players set pitch swPool_var00 850000"}}]
@@ -14,8 +14,8 @@ tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":
 tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"}]
 #tellraw @s [{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"<>","color":"black"},{"text":"Cue stick position","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"      Ball hit point  "},{"text":"   Stick lift angle"}]
-tellraw @s[tag=swPool_EN] [{"text":"<Drag the adjuster down>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"      Ball hit point  "},{"text":"   Stick lift angle"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Drag the adjuster down>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
-tellraw @s[tag=swPool_CN] [{"text":"          击球点  "},{"text":"          球杆抬起角度"}]
-tellraw @s[tag=swPool_CN] [{"text":"<下拉此调整界面>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"          击球点  "},{"text":"          球杆抬起角度"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<下拉此调整界面>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

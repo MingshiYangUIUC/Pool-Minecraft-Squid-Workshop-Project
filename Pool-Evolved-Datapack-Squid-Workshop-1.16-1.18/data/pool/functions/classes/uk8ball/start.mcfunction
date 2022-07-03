@@ -64,5 +64,5 @@ tag @a remove swPool_wait_snooker
 tag @a[tag=swPool_poolplay] add swPool_spec
 
 
-tellraw @a[tag=swPool_spec] [{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and target any except black."}]
-#tellraw @a[tag=swPool_spec] [{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_spec] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and target any except black."}]
+#tellraw @a[tag=swPool_spec] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

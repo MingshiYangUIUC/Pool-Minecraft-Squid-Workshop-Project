@@ -4,8 +4,8 @@ tag @a[distance=0.001..] remove swPool_wait_snooker
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"Please place a table first.","color":"red"}]
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"请先放置球桌。","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]

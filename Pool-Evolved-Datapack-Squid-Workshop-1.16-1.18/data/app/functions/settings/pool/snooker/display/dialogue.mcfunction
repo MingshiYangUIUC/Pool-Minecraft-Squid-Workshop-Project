@@ -6,5 +6,5 @@ tag @e[tag=swPool_pooltable] add swPool_dialogue
 
 scoreboard objectives setdisplay sidebar
 
-tellraw @s[tag=swPool_EN] [{"text":"Score will be displayed in the dialogue area.","color":"gray"}]
-tellraw @s[tag=swPool_CN] [{"text":"将在聊天栏显示分数。","color":"gray"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Score will be displayed in the dialogue area.","color":"gray"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"将在聊天栏显示分数。","color":"gray"}]
