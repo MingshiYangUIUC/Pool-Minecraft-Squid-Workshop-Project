@@ -20,6 +20,7 @@ scoreboard players operation FirstHit swPool_hidScore = @e[tag=swPool_pooltable,
 scoreboard players operation V_addon swPool_hidScore = V_addon swPool_v
 
 scoreboard players operation Pocketed_T_rec swPool_hidScore = Pocketed_Total swPool_hidScore
+scoreboard players operation Pocketed_Turn_rec swPool_hidScore = Pocketed_Turn swPool_hidScore
 
 tag @a remove swPool_redrec
 tag @a remove swPool_ylwrec

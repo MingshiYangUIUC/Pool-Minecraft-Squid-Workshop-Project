@@ -1,5 +1,9 @@
 # Output messages of two languages are packed together.
 
+# add Stroke here!
+scoreboard players add Stroke swPool_hidScore 1
+
+
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
 tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
@@ -233,7 +237,7 @@ tag @a[tag=swPool_poolplay] remove swPool_foul_large
 scoreboard players set @a[tag=swPool_poolplay] swPool_firsthit 0
 scoreboard players set Pocketed_Turn swPool_hidScore 0
 
-scoreboard players add Stroke swPool_hidScore 1
+
 
 
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"</back>","color":"","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]

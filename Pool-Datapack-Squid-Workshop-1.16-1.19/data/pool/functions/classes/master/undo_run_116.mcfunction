@@ -48,6 +48,7 @@ scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = 
 scoreboard players operation V_addon swPool_v = V_addon swPool_hidScore
 
 scoreboard players operation Pocketed_Total swPool_hidScore = Pocketed_T_rec swPool_hidScore
+scoreboard players operation Pocketed_Turn swPool_hidScore = Pocketed_Turn_rec swPool_hidScore
 
 tag @a remove swPool_ballinhand
 tag @a remove swPool_aimred
