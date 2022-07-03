@@ -74,9 +74,12 @@ When you are holding the cue stick, press shift to face the cue ball.
 You can choose whether you will be applied slowness effect when pressing shift. This may help you aim, but is not recommended without smooth connection. You can set by completing the following command.
 
 	/function app:settings/pool/aim/
-Before each strike you can click <<ins>Adjust the next strike angles<ins>> to change the strike positions and angles. Or using the following command.
+Before each strike you can click <<ins>Adjust the next strike angles</ins>> to change the strike positions and angles. Or using the following command.
 
 	/function pool:classes/cue/map
+
+## Ball in hand
+When the cue ball leaves table, the player having it in hand needs to place it back on the table. Valid placements will be indicated by green particles when the player is standing on the table or on the ground near the table. 
 
 ## Basic Instructions
 Install the datapack following instructions of the [Installation](#Installation) section.
