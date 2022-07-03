@@ -19,26 +19,11 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 # Abstract
 This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world.
+Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is computationally heavy, it supports only one active table in a Minecraft world.
 
 Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
-## Product Spec
-- 6800 entity selectors
-- 5100 tag usage
-- 4300 lines of code
-- 2300 scoreboard operations
-- 1600 execute operations
-- 400 entity data operations
-- 390 tellraw messages
-- 230 unique functions
-- 150 teleport commands
-- 80 hours spent developing
-- 70 possible table shapes
-- 63 scoreboard objectives
-- 31 volumes in a ball model
-- 27 equations derived
-- 5 degrees of freedom
+
 
 	
 # Installation
@@ -79,7 +64,7 @@ Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6
 Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please consult the settings explained below.
 
 	/function app:settings/
-Note: This datapack incompatible with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing for better experience.
+Note: This datapack incompatible with [the prototype pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing for better experience.
 
 ## Hitting the ball
 When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
@@ -110,6 +95,8 @@ You can also play singleplayer mode, in singleplayer Snooker you just try to sco
 
 After a snooker game finishes, players will receive a rating based on average point they get per strike (per turn).
 
+You can initialize practice mode from command window or enter it in the middle of any other games. In practice mode you can place the balls anywhere and there will be no rules.
+
 You can terminate the game at any time using the command window.
 
 # How It Works
@@ -122,7 +109,6 @@ Conservation of momentum and angular momentum and energy, recently added interac
 
 # Project Tree
 ## Settings
-### (to be updated)
 	data/app/functions/settings                Comment
 	+---aim                               	   Choose whether the screen will be zoomed in while aiming.
 	|       nozoom.mcfunction                          Do not zoom in
@@ -160,7 +146,7 @@ Conservation of momentum and angular momentum and energy, recently added interac
 		reset.mcfunction                           Let you choose again
 
 Other directories are not shown.
-	
+
 # Terms of Use
 This section shall be honored when in conflict with other documents, including the license. \
 Feel free to play around with this datapack. \
