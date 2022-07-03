@@ -1,5 +1,5 @@
 # _Squid Workshop's_ Pool Datapack
-Content creator: Mingshi Yang. Contact: mingshi3@illinois.edu
+Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
 [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
@@ -29,13 +29,13 @@ Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 # Installation
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
-- Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder. Pack compatible with 1.17.
+- Step 03 Move your "Pool-Resourcepack-Squid-Workshop-1.16.5" folder(not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
-- Step 05 Move your "Pool-Evolved-Datapack-Squid-Workshop-1.16-1.17" folder(not the root folder) into .../saves/world/datapacks folder.
+- Step 05 Move your "Pool-Datapack-Squid-Workshop-1.16-1.19" folder(not the root folder) into .../saves/world/datapacks folder.
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right. Do this everytime you change the game version.
 - Step 08 Type "/reload" command then press enter.
-- Step 09 Enjoy
+- Step 09 Enjoy 
 
 PS: If not working, check whether the datapack is enabled by:
 
@@ -64,7 +64,7 @@ Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6
 Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please consult the settings explained below.
 
 	/function app:settings/
-Note: This datapack incompatible with [the prototype pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing for better experience.
+Note: Please turn off "Force Unicode" for better experience.
 
 ## Hitting the ball
 When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
@@ -74,9 +74,12 @@ When you are holding the cue stick, press shift to face the cue ball.
 You can choose whether you will be applied slowness effect when pressing shift. This may help you aim, but is not recommended without smooth connection. You can set by completing the following command.
 
 	/function app:settings/pool/aim/
-Before each strike you can click <<ins>Adjust the next strike angles<ins>> to change the strike positions and angles. Or using the following command.
+Before each strike you can click <<ins>Adjust the next strike angles</ins>> to change the strike positions and angles. Or using the following command.
 
 	/function pool:classes/cue/map
+
+## Ball in hand
+When the cue ball leaves table, the player having it in hand needs to place it back on the table. Valid placements will be indicated by green particles when the player is standing on the table or on the ground near the table. 
 
 ## Basic Instructions
 Install the datapack following instructions of the [Installation](#Installation) section.
