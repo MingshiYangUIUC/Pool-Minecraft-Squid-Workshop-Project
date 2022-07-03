@@ -213,8 +213,8 @@ execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidSc
 
 
 
-execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spectemp] add swPool_spec
-execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spectemp] remove swPool_spectemp
+tag @a[tag=swPool_spectemp] add swPool_spec
+tag @a[tag=swPool_spectemp] remove swPool_spectemp
 
 
 #end of progression
