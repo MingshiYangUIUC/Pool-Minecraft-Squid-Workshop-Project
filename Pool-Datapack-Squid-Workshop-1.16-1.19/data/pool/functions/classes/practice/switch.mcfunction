@@ -6,8 +6,8 @@ execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please p
 #kill @e[tag=swPool_pin]
 #kill @e[tag=swPool_temppin]
 #tag @a remove swPool_poolplay
-tag @a remove swPool_freeball
-tag @a remove swPool_freeball_obj
+tag @a remove swPool_ballinhand
+tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
@@ -26,16 +26,16 @@ tag @e[tag=swPool_pooltable] add swPool_practicemode
 
 
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_freeball
-execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_freeball_obj
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:101,display:{Name:"\"Red\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:102,display:{Name:"\"Yellow\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:103,display:{Name:"\"Green\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:104,display:{Name:"\"Brown\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:105,display:{Name:"\"Blue\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:106,display:{Name:"\"Pink\""}}
-execute as @a[tag=swPool_freeball] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:107,display:{Name:"\"Black\""}}
+execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand
+execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand_obj
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:101,display:{Name:"\"Red\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:102,display:{Name:"\"Yellow\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:103,display:{Name:"\"Green\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:104,display:{Name:"\"Brown\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:105,display:{Name:"\"Blue\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:106,display:{Name:"\"Pink\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:107,display:{Name:"\"Black\""}}
 
 tag @a[tag=swPool_near] remove swPool_near
 tag @e[tag=swPool_pooltable] add swPool_start

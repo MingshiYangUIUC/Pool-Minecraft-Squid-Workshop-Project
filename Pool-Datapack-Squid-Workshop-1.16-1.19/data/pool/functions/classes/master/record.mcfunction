@@ -1,4 +1,4 @@
-tag @s[tag=swPool_freeball] add swPool_placingcue
+tag @s[tag=swPool_ballinhand] add swPool_placingcue
 
 kill @e[tag=swPool_temppin]
 

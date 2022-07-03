@@ -1,9 +1,9 @@
 #swPool_foul of cue ball: foulcue:
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] run tag @s add swPool_foulcue
-execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_freeball
-execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_freeball
-give @a[tag=swPool_freeball,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
-tag @a[tag=swPool_freeball,tag=!swPool_given] add swPool_given
+execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_ballinhand
+execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_ballinhand
+give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+tag @a[tag=swPool_ballinhand,tag=!swPool_given] add swPool_given
 #detect foulcolor
 #swPool_count # of color and red pocketed as swPool_ncolor and swPool_nred score
 execute if entity @s[scores={swPool_ncolor=2..}] run tag @s add swPool_foulcolor

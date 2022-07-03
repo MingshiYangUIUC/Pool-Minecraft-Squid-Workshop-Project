@@ -49,7 +49,7 @@ scoreboard players operation V_addon swPool_v = V_addon swPool_hidScore
 
 scoreboard players operation Pocketed_Total swPool_hidScore = Pocketed_T_rec swPool_hidScore
 
-tag @a remove swPool_freeball
+tag @a remove swPool_ballinhand
 tag @a remove swPool_aimred
 tag @a remove swPool_aimylw
 tag @a remove swPool_aimblk
@@ -88,10 +88,10 @@ execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw 
 function pool:classes/master/record
 
 
-tag @a[tag=swPool_placingcue] add swPool_freeball
+tag @a[tag=swPool_placingcue] add swPool_ballinhand
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
 
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_freeball
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ballinhand
 
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack

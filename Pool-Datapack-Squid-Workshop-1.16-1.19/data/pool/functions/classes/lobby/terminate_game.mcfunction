@@ -5,8 +5,8 @@ tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
-tag @a remove swPool_freeball
-tag @a remove swPool_freeball_obj
+tag @a remove swPool_ballinhand
+tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 tag @a remove swPool_given
@@ -14,7 +14,7 @@ tag @a remove swPool_given
 clear @a carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
 
 tag @a remove swPool_poolplay
-tag @a remove swPool_freeball
+tag @a remove swPool_ballinhand
 tag @e[tag=swPool_pooltable] remove swPool_fouled
 tag @e[tag=swPool_pooltable] remove swPool_pocketing
 tag @e[tag=swPool_pooltable] remove swPool_foulcolor

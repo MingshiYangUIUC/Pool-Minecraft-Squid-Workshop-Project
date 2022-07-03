@@ -49,12 +49,12 @@ execute unless entity @s[tag=swPool_hitrail] unless score Pocketed_Turn swPool_h
 
 #freeball
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute if entity @s[tag=swPool_pktcue,tag=swPool_multiplayer] run tag @a[tag=!swPool_hitcue,tag=swPool_poolplay,limit=1] add swPool_freeball
-execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=swPool_hitcue,tag=swPool_poolplay] add swPool_freeball
-execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_freeball] run function app:get/pool/cueball
+execute if entity @s[tag=swPool_pktcue,tag=swPool_multiplayer] run tag @a[tag=!swPool_hitcue,tag=swPool_poolplay,limit=1] add swPool_ballinhand
+execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=swPool_hitcue,tag=swPool_poolplay] add swPool_ballinhand
+execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball
 
 #remove foul if foulpass
-execute if entity @s[tag=swPool_foulpass] unless entity @a[tag=swPool_freeball] run tag @a[tag=swPool_foul] remove swPool_foul
+execute if entity @s[tag=swPool_foulpass] unless entity @a[tag=swPool_ballinhand] run tag @a[tag=swPool_foul] remove swPool_foul
 
 #pocketed black ball, unless rerack...
 tag @s[tag=!swPool_rerack,tag=swPool_pktblk] add swPool_endgame 
@@ -112,9 +112,9 @@ execute if entity @s[tag=swPool_singleplayer,tag=swPool_switch,tag=!swPool_endga
 
 #foul and freeball
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul."}]
-execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Freeball."}]
+execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Ball in-hand."}]
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。"}]
-execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_freeball] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"自由球。"}]
+execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请放置母球。"}]
 
 #change to aimblack if no ball remains
 execute as @a[tag=swPool_aimred] unless entity @e[tag=swPool_red,tag=swPool_pool,limit=1] run tag @s add swPool_aimblk

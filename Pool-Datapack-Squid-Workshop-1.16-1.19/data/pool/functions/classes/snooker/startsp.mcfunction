@@ -11,8 +11,8 @@ kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 tag @a remove swPool_poolplay
-tag @a remove swPool_freeball
-tag @a remove swPool_freeball_obj
+tag @a remove swPool_ballinhand
+tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
@@ -43,9 +43,9 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 tag @a[tag=swPool_wait_snooker,limit=1] add swPool_poolplay
 
-tag @a[tag=swPool_poolplay,limit=1] add swPool_freeball
+tag @a[tag=swPool_poolplay,limit=1] add swPool_ballinhand
 
-give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+give @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
 scoreboard players set Opponent swPool_Score 0
 scoreboard objectives setdisplay sidebar
 

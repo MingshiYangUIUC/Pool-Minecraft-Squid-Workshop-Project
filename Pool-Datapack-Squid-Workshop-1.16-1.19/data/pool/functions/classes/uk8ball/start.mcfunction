@@ -7,16 +7,16 @@ kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 tag @a remove swPool_poolplay
-tag @a remove swPool_freeball
-tag @a remove swPool_freeball_obj
+tag @a remove swPool_ballinhand
+tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 
 
-tag @a[tag=swPool_wait_uk8ball,limit=1,sort=random] add swPool_freeball
-give @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+tag @a[tag=swPool_wait_uk8ball,limit=1,sort=random] add swPool_ballinhand
+give @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
 
 tag @e[tag=swPool_pooltable] add swPool_start
 tag @e[tag=swPool_pooltable] remove swPool_fouled
@@ -64,5 +64,5 @@ tag @a remove swPool_wait_snooker
 tag @a[tag=swPool_poolplay] add swPool_spec
 
 
-tellraw @a[tag=swPool_spec] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_freeball]"},{"text":", place the cue ball and target any except black."}]
+tellraw @a[tag=swPool_spec] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and target any except black."}]
 #tellraw @a[tag=swPool_spec] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

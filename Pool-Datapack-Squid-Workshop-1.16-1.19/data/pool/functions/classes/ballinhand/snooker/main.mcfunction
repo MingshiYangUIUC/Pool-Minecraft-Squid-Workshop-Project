@@ -7,7 +7,7 @@ tp @e[type=area_effect_cloud,tag=swPool_cueplace] ~ ~1.62 ~
 data modify entity @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] Rotation set from entity @s Rotation
 execute store result score @s swPool_rot run data get entity @s Rotation[1] 10
 execute if entity @s[scores={swPool_rot=..50}] as @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] at @s run tp @s ~ ~ ~ ~ 5
-execute as @e[type=area_effect_cloud,tag=swPool_cueplace] at @s run function pool:classes/freeball/snooker/tp
+execute as @e[type=area_effect_cloud,tag=swPool_cueplace] at @s run function pool:classes/ballinhand/snooker/tp
 
 
 #execute at @e[tag=swPool_brown,tag=swPool_pin] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
@@ -56,9 +56,9 @@ execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02
 
 execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_hittime 0
 scoreboard players set @s swPool_crtclk 0
-execute if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_freeball] carrot_on_a_stick{CustomModelData:99} 1
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_freeball] remove swPool_given
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_freeball] remove swPool_freeball
+execute if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99} 1
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_given
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_ballinhand
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset
 
 tag @e[tag=swPool_cueplace] remove swPool_valid
