@@ -158,7 +158,8 @@ Conservation of momentum and angular momentum and energy, recently added interac
 	\---version                                The game version of the map (world)
 		1_16.mcfunction                            1.16.x
 		1_17.mcfunction                            1.17.x
-		1_18.mcfunction                            1.18.x and above (tentative)
+		1_18.mcfunction                            1.18.x
+		1_19.mcfunction                            1.19.x
 		reset.mcfunction                           Let you choose again
 
 Other directories are not shown.
