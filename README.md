@@ -19,11 +19,9 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 # Abstract
 This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world. Let us hope minecraft datapacks run much faster in the future.
+Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is somehow computationally heavy and complex, it supports only one active table in a Minecraft world.
 
 Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
-
-Compatible with Minecraft Java Edition 1.16+.
 
 ## Product Spec
 - 6800 entity selectors
@@ -78,10 +76,10 @@ If the pack is _(re)installed_, please follow the instruction, choose the langua
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard calculations to overflow and the game may behave unexpectedly.
 
-Beside the friction coefficients, other settings such as redoing the stroke and reloading can be modified. Please consult the settings explained below.
+Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please consult the settings explained below.
 
 	/function app:settings/
-Note: problems may occur if this datapack is enabled together with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing.
+Note: This datapack incompatible with [the original pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing for better experience.
 
 ## Hitting the ball
 When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
@@ -163,21 +161,21 @@ Conservation of momentum and angular momentum and energy, recently added interac
 		1_18.mcfunction                            1.18.x and above (tentative)
 		reset.mcfunction                           Let you choose again
 
-Other directories are omitted.
+Other directories are not shown.
 	
 # Terms of Use
 This section shall be honored when in conflict with other documents, including the license. \
 Feel free to play around with this datapack. \
 As developer, feel free to use this datapack as a module to develop free datapacks. \
-But you **must** add the link to this github page! \
-**NO COMMERCIAL USE** \
-**POTENTIALLY (AT SQUID MINECRAFT WORKSHOP'S DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS PROHIBITED.** 
+But you **must** notify us and add the link to this github page! \
+**NO COMMERCIAL USE, POTENTIALLY (AT SQUID MINECRAFT WORKSHOP'S DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS ALSO PROHIBITED.** 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
 
 # More About Squid Workshop
-See more datapacks developed by us [here](https://github.com/Squid-Workshop/MinecraftDatapacksProject) \
+More datapacks developed by us [here](https://github.com/Squid-Workshop/MinecraftDatapacksProject) \
+Watch our videos on youtube [here](https://www.youtube.com/channel/UCwPMgfjjh2d7fFqQ1PXHP7w) \
 Watch our videos on bilibili [here](https://space.bilibili.com/649645265?from=search&seid=778816111336987286) \
 Join our QQ group: 74681732 \
 Subscribe on wechat: 鱿鱼MC工作室 
