@@ -112,8 +112,6 @@ After a snooker game finishes, players will receive a rating based on average po
 
 You can terminate the game at any time using the command window.
 
-_Under Development:_ Each window will eventually be attached a clickable instruction in game.
-
 # How It Works
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
