@@ -1,5 +1,5 @@
 # _Squid Workshop's_ Pool Datapack
-Content creator: Mingshi Yang. Contact: mingshi3@illinois.edu
+Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
 [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
@@ -64,7 +64,7 @@ Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6
 Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please consult the settings explained below.
 
 	/function app:settings/
-Note: This datapack incompatible with [the prototype pool datapack](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project). Please turn off "Force Unicode" while playing for better experience.
+Note: Please turn off "Force Unicode" for better experience.
 
 ## Hitting the ball
 When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
