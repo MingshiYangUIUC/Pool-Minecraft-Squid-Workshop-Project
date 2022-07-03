@@ -1,4 +1,6 @@
 # _Squid Workshop's_ Pool Datapack
+Content creator: Mingshi Yang. Contact: mingshi3@illinois.edu
+
 [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
 ![_MingshiYangUIUC_](Gallery/Images/many_balls_on_the_table.png)
@@ -58,6 +60,10 @@ PS: If not working, check whether the datapack is enabled by:
 Enable it by:
 
 	/datapack enable "datapackname"
+## Compatibility Notice
+The datapack and resourcepack will work for various game versions, although the game may notify you the packs are incompatible when you install them. Nonetheless, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+
+**Please let me know if the packs are actually incompatible with any versions higher than Java Edition 1.16.1.**
   
 # Usage
 ## Interactions
@@ -123,9 +129,13 @@ Conservation of momentum and angular momentum and energy, recently added interac
 ## Settings
 ### (to be updated)
 	data/app/functions/settings                Comment
-	+---cheating                               Self explanatory
-	|       allow.mcfunction                   
-	|       disallow.mcfunction                
+	+---aim                               	   Choose whether the screen will be zoomed in while aiming.
+	|       nozoom.mcfunction                          Do not zoom in
+	|       zoom.mcfunction                            Zoom in
+	|
+	+---cheating                               Choose whether cheating is allowed
+	|       allow.mcfunction                           Allow
+	|       disallow.mcfunction                        Not allow
 	|       
 	+---friction                               Set coefficients of frictions
 	|       clear.mcfunction                           Clear all values
@@ -135,19 +145,23 @@ Conservation of momentum and angular momentum and energy, recently added interac
 	|       sliding.mcfunction                         indiv. value setting
 	|       striking.mcfunction                        indiv. value setting
 	|       
-	+---language                               Self explanatory
-	|       chinese_simplified.mcfunction              
-	|       english.mcfunction                         
+	+---language                               Choose a language
+	|       chinese_simplified.mcfunction              Simplified Chinese
+	|       english.mcfunction                         English
 	|       
 	+---reload                                 Upon Reload...
 	|       cleanongoingsession.mcfunction             Clear the current game session when you reload the pack
 	|       keepongoingsession.mcfunction              Not clear the current game session when you reload the pack
 	|       
-	\---version                                The game version of the world
+	+---snooker/display                        Display of scores in snooker game
+	|       dialogue.mcfunction                        Tellraw the players in dialogue
+	|       sidebar.mcfunction                         Show the score at sidebar (may conflict other sidebar objectives)
+	|       
+	\---version                                The game version of the map (world)
 		1_16.mcfunction                            1.16.x
 		1_17.mcfunction                            1.17.x
 		1_18.mcfunction                            1.18.x and above (tentative)
-		reset.mcfunction                           
+		reset.mcfunction                           Let you choose again
 
 Other directories are omitted.
 	
