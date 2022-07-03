@@ -121,7 +121,6 @@ Conservation of momentum and angular momentum and energy, recently added interac
 1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
 2. Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
 3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
-4. I suggest you try the [simpler version](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project) if the game is slow! It is no longer being updated though.
 
 # Project Tree
 ## Settings
