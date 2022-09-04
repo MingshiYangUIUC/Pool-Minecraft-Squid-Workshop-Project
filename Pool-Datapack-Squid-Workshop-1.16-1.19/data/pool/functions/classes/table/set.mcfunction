@@ -5,7 +5,7 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请稍候...
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"]}
+summon armor_stand ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"]}
 scoreboard players operation @e[type=armor_stand,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
 scoreboard players operation @e[type=armor_stand,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
 
@@ -65,39 +65,39 @@ tag @e[tag=swPool_nxside,tag=swPool_pzside] add swPool_corner
 tag @e[tag=swPool_nxside,tag=swPool_nzside] add swPool_corner
 
 #summon fake balls!!!
-#center is 0.5 0.03125 0.5, summon ball at y = ~-0.03125
+#center is 0.5 0.03125 0.5, summon ball at y +0.4 = ~0.36875
 #corner pockets:
 #    corner edges
-execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.37 ~-0.03125 ~0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.44 ~-0.03125 ~-0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.37 ~-0.03125 ~-0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.44 ~-0.03125 ~0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.37 ~-0.03125 ~-0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~0.44 ~-0.03125 ~0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.37 ~-0.03125 ~0.44 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~0.44 ~-0.03125 ~-0.37 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.37 ~0.36875 ~0.44 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.44 ~0.36875 ~-0.37 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.37 ~0.36875 ~-0.44 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.44 ~0.36875 ~0.37 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.37 ~0.36875 ~-0.44 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~0.44 ~0.36875 ~0.37 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.37 ~0.36875 ~0.44 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~0.44 ~0.36875 ~-0.37 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_c","swPool_fake","swPool_edge"]}
 
 #    side edges
-execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~-0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~-0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potr,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potr,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~-0.01 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potr,tag=swPool_pzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
-execute as @e[tag=swPool_potr,tag=swPool_nzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~-0.28 {Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~-0.01 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~0.01 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~0.28 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~-0.28 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_pxside] at @s run summon armor_stand ~0.28 ~-0.03125 ~0.01 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_nxside] at @s run summon armor_stand ~-0.28 ~-0.03125 ~-0.01 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_pzside] at @s run summon armor_stand ~-0.01 ~-0.03125 ~0.28 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
+execute as @e[tag=swPool_potr,tag=swPool_nzside] at @s run summon armor_stand ~0.01 ~-0.03125 ~-0.28 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktedge_s","swPool_fake","swPool_edge"]}
 
 #    corner cntrs
-execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.235 ~-0.03125 ~-0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.235 ~-0.03125 ~0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.235 ~-0.03125 ~0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.235 ~-0.03125 ~-0.235 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_pxside,tag=swPool_nzside] at @s run summon armor_stand ~0.235 ~0.36875 ~-0.235 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_pxside,tag=swPool_pzside] at @s run summon armor_stand ~0.235 ~0.36875 ~0.235 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand ~-0.235 ~0.36875 ~0.235 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.235 ~0.36875 ~-0.235 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
 
 #    side cntrs
-execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.25 ~-0.03125 ~-0.49 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.25 ~-0.03125 ~0.49 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.49 ~-0.03125 ~0.25 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.49 ~-0.03125 ~-0.25 {Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.25 ~0.36875 ~-0.49 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.25 ~0.36875 ~0.49 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.49 ~0.36875 ~0.25 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.49 ~0.36875 ~-0.25 {Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
 
 #equip items
 execute as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:10}}}
@@ -144,5 +144,5 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"w
 tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
 
 
-#execute as @e[tag=swPool_pooltable,limit=1] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_cue","swPool_pool"]}
+#execute as @e[tag=swPool_pooltable,limit=1] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"]}
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000

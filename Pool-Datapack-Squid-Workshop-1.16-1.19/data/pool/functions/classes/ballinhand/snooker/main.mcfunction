@@ -10,7 +10,7 @@ execute if entity @s[scores={swPool_rot=..50}] as @e[type=area_effect_cloud,tag=
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace] at @s run function pool:classes/ballinhand/snooker/tp
 
 
-#execute at @e[tag=swPool_brown,tag=swPool_pin] at @s run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+#execute at @e[tag=swPool_brown,tag=swPool_pin] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
 
 #x table: get x distance from pooltable and compare with 3/5 * swPool_dl, swPool_dist from brown and compare with 1/3 * swPool_ds
 #z table: get z distance from pooltable and compare with 3/5 * swPool_dl, swPool_dist from brown and compare with 1/3 * swPool_ds
@@ -46,7 +46,7 @@ execute as @e[tag=swPool_valid] at @s positioned ~ ~-1 ~ if entity @e[tag=swPool
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=1] at @s run particle composter ~ ~ ~ 0 0 0 0 1 force
 #execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=!swPool_valid,limit=1] at @s run particle witch ~ ~ ~ 0 0 0 0 1 force
 
-execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
 
 #execute as @e[tag=swPool_free,tag=swPool_cue] run data modify entity @s Pos[0] set from entity @e[tag=swPool_cueplace,limit=1] Pos[0]
 #execute as @e[tag=swPool_free,tag=swPool_cue] run data modify entity @s Pos[2] set from entity @e[tag=swPool_cueplace,limit=1] Pos[2]
