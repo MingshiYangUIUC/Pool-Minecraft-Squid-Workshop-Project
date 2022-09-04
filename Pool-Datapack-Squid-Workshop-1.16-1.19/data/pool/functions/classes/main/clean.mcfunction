@@ -67,3 +67,5 @@ scoreboard objectives remove swPool_T
 scoreboard objectives remove swPool_T_roll
 scoreboard objectives remove swPool_T_end
 
+scoreboard objectives remove swPool_p_angle
+scoreboard objectives remove swPool_pose

@@ -87,6 +87,13 @@ scoreboard objectives add swPool_T dummy
 scoreboard objectives add swPool_T_roll dummy
 scoreboard objectives add swPool_T_end dummy
 
+# pose
+scoreboard objectives add swPool_p_angle dummy
+scoreboard objectives add swPool_pose dummy
+
+scoreboard objectives add swPool_true_rot0 dummy
+scoreboard objectives add swPool_true_rot1 dummy
+
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
 
