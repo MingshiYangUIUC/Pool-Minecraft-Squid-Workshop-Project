@@ -1,1 +1,0 @@
-scoreboard players operation vIn swMath_V = vOut swMath_V
