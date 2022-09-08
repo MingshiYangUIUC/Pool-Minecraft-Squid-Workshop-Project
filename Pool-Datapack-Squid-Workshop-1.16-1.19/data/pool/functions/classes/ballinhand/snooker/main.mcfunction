@@ -41,7 +41,7 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_x] if score @s swPool_dl <=
 
 execute if entity @e[tag=swPool_pooltable,tag=swPool_z] if score @s swPool_dl <= @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posz if score @s swPool_ds > @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_dist run tag @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] add swPool_valid
 
-execute as @e[tag=swPool_valid] at @s positioned ~ ~-1 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
+execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
 
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=1] at @s run particle composter ~ ~ ~ 0 0 0 0 1 force
 #execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=!swPool_valid,limit=1] at @s run particle witch ~ ~ ~ 0 0 0 0 1 force

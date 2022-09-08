@@ -338,7 +338,7 @@ execute at @s run function pool:classes/physics/sqrt
 scoreboard players operation @s swPool_var00 *= C_2000 swPool_C
 scoreboard players operation @s swPool_v = @s swPool_var00
 
-#function pool:classes/physics/vcombine
+#function pool:classes/physics/vcombine_ultimate
 #tellraw @a [{"text":" V, "},{"score":{"objective":"swPool_v","name":"@s"}}]
 
 #execute store result score r2 swPool_var00 run data get entity @s Rotation[0] -10000

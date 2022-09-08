@@ -34,7 +34,7 @@ execute at @s run tp @e[tag=swPool_facerc,limit=1] ~ ~ ~
 
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
 #get angle (can be positive or negative) which is swPool_drot score of t1
 
@@ -70,8 +70,8 @@ scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx += @e[tag=swPoo
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz += @e[tag=swPool_c2,limit=1] swPool_vz
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vx += @e[tag=swPool_c2,limit=1] swPool_vx
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPool_c2,limit=1] swPool_vz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
-execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
+execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
 
 #merge stuff back to c1, c2

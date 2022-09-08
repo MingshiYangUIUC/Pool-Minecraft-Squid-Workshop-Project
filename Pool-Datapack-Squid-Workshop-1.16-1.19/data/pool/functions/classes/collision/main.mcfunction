@@ -13,7 +13,7 @@ scoreboard players operation @s swPool_vrz -= @e[tag=swPool_c2,limit=1] swPool_v
 tag @e[tag=swPool_rhp1] add swPool_vr
 scoreboard players operation @e[tag=swPool_vr,limit=1] swPool_vx = @s swPool_vrx
 scoreboard players operation @e[tag=swPool_vr,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_vr,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_vr,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 scoreboard players operation @s swPool_vr = @e[tag=swPool_vr,limit=1] swPool_v
 scoreboard players reset @e[tag=swPool_rhp1] swPool_v
 scoreboard players reset @e[tag=swPool_rhp1] swPool_vx

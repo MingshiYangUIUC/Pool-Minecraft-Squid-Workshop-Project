@@ -46,7 +46,7 @@ scoreboard players operation @s swPool_vrz = COL swPool_vrz
 
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
 
 
@@ -84,8 +84,8 @@ scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx += @e[tag=swPoo
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
 scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
-execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
+execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
 #execute as @e[limit=1,tag=swPool_t1] run tellraw @a [{"text":"1a."},{"text":"vx"},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":"vz"},{"score":{"objective":"swPool_vz","name":"@s"}},{"text":"V"},{"score":{"objective":"swPool_v","name":"@s"}},{"text":"  2."},{"text":"vx"},{"score":{"objective":"swPool_vx","name":"@e[limit=1,tag=swPool_t2]"}},{"text":"vz"},{"score":{"objective":"swPool_vz","name":"@e[limit=1,tag=swPool_t2]"}},{"text":"V"},{"score":{"objective":"swPool_v","name":"@e[limit=1,tag=swPool_t2]"}}]
 
