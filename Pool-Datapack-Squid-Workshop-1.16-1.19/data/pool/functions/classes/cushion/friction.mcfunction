@@ -5,7 +5,7 @@
 #3. calculate friction                    F=mui*K*N 
 #4. calculate change of P/v               ΔP=F*1tick     /   Δv_parallel=F*1tick/m   = v_normal*2*K*mui
 #5. calculate change of L/omega           ΔL=F*r*1tick   /   Δomega_y=F*r*1tick/I    = v_normal*5/r*K*mui
-#6. add back and vcombine
+#6. add back and vcombine_ultimate
 
 #K value? K is proportional to contact velocity... 
 #                                         K = v +- omega_y*r
@@ -82,7 +82,7 @@ scoreboard players operation @s[tag=swPool_z] swPool_vex += dVP swPool_var00
 
 scoreboard players operation @s swPool_wy += dWY swPool_var00
 
-#vcombine, after flipping the sign of v_normal
+#vcombine_ultimate, after flipping the sign of v_normal
 execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_vex *= C_-1 swPool_C
 execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_vez *= C_-1 swPool_C
 function pool:classes/physics/vcombine_1

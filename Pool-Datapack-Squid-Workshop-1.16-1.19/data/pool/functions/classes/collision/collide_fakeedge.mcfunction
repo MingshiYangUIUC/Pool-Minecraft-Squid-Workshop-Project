@@ -38,7 +38,7 @@ scoreboard players operation @s swPool_vrz = COL swPool_vrz
 
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine
+execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
 
 
