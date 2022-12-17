@@ -1,5 +1,9 @@
 #w = (n X v)/r
 
+# unit of ve: same as v: 100000000 -> 1m/tick
+# unit of final ve: 200000 -> 1m/tick -> 20 m/s -> 25.46 spins per second -> 160 rad / s
+# unit of w: m/s / r -> rad/s
+
 function pool:classes/physics/vseparate_1
 
 scoreboard players operation @s swPool_vex /= C_500 swPool_C
