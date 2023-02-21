@@ -18,13 +18,13 @@ scoreboard players operation @s swPool_v = @s swPool_var00
 
 #add rotation based on xz values
 
-scoreboard players operation vIn2 swMath_V = @s swPool_vx
-scoreboard players operation vIn swMath_V = @s swPool_vz
+scoreboard players operation #vIn2 swMath_V = @s swPool_vx
+scoreboard players operation #vIn swMath_V = @s swPool_vz
 
 function math:classes/core/trig/arctan2_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
 
-scoreboard players operation vOut swMath_V *= C_-1 swMath_C
+scoreboard players operation #vOut swMath_V *= #C_-1 swMath_C
 
-execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get vOut swMath_V
+execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get #vOut swMath_V

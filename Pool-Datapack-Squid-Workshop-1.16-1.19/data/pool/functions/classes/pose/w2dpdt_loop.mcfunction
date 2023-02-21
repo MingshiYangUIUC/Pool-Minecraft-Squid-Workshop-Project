@@ -2,21 +2,21 @@
 #tellraw @a [{"text":"pose1 0 "},{"score":{"objective":"swPool_pose","name": "pose1"}}]
 
 
-scoreboard players operation vIn swMath_V = pose1 swPool_pose
+scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosp1 swMath_V = vOut swMath_V
+scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 
 # calculate ws, wt, and wc 
 
-scoreboard players operation vIn swMath_V = @s swPool_wx
-scoreboard players operation vIn swMath_V *= C_10000 swMath_C
-scoreboard players operation vIn swMath_V /= @s swPool_wz
+scoreboard players operation #vIn swMath_V = @s swPool_wx
+scoreboard players operation #vIn swMath_V *= C_10000 swMath_C
+scoreboard players operation #vIn swMath_V /= @s swPool_wz
 function math:classes/core/trig/arctan_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
-scoreboard players operation dr swMath_V = vOut swMath_V
+scoreboard players operation dr swMath_V = #vOut swMath_V
 # solve quadrant
 execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches ..-1 run scoreboard players remove dr swMath_V 1800000
 execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches 0.. run scoreboard players add dr swMath_V 1800000
@@ -33,17 +33,17 @@ scoreboard players set A swPool_Vk 0
 function pool:classes/physics/vamagnitude
 scoreboard players operation wp swMath_V = O swPool_Vmag
 
-scoreboard players operation vIn swMath_V = dr swMath_V
+scoreboard players operation #vIn swMath_V = dr swMath_V
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/sin_rad
-scoreboard players operation sindr swMath_V = vOut swMath_V
+scoreboard players operation sindr swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = dr swMath_V
+scoreboard players operation #vIn swMath_V = dr swMath_V
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosdr swMath_V = vOut swMath_V
+scoreboard players operation cosdr swMath_V = #vOut swMath_V
 
 scoreboard players operation wt swMath_V = wp swMath_V
 scoreboard players operation wt swMath_V *= sindr swMath_V
@@ -60,29 +60,29 @@ scoreboard players operation wt swMath_V /= C_20 swPool_C
 scoreboard players operation wc swMath_V /= C_20 swPool_C
 
 # calculate sin(p1), sin(p2), cos(p1), cos(p2)
-scoreboard players operation vIn swMath_V = pose1 swPool_pose
+scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/sin_rad
-scoreboard players operation sinp1 swMath_V = vOut swMath_V
+scoreboard players operation sinp1 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose2 swPool_pose
+scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/sin_rad
-scoreboard players operation sinp2 swMath_V = vOut swMath_V
+scoreboard players operation sinp2 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose1 swPool_pose
+scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosp1 swMath_V = vOut swMath_V
+scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose2 swPool_pose
+scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosp2 swMath_V = vOut swMath_V
+scoreboard players operation cosp2 swMath_V = #vOut swMath_V
 
 
 
