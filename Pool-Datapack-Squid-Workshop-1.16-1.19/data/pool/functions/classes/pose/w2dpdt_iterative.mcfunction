@@ -20,7 +20,7 @@ scoreboard players operation cosp1 swMath_V = vOut swMath_V
 # calculate ws, wt, and wc 
 
 scoreboard players operation vIn swMath_V = @s swPool_wx
-scoreboard players operation vIn swMath_V *= C_10000 swMath_C
+scoreboard players operation vIn swMath_V *= #C_10000 swMath_C
 scoreboard players operation vIn swMath_V /= @s swPool_wz
 function math:classes/core/trig/arctan_rad
 function math:classes/core/util/swap
@@ -31,7 +31,7 @@ execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches ..-1 ru
 execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches 0.. run scoreboard players add dr swMath_V 1800000
 execute store result score rface swMath_V run data get entity @s Rotation[0] -10000
 scoreboard players operation dr swMath_V -= rface swMath_V
-scoreboard players operation dr swMath_V %= C_3600000 swMath_C
+scoreboard players operation dr swMath_V %= #C_3600000 swMath_C
 
 # calculate wswtwc
 scoreboard players operation ws swMath_V = @s swPool_wy
@@ -56,11 +56,11 @@ scoreboard players operation cosdr swMath_V = vOut swMath_V
 
 scoreboard players operation wt swMath_V = wp swMath_V
 scoreboard players operation wt swMath_V *= sindr swMath_V
-scoreboard players operation wt swMath_V /= C_10000 swPool_C
+scoreboard players operation wt swMath_V /= #C_10000 swMath_C
 
 scoreboard players operation wc swMath_V = wp swMath_V
 scoreboard players operation wc swMath_V *= cosdr swMath_V
-scoreboard players operation wc swMath_V /= C_10000 swPool_C
+scoreboard players operation wc swMath_V /= #C_10000 swMath_C
 
 # divide w by 20 to get radian per tick
 #tellraw @a [{"text":"ws "},{"score":{"objective":"swMath_V","name": "ws"}}]
@@ -98,17 +98,17 @@ scoreboard players operation cosp2 swMath_V = vOut swMath_V
 # calculate square of cos and sin used
 scoreboard players operation cos2p2 swMath_V = cosp2 swMath_V
 scoreboard players operation cos2p2 swMath_V *= cosp2 swMath_V
-scoreboard players operation cos2p2 swMath_V /= C_10000 swMath_C
+scoreboard players operation cos2p2 swMath_V /= #C_10000 swMath_C
 
 scoreboard players operation sin2p2 swMath_V = sinp2 swMath_V
 scoreboard players operation sin2p2 swMath_V *= sinp2 swMath_V
-scoreboard players operation sin2p2 swMath_V /= C_10000 swMath_C
+scoreboard players operation sin2p2 swMath_V /= #C_10000 swMath_C
 
 # Calculate dp0 dp1 dp2
 # calculate the common divider = cosp1
 scoreboard players operation CD swMath_V = cosp1 swMath_V
 scoreboard players operation CDabs swMath_V = CD swMath_V
-execute if score CDabs swMath_V matches ..-1 run scoreboard players operation CDabs swMath_V *= C_-1 swMath_C
+execute if score CDabs swMath_V matches ..-1 run scoreboard players operation CDabs swMath_V *= #C_-1 swMath_C
 
 #tellraw @a [{"text":" pose0 "},{"score":{"objective":"swPool_pose","name": "pose0"}},{"text":" pose1 "},{"score":{"objective":"swPool_pose","name": "pose1"}},{"text":" pose2 "},{"score":{"objective":"swPool_pose","name": "pose2"}}]
 #tellraw @a [{"text":"CD "},{"score":{"objective":"swMath_V","name": "CD"}}]
@@ -139,7 +139,7 @@ scoreboard players operation dp1 swMath_V /= CDabs swMath_V
 # calculate dp2 = dp0 * sin(p1) + wc
 scoreboard players operation dp2 swMath_V = dp0 swMath_V
 scoreboard players operation dp2 swMath_V *= sinp1 swMath_V
-scoreboard players operation dp2 swMath_V /= C_10000 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_10000 swMath_C
 scoreboard players operation dp2 swMath_V += wc swMath_V
 
 #tellraw @a [{"text":"dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]
@@ -159,9 +159,9 @@ scoreboard players set maxdp swMath_V 0
 scoreboard players operation adp0 swMath_V = dp0 swMath_V
 scoreboard players operation adp1 swMath_V = dp1 swMath_V
 scoreboard players operation adp2 swMath_V = dp2 swMath_V
-execute if score adp0 swMath_V matches ..-1 run scoreboard players operation adp0 swMath_V *= C_-1 swMath_C
-execute if score adp1 swMath_V matches ..-1 run scoreboard players operation adp1 swMath_V *= C_-1 swMath_C
-execute if score adp2 swMath_V matches ..-1 run scoreboard players operation adp2 swMath_V *= C_-1 swMath_C
+execute if score adp0 swMath_V matches ..-1 run scoreboard players operation adp0 swMath_V *= #C_-1 swMath_C
+execute if score adp1 swMath_V matches ..-1 run scoreboard players operation adp1 swMath_V *= #C_-1 swMath_C
+execute if score adp2 swMath_V matches ..-1 run scoreboard players operation adp2 swMath_V *= #C_-1 swMath_C
 
 scoreboard players operation maxdp swMath_V > adp0 swMath_V
 scoreboard players operation maxdp swMath_V > adp1 swMath_V
@@ -180,25 +180,25 @@ scoreboard players operation dp0 swMath_V *= dt swMath_V
 scoreboard players operation dp1 swMath_V *= dt swMath_V
 scoreboard players operation dp2 swMath_V *= dt swMath_V
 
-scoreboard players operation dp0 swMath_V /= C_10000 swMath_C
-scoreboard players operation dp1 swMath_V /= C_10000 swMath_C
-scoreboard players operation dp2 swMath_V /= C_10000 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_10000 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_10000 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_10000 swMath_C
 
 #tellraw @a [{"text":"dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]
 
 scoreboard players set r2d swPool_C 28648
 
-scoreboard players operation dp0 swMath_V /= C_100 swMath_C
-scoreboard players operation dp1 swMath_V /= C_100 swMath_C
-scoreboard players operation dp2 swMath_V /= C_100 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_100 swMath_C
 
 scoreboard players operation dp0 swMath_V *= r2d swPool_C
 scoreboard players operation dp1 swMath_V *= r2d swPool_C
 scoreboard players operation dp2 swMath_V *= r2d swPool_C
 
-scoreboard players operation dp0 swMath_V /= C_100 swMath_C
-scoreboard players operation dp1 swMath_V /= C_100 swMath_C
-scoreboard players operation dp2 swMath_V /= C_100 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_100 swMath_C
 
 #tellraw @a [{"text":"dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]
 
