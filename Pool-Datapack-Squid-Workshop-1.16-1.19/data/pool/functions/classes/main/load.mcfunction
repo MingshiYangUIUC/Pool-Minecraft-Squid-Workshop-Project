@@ -18,6 +18,7 @@ execute unless data storage minecraft:swpool keepsession if data storage minecra
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
 scoreboard objectives add swPool_DXX dummy
+scoreboard objectives add swPool_Rotation dummy
 scoreboard objectives add swPool_rot dummy
 scoreboard objectives add swPool_drot dummy
 scoreboard objectives add swPool_dist dummy
