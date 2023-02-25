@@ -30,16 +30,6 @@ execute at @e[tag=swPool_col2,limit=1] run tp @e[tag=swPool_t2,limit=1] ~ ~ ~
 tag @e[tag=swPool_rhp3] add swPool_facerc
 execute at @s run tp @e[tag=swPool_facerc,limit=1] ~ ~ ~
 
-#########debug slot
-#execute at @s[tag=swPool_col1,limit=1,scores={swPool_v=1..}] run function pool:classes/physics/vseparate
-#execute as @e[tag=swPool_col2,limit=1,scores={swPool_v=1..}] at @s run function pool:classes/physics/vseparate
-#execute as @e[limit=1,tag=swPool_col1] run tellraw @a [{"text":"1p."},{"text":" vx"},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":" vz"},{"score":{"objective":"swPool_vz","name":"@s"}},{"text":" V"},{"score":{"objective":"swPool_v","name":"@s"}}]
-#execute as @e[limit=1,tag=swPool_col2] run tellraw @a [{"text":"2."},{"text":" vx"},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":" vz"},{"score":{"objective":"swPool_vz","name":"@s"}},{"text":" V"},{"score":{"objective":"swPool_v","name":"@s"}}]
-
-#execute at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_t1"],Duration:1}
-#execute at @e[tag=swPool_col2,limit=1] run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_t2"],Duration:1}
-#execute at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_facerc"],Duration:1}
-
 
 scoreboard players operation @s swPool_vrx = COL swPool_vrx
 scoreboard players operation @s swPool_vrz = COL swPool_vrz
@@ -53,7 +43,7 @@ execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vco
 #get angle (can be positive or negative) which is swPool_drot score of t1
 
 execute as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_t2,limit=1]
-execute as @e[tag=swPool_t1,limit=1] store result score @s swPool_drot run data get entity @s Rotation[0] 10000
+execute as @e[tag=swPool_t1,limit=1] run scoreboard players operation @s swPool_drot = @s swPool_Rotation
 execute as @e[tag=swPool_facerc,limit=1] store result score @s swPool_rot run data get entity @s Rotation[0] 10000
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_drot -= @e[tag=swPool_facerc,limit=1] swPool_rot
 
@@ -90,6 +80,9 @@ execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vco
 #merge stuff back to c1, c2
 scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = @e[tag=swPool_t2,limit=1] swPool_v
+
+scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_Rotation = @e[tag=swPool_t1,limit=1] swPool_Rotation
+scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_Rotation = @e[tag=swPool_t2,limit=1] swPool_Rotation
 
 execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
 execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation

@@ -40,7 +40,7 @@ execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vco
 #get angle (can be positive or negative) which is swPool_drot score of t1
 
 execute as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_t2,limit=1]
-execute as @e[tag=swPool_t1,limit=1] store result score @s swPool_drot run data get entity @s Rotation[0] 10000
+execute as @e[tag=swPool_t1,limit=1] run scoreboard players operation @s swPool_drot = @s swPool_Rotation
 execute as @e[tag=swPool_facerc,limit=1] store result score @s swPool_rot run data get entity @s Rotation[0] 10000
 
 scoreboard players set t1rot swPool_rot 1800000
@@ -62,7 +62,7 @@ scoreboard players operation t1rot swPool_rot -= @e[tag=swPool_t1,limit=1] swPoo
 
 #tellraw @a [{"text":"name. "},{"text":"rot2, "},{"score":{"objective":"swPool_rot","name":"t1rot"}}]
 
-#execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get t1rot swPool_rot
+
 execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get t1rot swPool_rot
 scoreboard players operation @s swPool_Rotation = t1rot swPool_rot
 
