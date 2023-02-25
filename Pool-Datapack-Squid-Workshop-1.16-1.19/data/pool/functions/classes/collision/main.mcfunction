@@ -57,8 +57,7 @@ execute if score @s swPool_hittime < MinTime swPool_hittime run function pool:cl
 #execute if entity @s[scores={swPool_hittime=0..10000}] run scoreboard players set @e[tag=swPool_c2,limit=1] swPool_v 0
 #and stops them, but componets are kept for calculation
 
-#calculation
-#execute if entity @s[scores={swPool_hittime=0..10000}] at @s run function pool:classes/collision/collide
+
 
 #remove tags
 tag @s remove swPool_c1

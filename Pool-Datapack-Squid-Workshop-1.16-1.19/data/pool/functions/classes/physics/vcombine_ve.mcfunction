@@ -20,7 +20,7 @@ scoreboard players operation #vOut swMath_V *= C_5000 swPool_C
 scoreboard players operation @s swPool_v = #vOut swMath_V
 
 
-tellraw @a [{"score":{"objective":"swPool_v","name": "@s"}}]
+#tellraw @a [{"score":{"objective":"swPool_v","name": "@s"}}]
 #add rotation based on xz values
 
 
@@ -32,5 +32,7 @@ function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
 
 scoreboard players operation #vOut swMath_V *= #C_-1 swMath_C
+
+scoreboard players operation @s swPool_Rotation = #vOut swMath_V
 
 execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get #vOut swMath_V

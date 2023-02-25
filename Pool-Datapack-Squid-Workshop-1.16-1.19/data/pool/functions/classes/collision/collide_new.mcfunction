@@ -87,13 +87,12 @@ scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPoo
 execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
 
-#execute as @e[limit=1,tag=swPool_t1] run tellraw @a [{"text":"1a."},{"text":"vx"},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":"vz"},{"score":{"objective":"swPool_vz","name":"@s"}},{"text":"V"},{"score":{"objective":"swPool_v","name":"@s"}},{"text":"  2."},{"text":"vx"},{"score":{"objective":"swPool_vx","name":"@e[limit=1,tag=swPool_t2]"}},{"text":"vz"},{"score":{"objective":"swPool_vz","name":"@e[limit=1,tag=swPool_t2]"}},{"text":"V"},{"score":{"objective":"swPool_v","name":"@e[limit=1,tag=swPool_t2]"}}]
-
 #merge stuff back to c1, c2
 scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = @e[tag=swPool_t2,limit=1] swPool_v
-data modify entity @e[tag=swPool_col1,limit=1] Rotation set from entity @e[tag=swPool_t1,limit=1] Rotation
-data modify entity @e[tag=swPool_col2,limit=1] Rotation set from entity @e[tag=swPool_t2,limit=1] Rotation
+
+execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
+execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation
 
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1
@@ -106,17 +105,15 @@ tag @e[tag=swPool_rhp3] remove swPool_facerc
 
 #reset swPool_hittime, swPool_vr
 scoreboard players reset @s swPool_hittime
-scoreboard players reset @e[tag=swPool_col1] swPool_vx
-scoreboard players reset @e[tag=swPool_col1] swPool_vz
-scoreboard players reset @e[tag=swPool_col1] swPool_vrx
-scoreboard players reset @e[tag=swPool_col1] swPool_vrz
-scoreboard players reset @e[tag=swPool_col2] swPool_vx
-scoreboard players reset @e[tag=swPool_col2] swPool_vz
+#scoreboard players reset @e[tag=swPool_col1] swPool_vx
+#scoreboard players reset @e[tag=swPool_col1] swPool_vz
+#scoreboard players reset @e[tag=swPool_col1] swPool_vrx
+#scoreboard players reset @e[tag=swPool_col1] swPool_vrz
+#scoreboard players reset @e[tag=swPool_col2] swPool_vx
+#scoreboard players reset @e[tag=swPool_col2] swPool_vz
 scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 
-#add a drag as energy loss
-#execute as @e[tag=swPool_col2,limit=1] run function pool:classes/motion/drag
 
 playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 
