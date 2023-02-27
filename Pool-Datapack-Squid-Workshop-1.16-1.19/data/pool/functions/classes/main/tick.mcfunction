@@ -3,7 +3,7 @@ execute at @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] a
 execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run function pool:classes/snooker/place
 execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_uk8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/uk8ball/place
 execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_practicemode,scores={swPool_hittime=1}] at @s run function pool:classes/practice/place
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run tp @s ~ ~ ~ ~ ~
+#execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run tp @s ~ ~ ~ ~ ~
 execute if entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/snooker/main
 execute if entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_uk8ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main
 execute if entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main

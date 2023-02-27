@@ -88,8 +88,8 @@ scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = @e[tag=swPoo
 scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_Rotation = @e[tag=swPool_t1,limit=1] swPool_Rotation
 scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_Rotation = @e[tag=swPool_t2,limit=1] swPool_Rotation
 
-execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
-execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation
+#execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
+#execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation
 
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1

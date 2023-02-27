@@ -63,7 +63,7 @@ scoreboard players operation t1rot swPool_rot -= @e[tag=swPool_t1,limit=1] swPoo
 #tellraw @a [{"text":"name. "},{"text":"rot2, "},{"score":{"objective":"swPool_rot","name":"t1rot"}}]
 
 
-execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get t1rot swPool_rot
+#execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get t1rot swPool_rot
 scoreboard players operation @s swPool_Rotation = t1rot swPool_rot
 
 #merge stuff back to c1, c2

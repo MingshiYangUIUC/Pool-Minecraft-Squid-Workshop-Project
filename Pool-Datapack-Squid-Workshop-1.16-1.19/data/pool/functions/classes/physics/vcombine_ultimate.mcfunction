@@ -30,4 +30,4 @@ scoreboard players operation #vOut swMath_V *= #C_-1 swMath_C
 
 scoreboard players operation @s swPool_Rotation = #vOut swMath_V
 
-execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get #vOut swMath_V
+#execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get #vOut swMath_V

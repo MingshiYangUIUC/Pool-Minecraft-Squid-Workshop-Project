@@ -24,6 +24,8 @@ execute unless entity @s[scores={swPool_v=97656..}] unless entity @e[tag=swPool_
 #angle by velocity triangle
 execute if entity @s[tag=!swPool_aabs] run tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_facertp
 execute if entity @s[tag=!swPool_aabs] at @s run tp @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] ~ ~ ~ ~ 0
+### 
+execute if entity @s[tag=!swPool_aabs] store result entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get @s swPool_Rotation
 execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v = @s swPool_v
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run function pool:classes/motion/move
 execute if entity @s[tag=!swPool_aabs] run scoreboard players set @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v 0

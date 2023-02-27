@@ -175,6 +175,8 @@ scoreboard players operation wb swPool_var00 *= mus_eff swPool_var00
 #////////////////////////// BELOW USES x and pitch and r //////////////////////////
 
 execute store result score r swPool_var00 run data get entity @s Rotation[0] -10000
+scoreboard players operation r swPool_var00 = @s swPool_Rotation
+scoreboard players operation r swPool_var00 *= C_-1 swPool_C
 #tellraw @a [{"text":" r, "},{"score":{"objective":"swPool_var00","name":"r"}}]
 
 
