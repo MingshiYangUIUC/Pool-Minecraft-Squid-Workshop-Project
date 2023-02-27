@@ -18,3 +18,5 @@ execute unless entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}]
 scoreboard players add @e[type=armor_stand,tag=swPool_pooltable] swPool_hittime 1
 #execute as @a at @s if score @e[type=arrow,distance=..4,limit=1] swPool_player = @s swPool_player run kill @e[type=arrow,distance=..4,limit=1]
 scoreboard players set @a swPool_crtclk 0
+
+execute if data storage minecraft:swpool {allowspin:1} as @e[tag=swPool_pool,scores={swPool_T=1..,swPool_v=1..}] run function pool:classes/pose/w2dpdt_iterative

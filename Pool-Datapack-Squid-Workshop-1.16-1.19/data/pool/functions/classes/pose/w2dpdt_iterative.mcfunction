@@ -64,45 +64,42 @@ scoreboard players operation wc swMath_V /= #C_10000 swMath_C
 
 # divide w by 20 to get radian per tick
 #tellraw @a [{"text":"ws "},{"score":{"objective":"swMath_V","name": "ws"}}]
+scoreboard players operation ws swMath_V = @s swPool_wy
+scoreboard players operation wt swMath_V = @s swPool_wx
+scoreboard players operation wc swMath_V = @s swPool_wz
+scoreboard players operation wc swMath_V *= C_-1 swMath_C
+
 scoreboard players operation ws swMath_V /= C_20 swPool_C
 scoreboard players operation wt swMath_V /= C_20 swPool_C
 scoreboard players operation wc swMath_V /= C_20 swPool_C
 
 # calculate sin(p1), sin(p2), cos(p1), cos(p2)
-scoreboard players operation vIn swMath_V = pose1 swPool_pose
+scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/sin_rad
-scoreboard players operation sinp1 swMath_V = vOut swMath_V
+scoreboard players operation sinp1 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose2 swPool_pose
+scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/sin_rad
-scoreboard players operation sinp2 swMath_V = vOut swMath_V
+scoreboard players operation sinp2 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose1 swPool_pose
+scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosp1 swMath_V = vOut swMath_V
+scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 
-scoreboard players operation vIn swMath_V = pose2 swPool_pose
+scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-scoreboard players operation cosp2 swMath_V = vOut swMath_V
+scoreboard players operation cosp2 swMath_V = #vOut swMath_V
 
 #tellraw @a [{"text":"cosp1 "},{"score":{"objective":"swMath_V","name": "cosp1"}}]
 
-# calculate square of cos and sin used
-scoreboard players operation cos2p2 swMath_V = cosp2 swMath_V
-scoreboard players operation cos2p2 swMath_V *= cosp2 swMath_V
-scoreboard players operation cos2p2 swMath_V /= #C_10000 swMath_C
-
-scoreboard players operation sin2p2 swMath_V = sinp2 swMath_V
-scoreboard players operation sin2p2 swMath_V *= sinp2 swMath_V
-scoreboard players operation sin2p2 swMath_V /= #C_10000 swMath_C
 
 # Calculate dp0 dp1 dp2
 # calculate the common divider = cosp1
