@@ -95,7 +95,7 @@ execute as @e[tag=swPool_pintemp] at @s run tp @s ~ ~ ~ facing entity @e[tag=swP
 execute as @e[tag=swPool_pintemp] at @s run tp @s @e[tag=swPool_pool,tag=swPool_new,limit=1]
 execute as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.26
 execute as @e[tag=swPool_pintemp] at @s if entity @e[tag=swPool_pool,distance=..0.25] run tp @s ^ ^ ^-0.26
-execute as @e[tag=swPool_pintemp] at @s if entity @e[tag=swPool_pool,distance=..0.25] run say sh*t, cannot find place to place ball
+execute as @e[tag=swPool_pintemp] at @s if entity @e[tag=swPool_pool,distance=..0.25] run say Cannot find place to place ball
 execute as @e[tag=swPool_pintemp] at @s unless entity @e[tag=swPool_pool,distance=..0.25] run tag @s add swPool_highest
 
 execute as @e[tag=swPool_highest] at @s run tp @e[tag=swPool_pool,tag=swPool_new,tag=!swPool_sit,tag=!swPool_cue] @s
