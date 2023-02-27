@@ -1,4 +1,3 @@
-#function pool:classes/physics/vseparate_2
 
 scoreboard players operation #self swPool_vx = @s swPool_vex
 scoreboard players operation #self swPool_vz = @s swPool_vez

@@ -67,6 +67,10 @@ scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v /= C_10000 swPoo
 scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v *= @s swPool_var00
 data modify entity @e[tag=swPool_t1,limit=1] Rotation set from entity @e[tag=swPool_facerc,limit=1] Rotation
 
+execute store result score @e[tag=swPool_t1,limit=1] swPool_Rotation run data get entity @e[tag=swPool_t1,limit=1] Rotation[0] 10000
+execute store result score @e[tag=swPool_t2,limit=1] swPool_Rotation run data get entity @e[tag=swPool_t2,limit=1] Rotation[0] 10000
+
+
 #separate the x,z component, add back the x,z component of c2, then combine back
 execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vseparate
 execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vseparate
