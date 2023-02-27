@@ -48,9 +48,6 @@ scoreboard players operation @e[tag=swPool_c2,limit=1] swPool_hittime = @s swPoo
 #tag @s[tag=swPool_bk,scores={swPool_count=2..}] add swPool_packed
 
 execute if score @s swPool_hittime < MinTime swPool_hittime run function pool:classes/collision/record
-#execute if entity @s[tag=!swPool_packed,scores={swPool_hittime=0..10000}] at @s[scores={swPool_v=1..}] run function pool:classes/collision/join
-#execute if entity @s[tag=!swPool_packed,scores={swPool_hittime=0..10000}] as @e[tag=swPool_c2,limit=1,scores={swPool_v=1..}] at @s run function pool:classes/collision/join
-#tag @s[tag=swPool_bk] remove swPool_packed
 
 
 #execute if entity @s[scores={swPool_hittime=0..10000}] run scoreboard players set @s swPool_v 0

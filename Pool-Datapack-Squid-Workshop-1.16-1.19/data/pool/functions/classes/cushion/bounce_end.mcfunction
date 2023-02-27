@@ -3,8 +3,7 @@ scoreboard players operation @s swPool_v = @s swPool_var02
 scoreboard players operation @s swPool_var02 = @s swPool_v
 scoreboard players operation @s swPool_v /= C_10000 swPool_C
 scoreboard players operation @s swPool_v *= @s swPool_var04
-scoreboard players set @s swPool_var04 -1
-scoreboard players operation @s[scores={swPool_v=..-1}] swPool_v *= @s swPool_var04
+scoreboard players operation @s[scores={swPool_v=..-1}] swPool_v *= C_-1 swPool_C
 #tellraw @a [{"text":"variable swPool_v is "},{"score":{"objective":"swPool_v","name":"@s"}}]
 
 
@@ -12,7 +11,7 @@ scoreboard players operation @s[scores={swPool_v=..-1}] swPool_v *= @s swPool_va
 #scoreboard players operation @s swPool_var04 = MinTime swPool_hittime
 
 #scoreboard players operation @s swPool_v = @s swPool_var02
-execute at @s run function pool:classes/cushion/join
+execute at @s run function pool:classes/cushion/new_join
 
 scoreboard players operation @s swPool_v = @s swPool_var02
 

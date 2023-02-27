@@ -35,7 +35,7 @@ execute at @s as @e[type=armor_stand,tag=swPool_near,sort=random] at @s run func
 execute at @s run function pool:classes/cushion/main
 
 scoreboard players operation @e[type=armor_stand,tag=swPool_col] swPool_hittime = MinTime swPool_hittime
-execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run function pool:classes/collision/join
+execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run function pool:classes/collision/new_join
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
 
