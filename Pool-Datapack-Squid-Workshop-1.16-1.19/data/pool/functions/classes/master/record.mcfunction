@@ -3,8 +3,9 @@ tag @s[tag=swPool_ballinhand] add swPool_placingcue
 kill @e[tag=swPool_temppin]
 
 execute as @e[tag=swPool_pool] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b}
-execute as @e[tag=swPool_temppin] at @s run data modify entity @s Tags set from entity @e[distance=..0.001,limit=1,tag=swPool_pool] Tags
 
+execute as @e[tag=swPool_temppin] at @s run data modify entity @s Pose.Head set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] Pose.Head
+execute as @e[tag=swPool_temppin] at @s run data modify entity @s Tags set from entity @e[distance=..0.001,limit=1,tag=swPool_pool] Tags
 
 
 

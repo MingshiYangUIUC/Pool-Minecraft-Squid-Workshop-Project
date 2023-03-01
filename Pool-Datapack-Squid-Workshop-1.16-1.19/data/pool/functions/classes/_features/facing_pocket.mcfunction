@@ -1,7 +1,7 @@
 #tag @e[tag=swPool_cntr,limit=1,sort=nearest] add swPool_heading
-tag @s add swPool_self
+tag @s add swPool_facepocket
 
-execute at @s as @e[tag=swPool_cntr,limit=1,sort=nearest] at @s positioned ^ ^ ^0.2 run tp @e[tag=swPool_rhp1] ~ ~ ~ facing entity @e[tag=swPool_self,limit=1]
+execute at @s as @e[tag=swPool_cntr,limit=1,sort=nearest] at @s positioned ^ ^ ^0.2 run tp @e[tag=swPool_rhp1] ~ ~ ~ facing entity @e[tag=swPool_facepocket,limit=1]
 
 scoreboard players operation dr swPool_Rotation = @s swPool_Rotation
 
@@ -21,4 +21,4 @@ scoreboard players operation @s swPool_Rotation += r2 swPool_Rotation
 #tellraw @a [{"text":" r, "},{"score":{"objective":"swPool_Rotation","name":"@s"}}]
 #scoreboard players add @s swPool_v 1000000
 function pool:classes/spin/change_of_state
-tag @s remove swPool_self
+#tag @s remove swPool_facepocket
