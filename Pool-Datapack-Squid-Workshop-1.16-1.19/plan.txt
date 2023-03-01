@@ -1,5 +1,13 @@
 Plan of this pack
 
+0.  Tutorial
+    i.  text display when loading the datapack after choosing language.
+    ii. prompt to enter preset tutorial mode, where a table will be set and player enter practice mode.
+        They are told how to open command window get cue stick, how to set table, 
+            how to use the cue stick, how to place the ball, how to aim, how to undo,
+            how to modify each settings, how to end a game, how to clear table,
+            and how to join a game lobby.
+
 1.  Improvements
     i.  Snooker: an option to show score by dialog instead of sidebar after each turn and at the end of game. (DONE)
     ii. Snooker: split stroke count of two players, and calculate performance (average score per stroke) respectively. (NOT NECESSARY)
