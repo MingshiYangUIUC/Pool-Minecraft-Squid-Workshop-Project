@@ -9,7 +9,8 @@
 
 
 #absolute angle
-execute store result score @s swPool_drot run data get entity @s Rotation[0] 10000
+
+scoreboard players operation @s swPool_drot = @s swPool_Rotation
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_facer
 execute at @s run tp @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] ~ ~ ~ facing entity @e[type=armor_stand,tag=swPool_a2,limit=1]
 execute as @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] store result score FACER swPool_rot run data get entity @s Rotation[0] 10000
@@ -23,21 +24,25 @@ execute unless entity @s[scores={swPool_v=97656..}] unless entity @e[tag=swPool_
 #angle by velocity triangle
 execute if entity @s[tag=!swPool_aabs] run tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_facertp
 execute if entity @s[tag=!swPool_aabs] at @s run tp @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] ~ ~ ~ ~ 0
+### 
+execute if entity @s[tag=!swPool_aabs] store result entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get @s swPool_Rotation
 execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v = @s swPool_v
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run function pool:classes/motion/move
 execute if entity @s[tag=!swPool_aabs] run scoreboard players set @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v 0
-execute if entity @s[tag=!swPool_aabs] run data modify entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation set from entity @e[type=armor_stand,tag=swPool_a2,limit=1] Rotation
+
+execute if entity @s[tag=!swPool_aabs] store result entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_Rotation
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run tp @s ~ ~ ~ ~180 0
 execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v = @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_v
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run function pool:classes/motion/move
 
-execute if entity @s[tag=!swPool_aabs] run execute store result score @s swPool_rot run data get entity @s Rotation[0] 10000
+
+execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @s swPool_rot = @s swPool_Rotation
 execute if entity @s[tag=!swPool_aabs] run tag @e[type=area_effect_cloud,tag=swPool_rhp2] add swPool_facerv
 execute if entity @s[tag=!swPool_aabs] at @s run tp @e[type=area_effect_cloud,tag=swPool_facerv,limit=1,sort=nearest] ~ ~ ~ facing entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest]
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facerv,limit=1,sort=nearest] store result score FACERV swPool_rot run data get entity @s Rotation[0] 10000
 execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @s swPool_rot -= FACERV swPool_rot
 execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @s swPool_drot -= @s swPool_rot
-#execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run particle minecraft:composter ~ ~ ~
+
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] remove swPool_facertp
 tag @e[type=area_effect_cloud,tag=swPool_rhp2] remove swPool_facerv
 tag @s remove swPool_aabs

@@ -55,6 +55,11 @@ scoreboard players operation wc swMath_V /= C_10000 swPool_C
 
 # divide w by 20 to get radian per tick
 #tellraw @a [{"text":"ws "},{"score":{"objective":"swMath_V","name": "ws"}}]
+scoreboard players operation ws swMath_V = @s swPool_wy
+scoreboard players operation wt swMath_V = @s swPool_wx
+scoreboard players operation wc swMath_V = @s swPool_wz
+scoreboard players operation wc swMath_V *= C_-1 swMath_C
+
 scoreboard players operation ws swMath_V /= C_20 swPool_C
 scoreboard players operation wt swMath_V /= C_20 swPool_C
 scoreboard players operation wc swMath_V /= C_20 swPool_C
@@ -86,20 +91,11 @@ scoreboard players operation cosp2 swMath_V = #vOut swMath_V
 
 
 
-# calculate square of cos and sin used
-scoreboard players operation cos2p2 swMath_V = cosp2 swMath_V
-scoreboard players operation cos2p2 swMath_V *= cosp2 swMath_V
-scoreboard players operation cos2p2 swMath_V /= C_10000 swMath_C
-
-scoreboard players operation sin2p2 swMath_V = sinp2 swMath_V
-scoreboard players operation sin2p2 swMath_V *= sinp2 swMath_V
-scoreboard players operation sin2p2 swMath_V /= C_10000 swMath_C
-
 # Calculate dp0 dp1 dp2
 # calculate the common divider = cosp1
 scoreboard players operation CD swMath_V = cosp1 swMath_V
 scoreboard players operation CDabs swMath_V = CD swMath_V
-execute if score CDabs swMath_V matches ..-1 run scoreboard players operation CDabs swMath_V *= C_-1 swMath_C
+execute if score CDabs swMath_V matches ..-1 run scoreboard players operation CDabs swMath_V *= #C_-1 swMath_C
 
 #tellraw @a [{"text":"CD "},{"score":{"objective":"swMath_V","name": "CD"}}]
 

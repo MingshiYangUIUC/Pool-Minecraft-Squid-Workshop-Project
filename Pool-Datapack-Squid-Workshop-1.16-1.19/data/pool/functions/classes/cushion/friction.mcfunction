@@ -85,8 +85,8 @@ scoreboard players operation @s swPool_wy += dWY swPool_var00
 #vcombine_ultimate, after flipping the sign of v_normal
 execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_vex *= C_-1 swPool_C
 execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_vez *= C_-1 swPool_C
-function pool:classes/physics/vcombine_1
-scoreboard players operation @s swPool_v *= C_500 swPool_C
+function pool:classes/physics/vcombine_ve
+#scoreboard players operation @s swPool_v *= C_500 swPool_C
 
 #remove tag used
 tag @s remove swPool_+x
