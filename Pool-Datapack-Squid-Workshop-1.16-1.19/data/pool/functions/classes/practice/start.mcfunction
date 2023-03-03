@@ -21,6 +21,22 @@ clear @a carrot_on_a_stick{CustomModelData:104}
 clear @a carrot_on_a_stick{CustomModelData:105}
 clear @a carrot_on_a_stick{CustomModelData:106}
 clear @a carrot_on_a_stick{CustomModelData:107}
+clear @a carrot_on_a_stick{CustomModelData:121}
+clear @a carrot_on_a_stick{CustomModelData:122}
+clear @a carrot_on_a_stick{CustomModelData:123}
+clear @a carrot_on_a_stick{CustomModelData:124}
+clear @a carrot_on_a_stick{CustomModelData:125}
+clear @a carrot_on_a_stick{CustomModelData:126}
+clear @a carrot_on_a_stick{CustomModelData:127}
+clear @a carrot_on_a_stick{CustomModelData:128}
+clear @a carrot_on_a_stick{CustomModelData:129}
+clear @a carrot_on_a_stick{CustomModelData:130}
+clear @a carrot_on_a_stick{CustomModelData:131}
+clear @a carrot_on_a_stick{CustomModelData:132}
+clear @a carrot_on_a_stick{CustomModelData:133}
+clear @a carrot_on_a_stick{CustomModelData:134}
+clear @a carrot_on_a_stick{CustomModelData:135}
+
 scoreboard players set @a swPool_Score 0
 
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
@@ -39,6 +55,23 @@ execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:105,display:{Name:"\"Blue\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:106,display:{Name:"\"Pink\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:107,display:{Name:"\"Black\""}}
+
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:121,display:{Name:"\"01\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:122,display:{Name:"\"02\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:123,display:{Name:"\"03\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:124,display:{Name:"\"04\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:125,display:{Name:"\"05\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:126,display:{Name:"\"06\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:127,display:{Name:"\"07\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:128,display:{Name:"\"08\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:129,display:{Name:"\"09\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:130,display:{Name:"\"10\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:131,display:{Name:"\"11\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:132,display:{Name:"\"12\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:133,display:{Name:"\"13\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:134,display:{Name:"\"14\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:135,display:{Name:"\"15\""}}
+
 
 tag @a[tag=swPool_near] remove swPool_near
 tag @e[tag=swPool_pooltable] add swPool_start

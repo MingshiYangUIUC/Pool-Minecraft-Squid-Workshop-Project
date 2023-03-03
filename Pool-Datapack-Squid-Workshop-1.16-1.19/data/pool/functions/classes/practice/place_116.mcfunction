@@ -10,6 +10,23 @@ replaceitem entity @e[tag=swPool_brown,tag=!swPool_placed] armor.head minecraft:
 replaceitem entity @e[tag=swPool_blue,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:6}
 replaceitem entity @e[tag=swPool_pink,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:7}
 replaceitem entity @e[tag=swPool_black,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:8}
+
+replaceitem entity @e[tag=swPool_01,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:21}
+replaceitem entity @e[tag=swPool_02,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:22}
+replaceitem entity @e[tag=swPool_03,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:23}
+replaceitem entity @e[tag=swPool_04,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:24}
+replaceitem entity @e[tag=swPool_05,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:25}
+replaceitem entity @e[tag=swPool_06,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:26}
+replaceitem entity @e[tag=swPool_07,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:27}
+replaceitem entity @e[tag=swPool_08,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:28}
+replaceitem entity @e[tag=swPool_09,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:29}
+replaceitem entity @e[tag=swPool_10,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:30}
+replaceitem entity @e[tag=swPool_11,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:31}
+replaceitem entity @e[tag=swPool_12,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:32}
+replaceitem entity @e[tag=swPool_13,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:33}
+replaceitem entity @e[tag=swPool_14,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:34}
+replaceitem entity @e[tag=swPool_15,tag=!swPool_placed] armor.head minecraft:acacia_button{CustomModelData:35}
+
 scoreboard players reset @e[tag=swPool_pool] swPool_var00
 scoreboard players reset @e[tag=swPool_pool] swPool_var01
 scoreboard players set @e[tag=swPool_pool] swPool_D100 100000
