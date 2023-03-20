@@ -3,7 +3,7 @@ Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
 *I am replacing the math module with a better organized collection: [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
 
-[中文版使用说明]([https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md](https://github.com/MingshiYangUIUC/Soccer-Minecraft-Squid-Workshop-Project/blob/migration/README_CN.md))
+[中文版使用说明]([https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md])
 
 ![_MingshiYangUIUC_](Gallery/Images/many_balls_on_the_table.png)
 
