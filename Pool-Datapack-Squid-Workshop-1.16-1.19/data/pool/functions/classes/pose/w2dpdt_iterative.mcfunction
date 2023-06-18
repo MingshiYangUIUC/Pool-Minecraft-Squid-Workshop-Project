@@ -5,7 +5,7 @@ execute store result score pose1 swPool_pose run data get entity @s Pose.Head[1]
 execute store result score pose2 swPool_pose run data get entity @s Pose.Head[2] 10000
 
 
-scoreboard players set maxRdt swMath_V 200000000
+scoreboard players set maxRdt swMath_V 100000000
 scoreboard players set DT swMath_V 100000
 
 
@@ -17,50 +17,6 @@ function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
 scoreboard players operation cosp1 swMath_V = vOut swMath_V
 
-# calculate ws, wt, and wc 
-
-scoreboard players operation vIn swMath_V = @s swPool_wx
-scoreboard players operation vIn swMath_V *= #C_10000 swMath_C
-scoreboard players operation vIn swMath_V /= @s swPool_wz
-function math:classes/core/trig/arctan_rad
-function math:classes/core/util/swap
-function math:classes/core/util/rad2deg
-scoreboard players operation dr swMath_V = vOut swMath_V
-# solve quadrant
-execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches ..-1 run scoreboard players remove dr swMath_V 1800000
-execute if score @s swPool_wz matches ..-1 if score @s swPool_wx matches 0.. run scoreboard players add dr swMath_V 1800000
-execute store result score rface swMath_V run data get entity @s Rotation[0] -10000
-scoreboard players operation dr swMath_V -= rface swMath_V
-scoreboard players operation dr swMath_V %= #C_3600000 swMath_C
-
-# calculate wswtwc
-scoreboard players operation ws swMath_V = @s swPool_wy
-
-scoreboard players operation A swPool_Vi = @s swPool_wx
-scoreboard players operation A swPool_Vj = @s swPool_wz
-scoreboard players set A swPool_Vk 0
-function pool:classes/physics/vamagnitude
-scoreboard players operation wp swMath_V = O swPool_Vmag
-
-scoreboard players operation vIn swMath_V = dr swMath_V
-function math:classes/core/util/deg2rad
-function math:classes/core/util/swap
-function math:classes/core/trig/sin_rad
-scoreboard players operation sindr swMath_V = vOut swMath_V
-
-scoreboard players operation vIn swMath_V = dr swMath_V
-function math:classes/core/util/deg2rad
-function math:classes/core/util/swap
-function math:classes/core/trig/cos_rad
-scoreboard players operation cosdr swMath_V = vOut swMath_V
-
-scoreboard players operation wt swMath_V = wp swMath_V
-scoreboard players operation wt swMath_V *= sindr swMath_V
-scoreboard players operation wt swMath_V /= #C_10000 swMath_C
-
-scoreboard players operation wc swMath_V = wp swMath_V
-scoreboard players operation wc swMath_V *= cosdr swMath_V
-scoreboard players operation wc swMath_V /= #C_10000 swMath_C
 
 # divide w by 20 to get radian per tick
 #tellraw @a [{"text":"ws "},{"score":{"objective":"swMath_V","name": "ws"}}]
