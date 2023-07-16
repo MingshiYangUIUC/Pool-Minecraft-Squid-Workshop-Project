@@ -15,7 +15,7 @@ scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 scoreboard players operation ws swMath_V = @s swPool_wy
 scoreboard players operation wt swMath_V = @s swPool_wx
 scoreboard players operation wc swMath_V = @s swPool_wz
-scoreboard players operation wc swMath_V *= C_-1 swMath_C
+scoreboard players operation wc swMath_V *= #C_-1 swMath_C
 
 scoreboard players operation ws swMath_V /= C_20 swPool_C
 scoreboard players operation wt swMath_V /= C_20 swPool_C
@@ -82,7 +82,7 @@ scoreboard players operation dp1 swMath_V /= CDabs swMath_V
 # calculate dp2 = dp0 * sin(p1) + wc
 scoreboard players operation dp2 swMath_V = dp0 swMath_V
 scoreboard players operation dp2 swMath_V *= sinp1 swMath_V
-scoreboard players operation dp2 swMath_V /= C_10000 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_10000 swMath_C
 scoreboard players operation dp2 swMath_V += wc swMath_V
 
 #tellraw @a [{"text":"dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]
@@ -102,9 +102,9 @@ scoreboard players set maxdp swMath_V 0
 scoreboard players operation adp0 swMath_V = dp0 swMath_V
 scoreboard players operation adp1 swMath_V = dp1 swMath_V
 scoreboard players operation adp2 swMath_V = dp2 swMath_V
-execute if score adp0 swMath_V matches ..-1 run scoreboard players operation adp0 swMath_V *= C_-1 swMath_C
-execute if score adp1 swMath_V matches ..-1 run scoreboard players operation adp1 swMath_V *= C_-1 swMath_C
-execute if score adp2 swMath_V matches ..-1 run scoreboard players operation adp2 swMath_V *= C_-1 swMath_C
+execute if score adp0 swMath_V matches ..-1 run scoreboard players operation adp0 swMath_V *= #C_-1 swMath_C
+execute if score adp1 swMath_V matches ..-1 run scoreboard players operation adp1 swMath_V *= #C_-1 swMath_C
+execute if score adp2 swMath_V matches ..-1 run scoreboard players operation adp2 swMath_V *= #C_-1 swMath_C
 
 scoreboard players operation maxdp swMath_V > adp0 swMath_V
 scoreboard players operation maxdp swMath_V > adp1 swMath_V
@@ -124,25 +124,25 @@ scoreboard players operation dp0 swMath_V *= dt swMath_V
 scoreboard players operation dp1 swMath_V *= dt swMath_V
 scoreboard players operation dp2 swMath_V *= dt swMath_V
 
-scoreboard players operation dp0 swMath_V /= C_10000 swMath_C
-scoreboard players operation dp1 swMath_V /= C_10000 swMath_C
-scoreboard players operation dp2 swMath_V /= C_10000 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_10000 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_10000 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_10000 swMath_C
 
 #tellraw @a [{"text":"LLL dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]
 
 scoreboard players set r2d swPool_C 28648
 
-scoreboard players operation dp0 swMath_V /= C_100 swMath_C
-scoreboard players operation dp1 swMath_V /= C_100 swMath_C
-scoreboard players operation dp2 swMath_V /= C_100 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_100 swMath_C
 
 scoreboard players operation dp0 swMath_V *= r2d swPool_C
 scoreboard players operation dp1 swMath_V *= r2d swPool_C
 scoreboard players operation dp2 swMath_V *= r2d swPool_C
 
-scoreboard players operation dp0 swMath_V /= C_100 swMath_C
-scoreboard players operation dp1 swMath_V /= C_100 swMath_C
-scoreboard players operation dp2 swMath_V /= C_100 swMath_C
+scoreboard players operation dp0 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp1 swMath_V /= #C_100 swMath_C
+scoreboard players operation dp2 swMath_V /= #C_100 swMath_C
 
 
 #tellraw @a [{"text":"LLL dp0 "},{"score":{"objective":"swMath_V","name": "dp0"}},{"text":" dp1 "},{"score":{"objective":"swMath_V","name": "dp1"}},{"text":" dp2 "},{"score":{"objective":"swMath_V","name": "dp2"}}]

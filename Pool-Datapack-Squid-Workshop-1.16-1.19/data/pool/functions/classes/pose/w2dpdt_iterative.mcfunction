@@ -23,7 +23,7 @@ scoreboard players operation cosp1 swMath_V = vOut swMath_V
 scoreboard players operation ws swMath_V = @s swPool_wy
 scoreboard players operation wt swMath_V = @s swPool_wx
 scoreboard players operation wc swMath_V = @s swPool_wz
-scoreboard players operation wc swMath_V *= C_-1 swMath_C
+scoreboard players operation wc swMath_V *= #C_-1 swMath_C
 
 scoreboard players operation ws swMath_V /= C_20 swPool_C
 scoreboard players operation wt swMath_V /= C_20 swPool_C
