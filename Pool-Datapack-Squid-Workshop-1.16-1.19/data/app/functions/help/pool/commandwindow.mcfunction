@@ -1,4 +1,4 @@
-#tellraw @s [{"text":""},{"text":"","color":"","clickEvent":{"action":"run_command","value":""}}]
+#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
 
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"╔══════════════════════════════╗"}]
@@ -25,5 +25,5 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<须知>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
 
-#tellraw @s [{"text":""},{"text":"","color":"","clickEvent":{"action":"run_command","value":""}}]
-#tellraw @s [{"text":""},{"text":"","color":"","clickEvent":{"action":"run_command","value":""}}]
+#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
+#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
