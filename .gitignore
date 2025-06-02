@@ -17,3 +17,5 @@
 Math-Datapack-Squid-Workshop*
 swMath_sync.bat
 Pool*/**/*.ipynb
+**/*.ipynb
+**/*dev*

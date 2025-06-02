@@ -61,3 +61,7 @@ tag @s remove swPool_shooting
 
 execute if score V_addon swPool_v matches 1.. run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v += V_addon swPool_v
 execute if score V_addon swPool_v matches 1.. run scoreboard players set V_addon swPool_v 0
+
+# reset cue ball control
+scoreboard players set cuex swMath_V 0
+scoreboard players set cuey swMath_V 0

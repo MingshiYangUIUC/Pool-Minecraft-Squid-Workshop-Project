@@ -1,2 +1,3 @@
-scoreboard players set stka swPool_var00 580519
-scoreboard players set x swPool_var00 450000
+scoreboard players set cuex swMath_V 6000
+scoreboard players set cuey swMath_V 6000
+function pool:classes/cue/xy_to_angle

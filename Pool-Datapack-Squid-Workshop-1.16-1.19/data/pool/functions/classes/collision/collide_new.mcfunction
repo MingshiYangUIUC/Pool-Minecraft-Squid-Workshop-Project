@@ -91,6 +91,9 @@ scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_Rotation = @e[ta
 #execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
 #execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation
 
+# record sound
+scoreboard players operation pitch swMath_V = @e[tag=swPool_t2,limit=1] swPool_v
+
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1
 tag @e[tag=swPool_rhp2] remove swPool_t2
@@ -112,8 +115,88 @@ scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 
+#playsound minecraft:block.note_block.iron_xylophone ambient @a ~ ~ ~ 1 0
+
+playsound minecraft:block.stone.break ambient @a ~ ~ ~ 0.5 1
+
+execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.1 0.5
+execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.138 0.529732
+execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.175 0.561231
+execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.212 0.594604
+execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.25 0.629961
+execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.288 0.66742
+execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.325 0.707107
+execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.363 0.749154
+execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.4 0.793701
+execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.438 0.840896
+execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.475 0.890899
+execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.512 0.943874
+execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.55 1.0
+execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.588 1.059463
+execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.625 1.122462
+execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.662 1.189207
+execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.7 1.259921
+execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.737 1.33484
+execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.775 1.414214
+execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.812 1.498307
+execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.85 1.587401
+execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.888 1.681793
+execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.925 1.781797
+execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.962 1.887749
+execute if score pitch swMath_V matches 90223426.. run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 1.0 2.0
+
+execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.1 0.5
+execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.138 0.529732
+execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.175 0.561231
+execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.212 0.594604
+execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.25 0.629961
+execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.288 0.66742
+execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.325 0.707107
+execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.363 0.749154
+execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.4 0.793701
+execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.438 0.840896
+execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.475 0.890899
+execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.512 0.943874
+execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.55 1.0
+execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.588 1.059463
+execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.625 1.122462
+execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.662 1.189207
+execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.7 1.259921
+execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.737 1.33484
+execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.775 1.414214
+execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.812 1.498307
+execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.85 1.587401
+execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.888 1.681793
+execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.925 1.781797
+execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.962 1.887749
+execute if score pitch swMath_V matches 90223426.. run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 1.0 2.0
+
+execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.1 0.5
+execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.138 0.529732
+execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.175 0.561231
+execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.212 0.594604
+execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.25 0.629961
+execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.288 0.66742
+execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.325 0.707107
+execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.363 0.749154
+execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.4 0.793701
+execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.438 0.840896
+execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.475 0.890899
+execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.512 0.943874
+execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.55 1.0
+execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.588 1.059463
+execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.625 1.122462
+execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.662 1.189207
+execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.7 1.259921
+execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.737 1.33484
+execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.775 1.414214
+execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.812 1.498307
+execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.85 1.587401
+execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.888 1.681793
+execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.925 1.781797
+execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 0.962 1.887749
+execute if score pitch swMath_V matches 90223426.. run playsound minecraft:block.note_block.xylophone ambient @a ~ ~ ~ 1.0 2.0
 
 scoreboard players set @e[tag=swPool_col2,limit=1] swPool_T 0
 scoreboard players set @s swPool_T 0
