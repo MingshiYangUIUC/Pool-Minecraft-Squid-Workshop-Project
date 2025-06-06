@@ -50,6 +50,8 @@ tag @s remove swPool_aabs
 
 
 #unify dr value
+scoreboard players remove @s[scores={swPool_drot=3600001..}] swPool_drot 3600000
+scoreboard players remove @s[scores={swPool_drot=3600001..}] swPool_drot 3600000
 scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 #get distance

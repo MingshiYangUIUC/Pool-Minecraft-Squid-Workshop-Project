@@ -47,6 +47,14 @@ execute if score TABLE swPool_sizex < TABLE swPool_sizez run tag @s[tag=swPool_c
 execute as @s[tag=swPool_cush] store result score @s swPool_posx run data get entity @s Pos[0] 10000
 execute as @s[tag=swPool_cush] store result score @s swPool_posz run data get entity @s Pos[2] 10000
 
+# add velocity here
+scoreboard players operation @s swPool_var00 = @s swPool_vx
+scoreboard players operation @s swPool_var00 /= C_10000 swPool_C
+scoreboard players operation @s swPool_posx += @s swPool_var00
+scoreboard players operation @s swPool_var01 = @s swPool_vz
+scoreboard players operation @s swPool_var01 /= C_10000 swPool_C
+scoreboard players operation @s swPool_posz += @s swPool_var01
+
 scoreboard players operation @s[tag=swPool_cush] swPool_posx -= TABLE swPool_posx
 scoreboard players operation @s[tag=swPool_cush] swPool_posz -= TABLE swPool_posz
 # inside 4900, use fake side edge
@@ -63,8 +71,12 @@ scoreboard players operation @s[tag=swPool_cush] swPool_var00 -= TABLE swPool_si
 scoreboard players operation @s[tag=swPool_cush] swPool_var01 -= TABLE swPool_sizez
 
 #3150=4400-1250, use fake corner edge
-tag @s[tag=swPool_cush,scores={swPool_var00=-3150..3150}] add swPool_pktx
-tag @s[tag=swPool_cush,scores={swPool_var01=-3150..3150}] add swPool_pktz
+
+#execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"corner edge v0 is "},{"score":{"objective":"swPool_var00","name":"@s"}}]
+#execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"corner edge v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
+
+tag @s[tag=swPool_cush,scores={swPool_var00=-3150..}] add swPool_pktx
+tag @s[tag=swPool_cush,scores={swPool_var01=-3150..}] add swPool_pktz
 
 # above is for saving bounce computing time
 
