@@ -63,7 +63,7 @@ If the pack is _(re)installed_, please follow the instruction, choose the langua
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard calculations to overflow and the game may behave unexpectedly.
 
-Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please find the explanation of settings by clicking <<insHelp about Settings</ins>> at bottom of command window.
+Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please find the explanation of settings by clicking <<ins>Help about Settings</ins>> at bottom of command window.
 
 	/function app:settings/
 Note: Please turn off "Force Unicode" for better experience.
@@ -114,7 +114,7 @@ Conservation of momentum and angular momentum and energy, recently added interac
 3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack and sorry for any incorrectness. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
 
 # Project Tree
-## Settings are omitted here, please consult by clicking <<insHelp about Settings</ins>> in the command window.
+## Settings are omitted here, please consult by clicking <<ins>Help about Settings</ins>> in the command window.
 
 # Terms of Use
 This section shall be honored when in conflict with other documents, including the license. \
