@@ -63,7 +63,7 @@ If the pack is _(re)installed_, please follow the instruction, choose the langua
 	/function app:settings/pool/friction/
 Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard calculations to overflow and the game may behave unexpectedly.
 
-Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please consult the settings explained below.
+Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please find the explanation of settings by clicking <<insHelp about Settings</ins>> at bottom of command window.
 
 	/function app:settings/
 Note: Please turn off "Force Unicode" for better experience.
@@ -79,6 +79,7 @@ You can choose whether you will be applied slowness effect when pressing shift. 
 Before each strike you can click <<ins>Adjust the next strike angles</ins>> to change the strike positions and angles. Or using the following command.
 
 	/function pool:classes/cue/map
+In this map, grid points represent where cue stick should hit the cue ball. Cue stick lifting angle can be adjusted at the right side. Fine tuning of cue ball hit point can be done using buttons at the bottom. 
 
 ## Ball in hand
 When the cue ball leaves table, the player having it in hand needs to place it back on the table. Valid placements will be indicated by green particles when the player is standing on the table or on the ground near the table. 
@@ -108,49 +109,12 @@ You can terminate the game at any time using the command window.
 Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
 # Notes
-1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
-2. Although the content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
-3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
+1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick and aiming direction, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
+2. Although the theoretical content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not consulted or cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
+3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack and sorry for any incorrectness. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
 
 # Project Tree
-## Settings
-	data/app/functions/settings                Comment
-	+---aim                               	   Choose whether the screen will be zoomed in while aiming.
-	|       nozoom.mcfunction                          Do not zoom in
-	|       zoom.mcfunction                            Zoom in
-	|
-	+---cheating                               Choose whether cheating is allowed
-	|       allow.mcfunction                           Allow
-	|       disallow.mcfunction                        Not allow
-	|       
-	+---friction                               Set coefficients of frictions
-	|       clear.mcfunction                           Clear all values
-	|       default.mcfunction                         Use default values for all entries below
-	|       impact.mcfunction                          indiv. value setting
-	|       rolling.mcfunction                         indiv. value setting
-	|       sliding.mcfunction                         indiv. value setting
-	|       striking.mcfunction                        indiv. value setting
-	|       
-	+---language                               Choose a language
-	|       chinese_simplified.mcfunction              Simplified Chinese
-	|       english.mcfunction                         English
-	|       
-	+---reload                                 Upon Reload...
-	|       cleanongoingsession.mcfunction             Clear the current game session when you reload the pack
-	|       keepongoingsession.mcfunction              Not clear the current game session when you reload the pack
-	|       
-	+---snooker/display                        Display of scores in snooker game
-	|       dialogue.mcfunction                        Tellraw the players in dialogue
-	|       sidebar.mcfunction                         Show the score at sidebar (may conflict other sidebar objectives)
-	|       
-	\---version                                The game version of the map (world)
-		1_16.mcfunction                            1.16.x
-		1_17.mcfunction                            1.17.x
-		1_18.mcfunction                            1.18.x
-		1_19.mcfunction                            1.19.x
-		reset.mcfunction                           Let you choose again
-
-Other directories are not shown.
+## Settings are omitted here, please consult by clicking <<insHelp about Settings</ins>> in the command window.
 
 # Terms of Use
 This section shall be honored when in conflict with other documents, including the license. \
