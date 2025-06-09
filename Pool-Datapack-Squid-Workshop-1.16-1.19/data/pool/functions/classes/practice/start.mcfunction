@@ -14,6 +14,7 @@ tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 clear @a carrot_on_a_stick{CustomModelData:99}
+clear @a carrot_on_a_stick{CustomModelData:100}
 clear @a carrot_on_a_stick{CustomModelData:101}
 clear @a carrot_on_a_stick{CustomModelData:102}
 clear @a carrot_on_a_stick{CustomModelData:103}
@@ -47,7 +48,8 @@ tag @e[tag=swPool_pooltable] add swPool_practicemode
 
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand_obj
-execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:101,display:{Name:"\"Red\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:102,display:{Name:"\"Yellow\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:103,display:{Name:"\"Green\""}}

@@ -2,7 +2,8 @@
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] run tag @s add swPool_foulcue
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_ballinhand
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_ballinhand
-give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute if data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute unless data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
 tag @a[tag=swPool_ballinhand,tag=!swPool_given] add swPool_given
 #detect foulcolor
 #swPool_count # of color and red pocketed as swPool_ncolor and swPool_nred score
@@ -104,7 +105,8 @@ kill @e[tag=swPool_pintemp]
 
 
 
-replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_cue] armor.head minecraft:acacia_button{CustomModelData:1}
+execute if data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_cue] armor.head minecraft:acacia_button{CustomModelData:1}
+execute unless data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_cue] armor.head minecraft:acacia_button{CustomModelData:36}
 replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_red] armor.head minecraft:acacia_button{CustomModelData:2}
 replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_yellow] armor.head minecraft:acacia_button{CustomModelData:3}
 replaceitem entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_green] armor.head minecraft:acacia_button{CustomModelData:4}

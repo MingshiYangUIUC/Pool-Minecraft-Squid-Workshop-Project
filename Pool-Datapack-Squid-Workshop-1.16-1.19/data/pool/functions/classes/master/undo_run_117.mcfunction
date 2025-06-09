@@ -7,7 +7,8 @@ kill @e[tag=swPool_pool]
 tag @e[tag=swPool_temppin] add swPool_pool
 
 
-item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:1}
+execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:1}
+execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:36}
 item replace entity @e[tag=swPool_red,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:2}
 item replace entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:3}
 item replace entity @e[tag=swPool_green,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:4}

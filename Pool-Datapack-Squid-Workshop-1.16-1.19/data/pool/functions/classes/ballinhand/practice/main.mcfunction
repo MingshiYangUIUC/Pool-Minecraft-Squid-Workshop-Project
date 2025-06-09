@@ -53,7 +53,7 @@ execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02
 
 execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_hittime 0
 scoreboard players set @s swPool_crtclk 0
-#execute if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99} 1
+#execute if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData-99} 1
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_given
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_ballinhand
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset

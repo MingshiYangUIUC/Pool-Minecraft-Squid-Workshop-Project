@@ -2,7 +2,8 @@
 execute as @e[tag=swPool_pool,tag=!swPool_placed] store result entity @s Pos[0] double 0.0001 run scoreboard players get @s swPool_var00
 execute as @e[tag=swPool_pool,tag=!swPool_placed] store result entity @s Pos[2] double 0.0001 run scoreboard players get @s swPool_var01
 execute as @e[tag=swPool_cue,tag=swPool_free] store result entity @s Pos[1] double 0.0001 run scoreboard players get @s swPool_var02
-item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:1}
+execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:1}
+execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:36}
 item replace entity @e[tag=swPool_red,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:2}
 item replace entity @e[tag=swPool_yellow,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:3}
 item replace entity @e[tag=swPool_green,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:4}

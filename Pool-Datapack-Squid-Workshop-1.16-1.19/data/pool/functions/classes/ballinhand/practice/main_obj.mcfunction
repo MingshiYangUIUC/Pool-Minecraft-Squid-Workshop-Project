@@ -38,7 +38,7 @@ execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=
 
 execute if entity @s[scores={swPool_crtclk=1..}] if entity @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run function pool:classes/master/record
 
-#execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+#execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData-99},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
 execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:101},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_red"],NoGravity:1,Small:1,Invisible:1}
 execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:102},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
 execute if entity @s[scores={swPool_crtclk=1..},nbt={SelectedItem:{tag:{CustomModelData:103},id:"minecraft:carrot_on_a_stick"}}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_green"],NoGravity:1,Small:1,Invisible:1}
@@ -71,7 +71,7 @@ execute as @e[tag=swPool_free,tag=swPool_pool] store result score @s swPool_var0
 
 execute if entity @e[tag=swPool_pool,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_hittime 0
 scoreboard players set @s swPool_crtclk 0
-#execute if entity @e[tag=swPool_pool,tag=swPool_free] run clear @a[tag=swPool_ballinhand_obj] carrot_on_a_stick{CustomModelData:99} 1
+#execute if entity @e[tag=swPool_pool,tag=swPool_free] run clear @a[tag=swPool_ballinhand_obj] carrot_on_a_stick{CustomModelData-99} 1
 execute if entity @e[tag=swPool_free,tag=swPool_pool] run tag @a[tag=swPool_ballinhand_obj] remove swPool_given
 #execute if entity @e[tag=swPool_free,tag=swPool_pool] run tag @a[tag=swPool_ballinhand_obj] remove swPool_ballinhand_obj
 execute if entity @e[tag=swPool_free,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset

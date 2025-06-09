@@ -12,6 +12,7 @@ tag @a remove swPool_stkrec
 tag @a remove swPool_given
 
 clear @a carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+clear @a carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
 
 tag @a remove swPool_poolplay
 tag @a remove swPool_ballinhand

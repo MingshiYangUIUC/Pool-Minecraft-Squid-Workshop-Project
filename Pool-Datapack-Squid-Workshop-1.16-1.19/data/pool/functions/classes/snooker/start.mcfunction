@@ -14,6 +14,7 @@ tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
 clear @a carrot_on_a_stick{CustomModelData:99}
+clear @a carrot_on_a_stick{CustomModelData:100}
 
 #execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 scoreboard players set @a swPool_Score 0
@@ -58,7 +59,8 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.01..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 tag @a[tag=swPool_poolplay,limit=1,sort=random] add swPool_ballinhand
-give @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
+execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
 
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
 

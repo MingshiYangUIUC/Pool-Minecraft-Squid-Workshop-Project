@@ -28,6 +28,9 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ snooker/display/sidebar: use sidebar to 
 tellraw @s[tag=swPool_EN] [{"text":"➇ version/1_XX: set the version of your Minecraft client.","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ version/reset: let you reset the version of your Minecraft client.","color":"white"}]
 
+tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/cueball_clean: switch to pure white cue ball (do not change when a game is active).","color":"gray"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/cueball_red_dots: switch to cue ball with red dots (do not change when a game is active).","color":"white"}]
+
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/disable_ball_spinning: the balls do not show rolling animation.","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/enable_ball_spinning: the balls show rolling animation.","color":"white"}]
 
@@ -61,6 +64,9 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ snooker/display/sidebar：用计分板�
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ version/1_XX：设置你的客户端版本","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ version/reset：重置你的客户端版本","color":"white"}]
+
+tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/cueball_clean: 切换成纯白色白球（球局进行中请勿使用）","color":"gray"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/cueball_red_dots: 切换成带红点的白球（球局进行中请勿使用）","color":"white"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/disable_ball_spinning：关闭球的旋转动画","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/enable_ball_spinning：启用球的旋转动画","color":"white"}]
