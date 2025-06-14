@@ -190,3 +190,13 @@ execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless dat
 scoreboard players set Resetf swPool_var00 0
 
 execute as @a store result score @s swPool_player run data get entity @s UUID[1]
+
+# math datapack test
+scoreboard players reset #vIn swMath_V
+scoreboard players reset #vOut swMath_V
+scoreboard players set #vIn swMath_V 600000
+function math:classes/core/util/deg2rad
+function math:classes/core/util/swap
+function math:classes/core/trig/cos_rad
+execute unless score #vOut swMath_V matches 4999 run tellraw @a [{"text":"Math Datapack is REQUIRED but is not installed or is not working properly. Please get it from ","color":"red"}, {"text":"GitHub","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+execute unless score #vOut swMath_V matches 4999 run tellraw @a [{"text":"数学数据包未成功安装，获取：","color":"red"}, {"text":"GitHub","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
