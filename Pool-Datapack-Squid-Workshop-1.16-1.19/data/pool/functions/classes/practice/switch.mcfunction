@@ -59,6 +59,7 @@ tag @e[tag=swPool_pooltable] remove swPool_awdrec
 tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 #execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_poolplay
+tag @s add swPool_spec
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/cue/reset
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Switched to Practice Mode."}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"切换至练习模式。"}]
