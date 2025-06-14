@@ -29,6 +29,12 @@ Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
 	
 # Installation
+
+### Windows Users
+[`swPool_sync.bat`](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/swPool_sync.bat) is a script that automatically downloads / updates **Pool Datapack** and its required **Math Datapack** and **Resourcepack** from GitHub.  
+⚠️ **DO NOT USE** if you have custom modifications, because the current Pool / Math Datapacks will be deleted.
+
+### Alternative Step by Step Installation
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
 - Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop" folder(not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
