@@ -1,4 +1,4 @@
-function pool:classes/lobby/terminate_game
+function pool:classes/lobby/terminate_helper
 
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
 

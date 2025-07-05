@@ -13,6 +13,12 @@
 #Future:
 #7. Merge with "change of state": No need to combine in 6 then separate again...
 
+#Addition: x and z omega change due to bounce.
+# contact:                                K' = omega_(x|z)*r
+# calculate change of L/omega             ΔL=F*r*1tick   /   Δomega_(x|z)=F*r*1tick/I  = v_normal*5/r*K'*mui
+# v_normal is just vx or vz               
+# bounce always offsets x and z omega. so we can simply calculate offset value, then substract from omega.
+# if swPool_x, facing +-x, will interact with omega_z, and vice versa.
 
 #tellraw @a [{"text":"vex, "},{"score":{"objective":"swPool_vex","name":"@s"}},{"text":" vez, "},{"score":{"objective":"swPool_vez","name":"@s"}},{"text":" wy "},{"score":{"objective":"swPool_wy","name":"@s"}}]
 
@@ -39,6 +45,14 @@ execute if entity @s[tag=swPool_+x] run scoreboard players operation K swPool_va
 execute if entity @s[tag=swPool_-x] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_+z] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_-z] run scoreboard players operation K swPool_var00 -= WR swPool_var00
+
+# get K' 
+execute if entity @s[tag=swPool_x] run scoreboard players operation Kp swPool_var00 = @s swPool_wz
+execute if entity @s[tag=swPool_z] run scoreboard players operation Kp swPool_var00 = @s swPool_wx
+scoreboard players operation Kp swPool_var00 /= C_100 swPool_C
+scoreboard players operation Kp swPool_var00 *= C_r swPool_C
+scoreboard players operation Kp swPool_var00 /= C_100 swPool_C
+
 #execute if score K swPool_var00 matches 1.. run scoreboard players set K swPool_var00 10000
 #execute if score K swPool_var00 matches ..-1 run scoreboard players set K swPool_var00 -10000
 #tellraw @a [{"text":"K, "},{"score":{"objective":"swPool_var00","name":"K"}}]
@@ -87,6 +101,53 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_ve
 execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_vez *= C_-1 swPool_C
 function pool:classes/physics/vcombine_ve
 #scoreboard players operation @s swPool_v *= C_500 swPool_C
+
+
+# Addition: modify wx or wz      Δomega_(x|z)=F*r*1tick/I  = v_normal*5/r*K'*mui
+#step4 get magnitude of Δv_parallel  v_normal*2*K*mui
+#scoreboard players operation dWp swPool_var00 = VN swPool_var00
+#scoreboard players operation dWp swPool_var00 *= C_5 swPool_C
+
+#scoreboard players operation dWp swPool_var00 *= C_100 swPool_C
+#scoreboard players operation dWp swPool_var00 /= C_r swPool_C
+#scoreboard players operation dWp swPool_var00 *= C_100 swPool_C
+
+#scoreboard players operation dWp swPool_var00 /= C_100 swPool_C
+#scoreboard players operation dWp swPool_var00 *= Kp swPool_var00
+#scoreboard players operation dWp swPool_var00 /= C_100 swPool_C
+
+#scoreboard players operation dWp swPool_var00 *= C_mui swPool_C
+#scoreboard players operation dWp swPool_var00 /= C_10000 swPool_C
+
+# reordered equation
+scoreboard players operation dWp swPool_var00 = VN swPool_var00
+scoreboard players operation dWp swPool_var00 *= C_5 swPool_C
+scoreboard players operation dWp swPool_var00 /= C_100 swPool_C
+scoreboard players operation dWp swPool_var00 *= Kp swPool_var00
+scoreboard players operation dWp swPool_var00 /= C_r swPool_C
+scoreboard players operation dWp swPool_var00 *= C_mui swPool_C
+scoreboard players operation dWp swPool_var00 /= C_100 swPool_C
+
+# remove omegas. if omega positive, substract, otherwise, add.
+# absolute value
+execute if score dWp swPool_var00 matches ..-1 run scoreboard players operation dWp swPool_var00 *= C_-1 swPool_C
+# get input omega, wz changed by x direction, vice versa
+execute if entity @s[tag=swPool_x] run scoreboard players operation W0 swPool_var00 = @s swPool_wz
+execute if entity @s[tag=swPool_z] run scoreboard players operation W0 swPool_var00 = @s swPool_wx
+
+#tellraw @a [{"text":"original w, "},{"score":{"objective":"swPool_var00","name":"W0"}}]
+
+# tmp storage
+scoreboard players operation W00 swPool_var00 = W0 swPool_var00
+# if negative: add
+execute if score W00 swPool_var00 matches ..-1 run scoreboard players operation W0 swPool_var00 += dWp swPool_var00
+# if positive: substract
+execute if score W00 swPool_var00 matches 0.. run scoreboard players operation W0 swPool_var00 -= dWp swPool_var00
+# set back to value.
+execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_wz = W0 swPool_var00
+execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_wx = W0 swPool_var00
+#tellraw @a [{"text":"changed w, "},{"score":{"objective":"swPool_var00","name":"dWp"}}]
+#tellraw @a [{"text":"final w, "},{"score":{"objective":"swPool_var00","name":"W0"}}]
 
 #remove tag used
 tag @s remove swPool_+x

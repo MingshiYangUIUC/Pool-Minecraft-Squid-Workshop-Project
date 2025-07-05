@@ -13,4 +13,4 @@ tag @e[tag=swPool_pooltable] add swPool_practicemode
 scoreboard players set V_addon swPool_v 40000000
 
 # go to practice mode
-function pool:classes/practice/switch
+function pool:classes/practice/switch_helper

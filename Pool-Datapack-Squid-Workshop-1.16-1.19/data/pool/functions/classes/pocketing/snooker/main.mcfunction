@@ -15,6 +15,7 @@ execute if entity @s[tag=swPool_black] run scoreboard players add @e[tag=swPool_
 
 execute if entity @s[scores={swPool_rank=2..7}] if score @s swPool_rank > @e[tag=swPool_pooltable,limit=1] swPool_foul run scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_foul = @s swPool_rank
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
-playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
+#playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+#playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
+playsound minecraft:custom.pool.pocket ambient @a ~ ~ ~ 1 1
 kill @s

@@ -1,6 +1,7 @@
 data merge storage minecraft:swpool {cueballreddot:1}
 
-clear @s carrot_on_a_stick{CustomModelData:100}
+execute unless data storage minecraft:swpool {version:[1205]} run function app:help/pool/settings/helpers/clear_clean
+execute if data storage minecraft:swpool {version:[1205]} run function app:help/pool/settings/helpers/clear_clean_1205
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ Switched to cue ball with red dots. Please do not do this during active games.","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ Switch back by using /function app:settings/pool/visuals/cueball_clean, and run /function app:get/pool/cueball to get a new cue ball if necessary.","color":"white"}]

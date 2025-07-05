@@ -1,3 +1,5 @@
+function pool:classes/lobby/terminate_helper
+
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
 
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please place a table first.","color":"red"}]
@@ -19,6 +21,21 @@ clear @a carrot_on_a_stick{CustomModelData:104}
 clear @a carrot_on_a_stick{CustomModelData:105}
 clear @a carrot_on_a_stick{CustomModelData:106}
 clear @a carrot_on_a_stick{CustomModelData:107}
+clear @a carrot_on_a_stick{CustomModelData:121}
+clear @a carrot_on_a_stick{CustomModelData:122}
+clear @a carrot_on_a_stick{CustomModelData:123}
+clear @a carrot_on_a_stick{CustomModelData:124}
+clear @a carrot_on_a_stick{CustomModelData:125}
+clear @a carrot_on_a_stick{CustomModelData:126}
+clear @a carrot_on_a_stick{CustomModelData:127}
+clear @a carrot_on_a_stick{CustomModelData:128}
+clear @a carrot_on_a_stick{CustomModelData:129}
+clear @a carrot_on_a_stick{CustomModelData:130}
+clear @a carrot_on_a_stick{CustomModelData:131}
+clear @a carrot_on_a_stick{CustomModelData:132}
+clear @a carrot_on_a_stick{CustomModelData:133}
+clear @a carrot_on_a_stick{CustomModelData:134}
+clear @a carrot_on_a_stick{CustomModelData:135}
 scoreboard players set @a swPool_Score 0
 
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode

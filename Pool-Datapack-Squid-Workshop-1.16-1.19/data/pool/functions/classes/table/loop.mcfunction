@@ -17,7 +17,9 @@ execute if entity @s[scores={swPool_var02=..-1}] as @e[tag=swPool_placer] at @s 
 #tellraw @a [{"text":"zm "},{"score":{"objective":"swPool_var04","name":"@s"}},{"text":"."}]
 
 
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] at @e[tag=swPool_placer] run summon item_frame ~ ~ ~ {Tags:["swPool_new","swPool_cloth"],Invisible:1b,Facing:1b,Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:9}}}
+execute unless data storage minecraft:swpool {version:[1205]} unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] at @e[tag=swPool_placer] run summon item_frame ~ ~ ~ {Tags:["swPool_new","swPool_cloth"],Invisible:1b,Facing:1b,Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:9}}}
+execute if data storage minecraft:swpool {version:[1205]} unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] at @e[tag=swPool_placer] run summon item_frame ~ ~ ~ {Tags:["swPool_new","swPool_cloth"],Invisible:1b,Facing:1b,Item:{id:"minecraft:acacia_button",Count:1b}}
+
 scoreboard players set @s swPool_var00 0
 scoreboard players operation @s swPool_var00 -= @s swPool_var03
 execute if score @s swPool_var01 = @s swPool_var00 run tag @e[tag=swPool_new] add swPool_nxside

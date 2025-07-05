@@ -72,4 +72,4 @@ tag @a remove swPool_wait_snooker
 
 tag @a[tag=swPool_poolplay] add swPool_spec
 
-
+scoreboard players set V_addon swPool_v 0

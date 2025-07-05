@@ -24,7 +24,8 @@ execute if entity @s[tag=swPool_cue] run scoreboard players remove Pocketed_Tota
 scoreboard players add Pocketed_Total swPool_hidScore 1
 scoreboard players add Pocketed_Turn swPool_hidScore 1
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
-playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
+#playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+#playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
+playsound minecraft:custom.pool.pocket ambient @a ~ ~ ~ 1 1
 kill @s
 

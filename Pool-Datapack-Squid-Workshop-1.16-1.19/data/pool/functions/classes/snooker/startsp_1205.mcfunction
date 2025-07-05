@@ -16,8 +16,8 @@ tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
-clear @a carrot_on_a_stick{CustomModelData:99}
-clear @a carrot_on_a_stick{CustomModelData:100}
+clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
+clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
 
 scoreboard players set @a swPool_Score 0
 
@@ -46,8 +46,8 @@ tag @a[tag=swPool_wait_snooker,limit=1] add swPool_poolplay
 
 tag @a[tag=swPool_poolplay,limit=1] add swPool_ballinhand
 
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
+execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=99,minecraft:custom_name="\"Cueball\""]
+execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=100,minecraft:custom_name="\"Cueball\""]
 scoreboard players set Opponent swPool_Score 0
 scoreboard objectives setdisplay sidebar
 

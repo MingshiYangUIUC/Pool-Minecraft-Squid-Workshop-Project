@@ -11,8 +11,30 @@ tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 tag @a remove swPool_given
 
-clear @a carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cueball\""}}
-clear @a carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cueball\""}}
+clear @a carrot_on_a_stick{CustomModelData:99}
+clear @a carrot_on_a_stick{CustomModelData:100}
+clear @a carrot_on_a_stick{CustomModelData:101}
+clear @a carrot_on_a_stick{CustomModelData:102}
+clear @a carrot_on_a_stick{CustomModelData:103}
+clear @a carrot_on_a_stick{CustomModelData:104}
+clear @a carrot_on_a_stick{CustomModelData:105}
+clear @a carrot_on_a_stick{CustomModelData:106}
+clear @a carrot_on_a_stick{CustomModelData:107}
+clear @a carrot_on_a_stick{CustomModelData:121}
+clear @a carrot_on_a_stick{CustomModelData:122}
+clear @a carrot_on_a_stick{CustomModelData:123}
+clear @a carrot_on_a_stick{CustomModelData:124}
+clear @a carrot_on_a_stick{CustomModelData:125}
+clear @a carrot_on_a_stick{CustomModelData:126}
+clear @a carrot_on_a_stick{CustomModelData:127}
+clear @a carrot_on_a_stick{CustomModelData:128}
+clear @a carrot_on_a_stick{CustomModelData:129}
+clear @a carrot_on_a_stick{CustomModelData:130}
+clear @a carrot_on_a_stick{CustomModelData:131}
+clear @a carrot_on_a_stick{CustomModelData:132}
+clear @a carrot_on_a_stick{CustomModelData:133}
+clear @a carrot_on_a_stick{CustomModelData:134}
+clear @a carrot_on_a_stick{CustomModelData:135}
 
 tag @a remove swPool_poolplay
 tag @a remove swPool_ballinhand
