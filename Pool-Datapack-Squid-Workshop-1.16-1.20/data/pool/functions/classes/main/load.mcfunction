@@ -15,6 +15,10 @@ execute store result score C_mus swPool_C run data get storage minecraft:swpool 
 #clean and reload
 execute unless data storage minecraft:swpool keepsession if data storage minecraft:swpool {version:[1]} run function pool:classes/main/clean
 
+# add a trigger
+scoreboard objectives add swPool_trigger trigger
+scoreboard players enable @a swPool_trigger
+
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
 scoreboard objectives add swPool_DXX dummy

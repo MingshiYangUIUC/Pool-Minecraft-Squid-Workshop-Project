@@ -12,7 +12,7 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Choose z tab
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Suggested sizes: ","color":"white"},{"text":"4*6(Easy) ","color":"green"},{"text":"6*10(Moderate) ","color":"yellow"},{"text":"8*14(Hard)","color":"dark_red"}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/check"}},{"underlined":false,"text":" to check your choice and place the table.","color":"aqua","clickEvent":{"action":"change_page","value":""}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/check"}},{"underlined":false,"text":" to check your choice and place the table.","color":"aqua"}]
 
 ##CN version
 
@@ -26,4 +26,4 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"点击选择
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"建议大小： ","color":"white"},{"text":"4*6（简单） ","color":"green"},{"text":"6*10（中等） ","color":"yellow"},{"text":"8*14（困难）","color":"dark_red"}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/check"}},{"underlined":false,"text":"检查你的选择并尝试放置球桌。","color":"aqua","clickEvent":{"action":"change_page","value":""}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/check"}},{"underlined":false,"text":"检查你的选择并尝试放置球桌。","color":"aqua"}]

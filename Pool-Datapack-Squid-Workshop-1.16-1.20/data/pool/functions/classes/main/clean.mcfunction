@@ -1,5 +1,7 @@
 function pool:classes/table/clear
 
+scoreboard objectives remove swPool_trigger
+
 scoreboard objectives remove swPool_C
 scoreboard objectives remove swPool_D100
 scoreboard objectives remove swPool_DXX

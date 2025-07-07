@@ -55,7 +55,7 @@ execute unless entity @s[tag=swPool_hitrail] unless score Pocketed_Turn swPool_h
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
 execute if entity @s[tag=swPool_pktcue,tag=swPool_multiplayer] run tag @a[tag=!swPool_hitcue,tag=swPool_poolplay,limit=1] add swPool_ballinhand
 execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=swPool_hitcue,tag=swPool_poolplay] add swPool_ballinhand
-execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball
+execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball_helper
 
 #remove foul if foulpass
 execute if entity @s[tag=swPool_foulpass] unless entity @a[tag=swPool_ballinhand] run tag @a[tag=swPool_foul] remove swPool_foul
