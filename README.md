@@ -17,7 +17,7 @@ Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
 *I am replacing the math module with a better organized collection: [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
 
-<img src="Gallery/GIFs/break_shot.gif" alt="_MingshiYangUIUC_" width="33%">
+<img src="Gallery/GIFs/break_shot.gif" alt="_MingshiYangUIUC_" width="50%">
 
 Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
 
