@@ -6,10 +6,10 @@
 Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes. \
 Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
 
-<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version.</span>  
-<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
-<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
-<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
+🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version.</span>  
+🔴<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
+🔴<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
+🔴<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
 
 
 # _Squid Workshop's_ Pool Datapack
