@@ -1,0 +1,11 @@
+# features:
+
+define the facing angle of the ball itself...
+    true angle(old rotation, pose) to angle[2d] # theta, phi format
+
+use omega to find change of pose of the ball
+
+when armor stand is turning its rotation, calculate the pose to fix the facing angle of the ball
+    often after vcombine_ultimate...
+    pose(true angle, new rotation) to pos[3d]
+

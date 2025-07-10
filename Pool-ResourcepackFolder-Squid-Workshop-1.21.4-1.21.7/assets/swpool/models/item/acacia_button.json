@@ -1,0 +1,43 @@
+{
+    "parent": "block/acacia_button_inventory",
+	
+
+    "overrides":[
+	{"predicate":{"custom_model_data":0},"model":"item/acacia_button0"},
+	{"predicate":{"custom_model_data":1},"model":"item/cueball"},
+	{"predicate":{"custom_model_data":2},"model":"item/red"},
+	{"predicate":{"custom_model_data":3},"model":"item/yellow"},
+	{"predicate":{"custom_model_data":4},"model":"item/green"},
+	{"predicate":{"custom_model_data":5},"model":"item/brown"},
+	{"predicate":{"custom_model_data":6},"model":"item/blue"},
+	{"predicate":{"custom_model_data":7},"model":"item/pink"},
+	{"predicate":{"custom_model_data":8},"model":"item/black"},
+	{"predicate":{"custom_model_data":9},"model":"item/cloth_table"},
+	{"predicate":{"custom_model_data":10},"model":"item/cloth_cushion_new"},
+	{"predicate":{"custom_model_data":11},"model":"item/cloth_sidepot_left_new"},
+	{"predicate":{"custom_model_data":12},"model":"item/cloth_sidepot_right_new"},
+	{"predicate":{"custom_model_data":13},"model":"item/cloth_cornerpot_new"},
+	{"predicate":{"custom_model_data":14},"model":"item/qrcode"},
+	{"predicate":{"custom_model_data":15},"model":"item/cloth_cushion"},
+	{"predicate":{"custom_model_data":16},"model":"item/cloth_sidepot_left"},
+	{"predicate":{"custom_model_data":17},"model":"item/cloth_sidepot_right"},
+	{"predicate":{"custom_model_data":18},"model":"item/cloth_cornerpot"},
+	{"predicate":{"custom_model_data":21},"model":"item/ball_01"},
+	{"predicate":{"custom_model_data":22},"model":"item/ball_02"},
+	{"predicate":{"custom_model_data":23},"model":"item/ball_03"},
+	{"predicate":{"custom_model_data":24},"model":"item/ball_04"},
+	{"predicate":{"custom_model_data":25},"model":"item/ball_05"},
+	{"predicate":{"custom_model_data":26},"model":"item/ball_06"},
+	{"predicate":{"custom_model_data":27},"model":"item/ball_07"},
+	{"predicate":{"custom_model_data":28},"model":"item/ball_08"},
+	{"predicate":{"custom_model_data":29},"model":"item/ball_09"},
+	{"predicate":{"custom_model_data":30},"model":"item/ball_10"},
+	{"predicate":{"custom_model_data":31},"model":"item/ball_11"},
+	{"predicate":{"custom_model_data":32},"model":"item/ball_12"},
+	{"predicate":{"custom_model_data":33},"model":"item/ball_13"},
+	{"predicate":{"custom_model_data":34},"model":"item/ball_14"},
+	{"predicate":{"custom_model_data":35},"model":"item/ball_15"},
+	{"predicate":{"custom_model_data":36},"model":"item/cueball_clean"},
+	{"predicate":{"custom_model_data":37},"model":"item/acacia_button0"}
+    ]
+}

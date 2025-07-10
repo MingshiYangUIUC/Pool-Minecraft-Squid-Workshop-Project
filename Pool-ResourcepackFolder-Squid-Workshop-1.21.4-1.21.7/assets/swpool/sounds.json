@@ -1,0 +1,12 @@
+{
+    "custom.pool.hit": {
+        "sounds": [
+            "swpool:custom/pool_hit"
+        ]
+    },
+    "custom.pool.pocket": {
+        "sounds": [
+            "swpool:custom/pool_pocket"
+        ]
+    }
+}

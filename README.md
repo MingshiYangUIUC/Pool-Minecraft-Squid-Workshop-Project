@@ -1,11 +1,23 @@
+## [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
+
+## Recent Updates
+
+### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now supports all Minecraft versions since 1.16!
+Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes. \
+Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
+
+<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version.</span>  
+<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
+<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
+<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
+
+
 # _Squid Workshop's_ Pool Datapack
 Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
 *I am replacing the math module with a better organized collection: [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
 
-[中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
-
-![_MingshiYangUIUC_](Gallery/Images/many_balls_on_the_table.png)
+<img src="Gallery/GIFs/break_shot.gif" alt="_MingshiYangUIUC_" width="33%">
 
 Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
 
@@ -14,7 +26,6 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 - [Usage](#Usage)
 - [How It Works](#How-It-Works)
 - [Notes](#Notes)
-- [Project Tree](#Project-Tree)
 - [Terms of Use](#Terms-of-Use)
 - [More About Squid Workshop](#More-About-Squid-Workshop)
 
@@ -25,14 +36,12 @@ Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.
 
 Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 
-
-
 	
 # Installation
 
 ### Windows Users
 [`swPool_sync.bat`](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/swPool_sync.bat) is a script that automatically downloads / updates **Pool Datapack** and its required **Math Datapack** and **Resourcepack** from GitHub.  
-⚠️ **DO NOT USE** if you have custom modifications, because the current Pool / Math Datapacks will be deleted.
+⚠️ **DO NOT USE** if you have custom modifications, because the current Pool / Math Datapacks you downloaded before will be deleted.
 
 ### Alternative Step by Step Installation
 - Step 01 Download this repository as a zip and unpack.
@@ -119,8 +128,6 @@ Conservation of momentum and angular momentum and energy, recently added interac
 2. Although the theoretical content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not consulted or cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
 3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack and sorry for any incorrectness. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
 
-# Project Tree
-## Settings are omitted here, please consult by clicking <<ins>Help about Settings</ins>> in the command window.
 
 # Terms of Use
 This section shall be honored when in conflict with other documents, including the license. \

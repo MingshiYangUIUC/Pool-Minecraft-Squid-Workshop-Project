@@ -1,0 +1,2 @@
+execute unless data storage minecraft:swpool {version:[1205]} run function pool:classes/practice/switch
+execute if data storage minecraft:swpool {version:[1205]} run function pool:classes/practice/switch_1205

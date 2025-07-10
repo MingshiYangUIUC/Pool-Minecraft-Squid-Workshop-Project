@@ -1,0 +1,3 @@
+#change storage later
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Sliding friction coef. Suggested: 2000. : ","color":"gray"},{"text":"Current: "},{"score":{"objective":"swPool_C","name":"C_muk"}},{"text":". "},{"underlined":true,"text":"<Click and type>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set C_muk swPool_C "}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"滑动摩擦系数。建议：2000。","color":"gray"},{"text":"当前值: "},{"score":{"objective":"swPool_C","name":"C_muk"}},{"text":". "},{"underlined":true,"text":"<点此处后输入>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set C_muk swPool_C "}}]

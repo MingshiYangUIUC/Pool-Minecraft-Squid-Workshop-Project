@@ -1,0 +1,63 @@
+{
+    "model": {
+        "type": "minecraft:condition",
+        "on_false": {
+            "type": "minecraft:model",
+            "model": "swpool:item/cuestick0"
+        },
+        "on_true": {
+            "type": "minecraft:range_dispatch",
+            "entries": [
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick1"
+                    },
+                    "threshold": 0.01
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick2"
+                    },
+                    "threshold": 0.18
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick3"
+                    },
+                    "threshold": 0.36
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4"
+                    },
+                    "threshold": 0.54
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick5"
+                    },
+                    "threshold": 0.72
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick6"
+                    },
+                    "threshold": 0.9
+                }
+            ],
+            "fallback": {
+                "type": "minecraft:model",
+                "model": "minecraft:item/bow_pulling_0"
+            },
+            "property": "minecraft:use_duration",
+            "scale": 0.05
+        },
+        "property": "minecraft:using_item"
+    }
+}

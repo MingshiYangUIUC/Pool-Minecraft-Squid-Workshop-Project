@@ -1,0 +1,1 @@
+data merge storage minecraft:swpool {keepsession:1}
