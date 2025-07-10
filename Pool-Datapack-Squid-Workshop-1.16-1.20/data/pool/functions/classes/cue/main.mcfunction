@@ -1,6 +1,6 @@
 tag @s[nbt={OnGround:0b}] add swPool_offground
 
-execute unless entity @s[nbt={OnGround:1b,SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] run scoreboard players reset @s swPool_shoot
+#execute unless entity @s[nbt={OnGround:1b,SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] run scoreboard players reset @s swPool_shoot
 
 execute if entity @s[tag=swPool_offground] as @e[type=arrow,distance=..2] if score @s swPool_player = @p[tag=swPool_offground] swPool_player run kill @s
 

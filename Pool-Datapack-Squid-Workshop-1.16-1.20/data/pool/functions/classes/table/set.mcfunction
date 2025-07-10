@@ -105,11 +105,11 @@ execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_p
 execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:12}}}
 execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:13}}}
 
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"custom_model_data":9}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"custom_model_data":10}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"custom_model_data":11}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"custom_model_data":12}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"custom_model_data":13}}}
+execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":9}}}
+execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":10}}}
+execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":11}}}
+execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":12}}}
+execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":13}}}
 
 #execute as @e[tag=swPool_cloth] at @s run setblock ~ ~-1 ~ glass
 execute as @e[tag=swPool_cloth] at @s run setblock ~ ~ ~ iron_trapdoor[half=top]
@@ -152,3 +152,5 @@ tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
 execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run scoreboard players get @s swPool_rot
 #execute as @e[tag=swPool_pooltable,limit=1] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"]}
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000
+
+kill @e[tag=swPool_placer,type=area_effect_cloud]

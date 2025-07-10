@@ -4,6 +4,7 @@
     "layer0": "minecraft:item/carrot_on_a_stick"
   },
   "overrides":[
+	{"predicate":{"custom_model_data":98},"model":"item/carrot_on_a_stick0"},
 	{"predicate":{"custom_model_data":99},"model":"item/cueball"},
 	{"predicate":{"custom_model_data":100},"model":"item/cueball_clean"},
 	{"predicate":{"custom_model_data":101},"model":"item/red"},
