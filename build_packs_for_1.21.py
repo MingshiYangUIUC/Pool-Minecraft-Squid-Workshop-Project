@@ -15,21 +15,64 @@ import json
 import math
 from collections import defaultdict
 import gc
+import sys
 
 gc.collect()
 
 # desired version
-pool_major_version = 21
-pool_minor_version = 7
+try:
+    pool_major_version = int(sys.argv[1])
+    pool_minor_version = int(sys.argv[2])
+except:
+    pool_major_version = 21
+    pool_minor_version = 1
+
+output_dir = 'Releases_1.21'
+if not os.path.isdir(output_dir):
+    os.mkdir(output_dir)
+
+
+print('Running Compatibility Checker...')
+
+preset_version = pool_major_version == 21 and pool_minor_version >= 0
+modify_scale_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
+modify_height_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
+modify_custom_model_data = pool_major_version == 21 and pool_minor_version >= 4
+modify_pool_clickevent = pool_major_version == 21 and pool_minor_version >= 5
+
+if pool_minor_version <= 1:
+    data_version_range = [0,1]
+    data_packfmt = 48
+elif pool_minor_version <= 3:
+    data_version_range = [2,3]
+    data_packfmt = 57
+elif pool_minor_version == 4:
+    data_version_range = [4,4]
+    data_packfmt = 61
+elif pool_minor_version >= 5:
+    data_version_range = [5,8]
+    data_packfmt = 71
+
+if pool_minor_version <= 1:
+    res_version_range = [0,1]
+    res_packfmt = 15
+elif pool_minor_version <= 3:
+    res_version_range = [2,3]
+    res_packfmt = 18
+elif pool_minor_version >= 4:
+    res_version_range = [4,8]
+    res_packfmt = 22
+
+
 
 math_initial_dir = 'Math-Datapack-Squid-Workshop'
-math_final_dir = 'Math-Datapack-Squid-Workshop-1.21'
+math_final_dir = os.path.join(output_dir,'Math-Datapack-Squid-Workshop-1.21')
 
 resource_initial_dir = 'Pool-ResourcepackFolder-Squid-Workshop-1.16-1.20'
-resource_final_dir = 'Pool-ResourcepackFolder-Squid-Workshop-1.21-build'
+resource_final_dir = os.path.join(output_dir,'Pool-ResourcepackFolder-Squid-Workshop-1.21-build')
 
-pool_initial_dir = 'Pool-Datapack-Squid-Workshop-1.16-1.20'
-pool_final_dir = 'Pool-Datapack-Squid-Workshop-1.21-build'
+pool_initial_dir ='Pool-Datapack-Squid-Workshop-1.16-1.20'
+pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Squid-Workshop-1.21-build')
 
 remove_built_packs = False
 overwrite_built_packs = True
@@ -215,38 +258,6 @@ else:
 
 print('Building Pool Dapapack')
 
-print('Running Compatibility Checker...')
-
-preset_version = pool_major_version == 21 and pool_minor_version >= 0
-modify_scale_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
-modify_height_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
-modify_custom_model_data = pool_major_version == 21 and pool_minor_version >= 4
-modify_pool_clickevent = pool_major_version == 21 and pool_minor_version >= 5
-
-if pool_minor_version <= 1:
-    data_version_range = [0,1]
-    data_packfmt = 48
-elif pool_minor_version <= 3:
-    data_version_range = [2,3]
-    data_packfmt = 57
-elif pool_minor_version == 4:
-    data_version_range = [4,4]
-    data_packfmt = 61
-elif pool_minor_version >= 5:
-    data_version_range = [5,7]
-    data_packfmt = 71
-
-if pool_minor_version <= 1:
-    res_version_range = [0,1]
-    res_packfmt = 15
-elif pool_minor_version <= 3:
-    res_version_range = [2,3]
-    res_packfmt = 18
-elif pool_minor_version >= 4:
-    res_version_range = [4,7]
-    res_packfmt = 22
-
-
 data_version_name = f'1.{pool_major_version}.{data_version_range[0]}' if len(set(data_version_range)) == 1 else \
                     f'1.{pool_major_version}.{data_version_range[0]}-1.{pool_major_version}.{data_version_range[1]}'
 res_version_name = f'1.{pool_major_version}.{res_version_range[0]}' if len(set(res_version_range)) == 1 else \
@@ -258,7 +269,7 @@ print(f'  Suitable Datapack: {data_version_name}')
 print(f'  Suitable Resourcepack: {res_version_name}')
 
 
-pool_final_dir_version = f'Pool-Datapack-Squid-Workshop-{data_version_name}'
+pool_final_dir_version = os.path.join(output_dir,f'Pool-Datapack-Squid-Workshop-{data_version_name}')
 if remove_built_packs:
     print('  Removing built D packs')
     if os.path.isdir(pool_final_dir_version):
@@ -275,7 +286,7 @@ else:
         else:
             shutil.rmtree(pool_final_dir)
 
-resource_final_dir_version = f'Pool-ResourcepackFolder-Squid-Workshop-{res_version_name}'
+resource_final_dir_version = os.path.join(output_dir,f'Pool-ResourcepackFolder-Squid-Workshop-{res_version_name}')
 if remove_built_packs:
     print('  Removing built R packs')
     if os.path.isdir(resource_final_dir_version):

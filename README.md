@@ -1,12 +1,21 @@
 ## [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
-## Recent Updates
+## Recent Big Updates
+
+### <span style="color:orange">July 2025</span> — Chinese 8 Ball game is added to the datapack. Join it from the lobby and enjoy!
+
+It has been a long journey, as my commitment to the datapack often depends on my work and study schedule.
+
+- Initially, the balls were rendered statically, moving only linearly without any visual spin. I did not plan to add numbered balls, and only designed Snooker and UK 8 Ball with monochromatic balls.
+- Later, after significant work on math and physics, cue ball control and advanced ball movements with visual spinning were supported by the Pool Datapack.
+- Then, the design to transform ball spin into armor stand pose changes laid the foundation for visually realistic rendering. Numbered balls were introduced in practice mode, even before Minecraft 1.20 and Transformation Rendering were added.
+- Finally, the rules for Chinese 8 Ball are implemented in Minecraft now, enabling a fully playable single-player and multiplayer experience with numbered balls.
 
 ### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now supports all Minecraft versions since 1.16!
 Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes. \
 Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
 
-🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version.</span>  
+🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version. Find them in the Releases_1.21 folder.</span>  
 🔴<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
 🔴<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
 🔴<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
@@ -34,7 +43,7 @@ This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker
 
 Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is computationally heavy, it supports only one active table in a Minecraft world.
 
-Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
+Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
 
 	
 # Installation
@@ -46,9 +55,9 @@ Supported game modes are _practice_, _snooker_, and _UK 8 ball_.
 ### Alternative Step by Step Installation
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
-- Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop" folder(not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
+- Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
-- Step 05 Move your "Pool-Datapack-Squid-Workshop-1.16-1.19" folder(not the root folder) into .../saves/world/datapacks folder.
+- Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../saves/world/datapacks folder.
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right. Do this everytime you change the game version.
 - Step 08 Type "/reload" command then press enter.
@@ -72,6 +81,8 @@ Most interactions do not require typing. You just need to click on texts in <<in
 You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore. You can get the command window by running this command at any time:
 
 	/function app:help/pool/commandwindow
+
+Join the game lobby using the command window, and start singleplayer or multiplayer games.
 
 If the pack is _(re)installed_, please follow the instruction, choose the language, game version, and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (you may try it for fun)!
 
