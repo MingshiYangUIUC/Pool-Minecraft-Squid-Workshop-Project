@@ -30,6 +30,9 @@ tag @a[tag=swPool_poolplay] remove swPool_foul
 # foul: if NOT open, hit wrong ball first.
 execute unless entity @s[tag=swPool_cn8ball_open] as @a[tag=swPool_hitcue,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tag @s add swPool_foul
 
+# foul: hit 8 ball if should not hit 8 ball
+execute as @a[tag=swPool_hitcue,limit=1] if entity @s[scores={swPool_firsthit=8}] unless entity @s[tag=swPool_aim08] run tag @s add swPool_foul
+
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
 execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
 

@@ -4,7 +4,7 @@
 
 ### <span style="color:orange">July 2025</span> — Chinese 8 Ball game is added to the datapack. Join it from the lobby and enjoy!
 
-It has been a long journey, as my commitment to the datapack often depends on my work and study schedule.
+It has been a long journey...
 
 - Initially, the balls were rendered statically, moving only linearly without any visual spin. I did not plan to add numbered balls, and only designed Snooker and UK 8 Ball with monochromatic balls.
 - Later, after significant work on math and physics, cue ball control and advanced ball movements with visual spinning were supported by the Pool Datapack.

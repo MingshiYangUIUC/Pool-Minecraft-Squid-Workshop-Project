@@ -1,6 +1,6 @@
 # explain all settings available
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ Settings are explained below. Run them with ","color":"white"},{"text":"/function app:settings/pool/...","italic":"true"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ Settings are explained below. Run them with ","color":"white"},{"text":"/function app:settings/pool/...","italic":true}]
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/zoom: you are given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/nozoom: you are not given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"gray"}]
@@ -25,8 +25,8 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ reload/keepongoingsession: retain your t
 tellraw @s[tag=swPool_EN] [{"text":"➇ snooker/display/dialogue: use chat window to show Snooker game scores.","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ snooker/display/sidebar: use sidebar to show Snooker game scores.","color":"white"}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ version/1_XX: set the version of your Minecraft client.","color":"gray"}]
-tellraw @s[tag=swPool_EN] [{"text":"➇ version/reset: let you reset the version of your Minecraft client.","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ version/1_XX: set the version of your Minecraft client (1.20.X and before).","color":"gray"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ version/reset: let you reset the version of your Minecraft client (1.20.X and before).","color":"white"}]
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/cueball_clean: switch to pure white cue ball (do not change when a game is active).","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/cueball_red_dots: switch to cue ball with red dots (do not change when a game is active).","color":"white"}]
@@ -62,8 +62,8 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ reload/keepongoingsession：/reload 时�
 tellraw @s[tag=swPool_CN] [{"text":"➇ snooker/display/dialogue：用聊天框显示斯诺克比分","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ snooker/display/sidebar：用计分板显示斯诺克比分","color":"white"}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ version/1_XX：设置你的客户端版本","color":"gray"}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ version/reset：重置你的客户端版本","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ version/1_XX：设置你的客户端版本（1.20及之前版本）","color":"gray"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ version/reset：重置你的客户端版本（1.20及之前版本）","color":"white"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/cueball_clean: 切换成纯白色白球（球局进行中请勿使用）","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/cueball_red_dots: 切换成带红点的白球（球局进行中请勿使用）","color":"white"}]
