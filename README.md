@@ -12,7 +12,7 @@ It has been a long journey...
 - Finally, the rules for Chinese 8 Ball are implemented in Minecraft now, enabling a fully playable single-player and multiplayer experience with numbered balls.
 
 ### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now supports all Minecraft versions since 1.16!
-Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes. \
+Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes.  
 Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
 
 🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version. Find them in the Releases_1.21 folder.</span>  
@@ -32,20 +32,21 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 
 - [Abstract](#Abstract)
 - [Installation](#Installation)
-- [Usage](#Usage)
+- [User Guide and Demo](#User-Guide-and-Demo)
 - [How It Works](#How-It-Works)
 - [Notes](#Notes)
 - [Terms of Use](#Terms-of-Use)
 - [More About Squid Workshop](#More-About-Squid-Workshop)
 
+---
 # Abstract
-This datapack is for pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
+This datapack is for Minecraft and pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is computationally heavy, it supports only one active table in a Minecraft world.
+Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is computationally heavy, so it supports only one active table in a Minecraft world.
 
 Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
 
-	
+---
 # Installation
 
 ### Windows Users
@@ -73,86 +74,132 @@ Enable it by:
 The datapack and resourcepack will work for various game versions, although the game may notify you the packs are incompatible when you install them. Nonetheless, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
 
 **Please let me know if the packs are actually incompatible with any versions higher than Java Edition 1.16.1.**
-  
-# Usage
-## Interactions
-Most interactions do not require typing. You just need to click on texts in <<ins>this format</ins>> or choose functions suggested by the game in command line. 
 
-You will be displayed a piece of <<ins>Clickable text</ins>> to open the "command window" after (re)loaded the datapack, try clicking on the text and explore. You can get the command window by running this command at any time:
+---
+# User Guide and Demo
+
+Most interactions do not require typing commands. You only need to click <<ins>text like this</ins>> in the chat or select the game’s suggested commands.  
+🔔 Tip: Disable “Force Unicode Font” for a better experience.
+
+### 1. Initialize the Datapack
+<img src="Gallery/GIFs/user_guides_EN/01_load_datapack_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+After installing (reloading) the datapack, the chat will guide your next steps. Click it to open the “Command Window,” a multifunctional control panel. You can also run the following command at any time:
 
 	/function app:help/pool/commandwindow
 
-Join the game lobby using the command window, and start singleplayer or multiplayer games.
+If this is your first time loading the datapack, click <<ins>text like this</ins>> to choose your language and game version (not needed in 1.21+), and complete the suggested friction settings. The above demo uses default values.  
+🔴 Make sure the math datapack is also loaded.
 
-If the pack is _(re)installed_, please follow the instruction, choose the language, game version, and set the friction coefficients by clicking the texts. You can also use the following command to modify friction later. Otherwise, there will be zero friction (you may try it for fun)!
+### 2. Load the Resourcepack
+<img src="Gallery/GIFs/user_guides_EN/02_load_resourcepack_EN.gif" alt="_MingshiYangUIUC_" width="75%">
 
-	/function app:settings/pool/friction/
-Suggested values: Impact:100-200, Rolling:150-300, Sliding:1500-3000, Striking:6000-8000. Extereme values may cause the scoreboard calculations to overflow and the game may behave unexpectedly.
+After placing the resource pack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
 
-Beside the friction coefficients, other settings such as undoing the stroke and reloading can be modified. Please find the explanation of settings by clicking <<ins>Help about Settings</ins>> at bottom of command window.
+### 3. Assess Settings and Help
+<img src="Gallery/GIFs/user_guides_EN/03_open_settings_help_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
 
 	/function app:settings/
-Note: Please turn off "Force Unicode" for better experience.
 
-## Hitting the ball
-When you are holding the cue stick, press right button to charge, the longer you hold the right button, the more power the strike is. The cue ball will be moving towards your facing direction.
+Recommended values will appear during adjustment. Values that are too large or too small may overflow the scoreboard and cause game errors.
 
-When you are holding the cue stick, press shift to face the cue ball.
+### 4. Get the Cue Stick
+<img src="Gallery/GIFs/user_guides_EN/04_get_cuestick_EN.gif" alt="_MingshiYangUIUC_" width="75%">
 
-You can choose whether you will be applied slowness effect when pressing shift. This may help you aim, but is not recommended without smooth connection. You can set by completing the following command.
+Use the Command Window to get a cue stick (function as a bow when no game is active).
+
+### 5. Set Up the Table
+<img src="Gallery/GIFs/user_guides_EN/05_set_table_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+Use the Command Window to place a new table. The existing one will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
+
+### 6. Open the Game Lobby
+<img src="Gallery/GIFs/user_guides_EN/06_open_lobby_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+Use the Command Window or click <<ins>View Lobby</ins>> after placing a table. Singleplayer and multiplayer games both begin in the lobby. You can also spectate (receive interactive info such as score from active players).
+
+### 7. Start a Singleplayer Game
+<img src="Gallery/GIFs/user_guides_EN/07_start_singleplayer_game_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+Choose a singleplayer mode in the game lobby and confirm to start. Interactive info such as target balls and score will appear in the lower-left chat. In singleplayer Snooker, you only need to outscore your penalty loss to win. In singleplayer 8 Ball, you play both sides, so there is no win/loss. At the end of a Snooker match, players receive a rating based on average score per turn.
+
+If the cue ball is off the table (e.g. before breaking), you need to place it. When holding the cue ball and standing on or near the table, green particles will indicate valid placement areas.
+
+### 8. Start a Multiplayer Game
+<img src="Gallery/GIFs/user_guides_EN/08_join_multiplayer_game_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+After selecting a multiplayer mode in the game lobby, other online players will receive a broadcast invitation. When someone joins your queue, follow the prompt and click <<ins>Begin</ins>> to begin. The breaking player is randomly chosen.
+
+### 9. Shoot a Ball
+<img src="Gallery/GIFs/user_guides_EN/09_shoot_ball_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+
+Hold right-click to charge, and release to shoot. The cue ball's direction is based on your facing angle. Power depends on charge time; max power takes about 1.1 seconds. In CN/UK 8 Ball, break shot speed is boosted by 0.4 blocks per tick (8 m/s). Aiming method: while holding the cue stick, sneaking lets you automatically face the cue ball. This makes your shot direction align with your forward view.
+
+You can enable zoom-in while sneaking to help aim more precisely. This is not recommended on high-latency online games. Use:
 
 	/function app:settings/pool/aim/
-Before each strike you can click <<ins>Adjust the next strike angles</ins>> to change the strike positions and angles. Or using the following command.
+
+### 10. Cue Ball Control
+<img src="Gallery/GIFs/user_guides_EN/10_cue_ball_control_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>Adjust the next strike angles</ins>> to modify hit point and/or cue stick elevation. Or use:
 
 	/function pool:classes/cue/map
-In this map, grid points represent where cue stick should hit the cue ball. Cue stick lifting angle can be adjusted at the right side. Fine tuning of cue ball hit point can be done using buttons at the bottom. 
 
-## Ball in hand
-When the cue ball leaves table, the player having it in hand needs to place it back on the table. Valid placements will be indicated by green particles when the player is standing on the table or on the ground near the table. 
+The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
 
-## Basic Instructions
-Install the datapack following instructions of the [Installation](#Installation) section.
+### 11. Undo the Last Shot
+<img src="Gallery/GIFs/user_guides_EN/11_undo_shot_EN.gif" alt="_MingshiYangUIUC_" width="75%">
 
-When prompted, set language, game version, friction parameters, and how the player scores will be displayed.
+If cheats are allowed, you can click <<ins>/back</ins>> to restore the table to its state before the shot. You can only undo one step backward. The target ball is also preserved, and if you committed a foul by hitting the wrong ball, undoing it will also clear the foul.
 
-Click to open the command window, get the cue stick, explore the [settings](#settings) and change them if you want.
+### 12. Practice Mode
+<img src="Gallery/GIFs/user_guides_EN/12_practice_mode_EN.gif" alt="_MingshiYangUIUC_" width="75%">
 
-Click to set a new table if you haven't done so. Choose two side lengths of the table and place it following text prompts.
+You can enter Practice Mode via the Command Window. There are no rules in this mode. You have access to all balls and can freely place and shoot them anywhere on the table.
 
-Open the game lobby in command window, if you want to participate in multiplayer game, you can click to join the queue beginning with MP. After you join a queue, other players will receive your invitation and are able to join you.
-
-You will be notified when another player joins your queue. Click on BEGIN! to play with that player. 
-
-You can also play singleplayer mode, in singleplayer Snooker you just try to score more than you foul. In singleplayer UK 8 Ball you just pretend to be two players, so there is no win or loss in this game.
-
-After a snooker game finishes, players will receive a rating based on average point they get per strike (per turn).
-
-You can initialize practice mode from command window or enter it in the middle of any other games. In practice mode you can place the balls anywhere and there will be no rules.
-
-You can terminate the game at any time using the command window.
-
+---
 # How It Works
-Conservation of momentum and angular momentum and energy, recently added interactions with edge of pockets (friction is neglected there) and simulation of cue stick - cue ball interactions. Neglected deformations.
 
+This datapack uses simplified Newtonian physics to simulate the behavior of pool balls in Minecraft. It omits friction between pockets and balls, deformation, and other complexities in favor of performance and clarity.
+
+Included mechanics:
+- Conservation of momentum, angular momentum, and energy
+- Modeling of cue stick elevation and cue ball hit point for spin generation
+- Interaction with the pocket edge (but friction is not modeled)
+
+The implementation is original and does not reference any published papers. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
+
+---
 # Notes
-1. I am aware of that everything looks amplified, while comparing to reality. This also affects the physics as the radii of balls are one of the most closely related parameters to the physical behaviors. However, the common setting of mouse sensitivity does not provide enough fineness of controlling the cuestick and aiming direction, and it will be much harder to play the game if the balls size are reduced to mimic the real pool balls. Sorry for any "unrealistic concerns" brought to you by my "disloyalty" to the reality.
-2. Although the theoretical content is mostly common knowledge, please do not redistribute without crediting us sufficiently. I have not consulted or cited any specific references while making the physics work. See the _detailed physics_ link above or try search "not so simple billiards physics" online.
-3. The [rules](https://en.wikipedia.org/wiki/Rules_of_snooker) of snooker and [rules](https://en.wikipedia.org/wiki/Blackball_(pool)) of 8 ball have been simplified to meet popular gameplay. It is likely that the rules are less strict in this datapack and sorry for any incorrectness. The 2005 dimension of pockets on a snooker table is included in the resourcepack as images.
 
+1. **Ball sizes are intentionally enlarged** to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience.
 
+2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. No specific references were used during development. You may refer to the _How It Works_ section above or search “not so simple billiards physics.”
+
+3. **Rules of Snooker and 8 Ball are simplified** to support popular gameplay. You may refer to:
+   - [Snooker Rules (中文)](https://zh.wikipedia.org/wiki/%E6%96%AF%E8%AF%BA%E5%85%8B)
+   - [UK 8 Ball Rules (中文)](https://zh-yue.wikipedia.org/wiki/%E8%8B%B1%E5%BC%8F16%E6%B3%A2)
+   - [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker)
+   - [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool))
+
+4. The resourcepack includes a visual approximation of the 2005 snooker pocket dimensions. You can find it in the texture files.
+
+---
 # Terms of Use
-This section shall be honored when in conflict with other documents, including the license. \
-Feel free to play around with this datapack. \
-As developer, feel free to use this datapack as a module to develop free datapacks. \
-But you **must** notify us and add the link to this github page! \
+This section shall be honored when in conflict with other documents.  
+Feel free to play around with this datapack.  
+As developer, feel free to use this datapack as a module to develop free datapacks.  
+But you **must** notify us and add the link to this github page!  
 **NO COMMERCIAL USE, POTENTIALLY (AT SQUID MINECRAFT WORKSHOP'S DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS ALSO PROHIBITED.** 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 
-
+---
 # More About Squid Workshop
-More datapacks developed by us [here](https://github.com/Squid-Workshop/MinecraftDatapacksProject) \
-Watch our videos on youtube [here](https://www.youtube.com/channel/UCwPMgfjjh2d7fFqQ1PXHP7w) \
-Watch our videos on bilibili [here](https://space.bilibili.com/649645265?from=search&seid=778816111336987286) \
-Join our QQ group: 74681732 \
+More datapacks developed by us [here](https://github.com/Squid-Workshop/MinecraftDatapacksProject)  
+Watch our videos on youtube [here](https://www.youtube.com/channel/UCwPMgfjjh2d7fFqQ1PXHP7w)  
+Watch our videos on bilibili [here](https://space.bilibili.com/649645265?from=search&seid=778816111336987286)  
+Join our QQ group: 74681732  
 Subscribe on wechat: 鱿鱼MC工作室 
