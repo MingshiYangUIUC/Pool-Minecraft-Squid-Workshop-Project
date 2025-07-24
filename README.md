@@ -96,7 +96,7 @@ If this is your first time loading the datapack, click <<ins>text like this</ins
 
 After placing the resource pack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
 
-### 3. Assess Settings and Help
+### 3. Access Settings and Help
 <img src="Gallery/GIFs/user_guides_EN/03_open_settings_help_EN.gif" alt="_MingshiYangUIUC_" width="75%">
 
 You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
