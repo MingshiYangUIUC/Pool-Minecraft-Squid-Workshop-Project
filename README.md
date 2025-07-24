@@ -179,8 +179,6 @@ The implementation is original and does not reference any published papers. For 
 2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. No specific references were used during development. You may refer to the _How It Works_ section above or search “not so simple billiards physics.”
 
 3. **Rules of Snooker and 8 Ball are simplified** to support popular gameplay. You may refer to:
-   - [Snooker Rules (中文)](https://zh.wikipedia.org/wiki/%E6%96%AF%E8%AF%BA%E5%85%8B)
-   - [UK 8 Ball Rules (中文)](https://zh-yue.wikipedia.org/wiki/%E8%8B%B1%E5%BC%8F16%E6%B3%A2)
    - [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker)
    - [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool))
 
