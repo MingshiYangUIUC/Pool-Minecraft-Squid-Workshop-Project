@@ -13,16 +13,11 @@ scoreboard players set MinTime swPool_hittime 10000
 execute at @s[scores={swPool_T=0}] run function pool:classes/spin/change_of_state
 
 tag @e[type=armor_stand,tag=swPool_fake] add swPool_pool
-execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.001..0.26,sort=nearest,limit=5] add swPool_near
-execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.26..0.51,sort=nearest,limit=4] add swPool_near
-execute at @s[scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.51..1.5,sort=nearest,limit=3] add swPool_near
-execute at @s[scores={swPool_v=50000000..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=1.5..2.5,sort=nearest,limit=2] add swPool_near
-execute at @s[scores={swPool_v=80000000..}] run tag @e[type=armor_stand,tag=swPool_pool,tag=!swPool_fake,distance=0.51..2.5,sort=nearest,limit=5] add swPool_near
 
-# radius of fake at most: 0.5, max dist: 1.75
-execute at @s[scores={swPool_v=1..49999999}] if entity @e[type=armor_stand,tag=swPool_fake,distance=..1.25] run tag @e[type=armor_stand,tag=swPool_fake,distance=0.001..1.25,sort=nearest,limit=5] add swPool_near
-execute at @s[scores={swPool_v=50000000..}] if entity @e[type=armor_stand,tag=swPool_fake,distance=..1.75] run tag @e[type=armor_stand,tag=swPool_fake,distance=0.001..1.75,sort=nearest,limit=5] add swPool_near
-
+# pre_select
+# slower and more aggressive when breaking
+execute if score Stroke swPool_hidScore matches 0 run function pool:classes/master/pre_select_aggressive
+execute if score Stroke swPool_hidScore matches 1.. run function pool:classes/master/pre_select
 
 #quicksort exclude some swPool_near
 tag @s add swPool_origin

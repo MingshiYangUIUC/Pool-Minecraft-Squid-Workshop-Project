@@ -1,6 +1,7 @@
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] remove swPool_practicemode
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
+tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]

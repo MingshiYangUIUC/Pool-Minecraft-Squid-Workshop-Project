@@ -4,7 +4,7 @@
 scoreboard players add Stroke swPool_hidScore 1
 
 # if was breaking (now stroke is 1), remove breaking tag
-execute if score Stroke swPool_hidScore matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breaking] remove swPool_cn8ball_breaking
+execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltable,tag=swPool_cn8ball_breaking] remove swPool_cn8ball_breaking
 
 
 # detect number of players
@@ -15,12 +15,13 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 #rerack request
+execute if entity @s[tag=swPool_pkt08] if score Stroke swPool_hidScore matches 1 run tag @s add swPool_rerack
 execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack!"}]
 execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，重新开球。"}]
 execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] add swPool_spectemp
 execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] remove swPool_spec
+execute if entity @s[tag=swPool_rerack] run tag @s remove swPool_pkt08
 execute if entity @s[tag=swPool_rerack] run function pool:classes/master/undo_run
-
 
 # clean up tags
 tag @s remove swPool_foul

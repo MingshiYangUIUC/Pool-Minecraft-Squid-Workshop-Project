@@ -203,5 +203,5 @@ execute if score pitch swMath_V matches 90223426.. run playsound minecraft:custo
 
 scoreboard players set @e[tag=swPool_col2,limit=1] swPool_T 0
 scoreboard players set @s swPool_T 0
-execute at @e[tag=swPool_col2,limit=1] run function pool:classes/spin/change_of_state
+execute as @e[tag=swPool_col2,limit=1] at @s run function pool:classes/spin/change_of_state
 execute at @s run function pool:classes/spin/change_of_state
