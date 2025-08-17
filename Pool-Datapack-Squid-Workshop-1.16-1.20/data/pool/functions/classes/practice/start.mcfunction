@@ -44,7 +44,13 @@ tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] add swPool_practicemode
 
+# prescribed ball choice
+execute if entity @e[tag=swPool_pooltable,tag=swPool_snake] if score #nsnake swMath_V matches 1.. run execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/practice/balls/snake
+execute if entity @e[tag=swPool_pooltable,tag=swPool_vsnake] if score #nsnake swMath_V matches 1.. run execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/practice/balls/vsnake
 
+scoreboard players reset #nsnake swMath_V
+tag @e[tag=swPool_pooltable,tag=swPool_snake] remove swPool_snake
+tag @e[tag=swPool_pooltable,tag=swPool_vsnake] remove swPool_vsnake
 
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand_obj

@@ -82,7 +82,7 @@ Most interactions do not require typing commands. You only need to click <<ins>t
 🔔 Tip: Disable “Force Unicode Font” for a better experience.
 
 ### 1. Initialize the Datapack
-<img src="Gallery/GIFs/user_guides_EN/01_load_datapack_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 After installing (reloading) the datapack, the chat will guide your next steps. Click it to open the “Command Window,” a multifunctional control panel. You can also run the following command at any time:
 
@@ -92,12 +92,12 @@ If this is your first time loading the datapack, click <<ins>text like this</ins
 🔴 Make sure the math datapack is also loaded.
 
 ### 2. Load the Resourcepack
-<img src="Gallery/GIFs/user_guides_EN/02_load_resourcepack_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/02_load_resourcepack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 After placing the resource pack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
 
 ### 3. Access Settings and Help
-<img src="Gallery/GIFs/user_guides_EN/03_open_settings_help_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/03_open_settings_help_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
 
@@ -106,34 +106,34 @@ You can access all settings from the Command Window. For a detailed explanation,
 Recommended values will appear during adjustment. Values that are too large or too small may overflow the scoreboard and cause game errors.
 
 ### 4. Get the Cue Stick
-<img src="Gallery/GIFs/user_guides_EN/04_get_cuestick_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/04_get_cuestick_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 Use the Command Window to get a cue stick (function as a bow when no game is active).
 
 ### 5. Set Up the Table
-<img src="Gallery/GIFs/user_guides_EN/05_set_table_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/FFOutput/05_set_table_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 Use the Command Window to place a new table. The existing one will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
 
 ### 6. Open the Game Lobby
-<img src="Gallery/GIFs/user_guides_EN/06_open_lobby_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/06_open_lobby_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 Use the Command Window or click <<ins>View Lobby</ins>> after placing a table. Singleplayer and multiplayer games both begin in the lobby. You can also spectate (receive interactive info such as score from active players).
 
 ### 7. Start a Singleplayer Game
-<img src="Gallery/GIFs/user_guides_EN/07_start_singleplayer_game_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/07_start_singleplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 Choose a singleplayer mode in the game lobby and confirm to start. Interactive info such as target balls and score will appear in the lower-left chat. In singleplayer Snooker, you only need to outscore your penalty loss to win. In singleplayer 8 Ball, you play both sides, so there is no win/loss. At the end of a Snooker match, players receive a rating based on average score per turn.
 
 If the cue ball is off the table (e.g. before breaking), you need to place it. When holding the cue ball and standing on or near the table, green particles will indicate valid placement areas.
 
 ### 8. Start a Multiplayer Game
-<img src="Gallery/GIFs/user_guides_EN/08_join_multiplayer_game_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/08_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 After selecting a multiplayer mode in the game lobby, other online players will receive a broadcast invitation. When someone joins your queue, follow the prompt and click <<ins>Begin</ins>> to begin. The breaking player is randomly chosen.
 
 ### 9. Shoot a Ball
-<img src="Gallery/GIFs/user_guides_EN/09_shoot_ball_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/09_shoot_ball_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 Hold right-click to charge, and release to shoot. The cue ball's direction is based on your facing angle. Power depends on charge time; max power takes about 1.1 seconds. In CN/UK 8 Ball, break shot speed is boosted by 0.4 blocks per tick (8 m/s). Aiming method: while holding the cue stick, sneaking lets you automatically face the cue ball. This makes your shot direction align with your forward view.
 
@@ -142,7 +142,7 @@ You can enable zoom-in while sneaking to help aim more precisely. This is not re
 	/function app:settings/pool/aim/
 
 ### 10. Cue Ball Control
-<img src="Gallery/GIFs/user_guides_EN/10_cue_ball_control_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/10_cue_ball_control_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>Adjust the next strike angles</ins>> to modify hit point and/or cue stick elevation. Or use:
 
 	/function pool:classes/cue/map
@@ -150,14 +150,20 @@ Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>
 The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
 
 ### 11. Undo the Last Shot
-<img src="Gallery/GIFs/user_guides_EN/11_undo_shot_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+<video src="Gallery/Videos/user_guides_EN/11_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 If cheats are allowed, you can click <<ins>/back</ins>> to restore the table to its state before the shot. You can only undo one step backward. The target ball is also preserved, and if you committed a foul by hitting the wrong ball, undoing it will also clear the foul.
 
 ### 12. Practice Mode
-<img src="Gallery/GIFs/user_guides_EN/12_practice_mode_EN.gif" alt="_MingshiYangUIUC_" width="75%">
+You can enter Practice Mode via the Command Window. There are no rules in this mode. You have access to all balls and can freely place and shoot them anywhere on the table. 
 
-You can enter Practice Mode via the Command Window. There are no rules in this mode. You have access to all balls and can freely place and shoot them anywhere on the table.
+<video src="Gallery/Videos/user_guides_EN/12_practice_mode_0_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+Select empty table, all balls on the table will be cleared. 
+
+<video src="Gallery/Videos/user_guides_EN/12_practice_mode_1_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
 ---
 # How It Works
