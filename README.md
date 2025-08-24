@@ -59,8 +59,9 @@ Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
 - Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
 - Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../saves/world/datapacks folder.
+- **Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps.**
 - Step 06 Open Minecraft and open the world.
-- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right. Do this everytime you change the game version.
+- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
 - Step 08 Type "/reload" command then press enter.
 - Step 09 Enjoy 
 
