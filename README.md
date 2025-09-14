@@ -67,8 +67,9 @@ Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
 - Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
 - Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
 - Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../saves/world/datapacks folder.
+- **Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps.**
 - Step 06 Open Minecraft and open the world.
-- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-1.16.5 to the upper right. Do this everytime you change the game version.
+- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
 - Step 08 Type "/reload" command then press enter.
 - Step 09 Enjoy 
 
@@ -92,6 +93,10 @@ Most interactions do not require typing commands. You only need to click <<ins>t
 ### 1. Initialize the Datapack
 <video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/1596f132-9da0-4842-85a0-85dd697acf46
+
+
 After installing (reloading) the datapack, the chat will guide your next steps. Click it to open the “Command Window,” a multifunctional control panel. You can also run the following command at any time:
 
 	/function app:help/pool/commandwindow
@@ -102,10 +107,18 @@ If this is your first time loading the datapack, click <<ins>text like this</ins
 ### 2. Load the Resourcepack
 <video src="Gallery/Videos/user_guides_EN/02_load_resourcepack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/b7cffb26-5b2d-47a9-9077-88cfc9421ed2
+
+
 After placing the resource pack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
 
 ### 3. Access Settings and Help
 <video src="Gallery/Videos/user_guides_EN/03_open_settings_help_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/2539c7e8-f17b-4820-b48a-1e59ef939c15
+
 
 You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
 
@@ -116,20 +129,36 @@ Recommended values will appear during adjustment. Values that are too large or t
 ### 4. Get the Cue Stick
 <video src="Gallery/Videos/user_guides_EN/04_get_cuestick_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/07528876-1033-46f1-a75b-779fbd0dac60
+
+
 Use the Command Window to get a cue stick (function as a bow when no game is active).
 
 ### 5. Set Up the Table
 <video src="Gallery/Videos/user_guides_EN/FFOutput/05_set_table_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/845cc769-16a5-4bd8-92d8-c18b48c197a7
+
 
 Use the Command Window to place a new table. The existing one will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
 
 ### 6. Open the Game Lobby
 <video src="Gallery/Videos/user_guides_EN/06_open_lobby_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/5f8a99c2-283a-47ea-a4ec-7f5851cb5e1a
+
+
 Use the Command Window or click <<ins>View Lobby</ins>> after placing a table. Singleplayer and multiplayer games both begin in the lobby. You can also spectate (receive interactive info such as score from active players).
 
 ### 7. Start a Singleplayer Game
 <video src="Gallery/Videos/user_guides_EN/07_start_singleplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/872ee467-3b15-4c0a-9436-64760f6ee37c
+
 
 Choose a singleplayer mode in the game lobby and confirm to start. Interactive info such as target balls and score will appear in the lower-left chat. In singleplayer Snooker, you only need to outscore your penalty loss to win. In singleplayer 8 Ball, you play both sides, so there is no win/loss. At the end of a Snooker match, players receive a rating based on average score per turn.
 
@@ -138,10 +167,18 @@ If the cue ball is off the table (e.g. before breaking), you need to place it. W
 ### 8. Start a Multiplayer Game
 <video src="Gallery/Videos/user_guides_EN/08_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/ce029e86-2865-4434-b1a0-827b18eede08
+
+
 After selecting a multiplayer mode in the game lobby, other online players will receive a broadcast invitation. When someone joins your queue, follow the prompt and click <<ins>Begin</ins>> to begin. The breaking player is randomly chosen.
 
 ### 9. Shoot a Ball
 <video src="Gallery/Videos/user_guides_EN/09_shoot_ball_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/d391ef73-de93-4428-bcb0-ec2e58bd8b62
+
 
 Hold right-click to charge, and release to shoot. The cue ball's direction is based on your facing angle. Power depends on charge time; max power takes about 1.1 seconds. In CN/UK 8 Ball, break shot speed is boosted by 0.4 blocks per tick (8 m/s). Aiming method: while holding the cue stick, sneaking lets you automatically face the cue ball. This makes your shot direction align with your forward view.
 
@@ -151,6 +188,11 @@ You can enable zoom-in while sneaking to help aim more precisely. This is not re
 
 ### 10. Cue Ball Control
 <video src="Gallery/Videos/user_guides_EN/10_cue_ball_control_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/731041a5-13e5-4d59-9197-f5a2cb4ce857
+
+
 Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>Adjust the next strike angles</ins>> to modify hit point and/or cue stick elevation. Or use:
 
 	/function pool:classes/cue/map
@@ -160,6 +202,10 @@ The adjustment UI shows hit point grid on the left, elevation on the right, and 
 ### 11. Undo the Last Shot
 <video src="Gallery/Videos/user_guides_EN/11_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/b637e62d-7808-485e-ae96-9ffd998cfd22
+
+
 If cheats are allowed, you can click <<ins>/back</ins>> to restore the table to its state before the shot. You can only undo one step backward. The target ball is also preserved, and if you committed a foul by hitting the wrong ball, undoing it will also clear the foul.
 
 ### 12. Practice Mode
@@ -167,9 +213,17 @@ You can enter Practice Mode via the Command Window. There are no rules in this m
 
 <video src="Gallery/Videos/user_guides_EN/12_practice_mode_0_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
+
+https://github.com/user-attachments/assets/9dd2779c-04a2-4633-a7f7-bc840b95e46a
+
+
 Select empty table, all balls on the table will be cleared. 
 
 <video src="Gallery/Videos/user_guides_EN/12_practice_mode_1_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
+
 
 Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
