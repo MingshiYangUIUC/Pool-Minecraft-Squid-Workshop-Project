@@ -10,7 +10,7 @@ tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] add swPool_practicemode
 
-scoreboard players set V_addon swPool_v 40000000
+scoreboard players set #breakshot swPool_v 1
 
 # go to practice mode
 function pool:classes/practice/switch_helper

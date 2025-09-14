@@ -7,3 +7,5 @@ execute unless data storage minecraft:swpool {version:[1205]} unless entity @a[t
 execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] if entity @a[tag=swPool_wait_uk8ball] as @a[tag=swPool_wait_uk8ball,limit=1,sort=random] at @s if entity @a[tag=swPool_wait_uk8ball,distance=0.001..] run function pool:classes/uk8ball/start_1205
 
 tag @s remove swPool_startmpuk8ball
+
+tag @e[tag=swPool_pooltable] add swPool_8ball_aibreak

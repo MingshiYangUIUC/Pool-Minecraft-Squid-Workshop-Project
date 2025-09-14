@@ -30,22 +30,28 @@ tag @a[tag=swPool_poolplay] remove swPool_foul
 
 # foul: if NOT open, hit wrong ball first.
 execute unless entity @s[tag=swPool_cn8ball_open] as @a[tag=swPool_hitcue,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tag @s add swPool_foul
+execute unless entity @s[tag=swPool_cn8ball_open] as @a[tag=swPool_hitcue,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tell @a[tag=swPool_debug] Debug: hit wrong ball
 
 # foul: hit 8 ball if should not hit 8 ball
 execute as @a[tag=swPool_hitcue,limit=1] if entity @s[scores={swPool_firsthit=8}] unless entity @s[tag=swPool_aim08] run tag @s add swPool_foul
+execute as @a[tag=swPool_hitcue,limit=1] if entity @s[scores={swPool_firsthit=8}] unless entity @s[tag=swPool_aim08] run tell @a[tag=swPool_debug] Debug: hit 8 ball
 
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
 execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
+execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tell @a[tag=swPool_debug] Debug: no rail or pocket
 
 # foul: if pocketed cue ball
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
+execute if entity @s[tag=swPool_pktcue] run tell @a[tag=swPool_debug] Debug: pocketed cue ball
 
 
 # endgame?
 
 tag @s[tag=!swPool_rerack,tag=swPool_pkt08] add swPool_endgame 
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] run tag @a[tag=swPool_hitcue,tag=!swPool_aim08] add swPool_foul
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] run tell @a[tag=swPool_debug] Debug: pocketed 8 ball
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] if score Pocketed_Turn swPool_hidScore matches 2.. run tag @a[tag=swPool_hitcue] add swPool_foul
+execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] if score Pocketed_Turn swPool_hidScore matches 2.. run tell @a[tag=swPool_debug] Debug: pocketed 8 ball in addition to other balls
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" Wins."}]

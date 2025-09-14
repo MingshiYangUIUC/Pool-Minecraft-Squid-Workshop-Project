@@ -1,4 +1,5 @@
 {
-"custom.pool.hit":{"sounds":["custom/pool_hit"]},
-"custom.pool.pocket":{"sounds":["custom/pool_pocket"]}
+    "custom.pool.break":{"sounds":["custom/pool_break_v1"]},
+    "custom.pool.hit":{"sounds":["custom/pool_hit"]},
+    "custom.pool.pocket":{"sounds":["custom/pool_pocket"]}
 }

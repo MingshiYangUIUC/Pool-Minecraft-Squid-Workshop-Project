@@ -71,3 +71,7 @@ scoreboard objectives remove swPool_T_end
 
 scoreboard objectives remove swPool_p_angle
 scoreboard objectives remove swPool_pose
+
+scoreboard objectives remove swPool_Rotation
+scoreboard objectives remove swPool_true_rot0
+scoreboard objectives remove swPool_true_rot1

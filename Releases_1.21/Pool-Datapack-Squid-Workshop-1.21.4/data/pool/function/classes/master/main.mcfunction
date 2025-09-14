@@ -1,7 +1,7 @@
-execute if entity @e[type=armor_stand,tag=swPool_cn8ballmode] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
-execute if entity @e[type=armor_stand,tag=swPool_snookermode] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main
-execute if entity @e[type=armor_stand,tag=swPool_uk8ballmode] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/uk8ball/main
-execute if entity @e[type=armor_stand,tag=swPool_practicemode] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/practice/main
+execute if entity @e[type=armor_stand,tag=swPool_cn8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
+execute if entity @e[type=armor_stand,tag=swPool_snookermode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main
+execute if entity @e[type=armor_stand,tag=swPool_uk8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/uk8ball/main
+execute if entity @e[type=armor_stand,tag=swPool_practicemode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/practice/main
 
 tag @s remove swPool_pktx
 tag @s remove swPool_pktz
@@ -19,6 +19,11 @@ tag @e[type=armor_stand,tag=swPool_fake] add swPool_pool
 execute if score Stroke swPool_hidScore matches 0 run function pool:classes/master/pre_select_aggressive
 execute if score Stroke swPool_hidScore matches 1.. run function pool:classes/master/pre_select
 
+# if setting applied if cn8ball mode if 08 has not moved, breaking mode = 1
+scoreboard players set #breakmode swMath_V 0
+execute if data storage minecraft:swpool nn_break if entity @e[type=armor_stand,tag=swPool_cn8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[tag=swPool_pool,tag=swPool_08,limit=1] if entity @e[tag=swPool_temppin,tag=swPool_08,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
+execute if data storage minecraft:swpool nn_break if entity @e[type=armor_stand,tag=swPool_uk8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[tag=swPool_pool,tag=swPool_black,limit=1] if entity @e[tag=swPool_temppin,tag=swPool_black,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
+
 #quicksort exclude some swPool_near
 tag @s add swPool_origin
 tag @s add swPool_d2
@@ -35,9 +40,10 @@ execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
 
-execute if entity @s[tag=!swPool_bounce] run scoreboard players set @e[type=armor_stand,tag=swPool_col] swPool_v 0
+execute if score #breakmode swMath_V matches 0 if entity @s[tag=!swPool_bounce] run scoreboard players set @e[type=armor_stand,tag=swPool_col] swPool_v 0
+execute if score #breakmode swMath_V matches 0 if entity @s[tag=swPool_col1,tag=!swPool_bounce] at @s run function pool:classes/collision/helper
 
-execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] at @s run function pool:classes/collision/helper
+execute unless score #breakmode swMath_V matches 0 unless entity @s[tag=swPool_bounce] if entity @s[tag=swPool_col] as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run function pool:classes/break_nn/io
 
 #execute at @s[tag=swPool_bounce] run say bounce
 #execute at @s[tag=swPool_col,tag=!swPool_bounce] run say col

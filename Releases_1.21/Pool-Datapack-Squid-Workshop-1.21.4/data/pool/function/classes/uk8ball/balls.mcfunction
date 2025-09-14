@@ -41,6 +41,7 @@ execute if score @s swPool_sizex >= @s swPool_sizez run tag @s add swPool_x
 execute if score @s swPool_sizex < @s swPool_sizez run tag @s add swPool_z
 
 
+execute if score TABLE swPool_dl matches 33750.. run scoreboard players add @s swPool_dl 8660
 
 #Black K
 execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s Pos[0] 10000
@@ -414,7 +415,7 @@ execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPoo
 tag @e[tag=swPool_yellow,tag=swPool_new,limit=1] remove swPool_new
 
 
-
+execute if score TABLE swPool_dl matches 33750.. run scoreboard players remove @s swPool_dl 8660
 
 ########END of RED and YELLOW
 

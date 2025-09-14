@@ -1,4 +1,9 @@
 {
+    "custom.pool.break": {
+        "sounds": [
+            "swpool:custom/pool_break_v1"
+        ]
+    },
     "custom.pool.hit": {
         "sounds": [
             "swpool:custom/pool_hit"

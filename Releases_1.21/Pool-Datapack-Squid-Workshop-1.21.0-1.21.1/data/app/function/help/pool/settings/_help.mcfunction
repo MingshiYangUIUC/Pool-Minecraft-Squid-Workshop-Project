@@ -5,6 +5,11 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ Settings are explained below. Run them w
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/zoom: you are given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/nozoom: you are not given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"gray"}]
 
+tellraw @s[tag=swPool_EN] [{"text":"➇ breakshot/breakpower: (8 ball) Incerase speed of breakshot (120 means 120% speed)","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ breakshot/default_break: (8 ball) default calculation when breaking rack (only elastic collisions)","color":"gray"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ breakshot/nn_break: (8 ball) neural network calculation when breaking rack (more realistic)","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ breakshot/nn_complexity: (8 ball) nn model selection (cost vs accuracy)","color":"gray"}]
+
 tellraw @s[tag=swPool_EN] [{"text":"➇ cheating/allow: you are allowed to cheat, you can undo your shoot. Probably this should be the default.","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ cheating/disallow: you are not allowed to cheat, you cannot undo your shoot.","color":"gray"}]
 
@@ -41,6 +46,11 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ 以下是设置说明。运行时请使�
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ aim/zoom：瞄准球时（按住shift）画面会放大（缓慢效果）","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ aim/nozoom：瞄准球时（按住shift）画面不会放大","color":"gray"}]
+
+tellraw @s[tag=swPool_CN] [{"text":"➇ breakshot/breakpower：（八球）开球速度提升（120为120%速度）","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ breakshot/default_break：（八球）炸球堆使用普通计算（弹性碰撞）","color":"gray"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ breakshot/nn_break：（八球）神经网络计算炸球堆（更真实）","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ breakshot/nn_complexity:（八球）神经网络复杂度（速度vs精度）","color":"gray"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ cheating/allow：允许作弊，可撤回击球（建议默认）","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ cheating/disallow：禁止作弊，无法撤回击球","color":"gray"}]

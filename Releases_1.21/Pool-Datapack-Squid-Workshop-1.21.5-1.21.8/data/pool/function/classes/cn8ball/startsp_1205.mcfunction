@@ -86,7 +86,7 @@ execute if entity @a[tag=!swPool_poolplay] run tag @a[limit=1,tag=swPool_wait_cn
 scoreboard players set @a[tag=swPool_poolplay] swPool_Score 0
 #scoreboard objectives setdisplay sidebar swPool_Score
 
-scoreboard players set V_addon swPool_v 40000000
+scoreboard players set #breakshot swPool_v 1
 scoreboard players set Stroke swPool_hidScore 0
 
 scoreboard players set Pocketed_Total swPool_hidScore 0

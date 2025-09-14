@@ -174,6 +174,15 @@ scoreboard players set i_ball_100 swPool_C 56
 scoreboard players set C_l swPool_C 12500
 scoreboard players set i_stick swPool_C 2700
 
+#speed multiplier for breakshot # default: +150 (+150%) (100-180)
+execute unless score break_power swPool_C matches 100..180 run scoreboard players set break_power swPool_C 100
+execute if score break_power swPool_C matches ..99 run scoreboard players set break_power swPool_C 100
+execute if score break_power swPool_C matches 181.. run scoreboard players set break_power swPool_C 180
+
+# default: neural network breakshot (default:1)
+execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
+execute unless score nn_complexity swPool_C matches 1..4 run scoreboard players set nn_complexity swPool_C 1
+
 function pool:classes/cue/reset
 
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack]: Pool-Datapack from Squid-Workshop Loaded.","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]

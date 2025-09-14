@@ -2,6 +2,14 @@
 
 ## Recent Big Updates
 
+### <span style="color:orange">September 2025</span> — AI Break Simulation!
+
+- Added **AI Break Simulation**: a lightweight neural network replaces the previous elastic-collision-only model, producing a much more realistic break effect.
+- Data Generation & Training: high-precision physics simulations were run in Python to generate large datasets of break scenarios. A neural network was trained to learn the instantaneous compression–rebound process. Due to the rack’s symmetry, the model can be flipped and rotated to generalize to the entire rack.
+- Implementation: the trained PyTorch model parameters were manually translated into Minecraft scoreboard calculations. Rotation and flipping transforms are also done in-game, and the final outputs are inversely transformed to set each ball’s velocity and direction.
+- This feature can be toggled on or off in the settings (enabled by default). When enabled, 8-ball breaks automatically use the AI model. Four levels of model complexity are available so you can choose between faster performance or higher accuracy.
+
+
 ### <span style="color:orange">July 2025</span> — Chinese 8 Ball game is added to the datapack. Join it from the lobby and enjoy!
 
 It has been a long journey...
@@ -176,6 +184,8 @@ Included mechanics:
 - Interaction with the pocket edge (but friction is not modeled)
 
 The implementation is original and does not reference any published papers. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
+
+The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318).
 
 ---
 # Notes

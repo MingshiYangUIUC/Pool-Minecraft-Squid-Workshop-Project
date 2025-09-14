@@ -10,7 +10,7 @@ execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_practicemode,scor
 
 # cn8ball: two ballinhand scenarios: behind headstring (uk8ball style) or all (practice style)
 scoreboard players set #headstring swPool_var00 0
-execute if score V_addon swPool_v matches 40000000 run scoreboard players set #headstring swPool_var00 1
+execute if score #breakshot swPool_v matches 1 run scoreboard players set #headstring swPool_var00 1
 execute if score Stroke swPool_hidScore matches 1 run scoreboard players set #headstring swPool_var00 1
 # execute if first ball in hand after break set run scoreboard players set #headstring swPool_var00 1
 

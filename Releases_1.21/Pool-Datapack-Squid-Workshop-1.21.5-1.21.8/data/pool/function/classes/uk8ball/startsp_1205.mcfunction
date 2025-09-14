@@ -48,7 +48,7 @@ tag @e[tag=swPool_pooltable] remove swPool_edawdrec
 
 
 
-scoreboard players set V_addon swPool_v 40000000
+scoreboard players set #breakshot swPool_v 1
 scoreboard players set Stroke swPool_hidScore 0
 
 scoreboard players set Pocketed_Total swPool_hidScore 0
