@@ -40,10 +40,14 @@ execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=armor_stand,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
 
-execute if score #breakmode swMath_V matches 0 if entity @s[tag=!swPool_bounce] run scoreboard players set @e[type=armor_stand,tag=swPool_col] swPool_v 0
-execute if score #breakmode swMath_V matches 0 if entity @s[tag=swPool_col1,tag=!swPool_bounce] at @s run function pool:classes/collision/helper
+scoreboard players set #breakhappen swMath_V 1
+execute if entity @e[tag=swPool_col,tag=swPool_fake] run scoreboard players set #breakhappen swMath_V 0
+execute if score #breakmode swMath_V matches 0 run scoreboard players set #breakhappen swMath_V 0
 
-execute unless score #breakmode swMath_V matches 0 unless entity @s[tag=swPool_bounce] if entity @s[tag=swPool_col] as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run function pool:classes/break_nn/io
+execute if score #breakhappen swMath_V matches 0 if entity @s[tag=!swPool_bounce] run scoreboard players set @e[type=armor_stand,tag=swPool_col] swPool_v 0
+execute if score #breakhappen swMath_V matches 0 if entity @s[tag=swPool_col1,tag=!swPool_bounce] at @s run function pool:classes/collision/helper
+
+execute unless score #breakhappen swMath_V matches 0 unless entity @s[tag=swPool_bounce] if entity @s[tag=swPool_col] as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run function pool:classes/break_nn/io
 
 #execute at @s[tag=swPool_bounce] run say bounce
 #execute at @s[tag=swPool_col,tag=!swPool_bounce] run say col

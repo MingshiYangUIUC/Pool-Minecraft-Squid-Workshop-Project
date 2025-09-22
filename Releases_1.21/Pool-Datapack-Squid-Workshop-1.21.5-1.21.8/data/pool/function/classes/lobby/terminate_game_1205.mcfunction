@@ -70,9 +70,13 @@ tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breaking
 tag @e[tag=swPool_pooltable] remove swPool_cn8ball_open
 tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breakingrec
 tag @e[tag=swPool_pooltable] remove swPool_cn8ball_openrec
-tag @e[tag=swPool_pooltable] remove swPool_pktsolid
-tag @e[tag=swPool_pooltable] remove swPool_pktstripe
-tag @e[tag=swPool_pooltable] remove swPool_pkt08
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktcue
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktsolid
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktstripe
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
 
 scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
 scoreboard players reset @a swPool_Score

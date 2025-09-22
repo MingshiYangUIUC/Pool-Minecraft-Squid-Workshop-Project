@@ -183,6 +183,9 @@ execute if score break_power swPool_C matches 181.. run scoreboard players set b
 execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
 execute unless score nn_complexity swPool_C matches 1..4 run scoreboard players set nn_complexity swPool_C 1
 
+# tick interval
+execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
+
 function pool:classes/cue/reset
 
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack]: Pool-Datapack from Squid-Workshop Loaded.","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]

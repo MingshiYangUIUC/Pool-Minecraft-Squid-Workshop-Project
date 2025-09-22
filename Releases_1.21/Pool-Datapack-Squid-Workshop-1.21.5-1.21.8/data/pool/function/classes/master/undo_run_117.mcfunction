@@ -128,5 +128,14 @@ tag @a[tag=swPool_placingcue] remove swPool_placingcue
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ballinhand
 
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_endgame
+
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktcue
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktsolid
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktstripe
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
+tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk

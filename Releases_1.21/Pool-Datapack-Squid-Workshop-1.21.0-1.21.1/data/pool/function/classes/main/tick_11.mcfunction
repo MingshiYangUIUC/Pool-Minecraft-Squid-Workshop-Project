@@ -1,5 +1,5 @@
 scoreboard players add #tick swPool_var00 1
-execute if score #tick swPool_var00 matches 1.. run scoreboard players set #tick swPool_var00 0
+execute if score #tick swPool_var00 >= tick_interval swPool_C run scoreboard players set #tick swPool_var00 0
 
 execute at @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
 execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_cn8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/cn8ball/place
