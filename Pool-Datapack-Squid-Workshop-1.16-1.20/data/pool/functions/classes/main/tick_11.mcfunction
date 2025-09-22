@@ -39,3 +39,5 @@ scoreboard players add @e[type=armor_stand,tag=swPool_pooltable] swPool_hittime 
 scoreboard players set @a swPool_crtclk 0
 
 execute if score #tick swPool_var00 matches 0 if data storage minecraft:swpool {allowspin:1} as @e[tag=swPool_pool,scores={swPool_T=1..,swPool_v=1..}] run function pool:classes/pose/w2dpdt_iterative
+
+execute if score #tick swPool_var00 matches 0 as @e[tag=swPool_potting,type=armor_stand] at @s run function pool:classes/pocketing/animation/loop

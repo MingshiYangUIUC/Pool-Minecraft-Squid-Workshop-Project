@@ -42,5 +42,5 @@ scoreboard players add Pocketed_Turn swPool_hidScore 1
 #playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 #playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
 playsound swpool:custom.pool.pocket ambient @a ~ ~ ~ 1 1
-kill @s
-
+#kill @s
+function pool:classes/pocketing/animation/main
