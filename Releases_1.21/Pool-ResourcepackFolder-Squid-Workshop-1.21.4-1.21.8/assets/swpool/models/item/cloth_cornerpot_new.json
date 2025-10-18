@@ -1,10 +1,12 @@
 {
+    "format_version": "1.21.6",
     "credit": "Made with Blockbench",
     "textures": {
         "0": "swpool:item/pool/cloth",
         "1": "swpool:item/pool/wood",
         "2": "swpool:item/pool/black",
         "4": "swpool:item/pool/wood_light",
+        "5": "swpool:item/pool/cloth_rag",
         "particle": "swpool:item/pool/cloth"
     },
     "elements": [
@@ -373,7 +375,7 @@
                         2.14,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "up": {
                     "uv": [
@@ -459,7 +461,7 @@
                         3,
                         5.36
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -500,7 +502,7 @@
                         2.14,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "east": {
                     "uv": [
@@ -536,7 +538,7 @@
                         2.14,
                         2
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -613,7 +615,7 @@
                         5.36,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -654,7 +656,7 @@
                         2.36,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "east": {
                     "uv": [
@@ -690,7 +692,7 @@
                         2.36,
                         2
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -731,7 +733,7 @@
                         5.22,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "east": {
                     "uv": [
@@ -767,7 +769,7 @@
                         5.22,
                         2
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -835,7 +837,7 @@
                         2.36,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "up": {
                     "uv": [
@@ -844,7 +846,7 @@
                         2,
                         2.36
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -912,7 +914,7 @@
                         5.22,
                         3
                     ],
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "up": {
                     "uv": [
@@ -1544,13 +1546,13 @@
                 },
                 "up": {
                     "uv": [
-                        0,
-                        0,
-                        8,
-                        16
+                        4,
+                        4,
+                        12,
+                        12
                     ],
                     "rotation": 270,
-                    "texture": "#0"
+                    "texture": "#5"
                 },
                 "down": {
                     "uv": [
@@ -2267,6 +2269,7 @@
                 8,
                 8
             ],
+            "color": 0,
             "children": [
                 0,
                 1,

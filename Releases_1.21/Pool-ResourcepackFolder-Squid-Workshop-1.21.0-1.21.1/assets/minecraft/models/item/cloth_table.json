@@ -1,7 +1,9 @@
 {
+	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "item/pool/cloth",
+		"1": "item/pool/cloth_rag",
 		"particle": "item/pool/cloth"
 	},
 	"elements": [
@@ -13,7 +15,7 @@
 				"east": {"uv": [0, 0, 8, 0.02], "texture": "#0"},
 				"south": {"uv": [0, 0, 16, 0.02], "texture": "#0"},
 				"west": {"uv": [0, 0, 8, 0.02], "texture": "#0"},
-				"up": {"uv": [0, 0, 8, 16], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#1"},
 				"down": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"}
 			}
 		}

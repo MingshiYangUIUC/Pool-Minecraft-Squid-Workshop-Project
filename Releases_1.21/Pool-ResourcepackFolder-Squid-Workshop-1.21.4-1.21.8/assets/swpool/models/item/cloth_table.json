@@ -1,7 +1,9 @@
 {
+    "format_version": "1.21.6",
     "credit": "Made with Blockbench",
     "textures": {
         "0": "swpool:item/pool/cloth",
+        "1": "swpool:item/pool/cloth_rag",
         "particle": "swpool:item/pool/cloth"
     },
     "elements": [
@@ -57,11 +59,11 @@
                     "uv": [
                         0,
                         0,
-                        8,
+                        16,
                         16
                     ],
                     "rotation": 270,
-                    "texture": "#0"
+                    "texture": "#1"
                 },
                 "down": {
                     "uv": [
