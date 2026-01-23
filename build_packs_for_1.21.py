@@ -25,7 +25,7 @@ try:
     pool_minor_version = int(sys.argv[2])
 except:
     pool_major_version = 21
-    pool_minor_version = 1
+    pool_minor_version = 11
 
 output_dir = 'Releases_1.21'
 if not os.path.isdir(output_dir):
@@ -50,7 +50,7 @@ elif pool_minor_version == 4:
     data_version_range = [4,4]
     data_packfmt = 61
 elif pool_minor_version >= 5:
-    data_version_range = [5,8]
+    data_version_range = [5,11]
     data_packfmt = 71
 
 if pool_minor_version <= 1:
@@ -60,7 +60,7 @@ elif pool_minor_version <= 3:
     res_version_range = [2,3]
     res_packfmt = 18
 elif pool_minor_version >= 4:
-    res_version_range = [4,8]
+    res_version_range = [4,11]
     res_packfmt = 22
 
 
