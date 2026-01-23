@@ -19,7 +19,7 @@ It has been a long journey...
 - Then, the design to transform ball spin into armor stand pose changes laid the foundation for visually realistic rendering. Numbered balls were introduced in practice mode, even before Minecraft 1.20 and Transformation Rendering were added.
 - Finally, the rules for Chinese 8 Ball are implemented in Minecraft now, enabling a fully playable single-player and multiplayer experience with numbered balls.
 
-### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now supports all Minecraft versions since 1.16!
+### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now continues to support all Minecraft versions since 1.16!
 Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes.  
 Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
 
@@ -57,7 +57,8 @@ Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
 ---
 # Installation
 
-### Windows Users
+### ~~Windows Users~~
+> ⚠️ This feature has been disabled because the datapack is no longer maintained as a single unified version.\
 [`swPool_sync.bat`](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/swPool_sync.bat) is a script that automatically downloads / updates **Pool Datapack** and its required **Math Datapack** and **Resourcepack** from GitHub.  
 ⚠️ **DO NOT USE** if you have custom modifications, because the current Pool / Math Datapacks you downloaded before will be deleted.
 
