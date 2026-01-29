@@ -5,31 +5,31 @@ execute as @e[tag=swPool_pool,tag=swPool_free] run scoreboard players add @s swP
 execute as @e[tag=swPool_pool,tag=!swPool_placed,tag=!swPool_free] store result entity @s Pos[0] double 0.0001 run scoreboard players get @s swPool_var00
 execute as @e[tag=swPool_pool,tag=!swPool_placed,tag=!swPool_free] store result entity @s Pos[2] double 0.0001 run scoreboard players get @s swPool_var01
 execute as @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_manual] store result entity @s Pos[1] double 0.0001 run scoreboard players get @s swPool_var02
-execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_cueball"]
-execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_cueball_clean"]
-item replace entity @e[tag=swPool_red,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_red"]
-item replace entity @e[tag=swPool_yellow,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_yellow"]
-item replace entity @e[tag=swPool_green,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_green"]
-item replace entity @e[tag=swPool_brown,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_brown"]
-item replace entity @e[tag=swPool_blue,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_blue"]
-item replace entity @e[tag=swPool_pink,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_pink"]
-item replace entity @e[tag=swPool_black,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_black"]
+execute if data storage minecraft:swpool cueballreddot run execute as @e[tag=swPool_cue,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cueball"}}}
+execute unless data storage minecraft:swpool cueballreddot run execute as @e[tag=swPool_cue,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cueball_clean"}}}
+execute as @e[tag=swPool_red,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_red"}}}
+execute as @e[tag=swPool_yellow,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_yellow"}}}
+execute as @e[tag=swPool_green,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_green"}}}
+execute as @e[tag=swPool_brown,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_brown"}}}
+execute as @e[tag=swPool_blue,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_blue"}}}
+execute as @e[tag=swPool_pink,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_pink"}}}
+execute as @e[tag=swPool_black,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_black"}}}
 
-item replace entity @e[tag=swPool_01,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_01"]
-item replace entity @e[tag=swPool_02,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_02"]
-item replace entity @e[tag=swPool_03,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_03"]
-item replace entity @e[tag=swPool_04,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_04"]
-item replace entity @e[tag=swPool_05,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_05"]
-item replace entity @e[tag=swPool_06,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_06"]
-item replace entity @e[tag=swPool_07,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_07"]
-item replace entity @e[tag=swPool_08,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_08"]
-item replace entity @e[tag=swPool_09,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_09"]
-item replace entity @e[tag=swPool_10,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_10"]
-item replace entity @e[tag=swPool_11,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_11"]
-item replace entity @e[tag=swPool_12,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_12"]
-item replace entity @e[tag=swPool_13,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_13"]
-item replace entity @e[tag=swPool_14,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_14"]
-item replace entity @e[tag=swPool_15,tag=!swPool_placed] armor.head with minecraft:acacia_button[minecraft:item_model="swpool:render_ball_15"]
+execute as @e[tag=swPool_01,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_01"}}}
+execute as @e[tag=swPool_02,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_02"}}}
+execute as @e[tag=swPool_03,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_03"}}}
+execute as @e[tag=swPool_04,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_04"}}}
+execute as @e[tag=swPool_05,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_05"}}}
+execute as @e[tag=swPool_06,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_06"}}}
+execute as @e[tag=swPool_07,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_07"}}}
+execute as @e[tag=swPool_08,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_08"}}}
+execute as @e[tag=swPool_09,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_09"}}}
+execute as @e[tag=swPool_10,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_10"}}}
+execute as @e[tag=swPool_11,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_11"}}}
+execute as @e[tag=swPool_12,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_12"}}}
+execute as @e[tag=swPool_13,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_13"}}}
+execute as @e[tag=swPool_14,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_14"}}}
+execute as @e[tag=swPool_15,tag=!swPool_placed] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_15"}}}
 
 
 scoreboard players reset @e[tag=swPool_pool] swPool_var00

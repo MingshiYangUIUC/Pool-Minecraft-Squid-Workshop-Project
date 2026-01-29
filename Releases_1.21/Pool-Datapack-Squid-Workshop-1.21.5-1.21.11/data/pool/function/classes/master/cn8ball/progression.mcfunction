@@ -8,11 +8,11 @@ execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltabl
 
 
 # detect number of players
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
-execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 #rerack request
 execute if entity @s[tag=swPool_pkt08] if score Stroke swPool_hidScore matches 1 run tag @s add swPool_rerack

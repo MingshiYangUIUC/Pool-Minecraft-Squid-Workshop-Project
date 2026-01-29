@@ -1,7 +1,7 @@
 #exclude the balls that will not touch at the next tick
 
 #parent command:
-#execute as @e[type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/quicksort
+#execute as @e[type=item_display,tag=swPool_near] at @s run function pool:classes/master/quicksort
 
 #subject: @s (tagged swPool_near)
 #targets: @e[tag=swPool_origin]
@@ -12,7 +12,7 @@
 #2. 
 
 scoreboard players operation vsum swPool_v = @s swPool_v
-scoreboard players operation vsum swPool_v += @e[type=armor_stand,tag=swPool_origin,limit=1] swPool_v
+scoreboard players operation vsum swPool_v += @e[type=item_display,tag=swPool_origin,limit=1] swPool_v
 
 tag @s add swPool_d1
 

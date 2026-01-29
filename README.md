@@ -1,33 +1,6 @@
-## [中文版使用说明](https://github.com/MingshiYangUIUC/Pool-Evolved-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
+## [中文版使用说明](使用说明.md)
 
-## Recent Big Updates
-
-### <span style="color:orange">September 2025</span> — AI Break Simulation!
-
-- Added **AI Break Simulation**: a lightweight neural network replaces the previous elastic-collision-only model, producing a much more realistic break effect.
-- Data Generation & Training: high-precision physics simulations were run in Python to generate large datasets of break scenarios. A neural network was trained to learn the instantaneous compression–rebound process. Due to the rack’s symmetry, the model can be flipped and rotated to generalize to the entire rack.
-- Implementation: the trained PyTorch model parameters were manually translated into Minecraft scoreboard calculations. Rotation and flipping transforms are also done in-game, and the final outputs are inversely transformed to set each ball’s velocity and direction.
-- This feature can be toggled on or off in the settings (enabled by default). When enabled, 8-ball breaks automatically use the AI model. Four levels of model complexity are available so you can choose between faster performance or higher accuracy.
-
-
-### <span style="color:orange">July 2025</span> — Chinese 8 Ball game is added to the datapack. Join it from the lobby and enjoy!
-
-It has been a long journey...
-
-- Initially, the balls were rendered statically, moving only linearly without any visual spin. I did not plan to add numbered balls, and only designed Snooker and UK 8 Ball with monochromatic balls.
-- Later, after significant work on math and physics, cue ball control and advanced ball movements with visual spinning were supported by the Pool Datapack.
-- Then, the design to transform ball spin into armor stand pose changes laid the foundation for visually realistic rendering. Numbered balls were introduced in practice mode, even before Minecraft 1.20 and Transformation Rendering were added.
-- Finally, the rules for Chinese 8 Ball are implemented in Minecraft now, enabling a fully playable single-player and multiplayer experience with numbered balls.
-
-### <span style="color:orange">July 2025</span> — Updated Datapack for 1.20 and 1.21. Pool Datapack now continues to support all Minecraft versions since 1.16!
-Minecraft 1.21.X introduced directory structure changes and significant command syntax updates. It is no longer feasible to support multiple versions within a single datapack file. The resourcepack also underwent several changes.  
-Based on the 1.16-1.20 modules, the datapack and resourcepack are generated using an [automated script](build_packs_for_1.21.py) that makes necessary changes to let the modules work as intended in new Minecraft versions.
-
-🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version. Find them in the Releases_1.21 folder.</span>  
-🔴<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
-🔴<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
-🔴<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
-
+## [Recent Updates](CHANGELOG.md)
 
 # _Squid Workshop's_ Pool Datapack
 Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
@@ -42,6 +15,7 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 - [Installation](#Installation)
 - [User Guide and Demo](#User-Guide-and-Demo)
 - [How It Works](#How-It-Works)
+- [Frequently Asked Questions](#Frequently-Asked-Questions)
 - [Notes](#Notes)
 - [Terms of Use](#Terms-of-Use)
 - [More About Squid Workshop](#More-About-Squid-Workshop)
@@ -243,13 +217,37 @@ The implementation is original and does not reference any published papers. For 
 The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318).
 
 ---
+# Frequently Asked Questions
+
+1. I do not know how to get a cue stick. \
+You can obtain one via the command window.
+
+2. The balls do not seem to move correctly. \
+Please make sure you successfully installed **Math Datapack** (see instructions above), you should see messages from both datapacks after running a `reload`. Increasing _maxcommandchainlength_ from game rules may help in an uncommon situation where there are too many balls on a table.
+
+3. I cannot undo a shot. \
+Please allow _cheat_ from the settings menu. Undoing a shot during a game is considered "cheating".
+
+4. Everything disappears after I run a `reload`. \
+Please select _keepongoingsession_ from the settings menu.
+
+5. The datapack is running, but it does not look the same as the video you uploaded. \
+Please play with available settings, especially the _visuals_. Note that different physics parameters also create sometimes significantly different results.
+
+6. My table is broken. \
+Please set up the table on a large and flat surface, and do not use any tools to "mine" on the table.
+
+7. I get unexpected problems. \
+Please try to reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
+
+---
 # Notes
 
 1. **Ball sizes are intentionally enlarged** to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience.
 
 2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. No specific references were used during development. You may refer to the _How It Works_ section above or search “not so simple billiards physics.”
 
-3. **Rules of Snooker and 8 Ball are simplified** to support popular gameplay. You may refer to:
+3. **Rules of Snooker and 8 Ball are simplified** to support popular and convenient gameplay. You may refer to:
    - [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker)
    - [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool))
 
