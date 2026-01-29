@@ -1,6 +1,6 @@
 ## [中文版使用说明](使用说明.md)
 
-## [Recent Updates](Updates.md)
+## [Recent Updates](CHANGELOG.md)
 
 # _Squid Workshop's_ Pool Datapack
 Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
