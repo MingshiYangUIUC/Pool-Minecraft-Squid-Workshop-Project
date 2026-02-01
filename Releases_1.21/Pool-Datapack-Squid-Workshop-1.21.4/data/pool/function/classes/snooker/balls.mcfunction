@@ -44,7 +44,7 @@ execute if score @s swPool_sizex < @s swPool_sizez run tag @s add swPool_z
 #execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 #execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 #execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-#summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+#summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_cue"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 #scoreboard players set @s swPool_var05 5
 #scoreboard players operation @s swPool_var02 = @s swPool_dl
 #scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -68,7 +68,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_brown"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_brown"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 5
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -90,7 +90,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_yellow"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 5
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -114,7 +114,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_green"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_green"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 5
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -138,7 +138,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_blue"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_blue"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_blue,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_blue,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_blue,limit=1] swPool_var00 = @s swPool_var01
@@ -149,7 +149,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_pink"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_pink"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -167,7 +167,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_black"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_black"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 6
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -188,7 +188,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -212,7 +212,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -236,7 +236,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -260,7 +260,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -284,7 +284,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -308,7 +308,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -332,7 +332,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -356,7 +356,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -380,7 +380,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -404,7 +404,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=43750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=43750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -428,7 +428,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=53750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=53750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -452,7 +452,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=53750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=53750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -476,7 +476,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=53750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=53750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -500,7 +500,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=53750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=53750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -524,7 +524,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if entity @s[scores={swPool_dl=53750..}] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute if entity @s[scores={swPool_dl=53750..}] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05

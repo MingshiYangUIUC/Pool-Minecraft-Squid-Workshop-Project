@@ -2,14 +2,14 @@ tag @s[tag=swPool_ballinhand] add swPool_placingcue
 
 kill @e[tag=swPool_temppin]
 
-execute as @e[tag=swPool_pool] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b}
+execute as @e[tag=swPool_pool] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
-execute as @e[tag=swPool_temppin] at @s run data modify entity @s Pose.Head set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] Pose.Head
+execute as @e[tag=swPool_temppin] at @s run data modify entity @s transformation.right_rotation set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] transformation.right_rotation
 execute as @e[tag=swPool_temppin] at @s run data modify entity @s Tags set from entity @e[distance=..0.001,limit=1,tag=swPool_pool] Tags
 
 
 
-execute as @e[tag=swPool_pool] unless entity @s[nbt={ArmorItems:[{},{},{},{id:"minecraft:acacia_button"}]}] run tag @s add swPool_temppin
+execute as @e[tag=swPool_pool] unless entity @s[nbt={item:{id:"minecraft:acacia_button"}}] run tag @s add swPool_temppin
 
 tag @e[tag=swPool_temppin] remove swPool_pool
 

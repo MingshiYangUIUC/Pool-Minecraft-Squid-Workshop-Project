@@ -1,4 +1,4 @@
-### <span style="color:orange">January 2026</span> — Item Display for 1.21.5+
+### <span style="color:orange">January 2026</span> — Item Display for 1.21.4+
 
 - Users may found that the large **teleport delay of Armor Stands**, creates a mismatch between the rendered ball positions and the true ball positions during teleport, as well as trajectory smoothing effects. **Item Display** is now used instead. By default, Item Display is not affected by teleport delay and therefore allows **precise rendering of ball positions and trajectories**. As a result, the visual behavior closely matches the underlying simulation.
 - The teleport delay of Item Display can be controlled via its **`teleport_duration`** data. Larger values introduce more rendering delay while producing smoother trajectories. The legacy Armor Stand rendering behavior is roughly equivalent to `teleport_duration = 2`.  
@@ -8,7 +8,7 @@
   Please refer to the **User Guide and Demo** for details on configuring this option in the datapack.
 - When an Item Display rotates, its **`transformation`** data are updated continuously, analogous to how an Armor Stand’s **`Pose`** data change. Although governed by different mathematical formulations, both systems are derived from **3D rotation vectors defined in the world frame**.
 
-- *Although it is technically possible to extend this change back to earlier versions, feature support is intentionally limited to **1.21.5+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
+- *Although it is technically possible to extend this change back to earlier versions, feature support is intentionally limited to **1.21.4+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
 
 
 ### <span style="color:orange">September 2025</span> — AI Break Simulation!

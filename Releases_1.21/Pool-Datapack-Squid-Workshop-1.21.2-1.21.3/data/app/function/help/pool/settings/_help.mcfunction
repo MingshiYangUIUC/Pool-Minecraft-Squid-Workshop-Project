@@ -39,7 +39,9 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/cueball_red_dots: switch to cue 
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/disable_ball_spinning: the balls do not show rolling animation.","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/enable_ball_spinning: the balls show rolling animation.","color":"white"}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ End of Help...","color":"gray"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ visuals/tp_duration: adjust teleport_duration of Item Display (1.21.4 and after).","color":"gray"}]
+
+tellraw @s[tag=swPool_EN] [{"text":"➇ End of Help...","color":"white"}]
 
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ 以下是设置说明。运行时请使用 ","color":"white"},{"text":"/function app:settings/pool/...","italic":true}]
@@ -81,7 +83,9 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/cueball_red_dots: 切换成带�
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/disable_ball_spinning：关闭球的旋转动画","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/enable_ball_spinning：启用球的旋转动画","color":"white"}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ 帮助结束...","color":"gray"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/tp_duration：调整Item Display的teleport_duration（动画平滑度，1.21.4及之后版本）","color":"gray"}]
+
+tellraw @s[tag=swPool_CN] [{"text":"➇ 帮助结束...","color":"white"}]
 
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]

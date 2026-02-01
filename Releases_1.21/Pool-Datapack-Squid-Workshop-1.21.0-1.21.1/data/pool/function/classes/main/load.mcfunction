@@ -174,8 +174,13 @@ scoreboard players set i_ball_100 swPool_C 56
 scoreboard players set C_l swPool_C 12500
 scoreboard players set i_stick swPool_C 2700
 
+# tp_duration # default: 1
+execute unless score C_tp_dur swPool_C matches 0..59 run scoreboard players set C_tp_dur swPool_C 1
+execute if score C_tp_dur swPool_C matches ..-1 run scoreboard players set C_tp_dur swPool_C 0
+execute if score C_tp_dur swPool_C matches 60.. run scoreboard players set C_tp_dur swPool_C 59
+
 #speed multiplier for breakshot # default: +150 (+150%) (100-180)
-execute unless score break_power swPool_C matches 100..180 run scoreboard players set break_power swPool_C 100
+execute unless score break_power swPool_C matches 100..180 run scoreboard players set break_power swPool_C 150
 execute if score break_power swPool_C matches ..99 run scoreboard players set break_power swPool_C 100
 execute if score break_power swPool_C matches 181.. run scoreboard players set break_power swPool_C 180
 

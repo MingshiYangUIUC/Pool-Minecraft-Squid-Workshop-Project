@@ -63,12 +63,12 @@ tag @s[tag=swPool_foulcue] add swPool_fouled
 
 #place balls
 
-execute unless entity @e[tag=swPool_pool,tag=swPool_black] at @e[tag=swPool_pin,tag=swPool_black] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_black"],NoGravity:1,Small:1,Invisible:1}
-execute unless entity @e[tag=swPool_pool,tag=swPool_pink] at @e[tag=swPool_pin,tag=swPool_pink] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_pink"],NoGravity:1,Small:1,Invisible:1}
-execute unless entity @e[tag=swPool_pool,tag=swPool_blue] at @e[tag=swPool_pin,tag=swPool_blue] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_blue"],NoGravity:1,Small:1,Invisible:1}
-execute unless entity @e[tag=swPool_pool,tag=swPool_brown] at @e[tag=swPool_pin,tag=swPool_brown] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_brown"],NoGravity:1,Small:1,Invisible:1}
-execute unless entity @e[tag=swPool_pool,tag=swPool_green] at @e[tag=swPool_pin,tag=swPool_green] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_green"],NoGravity:1,Small:1,Invisible:1}
-execute unless entity @e[tag=swPool_pool,tag=swPool_yellow] at @e[tag=swPool_pin,tag=swPool_yellow] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
+execute unless entity @e[tag=swPool_pool,tag=swPool_black] at @e[tag=swPool_pin,tag=swPool_black] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_black"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute unless entity @e[tag=swPool_pool,tag=swPool_pink] at @e[tag=swPool_pin,tag=swPool_pink] unless entity @e[tag=swPool_new] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_pink"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute unless entity @e[tag=swPool_pool,tag=swPool_blue] at @e[tag=swPool_pin,tag=swPool_blue] unless entity @e[tag=swPool_new] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_blue"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute unless entity @e[tag=swPool_pool,tag=swPool_brown] at @e[tag=swPool_pin,tag=swPool_brown] unless entity @e[tag=swPool_new] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_brown"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute unless entity @e[tag=swPool_pool,tag=swPool_green] at @e[tag=swPool_pin,tag=swPool_green] unless entity @e[tag=swPool_new] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_green"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute unless entity @e[tag=swPool_pool,tag=swPool_yellow] at @e[tag=swPool_pin,tag=swPool_yellow] unless entity @e[tag=swPool_new] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_yellow"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 execute unless entity @e[tag=swPool_pool,tag=swPool_red] unless entity @s[tag=swPool_foulcolor] unless entity @s[tag=swPool_firstcolor] unless entity @s[tag=swPool_foulcue] run tag @s add swPool_kill
 execute if entity @s[tag=swPool_foulcue] unless entity @e[tag=swPool_foulcolor] run tag @s[scores={swPool_ncolor=0}] add swPool_kill
@@ -79,10 +79,10 @@ tag @s remove swPool_kill
 
 execute as @e[tag=swPool_new] at @s unless entity @e[tag=swPool_pool,tag=!swPool_new,distance=..0.25] run tag @s add swPool_sit
 
-#execute unless entity @e[tag=swPool_pool,tag=swPool_yellow] at @e[tag=swPool_pin,tag=swPool_yellow] unless entity @e[tag=swPool_pool,distance=..0.25] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
+#execute unless entity @e[tag=swPool_pool,tag=swPool_yellow] at @e[tag=swPool_pin,tag=swPool_yellow] unless entity @e[tag=swPool_pool,distance=..0.25] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_yellow"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 #cue is different
-#execute unless entity @e[tag=swPool_pool,tag=swPool_cue] at @e[tag=swPool_pin,tag=swPool_cue] unless entity @e[tag=swPool_pool,distance=..0.1] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+#execute unless entity @e[tag=swPool_pool,tag=swPool_cue] at @e[tag=swPool_pin,tag=swPool_cue] unless entity @e[tag=swPool_pool,distance=..0.1] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_cue"],NoGravity:1,Small:1,Invisible:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 execute as @e[tag=swPool_pin,tag=swPool_black] at @s unless entity @e[tag=swPool_pool,distance=..0.25] run tag @s add swPool_highest
 execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pin,tag=swPool_pink] at @s unless entity @e[tag=swPool_pool,distance=..0.25] run tag @s add swPool_highest
