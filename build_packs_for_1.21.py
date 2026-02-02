@@ -611,7 +611,7 @@ if modify_custom_model_data:
                 # generation
                 if 'summon' in lines[i]:
                     newline = lines[i].replace('armor_stand','item_display')
-                    display_info = '{teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
+                    display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
                     # replace Item with item
                     newline = newline.replace('Item:','item:')
                     newline = newline.replace('Selecteditem:','SelectedItem:')
