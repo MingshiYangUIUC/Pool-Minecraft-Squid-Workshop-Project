@@ -8,6 +8,7 @@ tp @e[type=area_effect_cloud,tag=swPool_cueplace] ~ ~1.62 ~
 data modify entity @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] Rotation set from entity @s Rotation
 execute store result score @s swPool_rot run data get entity @s Rotation[1] 10
 execute if entity @s[scores={swPool_rot=..50}] as @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] at @s run tp @s ~ ~ ~ ~ 5
+execute as @a[tag=swPool_ballinhand_obj,limit=1] at @s store result score @s swPool_posy run data get entity @s Pos[1] 100
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace] at @s run function pool:classes/ballinhand/practice/tp_obj
 
 
