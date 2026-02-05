@@ -336,7 +336,11 @@ scoreboard players operation @s swPool_var01 /= C_2000 swPool_C
 scoreboard players operation @s swPool_var00 *= @s swPool_var00
 scoreboard players operation @s swPool_var01 *= @s swPool_var01
 scoreboard players operation @s swPool_var00 += @s swPool_var01
-execute at @s run function pool:classes/physics/sqrt
+
+scoreboard players operation #vIn swMath_V = @s swPool_var00
+function math:classes/core/operations/sqrt
+scoreboard players operation @s swPool_var00 = #vOut swMath_V
+
 scoreboard players operation @s swPool_var00 *= C_2000 swPool_C
 scoreboard players operation @s swPool_v = @s swPool_var00
 

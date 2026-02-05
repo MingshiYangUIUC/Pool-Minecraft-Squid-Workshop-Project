@@ -32,9 +32,9 @@ execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard 
 execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players add @s swPool_var02 6502500
 
 #	take square root
-scoreboard players operation @s swPool_var00 = @s swPool_var02
-execute at @s run function pool:classes/physics/sqrt
+scoreboard players operation #vIn swMath_V = @s swPool_var02
+function math:classes/core/operations/sqrt
 
 #record relative distance
 scoreboard players operation @s swPool_drel = @s swPool_var01
-scoreboard players operation @s swPool_drel -= @s swPool_var00
+scoreboard players operation @s swPool_drel -= #vOut swMath_V

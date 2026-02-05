@@ -5,10 +5,10 @@
 
 #get old distance in components
 #pooltable dimensions and position is stored in variable TABLE
-execute store result score @s swPool_posx run data get entity @s Pos[0] 10000
-execute store result score @s swPool_posz run data get entity @s Pos[2] 10000
-#execute as @e[tag=swPool_pooltable] store result score @s swPool_posx run data get entity @s Pos[0] 10000
-#execute as @e[tag=swPool_pooltable] store result score @s swPool_posz run data get entity @s Pos[2] 10000
+#execute store result score @s swPool_posx run data get entity @s Pos[0] 10000
+#execute store result score @s swPool_posz run data get entity @s Pos[2] 10000
+scoreboard players operation @s swPool_posx = @s swPool_tmpposx
+scoreboard players operation @s swPool_posz = @s swPool_tmpposz
 
 #store old swPool_posx,z
 scoreboard players operation POSX swPool_posx = @s swPool_posx

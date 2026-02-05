@@ -11,12 +11,12 @@ scoreboard players operation A swPool_Vi *= A swPool_Vi
 scoreboard players operation A swPool_Vj *= A swPool_Vj
 scoreboard players operation A swPool_Vk *= A swPool_Vk
 
-scoreboard players operation @s swPool_var00 = A swPool_Vi
-scoreboard players operation @s swPool_var00 += A swPool_Vj
-scoreboard players operation @s swPool_var00 += A swPool_Vk
+scoreboard players operation #vIn swMath_V = A swPool_Vi
+scoreboard players operation #vIn swMath_V += A swPool_Vj
+scoreboard players operation #vIn swMath_V += A swPool_Vk
 
-function pool:classes/physics/sqrt
+function math:classes/core/operations/sqrt
 
-scoreboard players operation O swPool_Vmag = @s swPool_var00
+scoreboard players operation O swPool_Vmag = #vOut swMath_V
 execute if entity @s[tag=!swPool_svalue] run scoreboard players operation O swPool_Vmag *= C_100 swPool_C
 tag @s remove swPool_svalue

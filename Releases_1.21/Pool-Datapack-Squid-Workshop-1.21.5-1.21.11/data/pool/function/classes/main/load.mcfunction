@@ -32,6 +32,8 @@ scoreboard objectives add swPool_drel dummy
 scoreboard objectives add swPool_posx dummy
 scoreboard objectives add swPool_posy dummy
 scoreboard objectives add swPool_posz dummy
+scoreboard objectives add swPool_tmpposx dummy
+scoreboard objectives add swPool_tmpposz dummy
 scoreboard objectives add swPool_var00 dummy
 scoreboard objectives add swPool_var01 dummy
 scoreboard objectives add swPool_var02 dummy

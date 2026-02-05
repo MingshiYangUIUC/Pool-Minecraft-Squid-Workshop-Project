@@ -29,7 +29,9 @@ scoreboard players operation @s swPool_var02 *= @s swPool_var02
 scoreboard players operation @s swPool_var00 += @s swPool_var01
 scoreboard players operation @s swPool_var00 += @s swPool_var02
 
-function pool:classes/physics/sqrt
+scoreboard players operation #vIn swMath_V = @s swPool_var00
+function math:classes/core/operations/sqrt
+scoreboard players operation @s swPool_var00 = #vOut swMath_V
 # max is around 30000
 
 

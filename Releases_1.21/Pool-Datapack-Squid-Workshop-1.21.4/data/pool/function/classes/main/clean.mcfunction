@@ -12,6 +12,8 @@ scoreboard objectives remove swPool_drel
 scoreboard objectives remove swPool_posx
 scoreboard objectives remove swPool_posy
 scoreboard objectives remove swPool_posz
+scoreboard objectives remove swPool_tmpposx
+scoreboard objectives remove swPool_tmpposz
 scoreboard objectives remove swPool_var00
 scoreboard objectives remove swPool_var01
 scoreboard objectives remove swPool_var02
