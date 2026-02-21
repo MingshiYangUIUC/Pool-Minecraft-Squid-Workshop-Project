@@ -75,6 +75,9 @@ execute if entity @s[tag=swPool_singleplayer] run tag @a[tag=swPool_poolplay,lim
 #execute if entity @s[tag=swPool_multiplayer,tag=swPool_cn8ball_open] run say still open switch
 execute if entity @s[tag=swPool_multiplayer,tag=swPool_cn8ball_open] run scoreboard players set #switchplayer swPool_var00 1
 
+# if open and pocketed any ball and keep open (no longer open if legally assigned a type): NO CHANGE
+execute if score #switchplayer swPool_var00 matches 1 if score Pocketed_Turn swPool_hidScore matches 1.. if entity @s[tag=swPool_multiplayer,tag=swPool_cn8ball_open] run scoreboard players set #switchplayer swPool_var00 0
+
 # if no pocketed ball: switch player
 #execute if score Pocketed_Turn swPool_hidScore matches 0 run say no pocketed ball switch
 execute if score Pocketed_Turn swPool_hidScore matches 0 run scoreboard players set #switchplayer swPool_var00 1
