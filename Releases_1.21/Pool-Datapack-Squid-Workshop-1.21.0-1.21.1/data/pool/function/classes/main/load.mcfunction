@@ -48,6 +48,7 @@ scoreboard objectives add swPool_vr dummy
 scoreboard objectives add swPool_vrx dummy
 scoreboard objectives add swPool_vrz dummy
 scoreboard objectives add swPool_hittime dummy
+scoreboard objectives add swPool_lifetime dummy
 scoreboard objectives add swPool_sizex dummy
 scoreboard objectives add swPool_sizez dummy
 scoreboard objectives add swPool_dl dummy

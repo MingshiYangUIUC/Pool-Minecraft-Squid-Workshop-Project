@@ -7,6 +7,6 @@ execute if score #self swPool_vz matches 1.. run function pool:classes/motion/ne
 scoreboard players set #self swPool_vx 0
 scoreboard players set #self swPool_vz 0
 
-execute at @s if entity @e[type=item_display,tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
+execute at @s if entity @e[type=item_display,tag=swPool_pool,distance=0.00001..0.25] run function pool:classes/motion/new_retreat
 
 execute at @s run function pool:classes/master/read_tmppos

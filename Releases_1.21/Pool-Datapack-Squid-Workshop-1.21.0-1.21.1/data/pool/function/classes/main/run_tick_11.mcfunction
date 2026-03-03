@@ -2,12 +2,7 @@ scoreboard players add #tick swPool_var00 1
 execute if score #tick swPool_var00 >= tick_interval swPool_C run scoreboard players set #tick swPool_var00 0
 
 execute at @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_9ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/9ball/place
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_cn8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/cn8ball/place
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run function pool:classes/snooker/place
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_uk8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/uk8ball/place
-execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_practicemode,scores={swPool_hittime=1}] at @s run function pool:classes/practice/place
-#execute as @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run tp @s ~ ~ ~ ~ ~
+execute as @e[type=armor_stand,tag=swPool_pooltable,scores={swPool_lifetime=1}] run function pool:classes/main/run_tick_place
 
 # cn8ball: two ballinhand scenarios: behind headstring (uk8ball style) or all (practice style)
 scoreboard players set #headstring swPool_var00 0
@@ -44,7 +39,7 @@ execute if score #tick swPool_var00 matches 0 as @e[type=armor_stand,tag=swPool_
 tag @e[type=armor_stand,tag=swPool_a1] remove swPool_a1
 tag @e[type=armor_stand,tag=swPool_colliding] remove swPool_colliding
 execute unless entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pooltable,tag=!swPool_start] run function pool:classes/master/idle
-scoreboard players add @e[type=armor_stand,tag=swPool_pooltable] swPool_hittime 1
+scoreboard players add @e[type=armor_stand,tag=swPool_pooltable] swPool_lifetime 1
 #execute as @a at @s if score @e[type=arrow,distance=..4,limit=1] swPool_player = @s swPool_player run kill @e[type=arrow,distance=..4,limit=1]
 scoreboard players set @a swPool_crtclk 0
 

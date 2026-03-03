@@ -6,40 +6,9 @@ tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplaye
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
-kill @e[tag=swPool_pool]
-kill @e[tag=swPool_pin]
-kill @e[tag=swPool_temppin]
-tag @a remove swPool_poolplay
-tag @a remove swPool_ballinhand
-tag @a remove swPool_ballinhand_obj
-tag @a remove swPool_streak
-tag @a remove swPool_stkrec
-kill @e[tag=swPool_poolplay,type=area_effect_cloud]
-clear @a carrot_on_a_stick{CustomModelData:99}
-clear @a carrot_on_a_stick{CustomModelData:100}
-
-#execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 scoreboard players set @a swPool_Score 0
 
-
 tag @e[tag=swPool_pooltable] add swPool_start
-tag @e[tag=swPool_pooltable] remove swPool_fouled
-tag @e[tag=swPool_pooltable] remove swPool_pocketing
-tag @e[tag=swPool_pooltable] remove swPool_foulcolor
-tag @e[tag=swPool_pooltable] remove swPool_foulred
-tag @e[tag=swPool_pooltable] remove swPool_awarded
-tag @e[tag=swPool_pooltable] remove swPool_endaward
-tag @e[tag=swPool_pooltable] remove swPool_endgame
-tag @a remove swPool_hitcue
-tag @a remove swPool_aimred
-tag @a remove swPool_aimylw
-tag @a remove swPool_aimblk
-tag @a remove swPool_redrec
-tag @a remove swPool_ylwrec
-tag @a remove swPool_blkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
-
 
 tag @a[tag=swPool_wait_snooker,limit=1,sort=random] add swPool_poolplay
 
@@ -69,6 +38,8 @@ execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:cla
 execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO Snooker]: Game initialization failed! Please join again from lobby.","color":"red"}]
 
 tag @a remove swPool_wait
+tag @a remove swPool_wait_9ball
+tag @a remove swPool_wait_cn8ball
 tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
 

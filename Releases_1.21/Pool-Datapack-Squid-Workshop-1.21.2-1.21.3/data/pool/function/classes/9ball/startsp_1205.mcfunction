@@ -5,67 +5,17 @@ execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/bou
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
-kill @e[tag=swPool_pool]
-kill @e[tag=swPool_pin]
-kill @e[tag=swPool_temppin]
-tag @a remove swPool_poolplay
-tag @a remove swPool_ballinhand
-tag @a remove swPool_ballinhand_obj
-tag @a remove swPool_streak
-tag @a remove swPool_stkrec
-
-clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=101]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=102]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=103]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=104]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=105]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=106]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=107]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=121]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=122]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=123]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=124]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=125]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=126]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=127]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=128]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=129]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=130]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=131]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=132]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=133]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=134]
-clear @a carrot_on_a_stick[minecraft:custom_model_data=135]
-
 scoreboard players set @a swPool_Score 0
-
-tag @e[tag=swPool_pooltable] remove swPool_9ballmode
-tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
-tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
-tag @e[tag=swPool_pooltable] remove swPool_snookermode
-tag @e[tag=swPool_pooltable] remove swPool_practicemode
-
 
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/9ball/balls
 
 function pool:classes/9ball/randomize_number
-
-
 
 tag @a[tag=swPool_wait_9ball,limit=1,sort=random] add swPool_ballinhand
 execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=99,minecraft:custom_name="\"Cueball\""]
 execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=100,minecraft:custom_name="\"Cueball\""]
 
 tag @e[tag=swPool_pooltable] add swPool_start
-tag @e[tag=swPool_pooltable] remove swPool_fouled
-tag @e[tag=swPool_pooltable] remove swPool_pocketing
-tag @e[tag=swPool_pooltable] remove swPool_endgame
-
-tag @a remove swPool_hitcue
-tag @a remove swPool_nextturn
-tag @a remove swPool_foul
 
 tag @a[limit=1,sort=random,tag=swPool_wait_9ball] add swPool_poolplay
 

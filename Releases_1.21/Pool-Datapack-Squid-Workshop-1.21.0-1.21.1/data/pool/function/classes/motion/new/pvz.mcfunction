@@ -1,3 +1,5 @@
+execute if score #self swPool_vz matches 100000000..199999999 at @s run tp @s ~ ~ ~1.0
+execute if score #self swPool_vz matches 100000000..199999999 run scoreboard players remove #self swPool_vz 100000000
 execute if score #self swPool_vz matches 50000000..99999999 at @s run tp @s ~ ~ ~0.5
 execute if score #self swPool_vz matches 50000000..99999999 run scoreboard players remove #self swPool_vz 50000000
 execute if score #self swPool_vz matches 25000000..49999999 at @s run tp @s ~ ~ ~0.25

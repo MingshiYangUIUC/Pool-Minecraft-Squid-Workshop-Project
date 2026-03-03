@@ -10,11 +10,16 @@ kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 kill @e[tag=swPool_spot]
+kill @e[tag=swPool_poolplay,type=area_effect_cloud]
+tag @a remove swPool_poolplay
 tag @a remove swPool_ballinhand
 tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 tag @a remove swPool_given
+tag @a remove swPool_hitcue
+tag @a remove swPool_nextturn
+tag @a remove swPool_foul
 
 clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
@@ -41,8 +46,6 @@ clear @a carrot_on_a_stick[minecraft:custom_model_data=133]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=134]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=135]
 
-tag @a remove swPool_poolplay
-tag @a remove swPool_ballinhand
 tag @e[tag=swPool_pooltable] remove swPool_fouled
 tag @e[tag=swPool_pooltable] remove swPool_pocketing
 tag @e[tag=swPool_pooltable] remove swPool_foulcolor

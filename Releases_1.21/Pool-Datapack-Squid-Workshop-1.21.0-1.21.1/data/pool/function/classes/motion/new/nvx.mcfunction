@@ -1,3 +1,5 @@
+execute if score #self swPool_vx matches -199999999..-100000000 at @s run tp @s ~-1 ~ ~
+execute if score #self swPool_vx matches -199999999..-100000000 run scoreboard players add #self swPool_vx 100000000
 execute if score #self swPool_vx matches -99999999..-50000000 at @s run tp @s ~-0.5 ~ ~
 execute if score #self swPool_vx matches -99999999..-50000000 run scoreboard players add #self swPool_vx 50000000
 execute if score #self swPool_vx matches -49999999..-25000000 at @s run tp @s ~-0.25 ~ ~

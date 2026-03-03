@@ -263,7 +263,6 @@ execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPoo
 tag @e[tag=swPool_rand,tag=swPool_new,limit=1] remove swPool_new
 
 
-execute if score TABLE swPool_dl matches 33750.. run scoreboard players remove @s swPool_dl 8660
 
 ########END of RANDOM
 
@@ -271,5 +270,5 @@ execute if score TABLE swPool_dl matches 33750.. run scoreboard players remove @
 #clear
 
 tag @s remove swPool_moved
-scoreboard players set @s swPool_hittime 0
+scoreboard players set @s swPool_lifetime 0
 execute as @a store result score @s swPool_player run data get entity @s UUID[1]

@@ -66,7 +66,7 @@ execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPoo
 tag @e[tag=swPool_09,tag=swPool_pool,limit=1] remove swPool_new
 
 # reset place
-scoreboard players set @s swPool_hittime 0
+scoreboard players set @s swPool_lifetime 0
 
 # kill helper entity
 kill @e[tag=swPool_spot_shift]
