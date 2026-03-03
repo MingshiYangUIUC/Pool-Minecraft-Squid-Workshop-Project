@@ -23,6 +23,15 @@ execute store result score @s swPool_var00 run data get entity @e[type=arrow,tag
 execute store result score @s swPool_var01 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[1] 10000
 execute store result score @s swPool_var02 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[2] 10000
 
+# detect cue ball x or z direction (apply to behind-headstring shots)
+tag @s remove swPool_downward
+execute if score TABLE swPool_sizex < TABLE swPool_sizez run scoreboard players set #Xdir swMath_V 0
+execute unless score TABLE swPool_sizex < TABLE swPool_sizez run scoreboard players set #Xdir swMath_V 1
+# Z
+execute if score #Xdir swMath_V matches 0 if score @s swPool_var02 matches ..0 run tag @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] add swPool_downward
+# X
+execute if score #Xdir swMath_V matches 1 if score @s swPool_var00 matches ..0 run tag @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] add swPool_downward
+
 scoreboard players operation @s swPool_var00 *= @s swPool_var00
 scoreboard players operation @s swPool_var01 *= @s swPool_var01
 scoreboard players operation @s swPool_var02 *= @s swPool_var02
@@ -69,3 +78,4 @@ execute if score #breakshot swPool_v matches 1 run scoreboard players set #break
 # reset cue ball control
 scoreboard players set cuex swMath_V 0
 scoreboard players set cuey swMath_V 0
+

@@ -1,8 +1,9 @@
 #put the object a1 to the cushion, and rotate it
 
-#if uk8ball or cn8ball: count cushion
+#if uk8ball or cn8ball or 9ball: count cushion
 tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode,limit=1] add swPool_hitrail
 execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
+execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
 
 #put back position components
 #swPool_var00 is modified swPool_vx, swPool_var01 is modified swPool_vz

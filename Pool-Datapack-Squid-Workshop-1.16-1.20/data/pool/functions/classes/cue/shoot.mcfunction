@@ -23,6 +23,15 @@ execute store result score @s swPool_var00 run data get entity @e[type=arrow,tag
 execute store result score @s swPool_var01 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[1] 10000
 execute store result score @s swPool_var02 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[2] 10000
 
+# detect cue ball x or z direction (apply to behind-headstring shots)
+tag @s remove swPool_downward
+execute if score TABLE swPool_sizex < TABLE swPool_sizez run scoreboard players set #Xdir swMath_V 0
+execute unless score TABLE swPool_sizex < TABLE swPool_sizez run scoreboard players set #Xdir swMath_V 1
+# Z
+execute if score #Xdir swMath_V matches 0 if score @s swPool_var02 matches ..0 run tag @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] add swPool_downward
+# X
+execute if score #Xdir swMath_V matches 1 if score @s swPool_var00 matches ..0 run tag @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] add swPool_downward
+
 scoreboard players operation @s swPool_var00 *= @s swPool_var00
 scoreboard players operation @s swPool_var01 *= @s swPool_var01
 scoreboard players operation @s swPool_var02 *= @s swPool_var02
@@ -34,22 +43,11 @@ function math:classes/core/operations/sqrt
 scoreboard players operation @s swPool_var00 = #vOut swMath_V
 # max is around 30000
 
-
-scoreboard players set @s swPool_var01 2200
-#tellraw @a [{"text":" V00, "},{"score":{"objective":"swPool_var00","name":"@s"}}]
 scoreboard players operation v_stick swPool_var00 = @s swPool_var00
-#scoreboard players operation v_stick swPool_var00 /= C_2 swPool_C
+#scoreboard players operation v_stick swPool_var00 *= C_2 swPool_C
 #tellraw @a [{"text":" vstick, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
-scoreboard players operation @s swPool_var00 *= @s swPool_var01
-scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
-scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_v = @s swPool_var00
-
-
-#execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run function pool:classes/cue/initialize
-
 
 execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run function pool:classes/spin/strike
-
 
 execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1.. run kill @e[type=arrow,tag=swPool_sb]
 
@@ -58,6 +56,7 @@ tag @s add swPool_hitcue
 tag @s remove swPool_shooting
 #tag @e[tag=swPool_pooltable] remove swPool_resetcue
 
+scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = break_power swPool_C
@@ -69,3 +68,4 @@ execute if score #breakshot swPool_v matches 1 run scoreboard players set #break
 # reset cue ball control
 scoreboard players set cuex swMath_V 0
 scoreboard players set cuey swMath_V 0
+

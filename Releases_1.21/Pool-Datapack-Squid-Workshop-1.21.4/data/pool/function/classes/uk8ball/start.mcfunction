@@ -59,7 +59,7 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[MP UK 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO UK 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
 
 tag @a remove swPool_wait
 tag @a remove swPool_wait_uk8ball

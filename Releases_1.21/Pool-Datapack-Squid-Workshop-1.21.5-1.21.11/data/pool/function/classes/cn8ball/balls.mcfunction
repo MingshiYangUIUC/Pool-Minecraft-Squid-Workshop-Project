@@ -423,5 +423,5 @@ execute if score TABLE swPool_dl matches 33750.. run scoreboard players remove @
 #clear
 
 tag @s remove swPool_moved
-scoreboard players set @s swPool_hittime 0
+scoreboard players set @s swPool_lifetime 0
 execute as @a store result score @s swPool_player run data get entity @s UUID[1]

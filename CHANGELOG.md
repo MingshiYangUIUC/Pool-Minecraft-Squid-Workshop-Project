@@ -1,3 +1,9 @@
+### <span style="color:orange">February 2026</span> — 9 Ball game is added to the datapack. Our packs get new and more distinguishable icons.
+
+- The game of 9 Ball is added to the datapack. Join it from the lobby and enjoy! Similar to 8 Ball games, user can choose whether break behavior is simulated by AI model or by traditional collision model.
+- The datapack and resourcepack share an icon that incorporates both Minecraft and Pool elements. To be clear, component names (datapack / resourcepack) are indicated by texts in the icon.
+- Various small performance improvements.
+
 ### <span style="color:orange">January 2026</span> — Item Display for 1.21.4+
 
 - Users may found that the large **teleport delay of Armor Stands**, creates a mismatch between the rendered ball positions and the true ball positions during teleport, as well as trajectory smoothing effects. **Item Display** is now used instead. By default, Item Display is not affected by teleport delay and therefore allows **precise rendering of ball positions and trajectories**. As a result, the visual behavior closely matches the underlying simulation.
@@ -8,7 +14,7 @@
   Please refer to the **User Guide and Demo** for details on configuring this option in the datapack.
 - When an Item Display rotates, its **`transformation`** data are updated continuously, analogous to how an Armor Stand’s **`Pose`** data change. Although governed by different mathematical formulations, both systems are derived from **3D rotation vectors defined in the world frame**.
 
-- *Although it is technically possible to extend this change back to earlier versions, feature support is intentionally limited to **1.21.4+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
+- *Although it is technically possible to extend this change back to some earlier versions, feature support is intentionally limited to **1.21.4+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
 
 
 ### <span style="color:orange">September 2025</span> — AI Break Simulation!
@@ -23,7 +29,7 @@
 
 It has been a long journey...
 
-- Initially, the balls were rendered statically, moving only linearly without any visual spin. I did not plan to add numbered balls, and only designed Snooker and UK 8 Ball with monochromatic balls.
+- Initially, the balls were rendered statically, moving only linearly without any visual spin. I did not plan to add numbered balls, and only designed Snooker and UK 8 Ball with monochromatic balls because they don't need to actually be spinning.
 - Later, after significant work on math and physics, cue ball control and advanced ball movements with visual spinning were supported by the Pool Datapack.
 - Then, the design to transform ball spin into armor stand pose changes laid the foundation for visually realistic rendering. Numbered balls were introduced in practice mode, even before Minecraft 1.20 and Transformation Rendering were added.
 - Finally, the rules for Chinese 8 Ball are implemented in Minecraft now, enabling a fully playable single-player and multiplayer experience with numbered balls.
@@ -35,4 +41,4 @@ Based on the 1.16-1.20 modules, the datapack and resourcepack are generated usin
 🔴<span style="color:aqua">If you're playing Minecraft 1.21.X, please use the datapack and resource pack that match your game version. Find them in the Releases_1.21 folder.</span>  
 🔴<span style="color:aqua">You no longer need to select versions after loading the datapack in game.</span>  
 🔴<span style="color:aqua">Please also make sure you're using the 1.21 version of the [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project).</span>  
-🔴<span style="color:aqua">Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.</span>
+🔴<span style="color:aqua">~~Currently, the express installation script for Windows users does NOT support installing 1.21.X versions.~~ Removed.</span>

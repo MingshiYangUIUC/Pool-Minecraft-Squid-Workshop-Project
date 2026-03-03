@@ -27,6 +27,7 @@ scoreboard objectives remove swPool_vr
 scoreboard objectives remove swPool_vrx
 scoreboard objectives remove swPool_vrz
 scoreboard objectives remove swPool_hittime
+scoreboard objectives remove swPool_lifetime
 scoreboard objectives remove swPool_sizex
 scoreboard objectives remove swPool_sizez
 scoreboard objectives remove swPool_dl

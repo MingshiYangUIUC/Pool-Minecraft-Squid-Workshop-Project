@@ -20,6 +20,7 @@ tag @e[tag=swPool_col2] add swPool_c
 execute if entity @e[tag=swPool_snookermode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/snooker_hitball
 execute if entity @e[tag=swPool_uk8ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/uk8ball_hitball
 execute if entity @e[tag=swPool_cn8ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..8}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/cn8ball_hitball
+execute if entity @e[tag=swPool_9ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..9}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/9ball_hitball
 tag @e[tag=swPool_c] remove swPool_c
 
 

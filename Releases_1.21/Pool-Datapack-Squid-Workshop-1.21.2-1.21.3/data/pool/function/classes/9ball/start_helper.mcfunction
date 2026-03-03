@@ -1,0 +1,11 @@
+tag @s add swPool_startmp9ball
+execute if entity @a[tag=swPool_poolplay] run tellraw @s [{"text":"A game is already on.","color":"red"}]
+#,{"text":" ","color":"white"},{"text":"If you are sure: ","color":"white"},{"text":"<Start Anyway>","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/9ball/start"}}]
+execute unless entity @a[tag=swPool_poolplay] unless entity @a[tag=swPool_wait_9ball] run tellraw @s [{"text":"Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] if entity @a[tag=swPool_wait_9ball] as @a[tag=swPool_wait_9ball,limit=1,sort=random] at @s unless entity @a[tag=swPool_wait_9ball,distance=0.001..] run tellraw @a[tag=swPool_startmp9ball] [{"text":"➇ ","color":"white"},{"text":"Not enough players in queue.","color":"red"}]
+execute unless data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] if entity @a[tag=swPool_wait_9ball] as @a[tag=swPool_wait_9ball,limit=1,sort=random] at @s if entity @a[tag=swPool_wait_9ball,distance=0.001..] run function pool:classes/9ball/start
+execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] if entity @a[tag=swPool_wait_9ball] as @a[tag=swPool_wait_9ball,limit=1,sort=random] at @s if entity @a[tag=swPool_wait_9ball,distance=0.001..] run function pool:classes/9ball/start_1205
+
+tag @s remove swPool_startmp9ball
+
+tag @e[tag=swPool_pooltable] add swPool_9ball_aibreak

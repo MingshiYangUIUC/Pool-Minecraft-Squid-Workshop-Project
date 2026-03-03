@@ -62,7 +62,9 @@ scoreboard players operation Stroke swPool_hidScore = StrokeRec swPool_hidScore
 scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = FirstHit swPool_hidScore
 
 scoreboard players operation #breakshot swPool_v = #breakshot swPool_hidScore
-execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable] add swPool_8ball_aibreak
+execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
+execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] add swPool_8ball_aibreak
+execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode] add swPool_9ball_aibreak
 
 scoreboard players operation Pocketed_Total swPool_hidScore = Pocketed_T_rec swPool_hidScore
 scoreboard players operation Pocketed_Turn swPool_hidScore = Pocketed_Turn_rec swPool_hidScore

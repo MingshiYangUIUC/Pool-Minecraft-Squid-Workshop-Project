@@ -44,6 +44,10 @@ execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
 execute if entity @s[tag=swPool_pktcue] run tell @a[tag=swPool_debug] Debug: pocketed cue ball
 
+# foul: if behind headstring, cue ball does not move downward
+execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
+execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tell @a[tag=swPool_debug] Debug: wrong shooting direction when placed behind headstring
+
 
 # endgame?
 

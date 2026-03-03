@@ -387,7 +387,7 @@ tag @e[tag=swPool_rand,tag=swPool_new,limit=1] remove swPool_new
 #clear
 
 tag @s remove swPool_moved
-scoreboard players set @s swPool_hittime 0
+scoreboard players set @s swPool_lifetime 0
 execute as @a store result score @s swPool_player run data get entity @s UUID[1]
 
 

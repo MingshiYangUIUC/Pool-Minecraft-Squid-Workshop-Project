@@ -66,7 +66,7 @@ execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ball
 
 execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[MP Snooker]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO Snooker]: Game initialization failed! Please join again from lobby.","color":"red"}]
 
 tag @a remove swPool_wait
 tag @a remove swPool_wait_uk8ball

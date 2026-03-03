@@ -2,15 +2,24 @@ tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] remove swPool_practicemode
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
+tag @e[tag=swPool_pooltable] remove swPool_9ballmode
+tag @e[tag=swPool_pooltable] remove swPool_8ball_aibreak
+tag @e[tag=swPool_pooltable] remove swPool_9ball_aibreak
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
+kill @e[tag=swPool_spot]
+kill @e[tag=swPool_poolplay,type=area_effect_cloud]
+tag @a remove swPool_poolplay
 tag @a remove swPool_ballinhand
 tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
 tag @a remove swPool_stkrec
 tag @a remove swPool_given
+tag @a remove swPool_hitcue
+tag @a remove swPool_nextturn
+tag @a remove swPool_foul
 
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean"]
@@ -37,8 +46,6 @@ clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_ball_13"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_ball_14"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_ball_15"]
 
-tag @a remove swPool_poolplay
-tag @a remove swPool_ballinhand
 tag @e[tag=swPool_pooltable] remove swPool_fouled
 tag @e[tag=swPool_pooltable] remove swPool_pocketing
 tag @e[tag=swPool_pooltable] remove swPool_foulcolor

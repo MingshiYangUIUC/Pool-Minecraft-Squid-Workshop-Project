@@ -55,7 +55,7 @@ execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var00
 execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var01 run data get entity @s Pos[2] 10000
 execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02 run data get entity @e[tag=swPool_pooltable,limit=1] Pos[1] 10000
 
-execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_hittime 0
+execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_lifetime 0
 scoreboard players set @s swPool_crtclk 0
 execute if data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:99} 1
 execute unless data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick{CustomModelData:100} 1

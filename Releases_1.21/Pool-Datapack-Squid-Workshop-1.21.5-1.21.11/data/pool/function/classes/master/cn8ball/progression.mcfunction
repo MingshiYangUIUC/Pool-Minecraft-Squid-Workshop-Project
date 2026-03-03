@@ -44,6 +44,10 @@ execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
 execute if entity @s[tag=swPool_pktcue] run tell @a[tag=swPool_debug] Debug: pocketed cue ball
 
+# foul: if behind headstring, cue ball does not move downward
+execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
+execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tell @a[tag=swPool_debug] Debug: wrong shooting direction when placed behind headstring
+
 
 # endgame?
 
@@ -168,8 +172,8 @@ scoreboard players set Pocketed_Turn swPool_hidScore 0
 
 
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"</back>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 13"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 139"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 13"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 139"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]

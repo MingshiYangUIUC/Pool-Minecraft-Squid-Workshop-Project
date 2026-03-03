@@ -94,7 +94,7 @@ execute as @a[tag=swPool_hitcue] if entity @s[tag=!swPool_streak] run tag @e[tag
 execute if entity @a[tag=swPool_foul] run tag @s add swPool_awarded
 execute if entity @a[tag=swPool_foul] run tag @s remove swPool_endaward
 
-#    MP: does not change player if in streak, first valid ball in pocket count as streak
+#    DUO: does not change player if in streak, first valid ball in pocket count as streak
 execute if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" gets two visits."}]
 execute unless entity @a[tag=swPool_streak] if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" gets two visits."}]
 execute if entity @a[tag=swPool_streak] if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_awarded,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" gets two visits."}]
@@ -132,7 +132,7 @@ tag @a[tag=swPool_aimblk] remove swPool_aimylw
 #ENGLISH
 #SP
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Target ball is any except black."}]
-#MP include whether endaward
+#DUO include whether endaward
 #say mpnotarget
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Target ball is any except black."}]
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"'s Turn. "},{"text":"Target ball is any except black."}]
@@ -168,7 +168,7 @@ execute if entity @a[tag=swPool_streak] unless score Pocketed_Total swPool_hidSc
 #CHINESE
 #SP
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_singleplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]
-#MP include whether endaward
+#DUO include whether endaward
 #say mpnotarget
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]
 execute if score Pocketed_Total swPool_hidScore matches 0 if entity @s[tag=!swPool_endgame,tag=swPool_multiplayer,tag=!swPool_endaward] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"请击球。"},{"text":"请自选目标球。"}]

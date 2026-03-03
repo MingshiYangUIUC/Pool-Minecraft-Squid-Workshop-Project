@@ -19,6 +19,7 @@ execute unless data storage minecraft:swpool keepsession if data storage minecra
 scoreboard objectives add swPool_trigger trigger
 scoreboard players enable @a swPool_trigger
 
+scoreboard objectives add swMath_V dummy
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
 scoreboard objectives add swPool_DXX dummy
@@ -45,6 +46,7 @@ scoreboard objectives add swPool_vr dummy
 scoreboard objectives add swPool_vrx dummy
 scoreboard objectives add swPool_vrz dummy
 scoreboard objectives add swPool_hittime dummy
+scoreboard objectives add swPool_lifetime dummy
 scoreboard objectives add swPool_sizex dummy
 scoreboard objectives add swPool_sizez dummy
 scoreboard objectives add swPool_dl dummy
@@ -221,5 +223,7 @@ scoreboard players set #vIn swMath_V 600000
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-execute unless score #vOut swMath_V matches 4999 run tellraw @a [{"text":"Math Datapack is REQUIRED but is not installed or is not working properly. Please get it from ","color":"red"}, {"text":"GitHub","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
-execute unless score #vOut swMath_V matches 4999 run tellraw @a [{"text":"数学数据包未成功安装，获取：","color":"red"}, {"text":"GitHub","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Math Datapack is REQUIRED but is not installed or is not working properly. Please get it from ","color":"red"}, {"text":"GitHub","underlined":true,"color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"数学数据包未成功安装，获取：","color":"red"}, {"text":"GitHub","underlined":true,"color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Please run /reload again after installation if you still see this message","color":"red"}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"安装后如果看到本提示请再次运行/reload","color":"red"}]

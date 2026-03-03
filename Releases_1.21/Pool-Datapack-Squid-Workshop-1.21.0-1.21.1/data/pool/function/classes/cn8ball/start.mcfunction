@@ -97,7 +97,7 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[MP CN 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO CN 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
 tag @a[tag=swPool_poolplay] add swPool_spec
 
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and target any except black."}]

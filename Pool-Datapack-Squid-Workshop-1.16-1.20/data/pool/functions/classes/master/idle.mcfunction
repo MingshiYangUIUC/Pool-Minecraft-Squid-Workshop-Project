@@ -5,8 +5,9 @@ execute if entity @s[tag=swPool_snookermode] run scoreboard players set @s[score
 execute if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
 tag @e[tag=swPool_uk8ballmode] remove swPool_pocketing
 tag @e[tag=swPool_cn8ballmode] remove swPool_pocketing
-#execute if entity @s[tag=swPool_uk8ballmode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/uk8ball/replace
+tag @e[tag=swPool_9ballmode] remove swPool_pocketing
 
+execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_9ballmode,tag=!swPool_pocketing] run function pool:classes/master/9ball/progression
 execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_cn8ballmode,tag=!swPool_pocketing] run function pool:classes/master/cn8ball/progression
 execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
 execute if entity @a[tag=swPool_hitcue] as @s[tag=swPool_uk8ballmode,tag=!swPool_pocketing] run function pool:classes/master/uk8ball/progression

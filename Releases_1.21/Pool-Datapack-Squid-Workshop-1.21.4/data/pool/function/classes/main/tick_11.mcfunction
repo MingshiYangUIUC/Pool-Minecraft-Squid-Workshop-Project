@@ -2,6 +2,7 @@ scoreboard players add #tick swPool_var00 1
 execute if score #tick swPool_var00 >= tick_interval swPool_C run scoreboard players set #tick swPool_var00 0
 
 execute at @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{CustomModelData:1}}}] as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
+execute as @e[type=item_display,tag=swPool_pooltable,tag=swPool_9ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/9ball/place
 execute as @e[type=item_display,tag=swPool_pooltable,tag=swPool_cn8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/cn8ball/place
 execute as @e[type=item_display,tag=swPool_pooltable,tag=swPool_snookermode,scores={swPool_hittime=1}] at @s run function pool:classes/snooker/place
 execute as @e[type=item_display,tag=swPool_pooltable,tag=swPool_uk8ballmode,scores={swPool_hittime=1}] at @s run function pool:classes/uk8ball/place
@@ -18,6 +19,15 @@ execute unless score #headstring swPool_var00 matches 1 if data storage minecraf
 execute if score #headstring swPool_var00 matches 1 if data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_cn8ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main
 execute unless score #headstring swPool_var00 matches 1 unless data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_cn8ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main
 execute if score #headstring swPool_var00 matches 1 unless data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_cn8ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main
+
+# 9 ball: two ballinhand scenarios: break and everywhere
+scoreboard players set #headstring swPool_var00 0
+execute if score #breakshot swPool_v matches 1 run scoreboard players set #headstring swPool_var00 1
+
+execute unless score #headstring swPool_var00 matches 1 if data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_9ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main
+execute if score #headstring swPool_var00 matches 1 if data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_9ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main
+execute unless score #headstring swPool_var00 matches 1 unless data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_9ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main
+execute if score #headstring swPool_var00 matches 1 unless data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_9ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main
 
 execute if data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_snookermode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/snooker/main
 execute if data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_uk8ballmode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/uk8ball/main

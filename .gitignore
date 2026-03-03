@@ -14,7 +14,8 @@
 # User Specified
 .VSCodeCounter
 
-Math-Datapack-Squid-Workshop*
+Math-Datapack-Squid-Workshop
+Math-Datapack-Squid-Workshop-1.21
 swMath_sync.bat
 Pool*/**/*.ipynb
 **/*.ipynb

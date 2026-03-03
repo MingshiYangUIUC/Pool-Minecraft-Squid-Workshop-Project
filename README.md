@@ -5,8 +5,6 @@
 # _Squid Workshop's_ Pool Datapack
 Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
-*I am replacing the math module with a better organized collection: [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
-
 <img src="Gallery/Images/balls_floating_in_the_air.png" alt="_MingshiYangUIUC_" width="50%">
 
 Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
@@ -24,29 +22,24 @@ Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like 
 # Abstract
 This datapack is for Minecraft and pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+. The pack is computationally heavy, so it supports only one active table in a Minecraft world.
+Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+.
 
-Supported game modes are _practice_, _snooker_, _UK 8 ball_, and _CN 8 ball_.
+Supported game modes are _Practice Mode_, _Snooker_, _9 ball_, _UK 8 ball_, and _CN 8 ball_.
 
 ---
 # Installation
 
-### ~~Windows Users~~
-> ⚠️ This feature has been disabled because the datapack is no longer maintained as a single unified version.\
-[`swPool_sync.bat`](https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/swPool_sync.bat) is a script that automatically downloads / updates **Pool Datapack** and its required **Math Datapack** and **Resourcepack** from GitHub.  
-⚠️ **DO NOT USE** if you have custom modifications, because the current Pool / Math Datapacks you downloaded before will be deleted.
-
-### Alternative Step by Step Installation
 - Step 01 Download this repository as a zip and unpack.
-- Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft".
-- Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../resourcepacks folder. Pack compatible with 1.16+.
-- Step 04 Choose the world folder in which you want to install the packs. Go to .../saves/world/datapacks folder.
-- Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into .../saves/world/datapacks folder.
-- **Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps.**
+- Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft" if in Windows.
+- Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../resourcepacks** folder.
+- Step 04 Choose the world folder in which you want to install the packs. Go to **.../saves/world/datapacks** folder.
+- Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../saves/world/datapacks** folder. Each world must have its own copy of the datapack.
+- **Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Copies of Math-Datapack-v1.0.0 files are provided for convenience.**
 - Step 06 Open Minecraft and open the world.
-- Step 07 Press Esc, click options... and resourcepacks... and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
-- Step 08 Type "/reload" command then press enter.
-- Step 09 Enjoy 
+- Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
+- Step 08 Type `/reload` command then press enter.
+- Step 09 Recommended: Type `/gamerule` command to set the `maxCommandChainLength` or `max_command_sequence_length` to 131072 or higher.
+- Step 10 Enjoy 
 
 PS: If not working, check whether the datapack is enabled by:
 
@@ -54,6 +47,7 @@ PS: If not working, check whether the datapack is enabled by:
 Enable it by:
 
 	/datapack enable "datapackname"
+
 ## Compatibility Notice
 The datapack and resourcepack will work for various game versions, although the game may notify you the packs are incompatible when you install them. Nonetheless, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
 
@@ -61,6 +55,8 @@ The datapack and resourcepack will work for various game versions, although the 
 
 ---
 # User Guide and Demo
+
+The videos might be outdated but they still contain all essential demos of the datapack.
 
 Most interactions do not require typing commands. You only need to click <<ins>text like this</ins>> in the chat or select the game’s suggested commands.  
 🔔 Tip: Disable “Force Unicode Font” for a better experience.
@@ -77,7 +73,7 @@ After installing (reloading) the datapack, the chat will guide your next steps. 
 	/function app:help/pool/commandwindow
 
 If this is your first time loading the datapack, click <<ins>text like this</ins>> to choose your language and game version (not needed in 1.21+), and complete the suggested friction settings. The above demo uses default values.  
-🔴 Make sure the math datapack is also loaded.
+🔴 Make sure the math datapack is also loaded. You may need to reload once for it to initialize properly.
 
 ### 2. Load the Resourcepack
 <video src="Gallery/Videos/user_guides_EN/02_load_resourcepack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -86,7 +82,7 @@ If this is your first time loading the datapack, click <<ins>text like this</ins
 https://github.com/user-attachments/assets/b7cffb26-5b2d-47a9-9077-88cfc9421ed2
 
 
-After placing the resource pack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
+After placing the resourcepack in the correct folder, you may need to enable it manually in-game. Make sure the version is correct.
 
 ### 3. Access Settings and Help
 <video src="Gallery/Videos/user_guides_EN/03_open_settings_help_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -99,7 +95,7 @@ You can access all settings from the Command Window. For a detailed explanation,
 
 	/function app:settings/
 
-Recommended values will appear during adjustment. Values that are too large or too small may overflow the scoreboard and cause game errors.
+Recommended values will appear during adjustment of physics parameters. Values that are too large or too small may overflow the scoreboard and cause game instability.
 
 ### 4. Get the Cue Stick
 <video src="Gallery/Videos/user_guides_EN/04_get_cuestick_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -117,7 +113,7 @@ Use the Command Window to get a cue stick (function as a bow when no game is act
 https://github.com/user-attachments/assets/845cc769-16a5-4bd8-92d8-c18b48c197a7
 
 
-Use the Command Window to place a new table. The existing one will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
+Use the Command Window to place a new table. Any existing tables will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
 
 ### 6. Open the Game Lobby
 <video src="Gallery/Videos/user_guides_EN/06_open_lobby_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -155,7 +151,8 @@ After selecting a multiplayer mode in the game lobby, other online players will 
 https://github.com/user-attachments/assets/d391ef73-de93-4428-bcb0-ec2e58bd8b62
 
 
-Hold right-click to charge, and release to shoot. The cue ball's direction is based on your facing angle. Power depends on charge time; max power takes about 1.1 seconds. In CN/UK 8 Ball, break shot speed is boosted by 0.4 blocks per tick (8 m/s). Aiming method: while holding the cue stick, sneaking lets you automatically face the cue ball. This makes your shot direction align with your forward view.
+Hold right-click to charge, and release to shoot. The cue ball's direction is based on your facing angle. Power depends on charge time; max power takes about 1.1 seconds. In 8 Ball and 9 Ball games, break shot speed is boosted by an adjustable proportion. \
+Aiming method: while holding the cue stick, sneaking lets you automatically face the cue ball. This makes your shot direction align with your forward view.
 
 You can enable zoom-in while sneaking to help aim more precisely. This is not recommended on high-latency online games. Use:
 
@@ -219,39 +216,42 @@ The numerical simulation of break physics consulted [this link](https://math.sta
 ---
 # Frequently Asked Questions
 
-1. I do not know how to get a cue stick. \
-You can obtain one via the command window.
+1. I cannot execute a shot. \
+Please stand on the ground, and keep standing or sneaking while releasing the mouse button.
 
 2. The balls do not seem to move correctly. \
-Please make sure you successfully installed **Math Datapack** (see instructions above), you should see messages from both datapacks after running a `reload`. Increasing _maxcommandchainlength_ from game rules may help in an uncommon situation where there are too many balls on a table.
+Please make sure you successfully installed **Math Datapack** (see instructions above), you should see messages from both datapacks after running a `reload`. Increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
 
 3. I cannot undo a shot. \
-Please allow _cheat_ from the settings menu. Undoing a shot during a game is considered "cheating".
+Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating".
 
 4. Everything disappears after I run a `reload`. \
-Please select _keepongoingsession_ from the settings menu.
+Please select `keepongoingsession` from the settings menu.
 
 5. The datapack is running, but it does not look the same as the video you uploaded. \
-Please play with available settings, especially the _visuals_. Note that different physics parameters also create sometimes significantly different results.
+Please play with available settings, especially the `visuals`. Note that different physics parameters also create sometimes significantly different results.
 
 6. My table is broken. \
 Please set up the table on a large and flat surface, and do not use any tools to "mine" on the table.
 
-7. I get unexpected problems. \
+7. I need to place the cue ball, but I don't have one in my inventory. \
+Please get a new one by running /function app:get/pool/cueball_helper
+
+8. I get unexpected problems. \
 Please try to reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
 
 ---
 # Notes
 
-1. **Ball sizes are intentionally enlarged** to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience.
+1. **Ball sizes are intentionally enlarged** to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience. Accordingly, players may feel that movement speed of the balls are too low compared to reality.
 
-2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. No specific references were used during development. You may refer to the _How It Works_ section above or search “not so simple billiards physics.”
+2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. 
 
-3. **Rules of Snooker and 8 Ball are simplified** to support popular and convenient gameplay. You may refer to:
+3. **Rules of games are simplified** to support popular and convenient gameplay. You may refer to:
    - [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker)
    - [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool))
 
-4. The resourcepack includes a visual approximation of the 2005 snooker pocket dimensions. You can find it in the texture files.
+4. The resourcepack includes a visual approximation of a 2005 snooker pocket dimensions. You can find it in the texture files.
 
 ---
 # Terms of Use
@@ -259,7 +259,7 @@ This section shall be honored when in conflict with other documents.
 Feel free to play around with this datapack.  
 As developer, feel free to use this datapack as a module to develop free datapacks.  
 But you **must** notify us and add the link to this github page!  
-**NO COMMERCIAL USE, POTENTIALLY (AT SQUID MINECRAFT WORKSHOP'S DISCRETION) COMMERTIAL USE WITHOUT PROMISSION IS ALSO PROHIBITED.** 
+
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
 

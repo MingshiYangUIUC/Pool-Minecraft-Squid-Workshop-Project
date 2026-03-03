@@ -372,6 +372,18 @@ if modify_height_armor_stand:
                      'execute as @e[tag=swPool_pool,tag=swPool_free] run scoreboard players add @s swPool_var02 200\n\n'] + lines
             with open(file, 'w', encoding='utf-8') as f:
                 f.writelines(lines)
+        # adjust spot point
+        if 'respot_9.mcfunction' in file:
+            with open(file, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+            for i in range(len(lines)):
+                line = lines[i]
+                if 'execute at @e[tag=swPool_spot,limit=1] run summon armor_stand ~ ~ ~ ' in line:
+                    newline = line.replace('execute at @e[tag=swPool_spot,limit=1] run summon armor_stand ~ ~ ~ ',
+                                           'execute at @e[tag=swPool_spot,limit=1] run summon armor_stand ~ ~-0.02 ~ ')
+                    lines[i] = newline
+            with open(file, 'w', encoding='utf-8') as f:
+                f.writelines(lines)
     print('  Success!\n')
     modify_height_armor_stand_status = 'Completed'
 else:

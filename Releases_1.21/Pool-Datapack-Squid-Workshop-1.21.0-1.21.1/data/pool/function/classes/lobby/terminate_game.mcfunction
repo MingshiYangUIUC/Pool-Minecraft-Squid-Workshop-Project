@@ -2,10 +2,14 @@ tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] remove swPool_practicemode
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
+tag @e[tag=swPool_pooltable] remove swPool_9ballmode
+tag @e[tag=swPool_pooltable] remove swPool_8ball_aibreak
+tag @e[tag=swPool_pooltable] remove swPool_9ball_aibreak
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
+kill @e[tag=swPool_spot]
 tag @a remove swPool_ballinhand
 tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak
