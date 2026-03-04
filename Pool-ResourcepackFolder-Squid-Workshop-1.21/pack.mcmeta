@@ -1,0 +1,37 @@
+{
+  "pack": {
+    "description": "[1.21.X] For the Pool Sport - Squid Workshop",
+    "pack_format": 34,
+    "supported_formats": {
+      "min_inclusive": 34,
+      "max_inclusive": 75
+    },
+    "min_format": 34,
+    "max_format": 75
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "v0_v1",
+        "formats": {
+          "max_inclusive": 34,
+          "min_inclusive": 34
+        }
+      },
+      {
+        "directory": "v2_v3",
+        "formats": {
+          "max_inclusive": 42,
+          "min_inclusive": 42
+        }
+      },
+      {
+        "directory": "v4_v11",
+        "formats": {
+          "min_inclusive": 46,
+          "max_inclusive": 75
+        }
+      }
+    ]
+  }
+}

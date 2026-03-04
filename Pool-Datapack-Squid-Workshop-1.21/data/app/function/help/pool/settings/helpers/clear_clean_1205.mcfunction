@@ -1,0 +1,1 @@
+clear @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean"]

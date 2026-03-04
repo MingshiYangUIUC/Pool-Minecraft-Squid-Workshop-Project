@@ -1,0 +1,8 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/ball",
+	"textures": {
+		"0": "item/pool/brown",
+		"particle": "item/pool/cueball"
+	}
+}
