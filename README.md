@@ -41,17 +41,14 @@ Supported game modes are _Practice Mode_, _Snooker_, _9 ball_, _UK 8 ball_, and 
 - Step 09 Recommended: Type `/gamerule` command to set the `maxCommandChainLength` or `max_command_sequence_length` to 131072 or higher.
 - Step 10 Enjoy 
 
-PS: If not working, check whether the datapack is enabled by:
-
-	/datapack list
-Enable it by:
-
-	/datapack enable "datapackname"
+If not working, check whether the datapack is enabled by `/datapack list` and enable it by `/datapack enable "datapackname"`. \
+Although not required, zipping the datapack and resourcepack folders can significantly reduce file sizes.
 
 ## Compatibility Notice
-The datapack and resourcepack will work for various game versions, although the game may notify you the packs are incompatible when you install them. Nonetheless, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+- **1.16-1.20:** The datapack and resourcepack will work for various supported game versions, although the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+- **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions. The `Releases_1.21` folder containing the minor-version-specific packs will be removed in future.
 
-**Please let me know if the packs are actually incompatible with any versions higher than Java Edition 1.16.1.**
+**Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.1.**
 
 ---
 # User Guide and Demo

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:item/handheld_rod",
+  "textures": {
+    "layer0": "minecraft:item/carrot_on_a_stick"
+  },
+  "overrides":[
+	{"predicate":{"custom_model_data":98},"model":"item/carrot_on_a_stick0"},
+	{"predicate":{"custom_model_data":99},"model":"item/cueball"},
+	{"predicate":{"custom_model_data":100},"model":"item/cueball_clean"},
+	{"predicate":{"custom_model_data":101},"model":"item/red"},
+	{"predicate":{"custom_model_data":102},"model":"item/yellow"},
+	{"predicate":{"custom_model_data":103},"model":"item/green"},
+	{"predicate":{"custom_model_data":104},"model":"item/brown"},
+	{"predicate":{"custom_model_data":105},"model":"item/blue"},
+	{"predicate":{"custom_model_data":106},"model":"item/pink"},
+	{"predicate":{"custom_model_data":107},"model":"item/black"},
+	{"predicate":{"custom_model_data":121},"model":"item/ball_01"},
+	{"predicate":{"custom_model_data":122},"model":"item/ball_02"},
+	{"predicate":{"custom_model_data":123},"model":"item/ball_03"},
+	{"predicate":{"custom_model_data":124},"model":"item/ball_04"},
+	{"predicate":{"custom_model_data":125},"model":"item/ball_05"},
+	{"predicate":{"custom_model_data":126},"model":"item/ball_06"},
+	{"predicate":{"custom_model_data":127},"model":"item/ball_07"},
+	{"predicate":{"custom_model_data":128},"model":"item/ball_08"},
+	{"predicate":{"custom_model_data":129},"model":"item/ball_09"},
+	{"predicate":{"custom_model_data":130},"model":"item/ball_10"},
+	{"predicate":{"custom_model_data":131},"model":"item/ball_11"},
+	{"predicate":{"custom_model_data":132},"model":"item/ball_12"},
+	{"predicate":{"custom_model_data":133},"model":"item/ball_13"},
+	{"predicate":{"custom_model_data":134},"model":"item/ball_14"},
+	{"predicate":{"custom_model_data":135},"model":"item/ball_15"},
+	{"predicate":{"custom_model_data":136},"model":"item/carrot_on_a_stick0"}
+    ]
+}

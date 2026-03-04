@@ -1,0 +1,1 @@
+data merge storage minecraft:swpool {allowcheats:1}

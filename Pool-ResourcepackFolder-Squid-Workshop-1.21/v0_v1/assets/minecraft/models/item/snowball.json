@@ -1,0 +1,27 @@
+{
+    "parent": "block/acacia_button_inventory",
+	
+
+    "overrides":[
+	{"predicate":{"custom_model_data":0},"model":"item/snowball0"},
+	{"predicate":{"custom_model_data":1},"model":"item/cueball"},
+	{"predicate":{"custom_model_data":2},"model":"item/red"},
+	{"predicate":{"custom_model_data":3},"model":"item/yellow"},
+	{"predicate":{"custom_model_data":4},"model":"item/green"},
+	{"predicate":{"custom_model_data":5},"model":"item/brown"},
+	{"predicate":{"custom_model_data":6},"model":"item/blue"},
+	{"predicate":{"custom_model_data":7},"model":"item/pink"},
+	{"predicate":{"custom_model_data":8},"model":"item/black"},
+	{"predicate":{"custom_model_data":9},"model":"item/cloth_table"},
+	{"predicate":{"custom_model_data":10},"model":"item/cloth_cushion_new"},
+	{"predicate":{"custom_model_data":11},"model":"item/cloth_sidepot_left_new"},
+	{"predicate":{"custom_model_data":12},"model":"item/cloth_sidepot_right_new"},
+	{"predicate":{"custom_model_data":13},"model":"item/cloth_cornerpot_new"},
+	{"predicate":{"custom_model_data":14},"model":"item/qrcode"},
+	{"predicate":{"custom_model_data":15},"model":"item/cloth_cushion"},
+	{"predicate":{"custom_model_data":16},"model":"item/cloth_sidepot_left"},
+	{"predicate":{"custom_model_data":17},"model":"item/cloth_sidepot_right"},
+	{"predicate":{"custom_model_data":18},"model":"item/cloth_cornerpot"},
+	{"predicate":{"custom_model_data":19},"model":"item/snowball0"}
+    ]
+}

@@ -20,3 +20,4 @@ swMath_sync.bat
 Pool*/**/*.ipynb
 **/*.ipynb
 **/*dev*
+**/.DS.Store

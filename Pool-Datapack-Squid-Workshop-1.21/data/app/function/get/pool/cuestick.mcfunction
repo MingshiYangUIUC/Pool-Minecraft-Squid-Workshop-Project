@@ -1,0 +1,1 @@
+give @s bow{CustomModelData:1,swPool:1b,display:{Name:"\"Cuestick\""}}

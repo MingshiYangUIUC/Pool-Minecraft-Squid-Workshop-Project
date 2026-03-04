@@ -1,0 +1,8 @@
+{
+    "credit": "Made with Blockbench",
+    "parent": "swpool:item/ball",
+    "textures": {
+        "0": "swpool:item/pool/blue",
+        "particle": "swpool:item/pool/cueball"
+    }
+}

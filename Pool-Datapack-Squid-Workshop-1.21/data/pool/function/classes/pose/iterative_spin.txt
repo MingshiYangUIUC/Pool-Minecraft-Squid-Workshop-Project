@@ -1,0 +1,20 @@
+iterative spin
+
+further reduce dt when it is close to blow up
+
+from "w2dpdt" we get pose change given current pose and omega vector, and add it back to the current pose.
+
+when p1 is about 90 or 270 degrees, cosine becomes zero and the thing blows up.
+
+consider total DT is 1
+
+solution:
+	0. if cos(p1) = 0, make it at least 1. how to get the sign???
+	1. when change of dp*dt is larger than a threshold (those 2 requires division by cos(p1))
+		2. use max tolerated rotation to calculate dt, save the residual DT-=dt
+			3.1 use the current dt, change the pose SCORE
+			3.2 use the value of residual as new DT
+			3.3 to step 2 until DT = 0
+	Threshold might be sth like 6 degrees.
+
+
