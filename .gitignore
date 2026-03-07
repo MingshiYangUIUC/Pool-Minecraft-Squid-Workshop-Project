@@ -21,3 +21,4 @@ Pool*/**/*.ipynb
 **/*.ipynb
 **/*dev*
 **/.DS.Store
+*.zip
