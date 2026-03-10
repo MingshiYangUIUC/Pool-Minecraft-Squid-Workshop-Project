@@ -5,7 +5,7 @@
 # _Squid Workshop's_ Pool Datapack
 Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
 
-<img src="Gallery/Images/balls_floating_in_the_air.png" alt="_MingshiYangUIUC_" width="50%">
+<img src="Gallery/Images/balls_floating_in_the_air.webp" alt="_MingshiYangUIUC_" width="50%">
 
 Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
 
