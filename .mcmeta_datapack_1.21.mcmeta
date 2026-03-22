@@ -29,13 +29,6 @@
           "max_inclusive": 61,
           "min_inclusive": 61
         }
-      },
-      {
-        "directory": "v5_v11",
-        "formats": {
-          "min_inclusive": 71,
-          "max_inclusive": 94
-        }
       }
     ]
   }

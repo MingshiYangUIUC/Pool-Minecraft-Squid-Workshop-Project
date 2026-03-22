@@ -895,8 +895,7 @@ print('Datapack...')
 
 datapack_data = [['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
                  ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data','v5_v11']]
+                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4']]
 
 datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data'
 
@@ -939,8 +938,7 @@ for dir_scan_str, dir_overlay_name in datapack_data:
 print('Resourcepack...')
 
 resourcepack_data = [['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets','v4_v11']]
+                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
 
 resourcepack_dir_default_str = 'Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets'
 
