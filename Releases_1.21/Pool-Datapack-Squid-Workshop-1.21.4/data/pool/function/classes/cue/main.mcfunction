@@ -4,6 +4,10 @@ tag @s[nbt={OnGround:0b}] add swPool_offground
 
 execute if entity @s[tag=swPool_offground] as @e[type=arrow,distance=..2] if score @s swPool_player = @p[tag=swPool_offground] swPool_player run kill @s
 
+# if any balls are moving, reset the sneaktime to 0
+execute if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] run scoreboard players set @s swPool_sneaktime 0
+
+# aim at cue ball
 execute as @s[scores={swPool_sneaktime=1..}] unless data storage minecraft:swpool {version:[1205]} at @s run function pool:classes/cue/aim
 execute as @s[scores={swPool_sneaktime=1..}] if data storage minecraft:swpool {version:[1205]} at @s run function pool:classes/cue/aim_1205
 

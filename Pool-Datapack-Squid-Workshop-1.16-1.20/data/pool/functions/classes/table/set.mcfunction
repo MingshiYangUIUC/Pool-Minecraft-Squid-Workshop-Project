@@ -154,3 +154,6 @@ execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run sc
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000
 
 kill @e[tag=swPool_placer,type=area_effect_cloud]
+
+tellraw @a[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+tellraw @a[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]

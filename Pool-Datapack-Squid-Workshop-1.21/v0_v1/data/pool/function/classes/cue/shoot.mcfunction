@@ -7,7 +7,7 @@ tag @s add swPool_shooting
 execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player = @a[tag=swPool_shooting,limit=1] swPool_player run tag @s add swPool_sb
 
 execute store result score cuerot swPool_rot run data get entity @s Rotation[0] 10000
-scoreboard players remove cuerot swPool_rot 600
+scoreboard players operation cuerot swPool_rot += cueball_deflection swPool_C
 #execute store result entity @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get cuerot swPool_rot
 scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] swPool_Rotation = cuerot swPool_rot
 #execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.06 ~

@@ -2,8 +2,8 @@
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] run tag @s add swPool_foulcue
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_ballinhand
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_ballinhand
-execute if data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cueball\""]
-execute unless data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cueball\""]
+execute if data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cue Ball\""]
+execute unless data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cue Ball\""]
 tag @a[tag=swPool_ballinhand,tag=!swPool_given] add swPool_given
 #detect foulcolor
 #swPool_count # of color and red pocketed as swPool_ncolor and swPool_nred score

@@ -195,6 +195,9 @@ execute unless score nn_complexity swPool_C matches 1..4 run scoreboard players 
 # tick interval
 execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
 
+# cue ball deflection (10000 = 1 deg right ward)
+execute unless score cueball_deflection swPool_C matches -1800000..1800000 run scoreboard players set cueball_deflection swPool_C 0
+
 function pool:classes/cue/reset
 
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack]: Pool-Datapack from Squid-Workshop Loaded.","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
