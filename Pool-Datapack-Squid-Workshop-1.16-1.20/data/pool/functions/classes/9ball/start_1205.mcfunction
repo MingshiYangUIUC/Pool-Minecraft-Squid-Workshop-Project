@@ -12,13 +12,14 @@ execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:cla
 function pool:classes/9ball/randomize_number
 
 tag @a[tag=swPool_wait_9ball,limit=1,sort=random] add swPool_ballinhand
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=99,minecraft:custom_name="\"Cueball\""]
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=100,minecraft:custom_name="\"Cueball\""]
+execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=99,minecraft:custom_name="\"Cue Ball\""]
+execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:custom_model_data=100,minecraft:custom_name="\"Cue Ball\""]
 
 tag @e[tag=swPool_pooltable] add swPool_start
 
 tag @a[limit=1,sort=random,tag=swPool_wait_9ball] add swPool_poolplay
-execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s [{"text":"Not enough players, you pretend to be two players!","color":"red"}]
+execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"Not enough players, you can only play single player game!","color":"red"}]
+execute if entity @e[tag=swPool_pooltable] unless entity @a[tag=!swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"没有足够的玩家数量，只能进行单人游戏！","color":"red"}]
 
 execute if entity @a[tag=!swPool_poolplay] run tag @a[limit=1,tag=swPool_wait_9ball,tag=!swPool_poolplay] add swPool_poolplay
 scoreboard players set @a[tag=swPool_poolplay] swPool_Score 0
@@ -34,10 +35,12 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO 9 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_EN] [{"text":"[DUO 9 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_CN] [{"text":"[双人九球]: 游戏初始化失败！请从大厅重新加入。","color":"red"}]
+
 tag @a[tag=swPool_poolplay] add swPool_spec
 
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and target any except black."}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and break."}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", 请放置白球后开球。"}]
 
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

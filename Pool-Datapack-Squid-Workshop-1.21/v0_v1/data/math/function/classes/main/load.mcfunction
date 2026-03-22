@@ -1,0 +1,40 @@
+scoreboard objectives add swMath_C dummy
+scoreboard objectives add swMath_V dummy
+
+# Utility
+scoreboard players set #C_2718281 swMath_C 2718281
+scoreboard players set #C_314159 swMath_C 314159
+scoreboard players set #C_100000 swMath_C 100000
+scoreboard players set #C_34641 swMath_C 34641
+scoreboard players set #C_10000 swMath_C 10000
+scoreboard players set #C_6250 swMath_C 6250
+scoreboard players set #C_2500 swMath_C 2500
+scoreboard players set #C_2000 swMath_C 2000
+scoreboard players set #C_1000 swMath_C 1000
+scoreboard players set #C_300 swMath_C 300
+scoreboard players set #C_200 swMath_C 200
+scoreboard players set #C_100 swMath_C 100
+scoreboard players set #C_40 swMath_C 40
+scoreboard players set #C_10 swMath_C 10
+scoreboard players set #C_5 swMath_C 5
+scoreboard players set #C_3 swMath_C 3
+scoreboard players set #C_2 swMath_C 2
+scoreboard players set #C_-1 swMath_C -1
+scoreboard players set #C_-10000 swMath_C -10000
+
+# Trignometric
+scoreboard players set #C_3600000 swMath_C 3600000
+scoreboard players set #C_62832 swMath_C 62832
+scoreboard players set #C_60000 swMath_C 60000
+scoreboard players set #C_31416 swMath_C 31416
+scoreboard players set #C_25000 swMath_C 25000
+scoreboard players set #C_2618 swMath_C 2618
+scoreboard players set #C_1309 swMath_C 1309
+scoreboard players set #C_15 swMath_C 15
+
+# Sqrt
+scoreboard players set #SQRT3 swMath_C 2
+
+# Message
+tellraw @a[tag=!swPool_CN] [{"text":"[Squid Workshop] ","color":"gray"},{"text":"Math Datapack v1.0.0 is loaded. ","color": "gray","italic": true},{"text":"Main Page","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+tellraw @a[tag=swPool_CN] [{"text":"[鱿鱼MC工作室] ","color":"gray"},{"text":"数学数据包 v1.0.0 已加载。 ","color": "gray","italic": true},{"text":"主页","color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]

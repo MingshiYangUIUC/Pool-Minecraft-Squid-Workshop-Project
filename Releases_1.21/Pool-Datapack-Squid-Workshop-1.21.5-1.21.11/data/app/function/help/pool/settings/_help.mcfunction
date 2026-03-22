@@ -2,6 +2,7 @@
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ Settings are explained below. Run them with ","color":"white"},{"text":"/function app:settings/pool/...","italic":true}]
 
+tellraw @s[tag=swPool_EN] [{"text":"➇ aim/cue_deflection: manually adjust cue ball deflection (10000 = 1° right from the player's perspective)","color":"gray"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/zoom: you are given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ aim/nozoom: you are not given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)","color":"gray"}]
 
@@ -46,6 +47,7 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ End of Help...","color":"white"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ 以下是设置说明。运行时请使用 ","color":"white"},{"text":"/function app:settings/pool/...","italic":true}]
 
+tellraw @s[tag=swPool_CN] [{"text":"➇ aim/cue_deflection: 手动调整母球偏移（10000 表示从玩家视角向右偏转 1°）。","color":"gray"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ aim/zoom：瞄准球时（按住shift）画面会放大（缓慢效果）","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ aim/nozoom：瞄准球时（按住shift）画面不会放大","color":"gray"}]
 
@@ -87,5 +89,5 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ visuals/tp_duration：调整Item Display
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ 帮助结束...","color":"white"}]
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]
+tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]
+tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]

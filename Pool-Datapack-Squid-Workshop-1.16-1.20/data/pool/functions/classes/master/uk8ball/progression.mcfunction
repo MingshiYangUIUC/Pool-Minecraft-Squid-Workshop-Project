@@ -51,7 +51,7 @@ execute unless entity @s[tag=swPool_hitrail] unless score Pocketed_Turn swPool_h
 #execute unless entity @s[tag=swPool_awarded] if entity @s[tag=swPool_pktylw] run tag @a[tag=swPool_hitcue,tag=swPool_aimred] add swPool_foul
 #execute unless entity @s[tag=swPool_awarded] if entity @s[tag=swPool_pktred] run tag @a[tag=swPool_hitcue,tag=swPool_aimylw] add swPool_foul
 
-#freeball
+#ball in hand
 execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
 execute if entity @s[tag=swPool_pktcue,tag=swPool_multiplayer] run tag @a[tag=!swPool_hitcue,tag=swPool_poolplay,limit=1] add swPool_ballinhand
 execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=swPool_hitcue,tag=swPool_poolplay] add swPool_ballinhand
@@ -114,7 +114,7 @@ execute if entity @s[tag=swPool_singleplayer,tag=swPool_switch,tag=!swPool_endga
 
 #Output messages
 
-#foul and freeball
+#foul and ball in hand
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul."}]
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Ball in-hand."}]
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。"}]

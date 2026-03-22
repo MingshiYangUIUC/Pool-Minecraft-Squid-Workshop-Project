@@ -54,8 +54,8 @@ tag @e[tag=swPool_pooltable,tag=swPool_vsnake] remove swPool_vsnake
 
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand
 execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand_obj
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cueball\""]
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cueball\""]
+execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cue Ball\""]
+execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cue Ball\""]
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:item_model="swpool:object_red",minecraft:custom_name="\"Red\""]
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:item_model="swpool:object_yellow",minecraft:custom_name="\"Yellow\""]
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:item_model="swpool:object_green",minecraft:custom_name="\"Green\""]

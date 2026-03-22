@@ -1,40 +1,61 @@
-## [中文版使用说明](使用说明.md)
+# Minecraft Pool & Billiards Datapack  
+### _Squid Workshop_
 
-## [Recent Updates](CHANGELOG.md)
+Realistic cue sport game in **Minecraft Java Edition** like in real life.  
+Supports **Snooker, UK 8 Ball, Chinese 8 Ball, and 9 Ball**.
 
-# _Squid Workshop's_ Pool Datapack
-Content creator: Mingshi Yang (YMS2001). Contact: mingshi3@illinois.edu
+Content creator: **Mingshi Yang (YMS2001)**  
+Contact: mingshi3@illinois.edu
 
-<img src="Gallery/Images/balls_floating_in_the_air.webp" alt="_MingshiYangUIUC_" width="50%">
-
-Play [pool](https://en.wikipedia.org/wiki/Pool_(cue_sports)) in Minecraft, like in real life!
-
-- [Abstract](#Abstract)
-- [Installation](#Installation)
-- [User Guide and Demo](#User-Guide-and-Demo)
-- [How It Works](#How-It-Works)
-- [Frequently Asked Questions](#Frequently-Asked-Questions)
-- [Notes](#Notes)
-- [Terms of Use](#Terms-of-Use)
-- [More About Squid Workshop](#More-About-Squid-Workshop)
+[CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
+[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards)   
+[中文版使用说明](使用说明.md)   
+[Recent Updates](CHANGELOG.md)
 
 ---
-# Abstract
-This datapack is for Minecraft and pool lovers. _Pool_ here means cue sport including _Snooker_, _Billiards_, _8/9 Ball_, etc.
 
-Pool datapack supports singleplayer and duo games with Minecraft Java Edition 1.16+.
-
-Supported game modes are _Practice Mode_, _Snooker_, _9 ball_, _UK 8 ball_, and _CN 8 ball_.
+<img src="Gallery/Images/numbered_balls_on_a_small_table.webp" alt="_MingshiYangUIUC_" width="50%">
 
 ---
-# Installation
+
+## Table of Contents
+
+- [Abstract](#abstract)
+- [Installation](#installation)
+- [User Guide and Demo](#user-guide-and-demo)
+- [How It Works](#how-it-works)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Notes](#notes)
+- [Terms of Use](#terms-of-use)
+- [More About Squid Workshop](#more-about-squid-workshop)
+
+---
+
+## Abstract
+
+This datapack is designed for Minecraft players who enjoy cue sports.  
+Here, *pool* broadly refers to cue sports including *Snooker*, *Billiards*, *8/9 Ball*, and related variants.
+
+The datapack supports **single-player and two-player gameplay** in **Minecraft Java Edition 1.16+**.
+
+Supported game modes:
+
+* Practice Mode  
+* Snooker  
+* 9 Ball  
+* UK 8 Ball  
+* Chinese 8 Ball  
+
+---
+
+## Installation
 
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft" if in Windows.
 - Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../resourcepacks** folder.
 - Step 04 Choose the world folder in which you want to install the packs. Go to **.../saves/world/datapacks** folder.
 - Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../saves/world/datapacks** folder. Each world must have its own copy of the datapack.
-- **Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Copies of Math-Datapack-v1.0.0 files are provided for convenience.**
+- **v1.0.0-rc.1 and before: Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future versions.**
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
 - Step 08 Type `/reload` command then press enter.
@@ -70,7 +91,6 @@ After installing (reloading) the datapack, the chat will guide your next steps. 
 	/function app:help/pool/commandwindow
 
 If this is your first time loading the datapack, click <<ins>text like this</ins>> to choose your language and game version (not needed in 1.21+), and complete the suggested friction settings. The above demo uses default values.  
-🔴 Make sure the math datapack is also loaded. You may need to reload once for it to initialize properly.
 
 ### 2. Load the Resourcepack
 <video src="Gallery/Videos/user_guides_EN/02_load_resourcepack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -217,7 +237,7 @@ The numerical simulation of break physics consulted [this link](https://math.sta
 Please stand on the ground, and keep standing or sneaking while releasing the mouse button.
 
 2. The balls do not seem to move correctly. \
-Please make sure you successfully installed **Math Datapack** (see instructions above), you should see messages from both datapacks after running a `reload`. Increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
+Please make sure you successfully installed/loaded **Math Datapack / Module** (see instructions above), you should see messages from both datapacks after running a `reload`. Further increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
 
 3. I cannot undo a shot. \
 Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating".

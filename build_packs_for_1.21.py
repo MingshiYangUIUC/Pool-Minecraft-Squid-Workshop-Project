@@ -19,6 +19,7 @@ import math
 from collections import defaultdict
 import gc
 import sys
+import time
 
 gc.collect()
 
@@ -197,7 +198,12 @@ for v in all_versions:
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
                     print(f"    Renaming: {old_path} -> {new_path}")
-                    os.rename(old_path, new_path)
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
         
         print('  Success!\n')
     else:
@@ -253,7 +259,12 @@ for v in all_versions:
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
                     print(f"    Renaming: {old_path} -> {new_path}")
-                    os.rename(old_path, new_path)
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
 
         print('  Success!\n')
     else:
@@ -895,8 +906,7 @@ print('Datapack...')
 
 datapack_data = [['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
                  ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data','v5_v11']]
+                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4']]
 
 datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data'
 
@@ -939,8 +949,7 @@ for dir_scan_str, dir_overlay_name in datapack_data:
 print('Resourcepack...')
 
 resourcepack_data = [['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets','v4_v11']]
+                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
 
 resourcepack_dir_default_str = 'Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets'
 
