@@ -1,5 +1,6 @@
 {
     "values": [
+        "math:classes/main/load",
     	"pool:classes/main/load"
     ]
 }
