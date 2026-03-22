@@ -19,6 +19,7 @@ import math
 from collections import defaultdict
 import gc
 import sys
+import time
 
 gc.collect()
 
@@ -197,7 +198,12 @@ for v in all_versions:
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
                     print(f"    Renaming: {old_path} -> {new_path}")
-                    os.rename(old_path, new_path)
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
         
         print('  Success!\n')
     else:
@@ -253,7 +259,12 @@ for v in all_versions:
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
                     print(f"    Renaming: {old_path} -> {new_path}")
-                    os.rename(old_path, new_path)
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
 
         print('  Success!\n')
     else:

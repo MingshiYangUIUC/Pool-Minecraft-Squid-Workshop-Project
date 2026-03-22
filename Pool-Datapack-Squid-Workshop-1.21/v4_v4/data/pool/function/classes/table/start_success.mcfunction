@@ -14,7 +14,7 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Suggested si
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/check"}},{"underlined":false,"text":" to check your choice and place the table.","color":"aqua"}]
 
-##CN version
+#CN version
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"如果不想放置新的球桌，现在什么也不做。"}]
 

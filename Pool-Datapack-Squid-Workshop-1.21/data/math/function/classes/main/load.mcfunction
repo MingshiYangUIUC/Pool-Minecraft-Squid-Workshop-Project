@@ -36,4 +36,5 @@ scoreboard players set #C_15 swMath_C 15
 scoreboard players set #SQRT3 swMath_C 2
 
 # Message
-tellraw @a [{"text":"[Squid Workshop] ","color":"gray"},{"text":"Math Datapack is loaded. ","color": "gray","italic": true},{"text":"Help","color":"white","click_event":{"action":"open_url","url":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+tellraw @a[tag=!swPool_CN] [{"text":"[Squid Workshop] ","color":"gray"},{"text":"Math Datapack v1.0.0 is loaded. ","color": "gray","italic": true},{"text":"Main Page","color":"white","click_event":{"action":"open_url","url":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
+tellraw @a[tag=swPool_CN] [{"text":"[鱿鱼MC工作室] ","color":"gray"},{"text":"数学数据包 v1.0.0 已加载。 ","color": "gray","italic": true},{"text":"主页","color":"white","click_event":{"action":"open_url","url":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]

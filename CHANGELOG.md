@@ -1,3 +1,8 @@
+### <span style="color:orange">March 2026</span> — Preparing for official release. Release candidates are now publicly available.
+
+- The datapack, resource pack, and math library are now publicly available on Modrinth and CurseForge.
+- Minor fixes and adjustments.
+
 ### <span style="color:orange">February 2026</span> — 9 Ball game is added to the datapack. Our packs get new and more distinguishable icons.
 
 - The game of 9 Ball is added to the datapack. Join it from the lobby and enjoy! Similar to 8 Ball games, user can choose whether break behavior is simulated by AI model or by traditional collision model.

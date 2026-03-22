@@ -1,6 +1,7 @@
 execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
 
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s [{"text":"Please place a table first.","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
 #kill @e[tag=swPool_pool]
 #kill @e[tag=swPool_pin]

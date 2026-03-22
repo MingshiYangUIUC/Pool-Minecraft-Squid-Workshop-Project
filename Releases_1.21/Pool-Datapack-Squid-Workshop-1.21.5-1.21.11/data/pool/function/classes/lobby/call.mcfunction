@@ -57,7 +57,7 @@ tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"te
 tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Join DUO CN8Ball> ","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 121"}},{"text":"<Join SP CN8Ball>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 129"}}]
 tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Join DUO 9 Ball> ","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 119"}},{"text":"<Join SP 9 Ball>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 130"}}]
 tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Spectate>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 131"}},{"text":" "},{"text":"<Stop Spectating>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 132"}}]
-tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Leave Queue>","color":"dark_red","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 133"}}]
+tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Leave Queue>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 133"}}]
 
 execute if entity @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp] as @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp,limit=1] at @s if entity @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp,distance=0.001..] run tellraw @a[tag=!swPool_mute,tag=swPool_calling,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"已经有两位玩家等候斯诺克。"}]
 execute if entity @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp] as @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp,limit=1] at @s unless entity @a[tag=swPool_wait_snooker,tag=!swPool_wait_sp,distance=0.001..] run tellraw @a[tag=!swPool_mute,tag=swPool_calling,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"一位玩家在等候斯诺克。"}]
@@ -77,3 +77,6 @@ tellraw @s[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"te
 
 
 tag @a remove swPool_calling
+
+tellraw @a[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]
+tellraw @a[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}}]
