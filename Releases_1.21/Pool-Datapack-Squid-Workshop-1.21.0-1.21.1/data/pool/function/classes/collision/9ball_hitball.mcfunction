@@ -1,9 +1,0 @@
-execute if entity @e[tag=swPool_c,tag=swPool_01,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
-execute if entity @e[tag=swPool_c,tag=swPool_02,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
-execute if entity @e[tag=swPool_c,tag=swPool_03,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 3
-execute if entity @e[tag=swPool_c,tag=swPool_04,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 4
-execute if entity @e[tag=swPool_c,tag=swPool_05,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 5
-execute if entity @e[tag=swPool_c,tag=swPool_06,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 6
-execute if entity @e[tag=swPool_c,tag=swPool_07,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 7
-execute if entity @e[tag=swPool_c,tag=swPool_08,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 8
-execute if entity @e[tag=swPool_c,tag=swPool_09,limit=1] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 9
