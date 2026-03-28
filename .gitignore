@@ -23,4 +23,5 @@ Pool*/**/*.ipynb
 **/*dev*
 **/.DS.Store
 *.zip
+Releases_1.21
 todo.txt

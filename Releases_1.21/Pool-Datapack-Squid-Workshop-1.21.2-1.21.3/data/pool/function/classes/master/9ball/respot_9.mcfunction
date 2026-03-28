@@ -43,7 +43,7 @@ kill @e[tag=swPool_09,tag=swPool_pool]
 # #9 at location of #1 (spot location)
 
 # helper entity (that can shift)
-execute at @e[tag=swPool_spot,limit=1] run summon armor_stand ~ ~-0.02 ~ {Marker:1b,Tags:["swPool_spot_shift"],NoGravity:1,Small:1,Invisible:1}
+execute at @e[tag=swPool_spot,limit=1] run summon item_display ~ ~-0.02 ~ {Marker:1b,Tags:["swPool_spot_shift"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # identify vacant location
 execute if entity @s[tag=swPool_x] as @e[tag=swPool_spot_shift,limit=1] at @s if entity @e[tag=swPool_pool,distance=..0.25] run function pool:classes/master/9ball/move_-x
@@ -56,7 +56,7 @@ execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @e[
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @e[tag=swPool_spot_shift,limit=1] Pos[0] 10000
 
 # summon 9 ball
-execute at @e[tag=swPool_spot_shift,limit=1] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_09","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1}
+execute at @e[tag=swPool_spot_shift,limit=1] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_09","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # assign score coordinates
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_09,tag=swPool_pool,limit=1] swPool_var00 = @s swPool_var00

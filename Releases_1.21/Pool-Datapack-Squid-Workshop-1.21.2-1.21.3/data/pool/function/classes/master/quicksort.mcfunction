@@ -1,7 +1,7 @@
 #exclude the balls that will not touch at the next tick
 
 #parent command:
-#execute as @e[type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/quicksort
+#execute as @e[type=item_display,tag=swPool_near] at @s run function pool:classes/master/quicksort
 
 #subject: @s (tagged swPool_near)
 #targets: @e[tag=swPool_origin]

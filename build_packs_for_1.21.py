@@ -375,7 +375,7 @@ for v in all_versions:
 
 
     if modify_height_armor_stand:
-        print('  Fixing armor stand y position in Datapack for 1.21.3+...')
+        print('  Fixing armor stand y position in Datapack for 1.21.2+...')
 
         filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
         print(f'  {len(filenames)} mcfunction found.')
@@ -628,69 +628,6 @@ for v in all_versions:
             with open(file, 'w', encoding='utf-8') as f:
                 f.writelines(lines)
 
-        print('  Modifying Datapack (Swap Armor Stand with Item Display)...')
-        filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
-        print(f'  {len(filenames)} mcfunction found.')
-        for file in filenames:
-            with open(file, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-            for i, line in enumerate(lines):
-                if 'armor_stand' in lines[i]:
-                    # generation
-                    if 'summon' in lines[i]:
-                        newline = lines[i].replace('armor_stand','item_display')
-                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
-                        # replace Item with item
-                        newline = newline.replace('Item:','item:')
-                        newline = newline.replace('Selecteditem:','SelectedItem:')
-                        newline = newline[:-2] + ',' + display_info[1:] + '\n'
-                        if newline != lines[i]:
-                            lines[i] = newline
-
-                    # object detection
-                    if 'type=armor_stand' in lines[i]:
-                        newline = lines[i].replace('type=armor_stand','type=item_display')
-                        if newline != lines[i]:
-                            lines[i] = newline
-                
-                # old armor stand equipping
-                if 'item replace entity' in lines[i] and 'item_model' in lines[i]:
-                    newline = lines[i].replace('item replace entity', 'execute as')
-                    newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:item_model=',
-                        'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":')
-                    newline = newline[:-2] + '}}}\n'
-                    #print(newline)
-                    if newline != lines[i]:
-                        lines[i] = newline
-                
-                # modify record functionalities
-                if 'master' in file and 'record.mcfunction' in file:
-                    newline = lines[i].replace('Pose.Head','transformation.right_rotation')
-                    # both old and new armor stand criteria
-                    newline = newline.replace('nbt={equipment:{head:{id:"minecraft:acacia_button"}}}',
-                        'nbt={item:{id:"minecraft:acacia_button"}}')
-                    newline = newline.replace('nbt={ArmorItems:[{},{},{},{id:"minecraft:acacia_button"}]}',
-                        'nbt={item:{id:"minecraft:acacia_button"}}')
-                    if newline != lines[i]:
-                        lines[i] = newline
-                
-                if 'pool:classes/pose/w2dpdt_iterative' in lines[i]:
-                    newline = lines[i].replace('pool:classes/pose/w2dpdt_iterative','pool:classes/pose_quat/rotate_init')
-                    if newline != lines[i]:
-                        lines[i] = newline
-
-                if 'pool:classes/pose/randomize_pose' in lines[i]:
-                    newline = lines[i].replace('pool:classes/pose/randomize_pose','pool:classes/pose_quat/randomize_quat')
-                    if newline != lines[i]:
-                        lines[i] = newline
-
-            # add teleport_duration change setting to place.mcfunction and undo_run.mcfunction
-            # execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
-            if 'undo_run.mcfunction' in file or 'place.mcfunction' in file:
-                lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C\n')
-
-            with open(file, 'w', encoding='utf-8') as f:
-                f.writelines(lines)
 
         '''print('  TEMPORARY: Moving Final Files')
         resourcepacks_dir = os.path.abspath(os.path.join(resource_final_dir_version, '../../../../resourcepacks'))
@@ -825,6 +762,84 @@ for v in all_versions:
     else:
         print('  Skipped fixing command syntax for 1.21.5+\n')
         modify_pool_clickevent_status = 'Skipped'
+
+
+    print('Swap for Item Display')
+    print('  Modifying Datapack (Swap Armor Stand with Item Display)...')
+    filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
+    print(f'  {len(filenames)} mcfunction found.')
+    for file in filenames:
+        with open(file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        for i, line in enumerate(lines):
+            if 'armor_stand' in lines[i]:
+                # generation
+                if 'summon' in lines[i]:
+                    newline = lines[i].replace('armor_stand','item_display')
+                    if modify_height_armor_stand:
+                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
+                    else:
+                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
+                    # replace Item with item
+                    newline = newline.replace('Item:','item:')
+                    newline = newline.replace('Selecteditem:','SelectedItem:')
+                    newline = newline[:-2] + ',' + display_info[1:] + '\n'
+                    if newline != lines[i]:
+                        lines[i] = newline
+
+                # object detection
+                if 'type=armor_stand' in lines[i]:
+                    newline = lines[i].replace('type=armor_stand','type=item_display')
+                    if newline != lines[i]:
+                        lines[i] = newline
+            
+            # old armor stand equipping
+            if 'item replace entity' in lines[i] and 'item_model' in lines[i]:
+                newline = lines[i].replace('item replace entity', 'execute as')
+                newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:item_model=',
+                    'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":')
+                newline = newline[:-2] + '}}}\n'
+                #print(newline)
+                if newline != lines[i]:
+                    lines[i] = newline
+            
+            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i]:
+                newline = lines[i].replace('item replace entity', 'execute as')
+                newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:custom_model_data=',
+                    'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":')
+                newline = newline[:-2] + '}}}\n'
+                #print(newline)
+                if newline != lines[i]:
+                    lines[i] = newline
+            
+            # modify record functionalities
+            if 'master' in file and 'record.mcfunction' in file:
+                newline = lines[i].replace('Pose.Head','transformation.right_rotation')
+                # both old and new armor stand criteria
+                newline = newline.replace('nbt={equipment:{head:{id:"minecraft:acacia_button"}}}',
+                    'nbt={item:{id:"minecraft:acacia_button"}}')
+                newline = newline.replace('nbt={ArmorItems:[{},{},{},{id:"minecraft:acacia_button"}]}',
+                    'nbt={item:{id:"minecraft:acacia_button"}}')
+                if newline != lines[i]:
+                    lines[i] = newline
+            
+            if 'pool:classes/pose/w2dpdt_iterative' in lines[i]:
+                newline = lines[i].replace('pool:classes/pose/w2dpdt_iterative','pool:classes/pose_quat/rotate_init')
+                if newline != lines[i]:
+                    lines[i] = newline
+
+            if 'pool:classes/pose/randomize_pose' in lines[i]:
+                newline = lines[i].replace('pool:classes/pose/randomize_pose','pool:classes/pose_quat/randomize_quat')
+                if newline != lines[i]:
+                    lines[i] = newline
+
+        # add teleport_duration change setting to place.mcfunction and undo_run.mcfunction
+        # execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
+        if 'undo_run.mcfunction' in file or 'place.mcfunction' in file:
+            lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C\n')
+
+        with open(file, 'w', encoding='utf-8') as f:
+            f.writelines(lines)
 
 
     print(f'Completed Modifications: \n' +
@@ -994,4 +1009,9 @@ for dir_scan_str, dir_overlay_name in resourcepack_data:
 
 print('\n\n\nRemoving intermediate files...')
 #shutil.rmtree('Releases_1.21')
+
+print('Rename to match future version')
+os.rename(Path(datapack_dir_target_str),Path(datapack_dir_target_str+'plus'))
+os.rename(Path(resourcepack_dir_target_str),Path(resourcepack_dir_target_str+'plus'))
+
 print('All Done!')

@@ -8,11 +8,11 @@ execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltabl
 
 
 # detect number of players
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
-execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
 # clean up tags
@@ -21,15 +21,15 @@ tag @a[tag=swPool_poolplay] remove swPool_foul
 # @s is pooltable
 
 # detect smallest not pocketed ball
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_09,limit=1] run scoreboard players set #least_survival swPool_var00 9
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_08,limit=1] run scoreboard players set #least_survival swPool_var00 8
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_07,limit=1] run scoreboard players set #least_survival swPool_var00 7
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_06,limit=1] run scoreboard players set #least_survival swPool_var00 6
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_05,limit=1] run scoreboard players set #least_survival swPool_var00 5
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_04,limit=1] run scoreboard players set #least_survival swPool_var00 4
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_03,limit=1] run scoreboard players set #least_survival swPool_var00 3
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_02,limit=1] run scoreboard players set #least_survival swPool_var00 2
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_01,limit=1] run scoreboard players set #least_survival swPool_var00 1
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_09,limit=1] run scoreboard players set #least_survival swPool_var00 9
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] run scoreboard players set #least_survival swPool_var00 8
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_07,limit=1] run scoreboard players set #least_survival swPool_var00 7
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_06,limit=1] run scoreboard players set #least_survival swPool_var00 6
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_05,limit=1] run scoreboard players set #least_survival swPool_var00 5
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_04,limit=1] run scoreboard players set #least_survival swPool_var00 4
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_03,limit=1] run scoreboard players set #least_survival swPool_var00 3
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_02,limit=1] run scoreboard players set #least_survival swPool_var00 2
+execute if entity @e[type=item_display,tag=swPool_pool,tag=swPool_01,limit=1] run scoreboard players set #least_survival swPool_var00 1
 
 # foul: no valid first hit
 execute unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
@@ -57,7 +57,7 @@ execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_
 
 # End game, if no foul and 9 is potted. 
 # otherwise: respot and foul
-execute unless entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_09,limit=1] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tag @s add swPool_endgame 
+execute unless entity @e[type=item_display,tag=swPool_pool,tag=swPool_09,limit=1] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tag @s add swPool_endgame 
 
 execute if entity @s[tag=swPool_endgame,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
 execute if entity @s[tag=swPool_endgame,tag=swPool_singleplayer] if entity @a[tag=swPool_hitcue,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" Completes the Game. "}]
@@ -70,7 +70,7 @@ execute if entity @s[tag=swPool_endgame,tag=swPool_multiplayer] if entity @a[tag
 execute if entity @s[tag=swPool_endgame,tag=swPool_multiplayer] if entity @a[tag=swPool_hitcue,tag=!swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获胜。"}]
 
 # respot 9 if not end game
-execute unless entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_09,limit=1] if entity @a[tag=swPool_hitcue,tag=swPool_foul] at @s run function pool:classes/master/9ball/respot_9
+execute unless entity @e[type=item_display,tag=swPool_pool,tag=swPool_09,limit=1] if entity @a[tag=swPool_hitcue,tag=swPool_foul] at @s run function pool:classes/master/9ball/respot_9
 
 # if not endgame, determine next player
 # singleplayer: same player

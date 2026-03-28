@@ -12,7 +12,7 @@
 
 scoreboard players operation @s swPool_drot = @s swPool_Rotation
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_facer
-execute at @s run tp @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] ~ ~ ~ facing entity @e[type=armor_stand,tag=swPool_a2,limit=1]
+execute at @s run tp @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] ~ ~ ~ facing entity @e[type=item_display,tag=swPool_a2,limit=1]
 execute as @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] store result score FACER swPool_rot run data get entity @s Rotation[0] 10000
 scoreboard players operation @s swPool_drot -= FACER swPool_rot
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] remove swPool_facer
@@ -30,9 +30,9 @@ execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run function pool:classes/motion/move
 execute if entity @s[tag=!swPool_aabs] run scoreboard players set @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v 0
 
-execute if entity @s[tag=!swPool_aabs] store result entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_Rotation
+execute if entity @s[tag=!swPool_aabs] store result entity @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get @e[type=item_display,tag=swPool_a2,limit=1] swPool_Rotation
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run tp @s ~ ~ ~ ~180 0
-execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v = @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_v
+execute if entity @s[tag=!swPool_aabs] run scoreboard players operation @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] swPool_v = @e[type=item_display,tag=swPool_a2,limit=1] swPool_v
 execute if entity @s[tag=!swPool_aabs] run execute as @e[type=area_effect_cloud,tag=swPool_facertp,limit=1,sort=nearest] at @s run function pool:classes/motion/move
 
 
@@ -55,11 +55,11 @@ scoreboard players remove @s[scores={swPool_drot=3600001..}] swPool_drot 3600000
 scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 #get distance
-tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_d2
+tag @e[type=item_display,tag=swPool_a2,limit=1] add swPool_d2
 #tag @e[type=area_effect_cloud,tag=swPool_fake,tag=swPool_a2,limit=1] add swPool_d2
 tag @s add swPool_d1
 execute at @s run function pool:classes/physics/distance1
-tag @e[type=armor_stand,tag=swPool_a2,limit=1] remove swPool_d2
+tag @e[type=item_display,tag=swPool_a2,limit=1] remove swPool_d2
 tag @s remove swPool_d1
 
 #tellraw @a [{"text":"variable dist is "},{"score":{"objective":"swPool_dist","name":"@s"}}]
@@ -68,11 +68,11 @@ tag @s remove swPool_d1
 #modify equation for different radius...
 scoreboard players set @s swPool_var01 25000000
 
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
+execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
+execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
 
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
+execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
+execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
 
 #tellraw @a [{"text":"variable swPool_v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
 
@@ -101,7 +101,7 @@ execute unless entity @s[scores={swPool_ontgt=1..}] run scoreboard players set @
 #begin collision
 #link to collision function
 execute if entity @s[scores={swPool_drel=0..20000}] run tag @s add swPool_c1
-execute if entity @s[scores={swPool_drel=0..20000}] run tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_c2
+execute if entity @s[scores={swPool_drel=0..20000}] run tag @e[type=item_display,tag=swPool_a2,limit=1] add swPool_c2
 execute if entity @s[tag=swPool_c1] at @s run function pool:classes/collision/main
 
 #remove a1, a2 later

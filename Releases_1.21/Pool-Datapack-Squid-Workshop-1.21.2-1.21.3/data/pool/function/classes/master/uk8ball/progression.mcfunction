@@ -4,11 +4,11 @@
 scoreboard players add Stroke swPool_hidScore 1
 
 
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
-execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 #rerack request
 execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack!"}]

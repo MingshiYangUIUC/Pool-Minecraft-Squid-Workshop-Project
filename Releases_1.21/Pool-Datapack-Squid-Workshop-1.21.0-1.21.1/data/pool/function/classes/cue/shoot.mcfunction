@@ -60,8 +60,8 @@ scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] s
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = break_power swPool_C
-execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v /= #C_100 swMath_C
-execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v *= #breakpower swMath_V
+execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=item_display,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v /= #C_100 swMath_C
+execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=item_display,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v *= #breakpower swMath_V
 execute if score #breakshot swPool_v matches 1 run scoreboard players set #breakshot swPool_v 0
 #tellraw @a [{"text":" v new, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 

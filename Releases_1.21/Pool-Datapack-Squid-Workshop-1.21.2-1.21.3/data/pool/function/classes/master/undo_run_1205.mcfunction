@@ -7,31 +7,31 @@ kill @e[tag=swPool_pool]
 tag @e[tag=swPool_temppin] add swPool_pool
 
 
-execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=1]
-execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=36]
-item replace entity @e[tag=swPool_red,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=2]
-item replace entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=3]
-item replace entity @e[tag=swPool_green,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=4]
-item replace entity @e[tag=swPool_brown,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=5]
-item replace entity @e[tag=swPool_blue,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=6]
-item replace entity @e[tag=swPool_pink,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=7]
-item replace entity @e[tag=swPool_black,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=8]
+execute if data storage minecraft:swpool cueballreddot run execute as @e[tag=swPool_cue,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":1}}}
+execute unless data storage minecraft:swpool cueballreddot run execute as @e[tag=swPool_cue,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":36}}}
+execute as @e[tag=swPool_red,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":2}}}
+execute as @e[tag=swPool_yellow,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":3}}}
+execute as @e[tag=swPool_green,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":4}}}
+execute as @e[tag=swPool_brown,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":5}}}
+execute as @e[tag=swPool_blue,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":6}}}
+execute as @e[tag=swPool_pink,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":7}}}
+execute as @e[tag=swPool_black,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":8}}}
 
-item replace entity @e[tag=swPool_01,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=21]
-item replace entity @e[tag=swPool_02,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=22]
-item replace entity @e[tag=swPool_03,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=23]
-item replace entity @e[tag=swPool_04,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=24]
-item replace entity @e[tag=swPool_05,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=25]
-item replace entity @e[tag=swPool_06,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=26]
-item replace entity @e[tag=swPool_07,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=27]
-item replace entity @e[tag=swPool_08,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=28]
-item replace entity @e[tag=swPool_09,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=29]
-item replace entity @e[tag=swPool_10,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=30]
-item replace entity @e[tag=swPool_11,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=31]
-item replace entity @e[tag=swPool_12,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=32]
-item replace entity @e[tag=swPool_13,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=33]
-item replace entity @e[tag=swPool_14,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=34]
-item replace entity @e[tag=swPool_15,tag=swPool_temppin] armor.head with minecraft:acacia_button[minecraft:custom_model_data=35]
+execute as @e[tag=swPool_01,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":21}}}
+execute as @e[tag=swPool_02,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":22}}}
+execute as @e[tag=swPool_03,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":23}}}
+execute as @e[tag=swPool_04,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":24}}}
+execute as @e[tag=swPool_05,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":25}}}
+execute as @e[tag=swPool_06,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":26}}}
+execute as @e[tag=swPool_07,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":27}}}
+execute as @e[tag=swPool_08,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":28}}}
+execute as @e[tag=swPool_09,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":29}}}
+execute as @e[tag=swPool_10,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":30}}}
+execute as @e[tag=swPool_11,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":31}}}
+execute as @e[tag=swPool_12,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":32}}}
+execute as @e[tag=swPool_13,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":33}}}
+execute as @e[tag=swPool_14,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":34}}}
+execute as @e[tag=swPool_15,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":35}}}
 
 scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank 2
 scoreboard players set @e[tag=swPool_green,tag=swPool_temppin] swPool_rank 3

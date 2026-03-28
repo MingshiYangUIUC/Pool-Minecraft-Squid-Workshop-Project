@@ -1,7 +1,7 @@
 function pool:classes/lobby/terminate_helper
 
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
+tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
 
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
 execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
@@ -28,8 +28,8 @@ scoreboard players set Stroke swPool_hidScore 0
 scoreboard players set Pocketed_Total swPool_hidScore 0
 scoreboard players set Pocketed_Turn swPool_hidScore 0
 
-execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
 execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_EN] [{"text":"[DUO UK 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
