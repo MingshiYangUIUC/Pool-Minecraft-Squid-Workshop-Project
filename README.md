@@ -67,7 +67,7 @@ Although not required, zipping the datapack and resourcepack folders can signifi
 
 ## Compatibility Notice
 - **1.16-1.20:** The datapack and resourcepack will work for various supported game versions, although the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
-- **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions. The `Releases_1.21` folder containing the minor-version-specific packs will be removed in future.
+- **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions and compatible with newer versions. The `Releases_1.21` folder containing the minor-version-specific packs are removed.
 
 **Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.1.**
 
@@ -77,7 +77,20 @@ Although not required, zipping the datapack and resourcepack folders can signifi
 The videos might be outdated but they still contain all essential demos of the datapack.
 
 Most interactions do not require typing commands. You only need to click <<ins>text like this</ins>> in the chat or select the game’s suggested commands.  
-🔔 Tip: Disable “Force Unicode Font” for a better experience.
+
+- [1. Initialize the Datapack](#1-initialize-the-datapack)
+- [2. Load the Resourcepack](#2-load-the-resourcepack)
+- [3. Access Settings and Help](#3-access-settings-and-help)
+- [4. Get the Cue Stick](#4-get-the-cue-stick)
+- [5. Set Up the Table](#5-set-up-the-table)
+- [6. Open the Game Lobby](#6-open-the-game-lobby)
+- [7. Start a Singleplayer Game](#7-start-a-singleplayer-game)
+- [8. Start a Multiplayer Game](#8-start-a-multiplayer-game)
+- [9. Shoot a Ball](#9-shoot-a-ball)
+- [10. Cue Ball Control](#10-cue-ball-control)
+- [11. Undo the Last Shot](#11-undo-the-last-shot)
+- [12. Practice Mode](#12-practice-mode)
+- [13. Notes and Tips](#13-notes-and-tips)
 
 ### 1. Initialize the Datapack
 <video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -216,19 +229,22 @@ https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
 
 Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
+### 13. Notes and Tips
+- In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate.
+- It is recommended to play on Minecraft 1.21 or newer, as visuals are significantly improved with the use of item display entities.
+- Disable **Force Unicode Font** for a better experience.
+
 ---
 # How It Works
 
-This datapack uses simplified Newtonian physics to simulate the behavior of pool balls in Minecraft. It omits friction between pockets and balls, deformation, and other complexities in favor of performance and clarity.
+This datapack uses simplified Newtonian physics and Neural Networks to simulate the behavior of pool balls in Minecraft. It omits friction between pockets and balls, deformation of balls and cushion, and other complexities in favor of performance and clarity.
 
 Included mechanics:
 - Conservation of momentum, angular momentum, and energy
 - Modeling of cue stick elevation and cue ball hit point for spin generation
 - Interaction with the pocket edge (but friction is not modeled)
 
-The implementation is original and does not reference any published papers. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
-
-The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318).
+The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318). Other mechanics are original and did not reference any published work. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
 
 ---
 # Frequently Asked Questions
@@ -255,7 +271,7 @@ Please set up the table on a large and flat surface, and do not use any tools to
 Please get a new one by running /function app:get/pool/cueball_helper
 
 8. I get unexpected problems. \
-Please try to reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
+Please try to undo the shot and try again, reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
 
 ---
 # Notes

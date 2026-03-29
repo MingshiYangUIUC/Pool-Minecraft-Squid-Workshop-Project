@@ -1,6 +1,6 @@
 scoreboard players set C-1 swPool_var00 -1
 
-execute at @e[tag=swPool_pin] run particle witch ~ ~1 ~ 0 0 0 0 1 force
+execute at @e[tag=swPool_pin] run particle witch ~ ~0.5 ~ 0 0 0 0 1 force
 
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_cueplace
 

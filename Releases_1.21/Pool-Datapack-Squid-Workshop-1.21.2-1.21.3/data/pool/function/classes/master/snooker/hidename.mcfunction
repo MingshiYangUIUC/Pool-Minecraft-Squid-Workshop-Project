@@ -1,1 +1,0 @@
-execute as @e[scores={swPool_rank=2..}] run data merge entity @s {CustomNameVisible:0b}

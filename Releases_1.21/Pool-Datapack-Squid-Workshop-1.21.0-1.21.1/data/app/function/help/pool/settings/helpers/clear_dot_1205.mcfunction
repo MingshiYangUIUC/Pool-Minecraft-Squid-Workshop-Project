@@ -1,1 +1,0 @@
-clear @s carrot_on_a_stick[minecraft:custom_model_data=99]

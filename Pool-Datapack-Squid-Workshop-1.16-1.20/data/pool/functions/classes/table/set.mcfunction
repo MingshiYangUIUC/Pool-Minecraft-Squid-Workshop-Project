@@ -157,3 +157,7 @@ kill @e[tag=swPool_placer,type=area_effect_cloud]
 
 tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+
+# test if pooltable is near, if not, warn the player about table placement
+execute unless entity @e[tag=swPool_pooltable,limit=1,sort=nearest,distance=..10] run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"This datapack may not work correctly far from the world origin due to scoreboard scaling. Please use it closer to (0, 0).","color":"red"}]
+execute unless entity @e[tag=swPool_pooltable,limit=1,sort=nearest,distance=..10] run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"由于计分板数值缩放，本数据包在远离世界原点时可能出现异常，请尽量在接近 (0, 0) 的位置使用。","color":"red"}]
