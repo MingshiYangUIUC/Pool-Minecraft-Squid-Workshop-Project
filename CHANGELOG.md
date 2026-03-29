@@ -1,7 +1,8 @@
 ### <span style="color:orange">March 2026</span> — Preparing for official release. Release candidates are now publicly available.
 
 - The datapack, resource pack, and math library are now publicly available on Modrinth and CurseForge.
-- Minor fixes and adjustments.
+- Minor fixes and adjustments. Please check the changelog for each release for details.
+- Extend support of **Item Display** back to since 1.21.
 
 ### <span style="color:orange">February 2026</span> — 9 Ball game is added to the datapack. Our packs get new and more distinguishable icons.
 
@@ -19,7 +20,7 @@
   Please refer to the **User Guide and Demo** for details on configuring this option in the datapack.
 - When an Item Display rotates, its **`transformation`** data are updated continuously, analogous to how an Armor Stand’s **`Pose`** data change. Although governed by different mathematical formulations, both systems are derived from **3D rotation vectors defined in the world frame**.
 
-- *Although it is technically possible to extend this change back to some earlier versions, feature support is intentionally limited to **1.21.4+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
+- *Although it is technically possible to extend this change back to some earlier versions, feature support is intentionally limited to **1.21+**. Given the evolving command syntax in previous releases, maintaining backward compatibility would require substantial re-development effort, which is less worthwhile than keeping previous versions stable and mature.*
 
 
 ### <span style="color:orange">September 2025</span> — AI Break Simulation!

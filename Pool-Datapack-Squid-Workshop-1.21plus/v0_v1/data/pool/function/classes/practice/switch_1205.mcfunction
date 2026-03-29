@@ -41,6 +41,7 @@ tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] add swPool_practicemode
 tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
+tag @e[tag=swPool_pooltable] remove swPool_9ballmode
 
 
 
@@ -73,7 +74,7 @@ execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:custom_model_data=135,minecraft:custom_name="\"15\""]
 
 
-tag @e[tag=swPool_pooltable] add swPool_start
+#tag @e[tag=swPool_pooltable] add swPool_start
 tag @e[tag=swPool_pooltable] remove swPool_fouled
 tag @e[tag=swPool_pooltable] remove swPool_pocketing
 tag @e[tag=swPool_pooltable] remove swPool_foulcolor

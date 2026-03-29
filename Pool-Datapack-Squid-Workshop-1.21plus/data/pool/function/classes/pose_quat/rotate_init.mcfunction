@@ -17,7 +17,10 @@ scoreboard players operation #vAk swMath_V = wz swMath_V
 function math:classes/core/vector/magnitude
 scoreboard players operation #wmag swMath_V = #vOut swMath_V
 
-#tellraw @a [{"text":"wmag: "},{"score":{"name": "#wmag","objective": "swMath_V"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"wmag: "},{"score":{"name": "#wmag","objective": "swMath_V"}}]
+
+# clamp magnitude for rotation animation
+execute if score #wmag swMath_V matches 30000.. run function pool:classes/pose_quat/clamp_w_magnitude
 
 # dt = t / 100  # 10000 is 1 in this function  # 100 is 0.01 in this function 
 # adaptive integration step

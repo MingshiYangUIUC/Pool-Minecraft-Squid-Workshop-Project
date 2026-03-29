@@ -1011,6 +1011,11 @@ print('\n\n\nRemoving intermediate files...')
 #shutil.rmtree('Releases_1.21')
 
 print('Rename to match future version')
+
+if os.path.isdir(Path(datapack_dir_target_str+'plus')):
+    shutil.rmtree(Path(datapack_dir_target_str+'plus'))
+if os.path.isdir(Path(resourcepack_dir_target_str+'plus')):
+    shutil.rmtree(Path(resourcepack_dir_target_str+'plus'))
 os.rename(Path(datapack_dir_target_str),Path(datapack_dir_target_str+'plus'))
 os.rename(Path(resourcepack_dir_target_str),Path(resourcepack_dir_target_str+'plus'))
 

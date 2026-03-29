@@ -41,3 +41,4 @@ tag @a[tag=swPool_spec] remove swPool_spec
 #scoreboard players reset Opponent swPool_Score
 #scoreboard players reset Stroke swPool_hidScore
 
+tag @e[type=item_display,tag=swPool_pooltable] add swPool_endgame

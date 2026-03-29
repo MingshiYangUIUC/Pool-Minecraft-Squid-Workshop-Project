@@ -6,25 +6,22 @@ execute at @s[scores={swPool_v=1..}] run function pool:classes/physics/vseparate
 execute as @e[tag=swPool_c2,limit=1,scores={swPool_v=1..}] at @s run function pool:classes/physics/vseparate
 scoreboard players operation @s swPool_vrx = @s swPool_vx
 scoreboard players operation @s swPool_vrz = @s swPool_vz
-scoreboard players operation @s swPool_vrx -= @e[tag=swPool_c2,limit=1] swPool_vx
-scoreboard players operation @s swPool_vrz -= @e[tag=swPool_c2,limit=1] swPool_vz
+scoreboard players operation @s swPool_vrx -= @e[tag=swPool_c2,limit=1,scores={swPool_v=1..}] swPool_vx
+scoreboard players operation @s swPool_vrz -= @e[tag=swPool_c2,limit=1,scores={swPool_v=1..}] swPool_vz
 
-#find swPool_vr magnitude
-tag @e[tag=swPool_rhp1] add swPool_vr
-scoreboard players operation @e[tag=swPool_vr,limit=1] swPool_vx = @s swPool_vrx
-scoreboard players operation @e[tag=swPool_vr,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_vr,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
-scoreboard players operation @s swPool_vr = @e[tag=swPool_vr,limit=1] swPool_v
-scoreboard players reset @e[tag=swPool_rhp1] swPool_v
-scoreboard players reset @e[tag=swPool_rhp1] swPool_vx
-scoreboard players reset @e[tag=swPool_rhp1] swPool_vz
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var00
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var01
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var02
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var03
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var04
-scoreboard players reset @e[tag=swPool_rhp1] swPool_var05
-tag @e[tag=swPool_rhp1] remove swPool_vr
+scoreboard players set #C_adapt swPool_C 2000
+scoreboard players operation #vIn swMath_V = @s swPool_vrx
+scoreboard players operation #vz swMath_V = @s swPool_vrz
+execute unless score #vIn swMath_V matches -50000000..50000000 run scoreboard players set #C_adapt swPool_C 10000
+execute unless score #vz swMath_V matches -50000000..50000000 run scoreboard players set #C_adapt swPool_C 10000
+scoreboard players operation #vIn swMath_V /= #C_adapt swPool_C
+scoreboard players operation #vz swMath_V /= #C_adapt swPool_C
+scoreboard players operation #vIn swMath_V *= #vIn swMath_V
+scoreboard players operation #vz swMath_V *= #vz swMath_V
+scoreboard players operation #vIn swMath_V += #vz swMath_V
+function math:classes/core/operations/sqrt
+scoreboard players operation #vOut swMath_V *= #C_adapt swPool_C
+scoreboard players operation @s swPool_vr = #vOut swMath_V
 
 #get swPool_hittime
 scoreboard players operation @s swPool_var00 = @s swPool_vr

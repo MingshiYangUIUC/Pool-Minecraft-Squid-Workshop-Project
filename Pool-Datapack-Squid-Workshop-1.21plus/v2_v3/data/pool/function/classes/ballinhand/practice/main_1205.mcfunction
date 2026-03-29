@@ -1,7 +1,7 @@
 
 scoreboard players set C-1 swPool_var00 -1
 
-execute at @e[tag=swPool_pin] run particle witch ~ ~1 ~ 0 0 0 0 1 force
+execute at @e[tag=swPool_pin] run particle witch ~ ~0.5 ~ 0 0 0 0 1 force
 
 tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_cueplace
 
@@ -55,8 +55,8 @@ execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02
 execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_lifetime 0
 scoreboard players set @s swPool_crtclk 0
 
-execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] if data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick[minecraft:custom_model_data=99] 1
-execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] unless data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick[minecraft:custom_model_data=100] 1
+execute if entity @e[tag=swPool_pooltable,tag=!swPool_practicemode] if data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick[minecraft:custom_model_data=99] 1
+execute if entity @e[tag=swPool_pooltable,tag=!swPool_practicemode] unless data storage minecraft:swpool cueballreddot if entity @e[tag=swPool_cue,tag=swPool_free] run clear @a[tag=swPool_ballinhand] carrot_on_a_stick[minecraft:custom_model_data=100] 1
 
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_given
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a[tag=swPool_ballinhand] remove swPool_ballinhand

@@ -131,40 +131,41 @@ execute if score @s swPool_trigger matches 130 run function pool:classes/lobby/b
 execute if score @s swPool_trigger matches 131 run tag @s add swPool_spec
 execute if score @s swPool_trigger matches 132 run tag @s remove swPool_spec
 execute if score @s swPool_trigger matches 133 run function pool:classes/lobby/leave
-execute if score @s swPool_trigger matches 134 run function app:settings/pool/friction/default
-execute if score @s swPool_trigger matches 135 run function app:settings/pool/language/chinese_simplified
-execute if score @s swPool_trigger matches 136 run function app:settings/pool/language/english
-execute if score @s swPool_trigger matches 137 run function app:settings/pool/snooker/display/dialogue
-execute if score @s swPool_trigger matches 138 run function app:settings/pool/snooker/display/sidebar
-execute if score @s swPool_trigger matches 139 run function pool:classes/master/undo
-execute if score @s swPool_trigger matches 140 run function pool:classes/master/practice/ballinhand
-execute if score @s swPool_trigger matches 141 run function pool:classes/practice/start_helper
-execute if score @s swPool_trigger matches 142 run function pool:classes/practice/balls/settings/snake_3
-execute if score @s swPool_trigger matches 143 run function pool:classes/practice/balls/settings/snake_7
-execute if score @s swPool_trigger matches 144 run function pool:classes/practice/balls/settings/snake_15
-execute if score @s swPool_trigger matches 145 run function pool:classes/practice/balls/settings/vsnake_3
-execute if score @s swPool_trigger matches 146 run function pool:classes/practice/balls/settings/vsnake_7
-execute if score @s swPool_trigger matches 147 run function pool:classes/practice/balls/settings/vsnake_15
-execute if score @s swPool_trigger matches 148 run tell @s coming soon
-execute if score @s swPool_trigger matches 149 run function pool:classes/snooker/start
-execute if score @s swPool_trigger matches 150 run function pool:classes/practice/start
-execute if score @s swPool_trigger matches 151 run function pool:classes/snooker/startsp
-execute if score @s swPool_trigger matches 152 run function pool:classes/uk8ball/start
-execute if score @s swPool_trigger matches 153 run function pool:classes/uk8ball/startsp
-execute if score @s swPool_trigger matches 154 run scoreboard players set @s swPool_sizex 13750
-execute if score @s swPool_trigger matches 155 run scoreboard players set @s swPool_sizex 23750
-execute if score @s swPool_trigger matches 156 run scoreboard players set @s swPool_sizex 33750
-execute if score @s swPool_trigger matches 157 run scoreboard players set @s swPool_sizex 43750
-execute if score @s swPool_trigger matches 158 run scoreboard players set @s swPool_sizex 53750
-execute if score @s swPool_trigger matches 159 run scoreboard players set @s swPool_sizex 63750
-execute if score @s swPool_trigger matches 160 run scoreboard players reset @s swPool_sizex
-execute if score @s swPool_trigger matches 161 run scoreboard players set @s swPool_sizez 13750
-execute if score @s swPool_trigger matches 162 run scoreboard players set @s swPool_sizez 23750
-execute if score @s swPool_trigger matches 163 run scoreboard players set @s swPool_sizez 33750
-execute if score @s swPool_trigger matches 164 run scoreboard players set @s swPool_sizez 43750
-execute if score @s swPool_trigger matches 165 run scoreboard players set @s swPool_sizez 53750
-execute if score @s swPool_trigger matches 166 run scoreboard players set @s swPool_sizez 63750
-execute if score @s swPool_trigger matches 167 run scoreboard players reset @s swPool_sizez
-execute if score @s swPool_trigger matches 168 run function pool:classes/table/check
+execute if score @s swPool_trigger matches 134 run function app:help/pool/about/games
+execute if score @s swPool_trigger matches 135 run function app:settings/pool/friction/default
+execute if score @s swPool_trigger matches 136 run function app:settings/pool/language/chinese_simplified
+execute if score @s swPool_trigger matches 137 run function app:settings/pool/language/english
+execute if score @s swPool_trigger matches 138 run function app:settings/pool/snooker/display/dialogue
+execute if score @s swPool_trigger matches 139 run function app:settings/pool/snooker/display/sidebar
+execute if score @s swPool_trigger matches 140 run function pool:classes/master/undo
+execute if score @s swPool_trigger matches 141 run function pool:classes/master/practice/ballinhand
+execute if score @s swPool_trigger matches 142 run function pool:classes/practice/start_helper
+execute if score @s swPool_trigger matches 143 run function pool:classes/practice/balls/settings/snake_3
+execute if score @s swPool_trigger matches 144 run function pool:classes/practice/balls/settings/snake_7
+execute if score @s swPool_trigger matches 145 run function pool:classes/practice/balls/settings/snake_15
+execute if score @s swPool_trigger matches 146 run function pool:classes/practice/balls/settings/vsnake_3
+execute if score @s swPool_trigger matches 147 run function pool:classes/practice/balls/settings/vsnake_7
+execute if score @s swPool_trigger matches 148 run function pool:classes/practice/balls/settings/vsnake_15
+execute if score @s swPool_trigger matches 149 run tell @s coming soon
+execute if score @s swPool_trigger matches 150 run function pool:classes/snooker/start
+execute if score @s swPool_trigger matches 151 run function pool:classes/practice/start
+execute if score @s swPool_trigger matches 152 run function pool:classes/snooker/startsp
+execute if score @s swPool_trigger matches 153 run function pool:classes/uk8ball/start
+execute if score @s swPool_trigger matches 154 run function pool:classes/uk8ball/startsp
+execute if score @s swPool_trigger matches 155 run scoreboard players set @s swPool_sizex 13750
+execute if score @s swPool_trigger matches 156 run scoreboard players set @s swPool_sizex 23750
+execute if score @s swPool_trigger matches 157 run scoreboard players set @s swPool_sizex 33750
+execute if score @s swPool_trigger matches 158 run scoreboard players set @s swPool_sizex 43750
+execute if score @s swPool_trigger matches 159 run scoreboard players set @s swPool_sizex 53750
+execute if score @s swPool_trigger matches 160 run scoreboard players set @s swPool_sizex 63750
+execute if score @s swPool_trigger matches 161 run scoreboard players reset @s swPool_sizex
+execute if score @s swPool_trigger matches 162 run scoreboard players set @s swPool_sizez 13750
+execute if score @s swPool_trigger matches 163 run scoreboard players set @s swPool_sizez 23750
+execute if score @s swPool_trigger matches 164 run scoreboard players set @s swPool_sizez 33750
+execute if score @s swPool_trigger matches 165 run scoreboard players set @s swPool_sizez 43750
+execute if score @s swPool_trigger matches 166 run scoreboard players set @s swPool_sizez 53750
+execute if score @s swPool_trigger matches 167 run scoreboard players set @s swPool_sizez 63750
+execute if score @s swPool_trigger matches 168 run scoreboard players reset @s swPool_sizez
+execute if score @s swPool_trigger matches 169 run function pool:classes/table/check
 
 scoreboard players reset @s swPool_trigger
