@@ -1,10 +1,10 @@
-# Minecraft Pool & Billiards Datapack  
-### _Squid Workshop_
+# Minecraft Pool & Billiards Datapack
 
 Realistic cue sport game in **Minecraft Java Edition** like in real life.  
-Supports **Snooker, UK 8 Ball, Chinese 8 Ball, and 9 Ball**.
+Supports **Snooker, UK 8 Ball, Chinese 8 Ball, 9 Ball**, and custom practice mode.  
+Supports **single-player** games and **duo-player** PVP games.
 
-Content creator: **Mingshi Yang (YMS2001)**  
+Content creator: **Mingshi Yang (YMS2001)** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
 Contact: mingshi3@illinois.edu
 
 [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
@@ -20,7 +20,6 @@ Contact: mingshi3@illinois.edu
 
 ## Table of Contents
 
-- [Abstract](#abstract)
 - [Installation](#installation)
 - [User Guide and Demo](#user-guide-and-demo)
 - [How It Works](#how-it-works)
@@ -31,24 +30,7 @@ Contact: mingshi3@illinois.edu
 
 ---
 
-## Abstract
-
-This datapack is designed for Minecraft players who enjoy cue sports.  
-Here, *pool* broadly refers to cue sports including *Snooker*, *Billiards*, *8/9 Ball*, and related variants.
-
-The datapack supports **single-player and two-player gameplay** in **Minecraft Java Edition 1.16+**.
-
-Supported game modes:
-
-* Practice Mode  
-* Snooker  
-* 9 Ball  
-* UK 8 Ball  
-* Chinese 8 Ball  
-
----
-
-## Installation
+# Installation
 
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft" if in Windows.
@@ -65,11 +47,11 @@ Supported game modes:
 If not working, check whether the datapack is enabled by `/datapack list` and enable it by `/datapack enable "datapackname"`. \
 Although not required, zipping the datapack and resourcepack folders can significantly reduce file sizes.
 
-## Compatibility Notice
-- **1.16-1.20:** The datapack and resourcepack will work for various supported game versions, although the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+### Compatibility Notice
+- **General:** The datapack and resourcepack will work for various supported game versions but pack.mcmeta files may not be up to date. If future Minecraft versions only require updating `pack.mcmeta` for compatibility, a new release may not be published for this change alone. Therefore, the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
 - **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions and compatible with newer versions. The `Releases_1.21` folder containing the minor-version-specific packs are removed.
 
-**Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.1.**
+**Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.**
 
 ---
 # User Guide and Demo
@@ -268,7 +250,7 @@ Please play with available settings, especially the `visuals`. Note that differe
 Please set up the table on a large and flat surface, and do not use any tools to "mine" on the table.
 
 7. I need to place the cue ball, but I don't have one in my inventory. \
-Please get a new one by running /function app:get/pool/cueball_helper
+Please get a new one by running `/function app:get/pool/cueball_helper`.
 
 8. I get unexpected problems. \
 Please try to undo the shot and try again, reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
@@ -288,7 +270,6 @@ Please try to undo the shot and try again, reset the game, reset the table, or u
 
 ---
 # Terms of Use
-This section shall be honored when in conflict with other documents.  
 Feel free to play around with this datapack.  
 As developer, feel free to use this datapack as a module to develop free datapacks.  
 But you **must** notify us and add the link to this github page!  
