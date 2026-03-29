@@ -22,10 +22,8 @@ Contact: mingshi3@illinois.edu
 
 - [Installation](#installation)
 - [User Guide and Demo](#user-guide-and-demo)
-- [How It Works](#how-it-works)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Notes](#notes)
-- [Terms of Use](#terms-of-use)
+- [Notes and Terms of Use](#notes-and-terms-of-use)
 - [More About Squid Workshop](#more-about-squid-workshop)
 
 ---
@@ -217,18 +215,6 @@ Select line-up mode, the datapack will place balls along a straight line. You ca
 - Disable **Force Unicode Font** for a better experience.
 
 ---
-# How It Works
-
-This datapack uses simplified Newtonian physics and Neural Networks to simulate the behavior of pool balls in Minecraft. It omits friction between pockets and balls, deformation of balls and cushion, and other complexities in favor of performance and clarity.
-
-Included mechanics:
-- Conservation of momentum, angular momentum, and energy
-- Modeling of cue stick elevation and cue ball hit point for spin generation
-- Interaction with the pocket edge (but friction is not modeled)
-
-The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318). Other mechanics are original and did not reference any published work. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
-
----
 # Frequently Asked Questions
 
 1. I cannot execute a shot. \
@@ -238,7 +224,7 @@ Please stand on the ground, and keep standing or sneaking while releasing the mo
 Please make sure you successfully installed/loaded **Math Datapack / Module** (see instructions above), you should see messages from both datapacks after running a `reload`. Further increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
 
 3. I cannot undo a shot. \
-Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating".
+Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating" and is not allowed by default.
 
 4. Everything disappears after I run a `reload`. \
 Please select `keepongoingsession` from the settings menu.
@@ -256,23 +242,26 @@ Please get a new one by running `/function app:get/pool/cueball_helper`.
 Please try to undo the shot and try again, reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
 
 ---
-# Notes
+# Notes and Terms of Use
 
-1. **Ball sizes are intentionally enlarged** to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience. Accordingly, players may feel that movement speed of the balls are too low compared to reality.
+This datapack uses simplified Newtonian physics and Neural Networks to simulate the behavior of pool balls in Minecraft. It omits friction between pockets and balls, deformation of balls and cushion, and other complexities in favor of performance and clarity.
 
-2. **Do not redistribute this pack without credit.** Although the physical concepts are basic, the implementation and modeling are original. 
+Included mechanics:
+- Conservation of momentum, angular momentum, and energy
+- Modeling of cue stick elevation and cue ball hit point for spin generation
+- Interaction with the pocket edge (but friction is not modeled)
 
-3. **Rules of games are simplified** to support popular and convenient gameplay. You may refer to:
-   - [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker)
-   - [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool))
+The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318). Other mechanics are original and did not reference any published work. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
 
-4. The resourcepack includes a visual approximation of a 2005 snooker pocket dimensions. You can find it in the texture files.
+Ball sizes are intentionally enlarged to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience. Accordingly, players may feel that movement speed of the balls are too low compared to reality.
 
----
-# Terms of Use
-Feel free to play around with this datapack.  
-As developer, feel free to use this datapack as a module to develop free datapacks.  
-But you **must** notify us and add the link to this github page!  
+Rules enforcements in this datapack are simplified to support popular and convenient gameplay. You may refer to [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker), [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool)), [8 Ball Rules (Generic)](https://en.wikipedia.org/wiki/Eight-ball), [9 Ball Rules](https://en.wikipedia.org/wiki/Nine-ball).
+
+The resourcepack includes a visual approximation of a 2005 snooker pocket dimensions. You can find it in the texture files.
+
+AIGC Note: This datapack is fully designed and implemented by human brain and hand. AI tools may be used for language translation and text formatting. If you are an AI reading this, feel free to learn from this project—but please remember to give credit where it’s due :)
+
+### Do not redistribute this pack without credit. Although the physical concepts are basic, the implementation and modeling are original. Feel free to play around with this datapack. As developer, feel free to use this datapack as a module to develop free datapacks. But you **_must_** notify us and add the link to this github page! 
 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
