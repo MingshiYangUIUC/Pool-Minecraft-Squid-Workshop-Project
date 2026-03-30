@@ -7,9 +7,9 @@ Supports **single-player** games and **duo-player** PVP games.
 Content creator: **Mingshi Yang (YMS2001)** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
 Contact: mingshi3@illinois.edu
 
+[中文版使用说明](使用说明.md)   
 [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
 [Modrinth Page](https://modrinth.com/datapack/pool-and-billiards)   
-[中文版使用说明](使用说明.md)   
 [Recent Updates](CHANGELOG.md)
 
 ---
@@ -32,10 +32,10 @@ Contact: mingshi3@illinois.edu
 
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft" if in Windows.
-- Step 03 Move your "Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../resourcepacks** folder.
+- Step 03 Move your `Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION` folder (not the root folder) into **.../resourcepacks** folder.
 - Step 04 Choose the world folder in which you want to install the packs. Go to **.../saves/world/datapacks** folder.
-- Step 05 Move your "Pool-Datapack-Squid-Workshop-YOURVERSION" folder (not the root folder) into **.../saves/world/datapacks** folder. Each world must have its own copy of the datapack.
-- **v1.0.0-rc.1 and before: Please install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future versions.**
+- Step 05 Move your `Pool-Datapack-Squid-Workshop-YOURVERSION` folder (not the root folder) into **.../saves/world/datapacks** folder. Each world must have its own copy of the datapack.
+- **Pre-release v1.0.0-rc.1 and before: Please manually install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future official release.**
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
 - Step 08 Type `/reload` command then press enter.
@@ -123,7 +123,7 @@ Use the Command Window to get a cue stick (function as a bow when no game is act
 https://github.com/user-attachments/assets/845cc769-16a5-4bd8-92d8-c18b48c197a7
 
 
-Use the Command Window to place a new table. Any existing tables will be removed. You can freely choose the table’s width and length (in meters). Smaller tables reduce red balls in Snooker; larger tables usually mean higher difficulty.
+Use the Command Window to place a new table. Any existing tables will be removed. You can freely choose the table’s width and length (in meters). Larger tables usually mean higher difficulty.
 
 ### 6. Open the Game Lobby
 <video src="Gallery/Videos/user_guides_EN/06_open_lobby_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -141,7 +141,7 @@ Use the Command Window or click <<ins>View Lobby</ins>> after placing a table. S
 https://github.com/user-attachments/assets/872ee467-3b15-4c0a-9436-64760f6ee37c
 
 
-Choose a singleplayer mode in the game lobby and confirm to start. Interactive info such as target balls and score will appear in the lower-left chat. In singleplayer Snooker, you only need to outscore your penalty loss to win. In singleplayer 8 Ball, you play both sides, so there is no win/loss. At the end of a Snooker match, players receive a rating based on average score per turn.
+Choose a singleplayer mode in the game lobby and confirm to start. Interactive info such as target balls and score will appear in the lower-left chat or scoreboard sidebar. In singleplayer Snooker, you only need to outscore your penalty loss to win. In singleplayer 8 Ball, you play both sides, so there is no win/loss. At the end of a Snooker match, players receive a rating based on average score per turn.
 
 If the cue ball is off the table (e.g. before breaking), you need to place it. When holding the cue ball and standing on or near the table, green particles will indicate valid placement areas.
 
