@@ -1,4 +1,4 @@
-# Minecraft Pool & Billiards Datapack
+# Minecraft Pool & Billiards Datapack 台球数据包
 
 Realistic cue sport game in **Minecraft Java Edition** like in real life.  
 Supports **Snooker, UK 8 Ball, Chinese 8 Ball, 9 Ball**, and custom practice mode.  
@@ -213,6 +213,7 @@ Select line-up mode, the datapack will place balls along a straight line. You ca
 - In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate.
 - It is recommended to play on Minecraft 1.21 or newer, as visuals are significantly improved with the use of item display entities.
 - Disable **Force Unicode Font** for a better experience.
+- When a Snooker game starts, the number of red balls racked depends on the size of table.
 
 ---
 # Frequently Asked Questions
