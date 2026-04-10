@@ -4,12 +4,12 @@ Realistic cue sport game in **Minecraft Java Edition** like in real life.
 Supports **Snooker, UK 8 Ball, Chinese 8 Ball, 9 Ball**, and custom practice mode.  
 Supports **single-player** games and **duo-player** PVP games.
 
-Content creator: **Mingshi Yang (YMS2001)** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
+Content creator: **YMS2001** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
 Contact: mingshi3@illinois.edu
 
 [中文版使用说明](使用说明.md)   
+[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards) [Recommended for auto dependency download]   
 [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
-[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards)   
 [Recent Updates](CHANGELOG.md)
 
 ---
@@ -38,7 +38,7 @@ Contact: mingshi3@illinois.edu
 - **Pre-release v1.0.0-rc.1 and before: Please manually install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future official release.**
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
-- Step 08 Type `/reload` command then press enter.
+- Step 08 Type `/reload` command then press enter and follow the installation prompt to configure the datapack.
 - Step 09 Recommended: Type `/gamerule` command to set the `maxCommandChainLength` or `max_command_sequence_length` to 131072 or higher.
 - Step 10 Enjoy 
 

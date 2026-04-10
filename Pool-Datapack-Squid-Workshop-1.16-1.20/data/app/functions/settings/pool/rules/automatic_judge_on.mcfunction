@@ -1,0 +1,1 @@
+data remove storage minecraft:swpool automatic_judge_off

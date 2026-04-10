@@ -128,8 +128,8 @@ tag @a[tag=swPool_placingcue] add swPool_ballinhand
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
 
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ballinhand
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] run clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] run clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
 
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack

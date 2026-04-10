@@ -100,25 +100,118 @@ execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon item_display ~
 execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon item_display ~-0.49 ~0.36875 ~-0.25 {Rotation:[0.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 #equip items
-execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:10}}}
-execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:11}}}
-execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:12}}}
-execute unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:13}}}
+execute if score table_cloth_color swPool_C matches 0 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:101}}}
+execute if score table_cloth_color swPool_C matches 0 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:102}}}
+execute if score table_cloth_color swPool_C matches 0 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:103}}}
+execute if score table_cloth_color swPool_C matches 0 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:104}}}
 
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table"}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_new"}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_new"}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_new"}}}
-execute if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_new"}}}
+execute if score table_cloth_color swPool_C matches 0 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_green"}}}
+execute if score table_cloth_color swPool_C matches 0 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_green"}}}
+execute if score table_cloth_color swPool_C matches 0 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_green"}}}
+execute if score table_cloth_color swPool_C matches 0 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_green"}}}
+execute if score table_cloth_color swPool_C matches 0 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_green"}}}
+
+
+execute if score table_cloth_color swPool_C matches 1 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:111}}}
+execute if score table_cloth_color swPool_C matches 1 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:112}}}
+execute if score table_cloth_color swPool_C matches 1 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:113}}}
+execute if score table_cloth_color swPool_C matches 1 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:114}}}
+
+execute if score table_cloth_color swPool_C matches 1 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_blue"}}}
+execute if score table_cloth_color swPool_C matches 1 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_blue"}}}
+execute if score table_cloth_color swPool_C matches 1 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_blue"}}}
+execute if score table_cloth_color swPool_C matches 1 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_blue"}}}
+execute if score table_cloth_color swPool_C matches 1 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_blue"}}}
+
+
+execute if score table_cloth_color swPool_C matches 2 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:121}}}
+execute if score table_cloth_color swPool_C matches 2 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:122}}}
+execute if score table_cloth_color swPool_C matches 2 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:123}}}
+execute if score table_cloth_color swPool_C matches 2 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:124}}}
+
+execute if score table_cloth_color swPool_C matches 2 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_red"}}}
+execute if score table_cloth_color swPool_C matches 2 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_red"}}}
+execute if score table_cloth_color swPool_C matches 2 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_red"}}}
+execute if score table_cloth_color swPool_C matches 2 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_red"}}}
+execute if score table_cloth_color swPool_C matches 2 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_red"}}}
+
+
+execute if score table_cloth_color swPool_C matches 3 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:131}}}
+execute if score table_cloth_color swPool_C matches 3 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:132}}}
+execute if score table_cloth_color swPool_C matches 3 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:133}}}
+execute if score table_cloth_color swPool_C matches 3 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:134}}}
+
+execute if score table_cloth_color swPool_C matches 3 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_custom_0"}}}
+execute if score table_cloth_color swPool_C matches 3 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_custom_0"}}}
+execute if score table_cloth_color swPool_C matches 3 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_custom_0"}}}
+execute if score table_cloth_color swPool_C matches 3 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_custom_0"}}}
+execute if score table_cloth_color swPool_C matches 3 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_custom_0"}}}
+
+
+execute if score table_cloth_color swPool_C matches 4 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:141}}}
+execute if score table_cloth_color swPool_C matches 4 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:142}}}
+execute if score table_cloth_color swPool_C matches 4 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:143}}}
+execute if score table_cloth_color swPool_C matches 4 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:144}}}
+
+execute if score table_cloth_color swPool_C matches 4 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_custom_1"}}}
+execute if score table_cloth_color swPool_C matches 4 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_custom_1"}}}
+execute if score table_cloth_color swPool_C matches 4 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_custom_1"}}}
+execute if score table_cloth_color swPool_C matches 4 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_custom_1"}}}
+execute if score table_cloth_color swPool_C matches 4 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_custom_1"}}}
+
+
+execute if score table_cloth_color swPool_C matches 5 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:151}}}
+execute if score table_cloth_color swPool_C matches 5 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:152}}}
+execute if score table_cloth_color swPool_C matches 5 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:153}}}
+execute if score table_cloth_color swPool_C matches 5 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:154}}}
+
+execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_cloth,tag=!swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_table_custom_2"}}}
+execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side,tag=!swPool_potl,tag=!swPool_potr,tag=!swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cushion_custom_2"}}}
+execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potl] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_left_custom_2"}}}
+execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_potr] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_sidepot_right_custom_2"}}}
+execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_corner] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_cloth_cornerpot_custom_2"}}}
 
 #execute as @e[tag=swPool_cloth] at @s run setblock ~ ~-1 ~ glass
 execute as @e[tag=swPool_cloth] at @s run setblock ~ ~ ~ iron_trapdoor[half=top]
 execute as @e[tag=swPool_cloth] at @s if block ~ ~-1 ~ air run setblock ~ ~-1 ~ iron_trapdoor[half=top]
 
-execute as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:iron_trapdoor[open=true,facing=east]
-execute as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:iron_trapdoor[open=true,facing=south]
-execute as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:iron_trapdoor[open=true,facing=west]
-execute as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:iron_trapdoor[open=true,facing=north]
+execute unless score table_trapdoor_type swPool_C matches 0..6 run scoreboard players set table_trapdoor_type swPool_C 0
+
+execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:iron_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:iron_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:iron_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:iron_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:oak_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:oak_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:oak_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:oak_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:spruce_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:spruce_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:spruce_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:spruce_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:birch_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:birch_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:birch_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:birch_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:jungle_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:jungle_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:jungle_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:jungle_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:acacia_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:acacia_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:acacia_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:acacia_trapdoor[open=true,facing=north]
+
+execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:dark_oak_trapdoor[open=true,facing=east]
+execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:dark_oak_trapdoor[open=true,facing=south]
+execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:dark_oak_trapdoor[open=true,facing=west]
+execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:dark_oak_trapdoor[open=true,facing=north]
+
 
 execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999}
 execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999}

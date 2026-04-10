@@ -32,28 +32,50 @@ execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_02,limit=1] run
 execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_01,limit=1] run scoreboard players set #least_survival swPool_var00 1
 
 # foul: no valid first hit
-execute unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tell @a[tag=swPool_debug] Debug: the smallest ball on table is not hit
+execute unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul1
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul1] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中目标球。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul1] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit any object ball."}]
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul1] add swPool_foul
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul1] remove swPool_foul1
+#execute unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tell @a[tag=swPool_debug] Debug: the smallest ball on table is not hit
 
 # foul: the smallest ball on table is not first hit
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit > #least_survival swPool_var00 run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit > #least_survival swPool_var00 run tell @a[tag=swPool_debug] Debug: the smallest ball on table is not hit
+execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit > #least_survival swPool_var00 run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul2
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul2] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中正确的目标球。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul2] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit the correct object ball."}]
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul2] add swPool_foul
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul2] remove swPool_foul2
+#execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit > #least_survival swPool_var00 run tell @a[tag=swPool_debug] Debug: the smallest ball on table is not hit
 
-tellraw @a[tag=swPool_debug] [{"text":"Firsthit "},{"score":{"objective":"swPool_firsthit","name":"@a[tag=swPool_hitcue,limit=1]"}}]
-tellraw @a[tag=swPool_debug] [{"text":"Pocketed_Turn "},{"score":{"objective":"swPool_hidScore","name":"Pocketed_Turn"}}]
-execute if entity @s[tag=swPool_9ballmode,tag=swPool_hitrail] run tellraw @a[tag=swPool_debug] [{"text":"Hitrail!"}]
+#tellraw @a[tag=swPool_debug] [{"text":"Firsthit "},{"score":{"objective":"swPool_firsthit","name":"@a[tag=swPool_hitcue,limit=1]"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"Pocketed_Turn "},{"score":{"objective":"swPool_hidScore","name":"Pocketed_Turn"}}]
+#execute if entity @s[tag=swPool_9ballmode,tag=swPool_hitrail] run tellraw @a[tag=swPool_debug] [{"text":"Hitrail!"}]
 
+# add hitrail if rail rule is ignored
+execute if data storage minecraft:swpool ignore_rail_rule run tag @s add swPool_hitrail
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
-execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_9ballmode,tag=!swPool_hitrail] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_9ballmode,tag=!swPool_hitrail] run tell @a[tag=swPool_debug] Debug: no rail or pocket
+execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_9ballmode,tag=!swPool_hitrail] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul3
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul3] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：（击中子球后）没有球碰撞库边或落袋。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul3] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: no balls potted or touched the rail (after hitting an object ball)."}]
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul3] add swPool_foul
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul3] remove swPool_foul3
+#execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_9ballmode,tag=!swPool_hitrail] run tell @a[tag=swPool_debug] Debug: no rail or pocket
 
 # foul: if pocketed cue ball
-execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute if entity @s[tag=swPool_pktcue] run tell @a[tag=swPool_debug] Debug: pocketed cue ball
+execute if entity @s[tag=swPool_pktcue] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul4
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul4] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：母球落袋。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul4] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: cue ball is potted."}]
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul4] add swPool_foul
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul4] remove swPool_foul4
+#execute if entity @s[tag=swPool_pktcue] run tell @a[tag=swPool_debug] Debug: pocketed cue ball
 
-# foul: if behind headstring, cue ball does not move downward
-execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul
-execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tell @a[tag=swPool_debug] Debug: wrong shooting direction when placed behind headstring
+# foul: if behind headstring, cue ball does not move downward (actually it is not applicable)
+execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @a[tag=swPool_hitcue,limit=1] add swPool_foul5
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：线后自由球未向开球区外击打。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @a[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: ball in hand behind the headstring did not aim towards outside of kitchen."}]
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul5] add swPool_foul
+tag @a[tag=swPool_hitcue,limit=1,tag=swPool_foul5] remove swPool_foul5
+#execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tell @a[tag=swPool_debug] Debug: wrong shooting direction when placed behind headstring
 
 # End game, if no foul and 9 is potted. 
 # otherwise: respot and foul

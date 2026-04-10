@@ -1,0 +1,1 @@
+data merge storage minecraft:swpool {keep_sp_role:1}

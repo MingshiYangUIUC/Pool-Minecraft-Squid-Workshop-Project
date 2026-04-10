@@ -1,0 +1,1 @@
+data merge storage minecraft:swpool {ignore_rail_rule:1}

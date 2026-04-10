@@ -1,0 +1,1 @@
+data merge storage minecraft:swpool {automatic_judge_off:1}
