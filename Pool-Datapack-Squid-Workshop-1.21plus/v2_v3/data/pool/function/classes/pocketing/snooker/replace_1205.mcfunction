@@ -124,6 +124,9 @@ execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_brown] run data merge en
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_blue] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":6}}}
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_pink] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":7}}}
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_black] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":8}}}
+
+execute as @e[tag=swPool_pool,tag=swPool_new] at @s run function pool:classes/pose_quat/randomize_quat
+
 tag @e[tag=swPool_new] add swPool_placed
 tag @e[tag=swPool_new] remove swPool_new
 tag @e[tag=swPool_sit] remove swPool_new

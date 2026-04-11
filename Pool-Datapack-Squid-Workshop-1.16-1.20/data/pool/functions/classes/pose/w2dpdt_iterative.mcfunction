@@ -20,14 +20,35 @@ scoreboard players operation cosp1 swMath_V = vOut swMath_V
 
 # divide w by 20 to get radian per tick
 #tellraw @a [{"text":"ws "},{"score":{"objective":"swMath_V","name": "ws"}}]
-scoreboard players operation ws swMath_V = @s swPool_wy
-scoreboard players operation wt swMath_V = @s swPool_wx
-scoreboard players operation wc swMath_V = @s swPool_wz
+
+# store wx wy wz, and clamp if needed
+scoreboard players operation wx swMath_V = @s swPool_wx
+scoreboard players operation wy swMath_V = @s swPool_wy
+scoreboard players operation wz swMath_V = @s swPool_wz
+
+scoreboard players operation wx swMath_V /= C_20 swPool_C
+scoreboard players operation wy swMath_V /= C_20 swPool_C
+scoreboard players operation wz swMath_V /= C_20 swPool_C
+
+# get magnitude and clamp if needed
+# wmag (unit is 0.0001 rad per tick)
+scoreboard players operation #vAi swMath_V = wx swMath_V
+scoreboard players operation #vAj swMath_V = wy swMath_V
+scoreboard players operation #vAk swMath_V = wz swMath_V
+function math:classes/core/vector/magnitude
+scoreboard players operation #wmag swMath_V = #vOut swMath_V
+
+# clamp magnitude for rotation animation
+execute if score #wmag swMath_V matches 30000.. run function pool:classes/pose_quat/clamp_w_magnitude
+
+scoreboard players operation ws swMath_V = wy swMath_V
+scoreboard players operation wt swMath_V = wx swMath_V
+scoreboard players operation wc swMath_V = wz swMath_V
 scoreboard players operation wc swMath_V *= #C_-1 swMath_C
 
-scoreboard players operation ws swMath_V /= C_20 swPool_C
-scoreboard players operation wt swMath_V /= C_20 swPool_C
-scoreboard players operation wc swMath_V /= C_20 swPool_C
+#scoreboard players operation ws swMath_V /= C_20 swPool_C
+#scoreboard players operation wt swMath_V /= C_20 swPool_C
+#scoreboard players operation wc swMath_V /= C_20 swPool_C
 
 # calculate sin(p1), sin(p2), cos(p1), cos(p2)
 scoreboard players operation #vIn swMath_V = pose1 swPool_pose

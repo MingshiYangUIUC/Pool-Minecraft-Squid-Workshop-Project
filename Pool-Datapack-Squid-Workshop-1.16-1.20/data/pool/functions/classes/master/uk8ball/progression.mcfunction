@@ -70,6 +70,9 @@ execute if entity @s[tag=swPool_pktcue,tag=swPool_multiplayer] run tag @a[tag=!s
 execute if entity @s[tag=swPool_pktcue,tag=swPool_singleplayer] run tag @a[tag=swPool_hitcue,tag=swPool_poolplay] add swPool_ballinhand
 execute if entity @s[tag=swPool_pktcue] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball_helper
 
+execute if entity @s[tag=swPool_pktcue] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":"获得开球区自由球。"}]
+execute if entity @s[tag=swPool_pktcue] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":" gets ball in hand in kitchen."}]
+
 execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_pktcue] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：母球落袋。"}]
 execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_pktcue] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: cue ball is potted."}]
 

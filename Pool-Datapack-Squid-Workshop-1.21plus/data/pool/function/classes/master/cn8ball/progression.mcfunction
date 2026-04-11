@@ -137,8 +137,11 @@ execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=s
 execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] as @a[tag=swPool_poolplay,tag=swPool_nextturn] run function app:get/pool/cueball_helper
 
 # ball in hand message
-execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得自由球。"}]
-execute if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" gets ball in hand."}]
+execute unless score Stroke swPool_hidScore matches 1 if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得自由球。"}]
+execute unless score Stroke swPool_hidScore matches 1 if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" gets ball in hand."}]
+
+execute if score Stroke swPool_hidScore matches 1 if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得开球区自由球。"}]
+execute if score Stroke swPool_hidScore matches 1 if entity @s[tag=!swPool_endgame] if entity @a[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@a[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" gets ball in hand in kitchen."}]
 
 # object ball assignment
 # if singleplayer and switch

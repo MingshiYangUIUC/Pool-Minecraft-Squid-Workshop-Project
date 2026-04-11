@@ -32,6 +32,8 @@ execute unless data storage minecraft:swpool cueballreddot if entity @e[type=ite
 execute unless data storage minecraft:swpool cueballreddot if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_ballinhand] at @s[nbt={SelectedItem:{components:{"minecraft:custom_model_data":100},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main_1205
 
 execute if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_ballinhand_obj] at @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{swPool_obj:1b}},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main_obj_1205
+execute if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_snookermode] as @a[tag=swPool_ballinhand_obj] at @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{swPool_obj:1b}},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main_obj_1205
+
 execute as @a[nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_model_data":1}}}] at @s run function pool:classes/cue/main
 #execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",components:{"minecraft:custom_model_data":1}}]}] at @s run function pool:classes/cue/aim
 execute if score #tick swPool_var00 matches 0 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pooltable] remove swPool_progressed

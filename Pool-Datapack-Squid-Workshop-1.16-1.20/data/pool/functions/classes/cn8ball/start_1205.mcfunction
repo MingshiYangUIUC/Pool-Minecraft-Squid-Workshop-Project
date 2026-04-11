@@ -35,8 +35,8 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_EN] [{"text":"[DUO CN 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_CN] [{"text":"[双人中式八球]: 游戏初始化失败！请从大厅重新加入。","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_EN] [{"text":"[DUO 8 ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a[tag=swPool_CN] [{"text":"[双人八球]: 游戏初始化失败！请从大厅重新加入。","color":"red"}]
 
 tag @a[tag=swPool_poolplay] add swPool_spec
 

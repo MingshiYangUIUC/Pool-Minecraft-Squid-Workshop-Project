@@ -601,7 +601,24 @@ for v in all_versions:
                         # change to item model
                         parse1 = 'custom_model_data='
                         parse2 = 'custom_model_data":'
-                        if parse1 in line:
+                        if parse1 in line and parse2 in line:
+                            # 1
+                            d1 = line.find(parse1) + len(parse1)
+                            d2 = d1
+                            while line[d2] in '0123456789':
+                                d2 += 1
+                            itemid = int(line[d1:d2])
+                            newline = line[:line.find(parse1)] + f'item_model="{cmd_link_object[itemid]}"' + line[d2:]
+                            #lines[i] = newline
+                            # 2
+                            d1 = newline.find(parse2) + len(parse2)
+                            d2 = d1
+                            while newline[d2] in '0123456789':
+                                d2 += 1
+                            itemid = int(newline[d1:d2])
+                            newline2 = newline[:newline.find(parse2)] + f'item_model":"{cmd_link_object[itemid]}"' + newline[d2:]
+                            lines[i] = newline2
+                        elif parse1 in line:
                             d1 = line.find(parse1) + len(parse1)
                             d2 = d1
                             while line[d2] in '0123456789':

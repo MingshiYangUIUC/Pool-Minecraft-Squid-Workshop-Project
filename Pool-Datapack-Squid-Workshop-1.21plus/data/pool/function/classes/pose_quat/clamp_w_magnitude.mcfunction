@@ -5,6 +5,7 @@ scoreboard players set #wscale swMath_V 1
 execute if score #wmag swMath_V matches 300000.. run scoreboard players set #wscale swMath_V 10
 execute if score #wmag swMath_V matches 3000000.. run scoreboard players set #wscale swMath_V 100
 execute if score #wmag swMath_V matches 30000000.. run scoreboard players set #wscale swMath_V 1000
+execute if score #wmag swMath_V matches 300000000.. run scoreboard players set #wscale swMath_V 10000
 
 # Clamp wx: wx = (wx * Limit) / wmag
 scoreboard players operation wx swMath_V /= #wscale swMath_V

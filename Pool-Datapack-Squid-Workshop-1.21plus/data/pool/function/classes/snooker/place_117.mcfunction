@@ -1,7 +1,7 @@
 
 execute as @e[tag=swPool_pool,tag=!swPool_placed] store result entity @s Pos[0] double 0.0001 run scoreboard players get @s swPool_var00
 execute as @e[tag=swPool_pool,tag=!swPool_placed] store result entity @s Pos[2] double 0.0001 run scoreboard players get @s swPool_var01
-execute as @e[tag=swPool_cue,tag=swPool_free] store result entity @s Pos[1] double 0.0001 run scoreboard players get @s swPool_var02
+execute as @e[tag=swPool_free,tag=!swPool_placed] store result entity @s Pos[1] double 0.0001 run scoreboard players get @s swPool_var02
 execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:1}
 execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:36}
 item replace entity @e[tag=swPool_red,tag=!swPool_placed] armor.head with minecraft:acacia_button{CustomModelData:2}
@@ -18,19 +18,25 @@ scoreboard players set @e[tag=swPool_pool] swPool_DXX 99000
 tag @s add swPool_moved
 
 
-execute at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_yellow"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_green"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_yellow"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_green"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 
-execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~-0.1 ~ ~
-execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~0.1 ~ ~
-execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~ ~ ~0.1
-execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~ ~ ~-0.1
+execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~-0.1 ~ ~
+execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~0.1 ~ ~
+execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~ ~ ~0.1
+execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~ ~ ~-0.1
 
+execute at @e[tag=swPool_pool,tag=swPool_brown,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_brown"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute at @e[tag=swPool_pool,tag=swPool_blue,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_blue"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute at @e[tag=swPool_pool,tag=swPool_pink,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_pink"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_black"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 
-execute at @e[tag=swPool_pool,tag=swPool_brown,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_brown"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute at @e[tag=swPool_pool,tag=swPool_blue,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_blue"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute at @e[tag=swPool_pool,tag=swPool_pink,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_pink"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_black"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 150"}}]
+execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 150"}}]
+
+# skip record if balls are placed freely
+scoreboard players set #skiprec swPool_var00 0
+execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run scoreboard players set #skiprec swPool_var00 1
 
 #cue placement needs revisement
 #execute at @e[tag=swPool_pool,tag=swPool_cue,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_cue"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
@@ -45,7 +51,7 @@ execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_po
 
 scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
-tag @e[tag=swPool_cue,tag=swPool_free] remove swPool_free
+tag @e[tag=swPool_free] remove swPool_free
 tag @e[tag=swPool_pool] add swPool_placed
 tag @e[tag=swPool_start] remove swPool_start
 
@@ -63,7 +69,7 @@ execute as @e[scores={swPool_rank=5}] run data merge entity @s {CustomName:"\"5 
 execute as @e[scores={swPool_rank=6}] run data merge entity @s {CustomName:"\"6 Pts\""}
 execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 Pts\""}
 
-function pool:classes/master/record
+execute unless score #skiprec swPool_var00 matches 1 run function pool:classes/master/record
 
 execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
 execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
