@@ -27,9 +27,9 @@ execute if entity @s[tag=swPool_multiplayer] as @a[tag=swPool_poolplay] run func
 
 
 scoreboard objectives setdisplay sidebar
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Kill current game>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 4"}},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Kill current game>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 5"}},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
 
-tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<结束当前游戏>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 4"}},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<结束当前游戏>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 5"}},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
 
 kill @e[tag=swPool_pin]
 #scoreboard players reset @a[tag=swPool_poolplay] swPool_Score

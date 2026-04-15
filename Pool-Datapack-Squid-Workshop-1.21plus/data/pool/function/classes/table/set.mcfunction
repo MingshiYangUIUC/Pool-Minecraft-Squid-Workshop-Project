@@ -173,44 +173,76 @@ execute if score table_cloth_color swPool_C matches 5 if data storage minecraft:
 
 #execute as @e[tag=swPool_cloth] at @s run setblock ~ ~-1 ~ glass
 execute as @e[tag=swPool_cloth] at @s run setblock ~ ~ ~ iron_trapdoor[half=top]
-execute as @e[tag=swPool_cloth] at @s if block ~ ~-1 ~ air run setblock ~ ~-1 ~ iron_trapdoor[half=top]
+#execute as @e[tag=swPool_cloth] at @s if block ~ ~-1 ~ air run setblock ~ ~-1 ~ iron_trapdoor[half=top]
 
-execute unless score table_trapdoor_type swPool_C matches 0..6 run scoreboard players set table_trapdoor_type swPool_C 0
+tag @e[tag=swPool_corner] add swPool_rim
+tag @e[tag=swPool_potl] add swPool_rim
+tag @e[tag=swPool_potr] add swPool_rim
 
-execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:iron_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:iron_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:iron_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 0 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:iron_trapdoor[open=true,facing=north]
+execute unless score table_rim_type swPool_C matches 0..6 run scoreboard players set table_rim_type swPool_C 0
 
-execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:oak_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:oak_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:oak_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 1 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:oak_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:iron_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:iron_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:iron_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:iron_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:birch_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:birch_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:birch_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 0 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:birch_wall_sign[facing=north]
 
-execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:spruce_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:spruce_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:spruce_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 2 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:spruce_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:oak_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:oak_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:oak_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:oak_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:oak_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:oak_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:oak_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 1 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:oak_wall_sign[facing=north]
 
-execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:birch_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:birch_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:birch_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 3 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:birch_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:spruce_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:spruce_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:spruce_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:spruce_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:spruce_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:spruce_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:spruce_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 2 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:spruce_wall_sign[facing=north]
 
-execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:jungle_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:jungle_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:jungle_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 4 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:jungle_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:birch_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:birch_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:birch_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:birch_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:birch_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:birch_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:birch_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 3 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:birch_wall_sign[facing=north]
 
-execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:acacia_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:acacia_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:acacia_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 5 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:acacia_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:jungle_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:jungle_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:jungle_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:jungle_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:jungle_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:jungle_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:jungle_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 4 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:jungle_wall_sign[facing=north]
 
-execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ minecraft:dark_oak_trapdoor[open=true,facing=east]
-execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 minecraft:dark_oak_trapdoor[open=true,facing=south]
-execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ minecraft:dark_oak_trapdoor[open=true,facing=west]
-execute if score table_trapdoor_type swPool_C matches 6 as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 minecraft:dark_oak_trapdoor[open=true,facing=north]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:acacia_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:acacia_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:acacia_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:acacia_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:acacia_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:acacia_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:acacia_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 5 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:acacia_wall_sign[facing=north]
+
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:dark_oak_trapdoor[open=true,half=top,facing=east]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:dark_oak_trapdoor[open=true,half=top,facing=south]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:dark_oak_trapdoor[open=true,half=top,facing=west]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:dark_oak_trapdoor[open=true,half=top,facing=north]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:dark_oak_wall_sign[facing=east]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:dark_oak_wall_sign[facing=south]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:dark_oak_wall_sign[facing=west]
+execute if score table_rim_type swPool_C matches 6 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:dark_oak_wall_sign[facing=north]
 
 
 execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
@@ -230,11 +262,11 @@ execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run dat
 
 
 #end_output
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 163"}}]
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 162"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 164"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 165"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 166"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 196"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 195"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 197"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 198"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 199"}}]
 
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 163"}}]
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 162"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 164"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 165"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 166"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 196"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 195"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 197"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 198"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 199"}}]
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 3"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 3"}}]
@@ -248,8 +280,8 @@ execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run sc
 
 kill @e[tag=swPool_placer,type=area_effect_cloud]
 
-tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
-tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
+tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
+tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
 
 # test if pooltable is near, if not, warn the player about table placement
 execute unless entity @e[tag=swPool_pooltable,limit=1,sort=nearest,distance=..10] run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"This datapack may not work correctly far from the world origin due to scoreboard scaling. Please use it closer to (0, 0).","color":"red"}]

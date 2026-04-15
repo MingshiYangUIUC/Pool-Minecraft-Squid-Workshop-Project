@@ -11,21 +11,34 @@ execute if entity @s[scores={swPool_var01=..-1}] as @e[tag=swPool_placer] at @s 
 execute if entity @s[scores={swPool_var02=1..}] as @e[tag=swPool_placer] at @s run tp @s ~ ~ ~-0.5
 execute if entity @s[scores={swPool_var02=..-1}] as @e[tag=swPool_placer] at @s run tp @s ~ ~ ~0.5
 
+execute as @e[tag=swPool_placer] at @s run function pool:classes/table/loop_preview_check_air
+
 #execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] at @e[tag=swPool_placer] run particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force
 #execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] at @e[tag=swPool_placer] run function pool:classes/table/particle_preview
 
 scoreboard players set @s swPool_var00 0
 scoreboard players operation @s swPool_var00 -= @s swPool_var03
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer] positioned ~ ~ ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var00 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var01 = @s swPool_var03 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview_inner
+
 scoreboard players set @s swPool_var00 0
 scoreboard players operation @s swPool_var00 -= @s swPool_var04
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer] positioned ~ ~ ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
-execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer,tag=!swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var00 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~-0.5 ~ run function pool:classes/table/particle_preview_inner
+execute unless entity @s[scores={swPool_var01=0}] unless entity @s[scores={swPool_var02=0}] if score @s swPool_var02 = @s swPool_var04 at @e[tag=swPool_placer,tag=swPool_inner_rim] positioned ~ ~ ~ run function pool:classes/table/particle_preview_inner
 
 execute if score @s swPool_var01 = @s swPool_var03 run tag @s add swPool_shift
 

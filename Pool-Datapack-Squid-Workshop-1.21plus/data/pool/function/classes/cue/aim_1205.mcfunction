@@ -1,4 +1,4 @@
-execute if entity @s[nbt={OnGround:1b,SelectedItem:{id:"minecraft:bow",components:{"minecraft:item_model":"swpool:cuestick"}}}] at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_aim"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute if entity @s[nbt={OnGround:1b,SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}}] at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_aim"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 #execute if entity @s[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",tag:{CustomModelData:1}}]}] at @s run summon area_effect_cloud ^ ^ ^ {Tags:["swPool_aim"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 
 tp @e[tag=swPool_aim] @s

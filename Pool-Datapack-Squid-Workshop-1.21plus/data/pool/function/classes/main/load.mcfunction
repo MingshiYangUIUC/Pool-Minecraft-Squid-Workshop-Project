@@ -105,6 +105,9 @@ scoreboard objectives add swPool_pose dummy
 scoreboard objectives add swPool_true_rot0 dummy
 scoreboard objectives add swPool_true_rot1 dummy
 
+# user score
+scoreboard objectives add swPool_sticktype dummy
+
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
 
@@ -198,11 +201,14 @@ execute unless score tick_interval swPool_C matches 1.. run scoreboard players s
 # cue ball deflection (10000 = 1 deg right ward)
 execute unless score cueball_deflection swPool_C matches -1800000..1800000 run scoreboard players set cueball_deflection swPool_C 0
 
-# table: trapdoor type
-execute unless score table_trapdoor_type swPool_C matches 0..6 run scoreboard players set table_trapdoor_type swPool_C 0
+# table: rim type
+execute unless score table_rim_type swPool_C matches 0..6 run scoreboard players set table_rim_type swPool_C 0
 
 # table: cloth color
 execute unless score table_cloth_color swPool_C matches 0..5 run scoreboard players set table_cloth_color swPool_C 0
+
+# allow cheat by default, needed by default if trying to play without auto judge
+function app:settings/pool/cheating/allow
 
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback
@@ -218,23 +224,23 @@ execute unless score table_cloth_color swPool_C matches 0..5 run scoreboard play
 
 function pool:classes/cue/reset
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包-鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 21"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包-鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}}]
 
 #execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Several more steps and you can start with the command window.","italic": true,"color":"red"}]
 #execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 仅需完成以下设置即可通过命令窗口开始游玩。","italic": true,"color":"red"}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","click_event":{"action":"suggest_command","command":"/function app:settings/pool/version"}}]
 
-execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 145"}}]
-execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 145"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 35"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 35"}}]
 
-tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 欢迎 Welcome.","italic":true,"color":"gray"}]
-tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 仅需完成以下设置即可通过命令窗口开始游玩。Several more steps and you can start with the command window.","italic":true,"color":"gray"}]
-tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: ","italic":true,"color":"gray"},{"text":"语言 Language: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 146"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 147"}}]
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 欢迎 Welcome.","italic":true,"color":"gray"}]
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 仅需完成以下设置即可通过命令窗口开始游玩。Several more steps and you can start with the command window.","italic":true,"color":"gray"}]
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: ","italic":true,"color":"gray"},{"text":"语言 Language: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 40"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 41"}}]
 
-execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-Snooker]: Please pick a place to display score: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <Dialogue> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 148"}},{"italic":false,"color":"gray","underlined":true,"text":" <Sidebar>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 149"}}] 
-execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-斯诺克]: 请选择在何处显示分数: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <聊天栏> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 148"}},{"italic":false,"color":"gray","underlined":true,"text":" <侧边栏>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 149"}}] 
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-Snooker]: Please pick a place to display score: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <Dialogue> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 44"}},{"italic":false,"color":"gray","underlined":true,"text":" <Sidebar>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 45"}}] 
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-斯诺克]: 请选择在何处显示分数: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <聊天栏> ","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 44"}},{"italic":false,"color":"gray","underlined":true,"text":" <侧边栏>","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 45"}}] 
 
 scoreboard players set Resetf swPool_var00 0
 
@@ -258,4 +264,4 @@ execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"
 execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"修复后如果仍旧看到本提示请再次运行/reload","color":"red"}]
 
 # reset new player welcome (will not affect players already chosen language but will send welcome again to new players)
-tag @a remove swPool_welcomed
+tag @a[tag=!swPool_CN,tag=!swPool_EN] remove swPool_welcomed

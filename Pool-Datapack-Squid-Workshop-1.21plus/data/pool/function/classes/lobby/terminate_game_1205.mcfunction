@@ -11,6 +11,7 @@ kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 kill @e[tag=swPool_spot]
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
+tag @a remove swPool_spec
 tag @a remove swPool_poolplay
 tag @a remove swPool_ballinhand
 tag @a remove swPool_ballinhand_obj
@@ -89,6 +90,7 @@ scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
 scoreboard players reset @a swPool_Score
 scoreboard players reset Opponent swPool_Score
 scoreboard players reset Stroke swPool_hidScore
+scoreboard players reset @a swPool_firsthit
 
 #tag @a remove swPool_wait
 #tag @a remove swPool_wait_snooker

@@ -1,0 +1,63 @@
+{
+    "model": {
+        "type": "minecraft:condition",
+        "on_false": {
+            "type": "minecraft:model",
+            "model": "swpool:item/cuestick4"
+        },
+        "on_true": {
+            "type": "minecraft:range_dispatch",
+            "entries": [
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4a"
+                    },
+                    "threshold": 0.0
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4b"
+                    },
+                    "threshold": 0.18
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4c"
+                    },
+                    "threshold": 0.36
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4d"
+                    },
+                    "threshold": 0.54
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4e"
+                    },
+                    "threshold": 0.72
+                },
+                {
+                    "model": {
+                        "type": "minecraft:model",
+                        "model": "swpool:item/cuestick4f"
+                    },
+                    "threshold": 0.9
+                }
+            ],
+            "fallback": {
+                "type": "minecraft:model",
+                "model": "minecraft:item/bow_pulling_0"
+            },
+            "property": "minecraft:use_duration",
+            "scale": 0.05
+        },
+        "property": "minecraft:using_item"
+    }
+}

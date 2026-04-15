@@ -36,5 +36,5 @@ tag @e[tag=swPool_colliding] remove swPool_colliding
 tag @s add swPool_progressed
 
 # reset out of table bug undo scheduler
-execute as @e[tag=swPool_pool] run function pool:classes/cushion/detect_out_of_table
+execute as @e[tag=swPool_pool,tag=swPool_placed] run function pool:classes/cushion/detect_out_of_table
 scoreboard players set #outoftable_scheduled swPool_var00 0

@@ -24,5 +24,6 @@ execute unless score #outoftable_scheduled swPool_var00 matches 1 unless score #
 execute if score #outoftable swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"[ERROR] Ball Left Table!","color":"dark_red"},{"text":" The current shot will be reverted in 3 seconds. Please try it again. If problem persists, you may contact me with a record.","color":"white"}]
 execute if score #outoftable swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"[错误] 球飞出了球桌！","color":"dark_red"},{"text":" 本次击球三秒后会被撤销，请再试一次。如果问题持续出现，可以记录下来告知作者。","color":"white"}]
 execute if score #outoftable swPool_var00 matches 1 run scoreboard players set @e[tag=swPool_pool] swPool_v 0
+execute if score #outoftable swPool_var00 matches 1 at @s run summon item_display ~ ~2 ,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 execute if score #outoftable swPool_var00 matches 1 run schedule function pool:classes/master/undo_run 3s
 execute if score #outoftable swPool_var00 matches 1 run scoreboard players set #outoftable_scheduled swPool_var00 1

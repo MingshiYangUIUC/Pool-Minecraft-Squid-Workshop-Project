@@ -498,19 +498,32 @@ for v in all_versions:
         # get cuestick model
         # modify default model
         print('  Modifying Cue stick model')
-        with open(os.path.join(model_item_dir, f'bow_1.21.4.json'), 'r', encoding='utf-8') as f:
-            data = json.load(f)
 
-        thresh = [0.01,0.18,0.36,0.54,0.72,0.9]
-        entries = [{'model': {'type': 'minecraft:model',
-                    'model': f'swpool:item/cuestick{i+1}'},
-                    'threshold': t} for i, t in enumerate(thresh)]
-        modelnames = tuple([f'cuestick{i}' for i in range(0,7)])
-        data['model']['on_false']['model'] = 'swpool:item/cuestick0'
-        data['model']['on_true']['entries'] = entries
+        # repeat for 5 models
+        modelnames = []
 
-        with open(os.path.join(model_declare_dir, f'cuestick.json'), 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4)
+        for ctype in [1,2,3,4,5]:
+
+            with open(os.path.join(model_item_dir, f'bow_1.21.4.json'), 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            data['model']['on_false']['model'] = f'swpool:item/cuestick{ctype}'
+
+            modelnames.append(f'cuestick{ctype}')
+
+            thresh = [0.00,0.18,0.36,0.54,0.72,0.9]
+
+            cstage = 'abcdef'
+            entries = [{'model': {'type': 'minecraft:model',
+                        'model': f'swpool:item/cuestick{ctype}{cstage[i]}'},
+                        'threshold': t} for i, t in enumerate(thresh)]
+            
+            modelnames += [f'cuestick{ctype}{cstage[i]}' for i, t in enumerate(thresh)]
+            
+            data['model']['on_true']['entries'] = entries
+
+            with open(os.path.join(model_declare_dir, f'cuestick{ctype}.json'), 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4)
         
         # walk though the model files
         for modelname in modelnames:
@@ -571,7 +584,7 @@ for v in all_versions:
                             d2 = d1
                             while line[d2] in '0123456789':
                                 d2 += 1
-                            newline = line[:line.find(parse)] + 'item_model="swpool:cuestick"' + line[d2:]
+                            newline = line[:line.find(parse)] + f'item_model="swpool:cuestick{line[d1:d2]}"' + line[d2:]
                             #print(newline)
                             lines[i] = newline
                             # /give YMS2001 bow[minecraft:item_model="swpool:cuestick"]

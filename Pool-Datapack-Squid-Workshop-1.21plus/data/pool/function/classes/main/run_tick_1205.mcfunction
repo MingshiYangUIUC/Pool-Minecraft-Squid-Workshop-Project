@@ -1,7 +1,7 @@
 scoreboard players add #tick swPool_var00 1
 execute if score #tick swPool_var00 >= tick_interval swPool_C run scoreboard players set #tick swPool_var00 0
 
-execute at @a[tag=swPool_poolplay,nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:item_model":"swpool:cuestick"}}}] as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
+execute at @a[tag=swPool_poolplay,nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}}] as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
 execute as @e[type=item_display,tag=swPool_pooltable,scores={swPool_lifetime=1}] run function pool:classes/main/run_tick_place
 
 # cn8ball: two ballinhand scenarios: behind headstring (uk8ball style) or all (practice style)
@@ -34,8 +34,8 @@ execute unless data storage minecraft:swpool cueballreddot if entity @e[type=ite
 execute if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_practicemode] as @a[tag=swPool_ballinhand_obj] at @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{swPool_obj:1b}},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main_obj_1205
 execute if entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_snookermode] as @a[tag=swPool_ballinhand_obj] at @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{swPool_obj:1b}},id:"minecraft:carrot_on_a_stick"}}] run function pool:classes/ballinhand/practice/main_obj_1205
 
-execute as @a[nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:item_model":"swpool:cuestick"}}}] at @s run function pool:classes/cue/main
-#execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",components:{"minecraft:custom_model_data":1}}]}] at @s run function pool:classes/cue/aim
+execute as @a[nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}}] at @s run function pool:classes/cue/main
+#execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}]}] at @s run function pool:classes/cue/aim
 execute if score #tick swPool_var00 matches 0 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pooltable] remove swPool_progressed
 execute if score #tick swPool_var00 matches 0 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pool] at @s[scores={swPool_DXX=1..}] run function pool:classes/master/main
 execute if score #tick swPool_var00 matches 0 as @e[type=item_display,tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
