@@ -1,10 +1,23 @@
 ### <span style="color:orange">April 2026</span> — v1.1.0: More Custom, More Possibilities!
 
 - Based on feedback from players trying out v1.0.0 (both rc and official releases), v1.1.0 focuses on adding more customization across the datapack, and installation and loading messages are improved so players can get into the game more easily.
+
+    <img src="Gallery/Images/custom_table_and_sticks.webp" alt="_MingshiYangUIUC_" width="50%">
+
 - You can now choose different table rim types, cue stick models, and table cloth textures. Support and guidance are also added if you want to bring your own model / texture assets into the resource pack.
+
+    <img src="Gallery/Images/rule_settings.webp" alt="_MingshiYangUIUC_" width="50%">
+
 - Rule handling is now more flexible. During game progression, part of or the whole of auto judge system can be fully turned off, and the datapack will still provide the necessary tools to help you enforce rules manually in your own way. “Chinese 8 ball” is renamed to “8 ball” to better reflect this flexibility and make the mode more neutral and globally understandable.
+- Added manual force control to the strike adjustment UI, if you are worried about precise timing of force accumulation via charging, you can manually click to set 0-100% of force relative to the maximum charge.
 - As usual, this update also includes bug fixes and performance improvements. See individual release notes for details.
 - More features are on the way! Upcoming updates will focus on _survival / adventure mode compatability_ and _player vs. computer games_.
+
+- Special Thanks    
+  Some features and improvements were inspired by discussions with the community.
+  - CurseForge Snezfennico
+  - Bilibili 74071024
+  - Bilibili 1383472410
 
 ### <span style="color:orange">March 2026</span> — v1.0.0 Official Releases are now publicly available.
 

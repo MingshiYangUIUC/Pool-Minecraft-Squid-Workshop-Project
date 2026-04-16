@@ -70,7 +70,7 @@ Most interactions do not require typing commands. You only need to click <<ins>t
 - [10. Cue Ball Control](#10-cue-ball-control)
 - [11. Undo the Last Shot](#11-undo-the-last-shot)
 - [12. Practice Mode](#12-practice-mode)
-- [13. Notes and Tips](#13-notes-and-tips)
+- [13. _**Notes and Tips!!!**_](#13-notes-and-tips)
 
 ### 1. Initialize the Datapack
 <video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -210,10 +210,27 @@ https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
 Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
 ### 13. Notes and Tips
+- Here are a few helpful commands.
+	1. Open command window directly without clicking any buttons in chat.  
+	`/function app:help/pool/commandwindow`
+	2. Run the loading function, in case you want to troubleshoot / check missing settings and don't want to run `reload`.  
+	`/function pool:classes/main/load`
+	3. Terminate a game without using command window.   
+	`/function pool:classes/lobby/terminate_helper`
+	4. Remove a table without using command window.   
+	`/function pool:classes/table/clear`
+	5. Assess all setting commands.   
+	`/function app:settings/pool/`
+
+- Before playing with the datapack, game version (only applicable to mc1.16-1.20) and friction values must be set in each world. Each player joining the world needs to complete their own language settings.
 - In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate.
 - It is recommended to play on Minecraft 1.21 or newer, as visuals are significantly improved with the use of item display entities.
 - Disable **Force Unicode Font** for a better experience.
 - When a Snooker game starts, the number of red balls racked depends on the size of table. When player is placing a cue ball, purple particles appear at the original spots of color balls as a reminder of table layout.
+- Change of game version of a world, as well as Datapack and Resourcepack updates, may break old game, table, and equipments. Please reset the game version, reset the table, and re-obtain the cue stick if the old ones are not being rendered correctly.
+- If you are adding custom models or textures to the resource pack, please check the game version, as different versions may use different model and texture directories. The supported version range is indicated in the form `vx_vy`. For newer versions, the default directory will be used if not otherwise specified.
+- If you are unsure about the valid ball-in-hand region, the kitchen and/or D zone are located on the positive X or Z side of the table (i.e., the break shot is directed toward the negative side).
+- If multiple players are placing balls on the table, please avoid standing too close, as the line-of-sight indicator may behave unexpectedly.
 
 ---
 # Frequently Asked Questions
@@ -225,7 +242,7 @@ Please stand on the ground, and keep standing or sneaking while releasing the mo
 Please make sure you successfully installed/loaded **Math Datapack / Module** (see instructions above), you should see messages from both datapacks after running a `reload`. Further increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
 
 3. I cannot undo a shot. \
-Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating" and is not allowed by default.
+Please allow `cheat` from the settings menu if you haven't already done so. Undoing a shot during a game is considered "cheating".
 
 4. Everything disappears after I run a `reload`. \
 Please select `keepongoingsession` from the settings menu.

@@ -184,10 +184,10 @@ execute unless score C_tp_dur swPool_C matches 0..59 run scoreboard players set 
 execute if score C_tp_dur swPool_C matches ..-1 run scoreboard players set C_tp_dur swPool_C 0
 execute if score C_tp_dur swPool_C matches 60.. run scoreboard players set C_tp_dur swPool_C 59
 
-#speed multiplier for breakshot # default: +150 (+150%) (100-180)
-execute unless score break_power swPool_C matches 100..180 run scoreboard players set break_power swPool_C 150
+#speed multiplier for breakshot # default: +150 (+150%) (100-200)
+execute unless score break_power swPool_C matches 100..200 run scoreboard players set break_power swPool_C 150
 execute if score break_power swPool_C matches ..99 run scoreboard players set break_power swPool_C 100
-execute if score break_power swPool_C matches 181.. run scoreboard players set break_power swPool_C 180
+execute if score break_power swPool_C matches 201.. run scoreboard players set break_power swPool_C 200
 
 # default: neural network breakshot (default:1)
 execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
