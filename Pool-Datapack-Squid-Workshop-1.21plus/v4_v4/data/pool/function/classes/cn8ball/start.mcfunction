@@ -35,13 +35,13 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 
-execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO CN 8 Ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
+execute unless entity @a[tag=swPool_poolplay] run tellraw @a [{"text":"[DUO 8 ball]: Game initialization failed! Please join again from lobby.","color":"red"}]
 tag @a[tag=swPool_poolplay] add swPool_spec
 
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and break."}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", 请放置白球后开球。"}]
 
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
 

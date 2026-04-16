@@ -4,12 +4,12 @@ Realistic cue sport game in **Minecraft Java Edition** like in real life.
 Supports **Snooker, UK 8 Ball, Chinese 8 Ball, 9 Ball**, and custom practice mode.  
 Supports **single-player** games and **duo-player** PVP games.
 
-Content creator: **Mingshi Yang (YMS2001)** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
+Content creator: **YMS2001** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
 Contact: mingshi3@illinois.edu
 
 [中文版使用说明](使用说明.md)   
+[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards) [Recommended for auto dependency download]   
 [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
-[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards)   
 [Recent Updates](CHANGELOG.md)
 
 ---
@@ -38,7 +38,7 @@ Contact: mingshi3@illinois.edu
 - **Pre-release v1.0.0-rc.1 and before: Please manually install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future official release.**
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
-- Step 08 Type `/reload` command then press enter.
+- Step 08 Type `/reload` command then press enter and follow the installation prompt to configure the datapack.
 - Step 09 Recommended: Type `/gamerule` command to set the `maxCommandChainLength` or `max_command_sequence_length` to 131072 or higher.
 - Step 10 Enjoy 
 
@@ -70,7 +70,7 @@ Most interactions do not require typing commands. You only need to click <<ins>t
 - [10. Cue Ball Control](#10-cue-ball-control)
 - [11. Undo the Last Shot](#11-undo-the-last-shot)
 - [12. Practice Mode](#12-practice-mode)
-- [13. Notes and Tips](#13-notes-and-tips)
+- [13. _**Notes and Tips!!!**_](#13-notes-and-tips)
 
 ### 1. Initialize the Datapack
 <video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -101,7 +101,7 @@ After placing the resourcepack in the correct folder, you may need to enable it 
 https://github.com/user-attachments/assets/2539c7e8-f17b-4820-b48a-1e59ef939c15
 
 
-You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
+You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Menu and Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
 
 	/function app:settings/
 
@@ -179,7 +179,7 @@ Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>
 
 	/function pool:classes/cue/map
 
-The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
+The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options including manual force control below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
 
 ### 11. Undo the Last Shot
 <video src="Gallery/Videos/user_guides_EN/11_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -210,10 +210,25 @@ https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
 Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
 ### 13. Notes and Tips
-- In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate.
+- Here are a few helpful commands.
+	1. Open command window directly without clicking any buttons in chat.  
+	`/function app:help/pool/commandwindow`
+	2. Run the loading function, in case you want to troubleshoot / check missing settings and don't want to run `reload`.  
+	`/function pool:classes/main/load`
+	3. Terminate a game without using command window.   
+	`/function pool:classes/lobby/terminate_helper`
+	4. Remove a table without using command window.   
+	`/function pool:classes/table/clear`
+
+- Before playing with the datapack, game version (only applicable to mc1.16-1.20) and friction values must be set in each world. Each player joining the world needs to complete their own language settings.
+- In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate. The recommended value is based on a 16:9 fullscreen scenario.
 - It is recommended to play on Minecraft 1.21 or newer, as visuals are significantly improved with the use of item display entities.
 - Disable **Force Unicode Font** for a better experience.
 - When a Snooker game starts, the number of red balls racked depends on the size of table. When player is placing a cue ball, purple particles appear at the original spots of color balls as a reminder of table layout.
+- Change of game version of a world, as well as Datapack and Resourcepack updates, may break old game, table, and equipments. Please reset the game version, reset the table, and re-obtain the cue stick if the old ones are not being rendered correctly.
+- If you are adding custom models or textures to the resource pack, please check the game version, as different versions may use different model and texture directories. The supported version range is indicated in the form `vx_vy`. For newer versions, the default directory will be used if not otherwise specified.
+- If you are unsure about the valid ball-in-hand region, the kitchen and/or D zone are located on the positive X or Z side of the table (i.e., the break shot is directed toward the negative side).
+- If multiple players are placing balls on the table, please avoid standing too close, as the line-of-sight indicator may behave unexpectedly.
 
 ---
 # Frequently Asked Questions
@@ -225,7 +240,7 @@ Please stand on the ground, and keep standing or sneaking while releasing the mo
 Please make sure you successfully installed/loaded **Math Datapack / Module** (see instructions above), you should see messages from both datapacks after running a `reload`. Further increasing `maxcommandchainlength` (new version: `max_command_sequence_length`) from `gamerule` may help in an uncommon situation where there are too many balls on a table.
 
 3. I cannot undo a shot. \
-Please allow `cheat` from the settings menu. Undoing a shot during a game is considered "cheating" and is not allowed by default.
+Please allow `cheat` from the settings menu if you haven't already done so. Undoing a shot during a game is considered "cheating".
 
 4. Everything disappears after I run a `reload`. \
 Please select `keepongoingsession` from the settings menu.

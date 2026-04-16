@@ -78,3 +78,5 @@ scoreboard objectives remove swPool_pose
 scoreboard objectives remove swPool_Rotation
 scoreboard objectives remove swPool_true_rot0
 scoreboard objectives remove swPool_true_rot1
+
+scoreboard objectives remove swPool_sticktype

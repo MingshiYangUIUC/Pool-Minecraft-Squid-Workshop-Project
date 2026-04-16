@@ -46,7 +46,7 @@ tag @s remove swPool_d2
 
 execute at @s as @e[type=item_display,tag=swPool_near,sort=random] at @s run function pool:classes/master/select
 
-execute at @s run function pool:classes/cushion/main
+execute unless score @s swPool_v matches 0 at @s run function pool:classes/cushion/main
 
 scoreboard players operation @e[type=item_display,tag=swPool_col] swPool_hittime = MinTime swPool_hittime
 execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=item_display,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run function pool:classes/collision/new_join

@@ -1,10 +1,9 @@
-#execute as @e[tag=swPool_cloth] at @s run setblock ~ ~-1 ~ air
-execute as @e[tag=swPool_cloth] at @s run setblock ~ ~ ~ air
-
 execute as @e[tag=swPool_pxside] at @s run setblock ~1 ~ ~ air
 execute as @e[tag=swPool_pzside] at @s run setblock ~ ~ ~1 air
 execute as @e[tag=swPool_nxside] at @s run setblock ~-1 ~ ~ air
 execute as @e[tag=swPool_nzside] at @s run setblock ~ ~ ~-1 air
+
+execute as @e[tag=swPool_cloth] at @s run setblock ~ ~ ~ air
 
 kill @e[tag=swPool_fake]
 kill @e[tag=swPool_cloth]

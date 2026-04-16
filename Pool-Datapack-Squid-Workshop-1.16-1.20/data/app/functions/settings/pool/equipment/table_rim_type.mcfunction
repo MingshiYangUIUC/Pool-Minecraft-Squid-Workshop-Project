@@ -1,0 +1,5 @@
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Table rim type. 0: iron (with birch), 1: oak, 2: spruce, 3: birch, 4: jungle, 5: acacia, 6: dark oak","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Default: 0. ","color":"gray"},{"text":"Current: "},{"score":{"objective":"swPool_C","name":"table_rim_type"}},{"text":". "},{"underlined":true,"text":"<Click and type>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set table_rim_type swPool_C "}}]
+
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"球桌边缘种类。0：铁（搭配白桦木），1：橡木，2：云杉木，3：白桦木，4：从林木，5：金合欢木，6：深色橡木","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"默认：0。","color":"gray"},{"text":"当前值: "},{"score":{"objective":"swPool_C","name":"table_rim_type"}},{"text":". "},{"underlined":true,"text":"<点此处后输入>","color":"white","clickEvent":{"action":"suggest_command","value":"/scoreboard players set table_rim_type swPool_C "}}]

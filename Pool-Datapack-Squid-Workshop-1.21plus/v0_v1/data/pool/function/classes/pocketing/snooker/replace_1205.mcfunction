@@ -57,6 +57,16 @@ scoreboard players reset @e[tag=swPool_pool,tag=!swPool_red] swPool_rank
 tag @s[tag=swPool_foulcolor] add swPool_fouled
 tag @s[tag=swPool_foulred] add swPool_fouled
 tag @s[tag=swPool_foulcue] add swPool_fouled
+
+# feedback message
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulcolor] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未正确使彩球落袋或错误的球落袋。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulred] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：错误的球落袋。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulcue] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：母球落袋。"}]
+
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulcolor] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not correctly pot coloured balls."}]
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulred] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: wrong object ball is potted."}]
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulcue] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: cue ball is potted."}]
+
 #execute if entity @s[tag=swPool_foulcolor] run say foulcolor
 #execute if entity @s[tag=swPool_foulred] run say foulred
 #execute if entity @s[tag=swPool_foulcue] run say foulcue
@@ -114,6 +124,9 @@ execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_brown] run data merge en
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_blue] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":6}}}
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_pink] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":7}}}
 execute as @e[tag=swPool_pool,tag=swPool_new,tag=swPool_black] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":8}}}
+
+execute as @e[tag=swPool_pool,tag=swPool_new] at @s run function pool:classes/pose_quat/randomize_quat
+
 tag @e[tag=swPool_new] add swPool_placed
 tag @e[tag=swPool_new] remove swPool_new
 tag @e[tag=swPool_sit] remove swPool_new

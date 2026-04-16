@@ -13,10 +13,12 @@ scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
 scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
 
 
-execute if entity @s[scores={swPool_firsthit=1..7}] unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit = @s swPool_firsthit run tag @s add swPool_fouled
-execute if entity @s[scores={swPool_firsthit=8}] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=2..7}] run tag @s add swPool_fouled
-
-
+execute if entity @s[scores={swPool_firsthit=1..7}] unless score @a[tag=swPool_hitcue,limit=1] swPool_firsthit = @s swPool_firsthit run tag @s add swPool_fouled1
+execute if entity @s[scores={swPool_firsthit=8}] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=2..7}] run tag @s add swPool_fouled1
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_fouled1] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中正确的球。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_fouled1] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit the correct balls."}]
+tag @s[tag=swPool_fouled1] add swPool_fouled
+tag @s[tag=swPool_fouled1] remove swPool_fouled1
 #execute if entity @s[tag=swPool_fouled] run say fouled
 
 scoreboard players set @s[tag=!swPool_fouled] swPool_foul 0
@@ -58,7 +60,7 @@ execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] unless entity @a
 execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul. Opponent "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":", ball in hand."}]
 
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul. "},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":" "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":"."}]
-execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul. "},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":" "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":", ball in hand."}]
+execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Foul. "},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":" "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":", gets ball in hand in D-Zone."}]
 
 execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Red."}]
 execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"score":{"objective":"swPool_var05","name":"@s"}},{"text":", Target ball is Yellow."}]
@@ -75,7 +77,7 @@ execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] unless entity @a
 execute if entity @s[tag=swPool_fouled,tag=swPool_singleplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。对手得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分，请放置母球。"}]
 
 execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。"},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":"得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分。"}]
-execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。"},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":"得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分，请放置母球。"}]
+execute if entity @s[tag=swPool_fouled,tag=swPool_multiplayer] if entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规。"},{"selector":"@a[tag=!swPool_hitcue,tag=swPool_poolplay]"},{"text":"得 "},{"score":{"objective":"swPool_foul","name":"@s"}},{"text":" 分，请在D-区放置母球。"}]
 
 execute if entity @s[scores={swPool_firsthit=1}] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为红球。"}]
 execute if entity @s[scores={swPool_firsthit=2}] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"score":{"objective":"swPool_var05","name":"@s"}},{"text":" 分，目标球为黄球。"}]
@@ -131,8 +133,8 @@ tag @a[tag=swPool_spectemp] add swPool_spec
 tag @a[tag=swPool_spectemp] remove swPool_spectemp
 #end messages
 
-execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 140"}}]
-execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike angles.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]
+execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 203"}}]
+execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 58"}}]
 
-execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 11"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 140"}}]
-execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 12"}}]
+execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 22"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool_trigger set 203"}}]
+execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool_trigger set 58"}}]

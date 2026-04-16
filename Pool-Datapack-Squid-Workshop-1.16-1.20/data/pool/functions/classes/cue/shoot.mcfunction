@@ -47,6 +47,15 @@ scoreboard players operation v_stick swPool_var00 = @s swPool_var00
 #scoreboard players operation v_stick swPool_var00 *= C_2 swPool_C
 #tellraw @a [{"text":" vstick, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
 
+# multiply by custom power score
+execute if score #custompower swMath_V matches 0..100 run scoreboard players set v_stick swPool_var00 300
+execute if score #custompower swMath_V matches 0..100 run scoreboard players operation v_stick swPool_var00 *= #custompower swMath_V
+scoreboard players reset #custompower swMath_V
+scoreboard players reset #custompower_10 swMath_V
+scoreboard players reset #custompower_1 swMath_V
+
+#tellraw @a [{"text":" vstick new, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
+
 execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run function pool:classes/spin/strike
 
 execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1.. run kill @e[type=arrow,tag=swPool_sb]
@@ -59,6 +68,7 @@ tag @s remove swPool_shooting
 scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
+
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = break_power swPool_C
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v /= #C_100 swMath_C
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v *= #breakpower swMath_V
