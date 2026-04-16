@@ -101,7 +101,7 @@ After placing the resourcepack in the correct folder, you may need to enable it 
 https://github.com/user-attachments/assets/2539c7e8-f17b-4820-b48a-1e59ef939c15
 
 
-You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
+You can access all settings from the Command Window. For a detailed explanation, click <<ins>Settings Menu and Help</ins>> below the Command Window. You can configure settings such as physics parameters, ball spin, cheat permission, cue ball appearance, and more. To run:
 
 	/function app:settings/
 
@@ -179,7 +179,7 @@ Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>
 
 	/function pool:classes/cue/map
 
-The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
+The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options including manual force control below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
 
 ### 11. Undo the Last Shot
 <video src="Gallery/Videos/user_guides_EN/11_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -219,11 +219,9 @@ Select line-up mode, the datapack will place balls along a straight line. You ca
 	`/function pool:classes/lobby/terminate_helper`
 	4. Remove a table without using command window.   
 	`/function pool:classes/table/clear`
-	5. Assess all setting commands.   
-	`/function app:settings/pool/`
 
 - Before playing with the datapack, game version (only applicable to mc1.16-1.20) and friction values must be set in each world. Each player joining the world needs to complete their own language settings.
-- In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate.
+- In Minecraft, the aiming marker (**+**) may not perfectly align with the player’s true facing direction in world coordinates. For example, in 1.21.11 it is slightly offset (aligned with the right edge of the vertical bar). You may need to adjust your aim or manually adjust cue ball deflection in the settings to compensate. The recommended value is based on a 16:9 fullscreen scenario.
 - It is recommended to play on Minecraft 1.21 or newer, as visuals are significantly improved with the use of item display entities.
 - Disable **Force Unicode Font** for a better experience.
 - When a Snooker game starts, the number of red balls racked depends on the size of table. When player is placing a cue ball, purple particles appear at the original spots of color balls as a reminder of table layout.

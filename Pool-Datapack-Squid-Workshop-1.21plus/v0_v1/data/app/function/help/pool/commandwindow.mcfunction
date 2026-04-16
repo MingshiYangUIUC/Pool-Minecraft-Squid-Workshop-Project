@@ -2,7 +2,7 @@
 
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"╔══════════════════════════════╗"}]
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Unload Pool>","color":"dark_red","clickEvent":{"action":"run_command","value":"/function app:unload/pool"}},{"text":"","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Unload Pool Datapack>","color":"dark_red","clickEvent":{"action":"run_command","value":"/function app:unload/pool"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<(Re)load Pool Datapack>","color":"red","clickEvent":{"action":"run_command","value":"/function pool:classes/main/load"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/call"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Gamerule Settings>","color":"gold","clickEvent":{"action":"run_command","value":"/function app:help/pool/rulewindow"}}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Terminate Current Game>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/terminate_helper"}}]
@@ -10,7 +10,7 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<(Re)set Table>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/start"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Get Cue Stick>","color":"light_purple","clickEvent":{"action":"run_command","value":"/function app:get/pool/cuestick_helper"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Set Custom Cue Stick>","color":"light_purple","clickEvent":{"action":"run_command","value":"/function app:settings/pool/equipment/stick_type"}}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Settings Menu and Help>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help"}}]
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<About the Datapack>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<About Pool Datapack>❤","color":"#FF9BDC","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╔══════════════════════════════╗"}]
@@ -22,7 +22,7 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<(重新)放置球桌>","color":"aqua","clickEvent":{"action":"run_command","value":"/function pool:classes/table/start"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<获取球杆>","color":"light_purple","clickEvent":{"action":"run_command","value":"/function app:get/pool/cuestick_helper"}},{"text":" ","color":"white"},{"underlined":true,"text":"<设置自定义球杆>","color":"light_purple","clickEvent":{"action":"run_command","value":"/function app:settings/pool/equipment/stick_type"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<设置菜单和帮助>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help"}}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<关于台球数据包>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<关于台球数据包>❤","color":"#FF9BDC","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
 
 #tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
