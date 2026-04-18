@@ -7,7 +7,7 @@ tag @s add swPool_shooting
 execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player = @a[tag=swPool_shooting,limit=1] swPool_player run tag @s add swPool_sb
 
 execute store result score cuerot swPool_rot run data get entity @s Rotation[0] 10000
-scoreboard players operation cuerot swPool_rot += cueball_deflection swPool_C
+scoreboard players operation cuerot swPool_rot += @s swPool_cueball_deflection
 #execute store result entity @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get cuerot swPool_rot
 scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] swPool_Rotation = cuerot swPool_rot
 #execute as @e[tag=swPool_pool,tag=swPool_cue,limit=1] at @s run tp @s ~ ~ ~ ~-0.06 ~
@@ -69,7 +69,7 @@ scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] s
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 
-execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = break_power swPool_C
+execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = @s swPool_breakpower
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v /= #C_100 swMath_C
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=armor_stand,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v *= #breakpower swMath_V
 execute if score #breakshot swPool_v matches 1 run scoreboard players set #breakshot swPool_v 0

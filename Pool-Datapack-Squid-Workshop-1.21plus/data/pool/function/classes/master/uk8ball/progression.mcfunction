@@ -107,6 +107,11 @@ tag @s[tag=swPool_pkt1st] remove swPool_pkt1st
 #change to black if no ball of same color
 execute if entity @s[tag=swPool_pktred] unless entity @e[tag=swPool_pool,tag=swPool_red,limit=1] run tag @a[tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimred] add swPool_aimblk
 execute if entity @s[tag=swPool_pktylw] unless entity @e[tag=swPool_pool,tag=swPool_yellow,limit=1] run tag @a[tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimylw] add swPool_aimblk
+
+# advance all player to hit black if their target ball is all gone
+execute as @a[tag=swPool_poolplay] if entity @s[tag=swPool_aimred] unless entity @e[tag=swPool_pool,tag=swPool_red,limit=1] run tag @s add swPool_aimblk
+execute as @a[tag=swPool_poolplay] if entity @s[tag=swPool_aimylw] unless entity @e[tag=swPool_pool,tag=swPool_yellow,limit=1] run tag @s add swPool_aimblk
+
 tag @a[tag=swPool_aimblk] remove swPool_aimred
 tag @a[tag=swPool_aimblk] remove swPool_aimylw
 

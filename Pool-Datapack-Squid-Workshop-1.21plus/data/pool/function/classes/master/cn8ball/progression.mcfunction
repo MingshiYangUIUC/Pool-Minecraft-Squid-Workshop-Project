@@ -153,6 +153,11 @@ execute if entity @s[tag=swPool_singleplayer] if score #switchplayer swPool_var0
 # if not switch, advance assigned object ball if needed. solid / stripe to black.
 execute if score #switchplayer swPool_var00 matches 0 if entity @s[tag=swPool_pktsolid] unless entity @e[tag=swPool_pool,tag=swPool_solid,limit=1] run tag @a[tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimsolid] add swPool_aim08
 execute if score #switchplayer swPool_var00 matches 0 if entity @s[tag=swPool_pktstripe] unless entity @e[tag=swPool_pool,tag=swPool_stripe,limit=1] run tag @a[tag=swPool_hitcue,tag=!swPool_foul,tag=swPool_aimstripe] add swPool_aim08
+
+# advance all player to hit 08 if their target ball is all gone
+execute as @a[tag=swPool_poolplay] if entity @s[tag=swPool_aimsolid] unless entity @e[tag=swPool_pool,tag=swPool_solid,limit=1] run tag @s add swPool_aim08
+execute as @a[tag=swPool_poolplay] if entity @s[tag=swPool_aimstripe] unless entity @e[tag=swPool_pool,tag=swPool_stripe,limit=1] run tag @s add swPool_aim08
+
 tag @a[tag=swPool_aim08] remove swPool_aimsolid
 tag @a[tag=swPool_aim08] remove swPool_aimstripe
 

@@ -1,19 +1,23 @@
 function math:classes/core/random/randint_base
+scoreboard players operation #vAi swMath_V = #vOut swMath_V
 scoreboard players operation #vAi swMath_V %= #C_10000 swMath_C
 scoreboard players operation #vAi swMath_V *= #C_2 swMath_C
 scoreboard players operation #vAi swMath_V -= #C_10000 swMath_C
 
 function math:classes/core/random/randint_base
+scoreboard players operation #vAj swMath_V = #vOut swMath_V
 scoreboard players operation #vAj swMath_V %= #C_10000 swMath_C
 scoreboard players operation #vAj swMath_V *= #C_2 swMath_C
 scoreboard players operation #vAj swMath_V -= #C_10000 swMath_C
 
 function math:classes/core/random/randint_base
+scoreboard players operation #vAk swMath_V = #vOut swMath_V
 scoreboard players operation #vAk swMath_V %= #C_10000 swMath_C
 scoreboard players operation #vAk swMath_V *= #C_2 swMath_C
 scoreboard players operation #vAk swMath_V -= #C_10000 swMath_C
 
 function math:classes/core/random/randint_base
+scoreboard players operation #vAl swMath_V = #vOut swMath_V
 scoreboard players operation #vAl swMath_V %= #C_10000 swMath_C
 scoreboard players operation #vAl swMath_V *= #C_2 swMath_C
 scoreboard players operation #vAl swMath_V -= #C_10000 swMath_C

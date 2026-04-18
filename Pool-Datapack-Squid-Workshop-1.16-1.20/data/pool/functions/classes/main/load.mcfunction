@@ -106,6 +106,10 @@ scoreboard objectives add swPool_true_rot1 dummy
 # user score
 scoreboard objectives add swPool_sticktype dummy
 
+# break power and cue ball deflection
+scoreboard objectives add swPool_breakpower dummy
+scoreboard objectives add swPool_cueball_deflection dummy
+
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
 
@@ -185,9 +189,9 @@ execute if score C_tp_dur swPool_C matches ..-1 run scoreboard players set C_tp_
 execute if score C_tp_dur swPool_C matches 60.. run scoreboard players set C_tp_dur swPool_C 59
 
 #speed multiplier for breakshot # default: +150 (+150%) (100-200)
-execute unless score break_power swPool_C matches 100..200 run scoreboard players set break_power swPool_C 150
-execute if score break_power swPool_C matches ..99 run scoreboard players set break_power swPool_C 100
-execute if score break_power swPool_C matches 201.. run scoreboard players set break_power swPool_C 200
+execute as @a unless score @s swPool_breakpower matches 100..200 run scoreboard players set @s swPool_breakpower 150
+execute as @a if score @s swPool_breakpower matches ..99 run scoreboard players set @s swPool_breakpower 100
+execute as @a if score @s swPool_breakpower matches 201.. run scoreboard players set @s swPool_breakpower 200
 
 # default: neural network breakshot (default:1)
 execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
@@ -197,7 +201,7 @@ execute unless score nn_complexity swPool_C matches 1..4 run scoreboard players 
 execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
 
 # cue ball deflection (10000 = 1 deg right ward)
-execute unless score cueball_deflection swPool_C matches -1800000..1800000 run scoreboard players set cueball_deflection swPool_C 0
+execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
 
 # table: rim type
 execute unless score table_rim_type swPool_C matches 0..6 run scoreboard players set table_rim_type swPool_C 0
@@ -207,6 +211,9 @@ execute unless score table_cloth_color swPool_C matches 0..5 run scoreboard play
 
 # allow cheat by default, needed by default if trying to play without auto judge
 function app:settings/pool/cheating/allow
+
+# keep session by default
+function app:settings/pool/reload/keepongoingsession
 
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback
