@@ -257,6 +257,9 @@ Please get a new one by running `/function app:get/pool/cueball_helper`.
 8. I get unexpected problems. \
 Please try to undo the shot and try again, reset the game, reset the table, or unload / reload the datapack. If problem persists, please submit an _issue_ or contact me. It is preferred to submit an issue, share a recording of the problem / a saved world copy to make me easier to get a solution.
 
+9. The game log recorded many errors. \
+This is expected, as the datapack includes functions written for different game versions. Some old versions may be incompatible with the current version and therefore fail to load, resulting in error messages.
+
 ---
 # Notes and Terms of Use
 

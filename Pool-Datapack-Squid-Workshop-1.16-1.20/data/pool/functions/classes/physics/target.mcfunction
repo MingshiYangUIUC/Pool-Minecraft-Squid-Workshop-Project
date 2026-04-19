@@ -19,7 +19,7 @@ tag @e[type=area_effect_cloud,tag=swPool_rhp1] remove swPool_facer
 
 
 #test if need relative
-execute unless entity @s[scores={swPool_v=97656..}] unless entity @e[tag=swPool_a2,limit=1,scores={swPool_v=97656..}] run tag @s add swPool_aabs
+execute unless entity @s[scores={swPool_v=..0}] unless entity @e[tag=swPool_a2,limit=1,scores={swPool_v=..0}] run tag @s add swPool_aabs
 
 execute if entity @s[tag=swPool_aabs] run function pool:classes/physics/relativevelocity
 
