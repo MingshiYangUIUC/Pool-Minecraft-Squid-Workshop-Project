@@ -18,6 +18,7 @@
   - CurseForge Snezfennico
   - Bilibili 74071024
   - Bilibili 1383472410
+  - Bilibili 525464371
 
 ### <span style="color:orange">March 2026</span> — v1.0.0 Official Releases are now publicly available.
 
