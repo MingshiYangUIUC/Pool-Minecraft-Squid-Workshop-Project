@@ -44,7 +44,7 @@ for v in all_versions:
     modify_scale_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
     modify_height_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
     modify_custom_model_data = pool_major_version == 21 and pool_minor_version >= 4
-    modify_pool_clickevent = pool_major_version == 21 and pool_minor_version >= 5
+    modify_pool_clickevent_and_misc_data = pool_major_version == 21 and pool_minor_version >= 5
 
     if pool_minor_version <= 1:
         data_version_range = [0,1]
@@ -330,7 +330,7 @@ for v in all_versions:
         f'  Rescale Armor Stand:    {modify_scale_armor_stand}\n' + 
         f'  Rise Armor Stand:       {modify_height_armor_stand}\n' + 
         f'  Fix Custom Model Data:  {modify_custom_model_data}\n'
-        f'  Modify Click Event:     {modify_pool_clickevent}\n'
+        f'  Modify Click Event:     {modify_pool_clickevent_and_misc_data}\n'
         )
 
 
@@ -677,7 +677,8 @@ for v in all_versions:
         modify_custom_model_data_status = 'Skipped'
 
 
-    if modify_pool_clickevent:
+    if modify_pool_clickevent_and_misc_data:
+        
         print('  Fixing click event related commands in Datapack for 1.21.5+...')
 
         filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
@@ -701,6 +702,7 @@ for v in all_versions:
             with open(file, 'w', encoding='utf-8') as f:
                 f.writelines(modified_lines)
 
+        '''
         print('  Setting click_event commands to triggers...')
 
         filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
@@ -761,7 +763,7 @@ for v in all_versions:
         with open(os.path.join(pool_final_dir_version,'dev_modified_files.txt'), 'w', encoding='utf-8') as f:
             for file in filenames:
                 f.write(f'{file}\n')
-
+        '''
 
         print('  Modify area_effect_cloud data')
         for file in filenames:

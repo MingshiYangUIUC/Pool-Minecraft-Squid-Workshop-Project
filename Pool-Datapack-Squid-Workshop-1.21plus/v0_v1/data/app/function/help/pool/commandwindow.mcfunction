@@ -1,5 +1,3 @@
-#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
-
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"╔══════════════════════════════╗"}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<Unload Pool Datapack>","color":"dark_red","clickEvent":{"action":"run_command","value":"/function app:unload/pool"}},{"text":"","color":"white"}]
@@ -24,6 +22,3 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<设置菜单和帮助>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<关于台球数据包>❤","color":"#FF9BDC","clickEvent":{"action":"run_command","value":"/function app:help/pool/notes/release_note"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
-
-#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
-#tellraw @s [{"text":""},{"text":"","color":"white","clickEvent":{"action":"run_command","value":""}}]
