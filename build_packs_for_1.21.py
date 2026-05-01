@@ -25,6 +25,8 @@ gc.collect()
 
 all_versions = [(21,0),(21,1),(21,2),(21,4),(21,5)]
 
+os.chdir(os.path.dirname(__file__))
+
 datapack_dir_target_str = 'Pool-Datapack-Squid-Workshop-1.21'
 resourcepack_dir_target_str = 'Pool-ResourcepackFolder-Squid-Workshop-1.21'
 

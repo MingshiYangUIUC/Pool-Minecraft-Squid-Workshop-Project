@@ -2,6 +2,11 @@ data merge storage minecraft:swpool {version:[1205,1]}
 
 #save parameters
 
+# reset language prompts if unloaded before
+execute if data storage minecraft:swpool unloaded run tag @a remove swPool_welcomed
+execute if data storage minecraft:swpool unloaded run data merge storage minecraft:swpool {version:[]}
+data remove storage minecraft:swpool unloaded
+
 execute store result storage minecraft:swpool fimpact int 1 run scoreboard players get C_mui swPool_C
 execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
 
@@ -17,9 +22,49 @@ execute store result score C_mus swPool_C run data get storage minecraft:swpool 
 #clean and reload
 execute unless data storage minecraft:swpool keepsession if data storage minecraft:swpool {version:[1]} run function pool:classes/main/clean
 
-# add a trigger
-scoreboard objectives add swPool_trigger trigger
-scoreboard players enable @a swPool_trigger
+# add a universal click event trigger
+scoreboard objectives add swPool__trigger trigger
+scoreboard players enable @a swPool__trigger
+
+# add more triggers for click-to-run scoreboard settings
+scoreboard objectives add swPool_pitch_trigger trigger
+scoreboard players enable @a swPool_pitch_trigger
+scoreboard objectives add swPool_sizex_trigger trigger
+scoreboard players enable @a swPool_sizex_trigger
+scoreboard objectives add swPool_sizez_trigger trigger
+scoreboard players enable @a swPool_sizez_trigger
+
+# cue stick
+scoreboard objectives add swPool_sticktype_trigger trigger
+scoreboard players enable @a swPool_sticktype_trigger
+
+# additonal controls
+scoreboard objectives add swPool_breakpower_trigger trigger
+scoreboard players enable @a swPool_breakpower_trigger
+scoreboard objectives add swPool_cueball_deflection_trigger trigger
+scoreboard players enable @a swPool_cueball_deflection_trigger
+
+# setting of global constants
+scoreboard objectives add swPool_C_muk_trigger trigger
+scoreboard players enable @a swPool_C_muk_trigger
+scoreboard objectives add swPool_C_mur_trigger trigger
+scoreboard players enable @a swPool_C_mur_trigger
+scoreboard objectives add swPool_C_mus_trigger trigger
+scoreboard players enable @a swPool_C_mus_trigger
+scoreboard objectives add swPool_C_mui_trigger trigger
+scoreboard players enable @a swPool_C_mui_trigger
+scoreboard objectives add swPool_C_table_rim_type_trigger trigger
+scoreboard players enable @a swPool_C_table_rim_type_trigger
+scoreboard objectives add swPool_C_table_cloth_color_trigger trigger
+scoreboard players enable @a swPool_C_table_cloth_color_trigger
+scoreboard objectives add swPool_C_nn_complexity_trigger trigger
+scoreboard players enable @a swPool_C_nn_complexity_trigger
+scoreboard objectives add swPool_C_tp_dur_trigger trigger
+scoreboard players enable @a swPool_C_tp_dur_trigger
+
+# snooker score
+scoreboard objectives add swPool_Score_trigger trigger
+scoreboard players enable @a swPool_Score_trigger
 
 scoreboard objectives add swMath_V dummy
 scoreboard objectives add swPool_C dummy
@@ -112,6 +157,16 @@ scoreboard objectives add swPool_sticktype dummy
 scoreboard objectives add swPool_breakpower dummy
 scoreboard objectives add swPool_cueball_deflection dummy
 
+# cue ball spin and power adjustment
+scoreboard objectives add swPool_pitch dummy
+scoreboard objectives add swPool_cuex dummy
+scoreboard objectives add swPool_cuey dummy
+scoreboard objectives add swPool_cuer dummy
+scoreboard objectives add swPool_cuea dummy
+scoreboard objectives add swPool_custompower dummy
+scoreboard objectives add swPool_custompower_1 dummy
+scoreboard objectives add swPool_custompower_10 dummy
+
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
 
@@ -197,7 +252,7 @@ execute as @a if score @s swPool_breakpower matches 201.. run scoreboard players
 
 # default: neural network breakshot (default:1)
 execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
-execute unless score nn_complexity swPool_C matches 1..4 run scoreboard players set nn_complexity swPool_C 1
+execute unless score C_nn_complexity swPool_C matches 1..4 run scoreboard players set C_nn_complexity swPool_C 1
 
 # tick interval
 execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
@@ -206,16 +261,19 @@ execute unless score tick_interval swPool_C matches 1.. run scoreboard players s
 execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
 
 # table: rim type
-execute unless score table_rim_type swPool_C matches 0..6 run scoreboard players set table_rim_type swPool_C 0
+execute unless score C_table_rim_type swPool_C matches 1..7 run scoreboard players set C_table_rim_type swPool_C 1
 
 # table: cloth color
-execute unless score table_cloth_color swPool_C matches 0..5 run scoreboard players set table_cloth_color swPool_C 0
+execute unless score C_table_cloth_color swPool_C matches 1..6 run scoreboard players set C_table_cloth_color swPool_C 1
 
 # allow cheat by default, needed by default if trying to play without auto judge
 function app:settings/pool/cheating/allow
 
 # keep session by default
 function app:settings/pool/reload/keepongoingsession
+
+# ball spinning by default
+function app:settings/pool/visuals/enable_ball_spinning
 
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback
@@ -236,8 +294,8 @@ execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN]
 
 #execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Several more steps and you can start with the command window.","italic": true,"color":"red"}]
 #execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 仅需完成以下设置即可通过命令窗口开始游玩。","italic": true,"color":"red"}]
-execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
-execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/version"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]
 
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","clickEvent":{"action":"suggest_command","value":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:settings/pool/friction/default"}}]
@@ -260,15 +318,15 @@ scoreboard players set #vIn swMath_V 600000
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
 function math:classes/core/trig/cos_rad
-#execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Math Datapack is REQUIRED but is not installed or is not working properly. Please get it from ","color":"red"}, {"text":"GitHub","underlined":true,"color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
-#execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"数学数据包未成功安装，获取：","color":"red"}, {"text":"GitHub","underlined":true,"color":"white","clickEvent":{"action":"open_url","value":"https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project"}}]
-#execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Please run /reload again after installation if you still see this message","color":"red"}]
-#execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"安装后如果看到本提示请再次运行/reload","color":"red"}]
 
-execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Math module is not working properly. Debug code: ","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
-execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"数学模组未正常运行。调试代码：","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
-execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"Please run /reload once more if you still see this message after the fix.","color":"red"}]
-execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a [{"text":"修复后如果仍旧看到本提示请再次运行/reload","color":"red"}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_EN] [{"text":"Math module is not working properly. Debug code: ","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_CN] [{"text":"数学模组未正常运行。调试代码：","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_EN] [{"text":"Please run /reload once more if you still see this message after the fix.","color":"red"}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_CN] [{"text":"修复后如果仍旧看到本提示请再次运行/reload","color":"red"}]
 
 # reset new player welcome (will not affect players already chosen language but will send welcome again to new players)
 tag @a[tag=!swPool_CN,tag=!swPool_EN] remove swPool_welcomed
+
+# auto modify max command chain/sequence length
+function app:help/pool/settings/helpers/cmd_maxchainlength
+function app:help/pool/settings/helpers/cmd_maxsequencelength

@@ -1,0 +1,332 @@
+data merge storage minecraft:swpool {version:[1205,1]}
+
+#save parameters
+
+# reset language prompts if unloaded before
+execute if data storage minecraft:swpool unloaded run tag @a remove swPool_welcomed
+execute if data storage minecraft:swpool unloaded run data merge storage minecraft:swpool {version:[]}
+data remove storage minecraft:swpool unloaded
+
+execute store result storage minecraft:swpool fimpact int 1 run scoreboard players get C_mui swPool_C
+execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
+
+execute store result storage minecraft:swpool froll int 1 run scoreboard players get C_mur swPool_C
+execute store result score C_mur swPool_C run data get storage minecraft:swpool froll
+
+execute store result storage minecraft:swpool fslide int 1 run scoreboard players get C_muk swPool_C
+execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
+
+execute store result storage minecraft:swpool fstrike int 1 run scoreboard players get C_mus swPool_C
+execute store result score C_mus swPool_C run data get storage minecraft:swpool fstrike
+
+#clean and reload
+execute unless data storage minecraft:swpool keepsession if data storage minecraft:swpool {version:[1]} run function pool:classes/main/clean
+
+# add a universal click event trigger
+scoreboard objectives add swPool__trigger trigger
+scoreboard players enable @a swPool__trigger
+
+# add more triggers for click-to-run scoreboard settings
+scoreboard objectives add swPool_pitch_trigger trigger
+scoreboard players enable @a swPool_pitch_trigger
+scoreboard objectives add swPool_sizex_trigger trigger
+scoreboard players enable @a swPool_sizex_trigger
+scoreboard objectives add swPool_sizez_trigger trigger
+scoreboard players enable @a swPool_sizez_trigger
+
+# cue stick
+scoreboard objectives add swPool_sticktype_trigger trigger
+scoreboard players enable @a swPool_sticktype_trigger
+
+# additonal controls
+scoreboard objectives add swPool_breakpower_trigger trigger
+scoreboard players enable @a swPool_breakpower_trigger
+scoreboard objectives add swPool_cueball_deflection_trigger trigger
+scoreboard players enable @a swPool_cueball_deflection_trigger
+
+# setting of global constants
+scoreboard objectives add swPool_C_muk_trigger trigger
+scoreboard players enable @a swPool_C_muk_trigger
+scoreboard objectives add swPool_C_mur_trigger trigger
+scoreboard players enable @a swPool_C_mur_trigger
+scoreboard objectives add swPool_C_mus_trigger trigger
+scoreboard players enable @a swPool_C_mus_trigger
+scoreboard objectives add swPool_C_mui_trigger trigger
+scoreboard players enable @a swPool_C_mui_trigger
+scoreboard objectives add swPool_C_table_rim_type_trigger trigger
+scoreboard players enable @a swPool_C_table_rim_type_trigger
+scoreboard objectives add swPool_C_table_cloth_color_trigger trigger
+scoreboard players enable @a swPool_C_table_cloth_color_trigger
+scoreboard objectives add swPool_C_nn_complexity_trigger trigger
+scoreboard players enable @a swPool_C_nn_complexity_trigger
+scoreboard objectives add swPool_C_tp_dur_trigger trigger
+scoreboard players enable @a swPool_C_tp_dur_trigger
+
+# snooker score
+scoreboard objectives add swPool_Score_trigger trigger
+scoreboard players enable @a swPool_Score_trigger
+
+scoreboard objectives add swMath_V dummy
+scoreboard objectives add swPool_C dummy
+scoreboard objectives add swPool_D100 dummy
+scoreboard objectives add swPool_DXX dummy
+scoreboard objectives add swPool_Rotation dummy
+scoreboard objectives add swPool_rot dummy
+scoreboard objectives add swPool_drot dummy
+scoreboard objectives add swPool_dist dummy
+scoreboard objectives add swPool_drel dummy
+scoreboard objectives add swPool_posx dummy
+scoreboard objectives add swPool_posy dummy
+scoreboard objectives add swPool_posz dummy
+scoreboard objectives add swPool_tmpposx dummy
+scoreboard objectives add swPool_tmpposz dummy
+scoreboard objectives add swPool_var00 dummy
+scoreboard objectives add swPool_var01 dummy
+scoreboard objectives add swPool_var02 dummy
+scoreboard objectives add swPool_var03 dummy
+scoreboard objectives add swPool_var04 dummy
+scoreboard objectives add swPool_var05 dummy
+scoreboard objectives add swPool_v dummy
+scoreboard objectives add swPool_vx dummy
+scoreboard objectives add swPool_vz dummy
+scoreboard objectives add swPool_vr dummy
+scoreboard objectives add swPool_vrx dummy
+scoreboard objectives add swPool_vrz dummy
+scoreboard objectives add swPool_hittime dummy
+scoreboard objectives add swPool_lifetime dummy
+scoreboard objectives add swPool_sizex dummy
+scoreboard objectives add swPool_sizez dummy
+scoreboard objectives add swPool_dl dummy
+scoreboard objectives add swPool_ds dummy
+scoreboard objectives add swPool_count dummy
+scoreboard objectives add swPool_ncolor dummy
+scoreboard objectives add swPool_nred dummy
+scoreboard objectives add swPool_rank dummy
+scoreboard objectives add swPool_player dummy
+scoreboard objectives add swPool_firsthit dummy
+scoreboard objectives add swPool_Score dummy
+scoreboard objectives add swPool_foul dummy
+scoreboard objectives add swPool_ontgt dummy
+scoreboard objectives add swPool_shoot dummy
+scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_stick
+scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
+scoreboard objectives add swPool_hidScore dummy
+
+
+scoreboard objectives add swPool_vex dummy
+scoreboard objectives add swPool_vey dummy
+scoreboard objectives add swPool_vez dummy
+
+scoreboard objectives add swPool_ax dummy
+scoreboard objectives add swPool_ay dummy
+scoreboard objectives add swPool_az dummy
+scoreboard objectives add swPool_amag dummy
+
+
+#spin stuff
+scoreboard objectives add swPool_vpx dummy
+scoreboard objectives add swPool_vpy dummy
+scoreboard objectives add swPool_vpz dummy
+scoreboard objectives add swPool_wx dummy
+scoreboard objectives add swPool_wy dummy
+scoreboard objectives add swPool_wz dummy
+scoreboard objectives add swPool_alx dummy
+scoreboard objectives add swPool_aly dummy
+scoreboard objectives add swPool_alz dummy
+
+scoreboard objectives add swPool_Vi dummy
+scoreboard objectives add swPool_Vj dummy
+scoreboard objectives add swPool_Vk dummy
+scoreboard objectives add swPool_Vmag dummy
+
+scoreboard objectives add swPool_T dummy
+scoreboard objectives add swPool_T_roll dummy
+scoreboard objectives add swPool_T_end dummy
+
+# pose
+scoreboard objectives add swPool_p_angle dummy
+scoreboard objectives add swPool_pose dummy
+
+scoreboard objectives add swPool_true_rot0 dummy
+scoreboard objectives add swPool_true_rot1 dummy
+
+# user score
+scoreboard objectives add swPool_sticktype dummy
+
+# break power and cue ball deflection
+scoreboard objectives add swPool_breakpower dummy
+scoreboard objectives add swPool_cueball_deflection dummy
+
+# cue ball spin and power adjustment
+scoreboard objectives add swPool_pitch dummy
+scoreboard objectives add swPool_cuex dummy
+scoreboard objectives add swPool_cuey dummy
+scoreboard objectives add swPool_cuer dummy
+scoreboard objectives add swPool_cuea dummy
+scoreboard objectives add swPool_custompower dummy
+scoreboard objectives add swPool_custompower_1 dummy
+scoreboard objectives add swPool_custompower_10 dummy
+
+# rename some scores
+scoreboard objectives modify swPool_Score displayname "Score"
+
+scoreboard objectives modify swPool_var00 displayname "*"
+scoreboard objectives modify swPool_var01 displayname "*"
+scoreboard objectives modify swPool_var02 displayname "*"
+scoreboard objectives modify swPool_var03 displayname "*"
+scoreboard objectives modify swPool_var04 displayname "*"
+scoreboard objectives modify swPool_var05 displayname "*"
+scoreboard objectives modify swPool_v displayname "*"
+
+#define constants
+#decimal places and math constants
+scoreboard players set C_100000000 swPool_C 100000000
+scoreboard players set C_3600000 swPool_C 3600000
+scoreboard players set C_1800000 swPool_C 1800000
+scoreboard players set C_10000 swPool_C 10000
+scoreboard players set C_7143 swPool_C 7143
+scoreboard players set C_5000 swPool_C 5000
+scoreboard players set C_2000 swPool_C 2000
+scoreboard players set C_1000 swPool_C 1000
+scoreboard players set C_625 swPool_C 625
+scoreboard players set C_500 swPool_C 500
+scoreboard players set C_256 swPool_C 256
+scoreboard players set C_250 swPool_C 250
+scoreboard players set C_100 swPool_C 100
+scoreboard players set C_99 swPool_C 99
+scoreboard players set C_50 swPool_C 50
+scoreboard players set C_30 swPool_C 30
+scoreboard players set C_20 swPool_C 20
+scoreboard players set C_16 swPool_C 16
+scoreboard players set C_10 swPool_C 10
+scoreboard players set C_5 swPool_C 5
+scoreboard players set C_2 swPool_C 2
+scoreboard players set C_-1 swPool_C -1
+scoreboard players set C_-10000 swPool_C -10000
+
+#radius*10000 #Don't change this! This is somehow hard coded.
+scoreboard players set C_r swPool_C 1250
+
+#muk*10000 kinetic friction
+scoreboard players set C_muk swPool_C 3000
+#set from storage!
+execute store result score C_muk swPool_C run data get storage minecraft:swpool fslide
+
+#mur*10000 rolling friction
+scoreboard players set C_mur swPool_C 200
+#set from storage!
+execute store result score C_mur swPool_C run data get storage minecraft:swpool froll
+
+#mur*10000 impact friction
+scoreboard players set C_mui swPool_C 150
+#set from storage!
+execute store result score C_mui swPool_C run data get storage minecraft:swpool fimpact
+
+#mus*10000 striking friction
+scoreboard players set C_mus swPool_C 7000
+#set from storage!
+execute store result score C_mus swPool_C run data get storage minecraft:swpool fstrike
+
+#g*10000 W = Mg
+scoreboard players set C_g swPool_C 98100
+#g*100 W = Mg
+scoreboard players set C_0.01g swPool_C 981
+
+#constants needed for strike, predefined.
+scoreboard players set m_ball swPool_C 1700
+scoreboard players set m_stick swPool_C 6000
+scoreboard players set C_r2 swPool_C 286
+scoreboard players set i_ball_100 swPool_C 56
+scoreboard players set C_l swPool_C 12500
+scoreboard players set i_stick swPool_C 2700
+
+# tp_duration # default: 1
+execute unless score C_tp_dur swPool_C matches 0..59 run scoreboard players set C_tp_dur swPool_C 1
+execute if score C_tp_dur swPool_C matches ..-1 run scoreboard players set C_tp_dur swPool_C 0
+execute if score C_tp_dur swPool_C matches 60.. run scoreboard players set C_tp_dur swPool_C 59
+
+#speed multiplier for breakshot # default: +150 (+150%) (100-200)
+execute as @a unless score @s swPool_breakpower matches 100..200 run scoreboard players set @s swPool_breakpower 150
+execute as @a if score @s swPool_breakpower matches ..99 run scoreboard players set @s swPool_breakpower 100
+execute as @a if score @s swPool_breakpower matches 201.. run scoreboard players set @s swPool_breakpower 200
+
+# default: neural network breakshot (default:1)
+execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
+execute unless score C_nn_complexity swPool_C matches 1..4 run scoreboard players set C_nn_complexity swPool_C 1
+
+# tick interval
+execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
+
+# cue ball deflection (10000 = 1 deg right ward)
+execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
+
+# table: rim type
+execute unless score C_table_rim_type swPool_C matches 1..7 run scoreboard players set C_table_rim_type swPool_C 1
+
+# table: cloth color
+execute unless score C_table_cloth_color swPool_C matches 1..6 run scoreboard players set C_table_cloth_color swPool_C 1
+
+# allow cheat by default, needed by default if trying to play without auto judge
+function app:settings/pool/cheating/allow
+
+# keep session by default
+function app:settings/pool/reload/keepongoingsession
+
+# ball spinning by default
+function app:settings/pool/visuals/enable_ball_spinning
+
+# rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
+# default: not feedback
+
+# rule: ignore rail requirement in all games. data merge storage minecraft:swpool {ignore_rail_req:1}
+# default: not ignored (rail rule is enforced)
+
+# rule: turn off auto judge. data merge storage minecraft:swpool {automatic_judge_off:1}
+# default: not turned off (auto judge is on)
+
+# rule: turn off sp role switching for 8 balls. data merge storage minecraft:swpool {keep_sp_role:1}
+# default: not turned off (sp role switching is on)
+
+function pool:classes/cue/reset
+
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包-鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}}]
+
+#execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Several more steps and you can start with the command window.","italic": true,"color":"red"}]
+#execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 仅需完成以下设置即可通过命令窗口开始游玩。","italic": true,"color":"red"}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1112162"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1112162"}}]
+
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11133052"}}]
+execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11133052"}}]
+
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 欢迎 Welcome.","italic":true,"color":"gray"}]
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 仅需完成以下设置即可通过命令窗口开始游玩。Several more steps and you can start with the command window.","italic":true,"color":"gray"}]
+#tellraw @a[tag=!swPool_CN,tag=!swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: ","italic":true,"color":"gray"},{"text":"语言 Language: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11133061"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11133062"}}]
+
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-Snooker]: Please pick a place to display score: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <Dialogue> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 111330911"}},{"italic":false,"color":"gray","underlined":true,"text":" <Sidebar>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 111330912"}}] 
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-斯诺克]: 请选择在何处显示分数: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <聊天栏> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 111330911"}},{"italic":false,"color":"gray","underlined":true,"text":" <侧边栏>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 111330912"}}] 
+
+scoreboard players set Resetf swPool_var00 0
+
+execute as @a store result score @s swPool_player run data get entity @s UUID[1]
+
+# math datapack test
+scoreboard players reset #vIn swMath_V
+scoreboard players reset #vOut swMath_V
+scoreboard players set #vIn swMath_V 600000
+function math:classes/core/util/deg2rad
+function math:classes/core/util/swap
+function math:classes/core/trig/cos_rad
+
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_EN] [{"text":"Math module is not working properly. Debug code: ","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_CN] [{"text":"数学模组未正常运行。调试代码：","color":"red"},{"score":{"objective":"swMath_V","name":"#vOut"}}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_EN] [{"text":"Please run /reload once more if you still see this message after the fix.","color":"red"}]
+execute unless score #vOut swMath_V matches 4990..5010 run tellraw @a[tag=swPool_CN] [{"text":"修复后如果仍旧看到本提示请再次运行/reload","color":"red"}]
+
+# reset new player welcome (will not affect players already chosen language but will send welcome again to new players)
+tag @a[tag=!swPool_CN,tag=!swPool_EN] remove swPool_welcomed
+
+# auto modify max command chain/sequence length
+function app:help/pool/settings/helpers/cmd_maxchainlength
+function app:help/pool/settings/helpers/cmd_maxsequencelength
