@@ -19,6 +19,14 @@ execute unless data storage minecraft:swpool keepsession if data storage minecra
 scoreboard objectives add swPool_trigger trigger
 scoreboard players enable @a swPool_trigger
 
+# add more triggers for click-to-run scoreboard settings
+scoreboard objectives add swPool_pitch_trigger trigger
+scoreboard players enable @a swPool_pitch_trigger
+scoreboard objectives add swPool_sizex_trigger trigger
+scoreboard players enable @a swPool_sizex_trigger
+scoreboard objectives add swPool_sizez_trigger trigger
+scoreboard players enable @a swPool_sizez_trigger
+
 scoreboard objectives add swMath_V dummy
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
@@ -109,6 +117,16 @@ scoreboard objectives add swPool_sticktype dummy
 # break power and cue ball deflection
 scoreboard objectives add swPool_breakpower dummy
 scoreboard objectives add swPool_cueball_deflection dummy
+
+# cue ball spin and power adjustment
+scoreboard objectives add swPool_pitch dummy
+scoreboard objectives add swPool_cuex dummy
+scoreboard objectives add swPool_cuey dummy
+scoreboard objectives add swPool_cuer dummy
+scoreboard objectives add swPool_cuea dummy
+scoreboard objectives add swPool_custompower dummy
+scoreboard objectives add swPool_custompower_1 dummy
+scoreboard objectives add swPool_custompower_10 dummy
 
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"

@@ -48,14 +48,19 @@ scoreboard players operation v_stick swPool_var00 = @s swPool_var00
 #tellraw @a [{"text":" vstick, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
 
 # multiply by custom power score
-execute if score #custompower swMath_V matches 0..100 run scoreboard players set v_stick swPool_var00 300
-execute if score #custompower swMath_V matches 0..100 run scoreboard players operation v_stick swPool_var00 *= #custompower swMath_V
-scoreboard players reset #custompower swMath_V
-scoreboard players reset #custompower_10 swMath_V
-scoreboard players reset #custompower_1 swMath_V
+execute if score @s swPool_custompower matches 0..100 run scoreboard players set v_stick swPool_var00 300
+execute if score @s swPool_custompower matches 0..100 run scoreboard players operation v_stick swPool_var00 *= @s swPool_custompower
+scoreboard players reset @s swPool_custompower
+scoreboard players reset @s swPool_custompower_10
+scoreboard players reset @s swPool_custompower_1
 
 #tellraw @a [{"text":" vstick new, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
-
+scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_pitch = @s swPool_pitch
+scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_cuer = @s swPool_cuer
+scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_cuea = @s swPool_cuea
+scoreboard players reset @s swPool_pitch
+scoreboard players reset @s swPool_cuer
+scoreboard players reset @s swPool_cuea
 execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run function pool:classes/spin/strike
 
 execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1.. run kill @e[type=arrow,tag=swPool_sb]
@@ -76,6 +81,6 @@ execute if score #breakshot swPool_v matches 1 run scoreboard players set #break
 #tellraw @a [{"text":" v new, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 
 # reset cue ball control
-scoreboard players set cuex swMath_V 0
-scoreboard players set cuey swMath_V 0
+scoreboard players set @s swPool_cuex 0
+scoreboard players set @s swPool_cuey 0
 

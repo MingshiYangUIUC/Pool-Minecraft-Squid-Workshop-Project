@@ -1,5 +1,5 @@
-scoreboard players set #custompower_1 swMath_V 4
-scoreboard players set #custompower swMath_V 0
-scoreboard players operation #custompower swMath_V += #custompower_10 swMath_V
-scoreboard players operation #custompower swMath_V += #custompower_1 swMath_V
-execute if score #custompower swMath_V matches 100.. run scoreboard players set #custompower swMath_V 100
+scoreboard players set @s swPool_custompower_1 4
+scoreboard players set @s swPool_custompower 0
+scoreboard players operation @s swPool_custompower += @s swPool_custompower_10
+scoreboard players operation @s swPool_custompower += @s swPool_custompower_1
+execute if score @s swPool_custompower matches 100.. run scoreboard players set @s swPool_custompower 100

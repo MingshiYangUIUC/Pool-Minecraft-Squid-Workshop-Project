@@ -6,7 +6,7 @@
 #			strike angle, coefficient of friction (between tip and ball)
 #			stkv swPool_V. C_stkl swPool_C. C_stkm swPool_C. C_stkI swPool_C
 #			C_r2 swPool_C. C_m swPool_C. C_I swPool_C
-#			stka swPool_var00. C_mus swPool_C 
+#			@s swPool_cuea. C_mus swPool_C 
 #
 #	procedures: 
 #			calculate effective coefficient of friction (5.4) mus_eff var00 
@@ -50,11 +50,11 @@
 #////////////////////////// BELOW USES stka //////////////////////////
 
 #	mus_eff and save sin and cos in memory (men_sin/cos in var00). C_mus is around 0.7 (7000), stka is strike angle theta
-scoreboard players operation @s swPool_var00 = stka swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_cuea
 function pool:classes/math/sindeg
 scoreboard players operation mem_sin swPool_var00 = @s swPool_var00
 
-scoreboard players operation @s swPool_var00 = stka swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_cuea
 function pool:classes/math/cosdeg
 scoreboard players operation mem_cos swPool_var00 = @s swPool_var00
 
@@ -182,16 +182,16 @@ scoreboard players operation r swPool_var00 *= C_-1 swPool_C
 
 ########################### get omega use x,pitch, (r=-1*y_rotation)
 # calculate sin and cos of 3 angles
-scoreboard players operation @s swPool_var00 = x swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_cuer
 function pool:classes/math/sindeg
 scoreboard players operation sinx swPool_var00 = @s swPool_var00
-scoreboard players operation @s swPool_var00 = x swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_cuer
 function pool:classes/math/cosdeg
 scoreboard players operation cosx swPool_var00 = @s swPool_var00
-scoreboard players operation @s swPool_var00 = pitch swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_pitch
 function pool:classes/math/sindeg
 scoreboard players operation sinpitch swPool_var00 = @s swPool_var00
-scoreboard players operation @s swPool_var00 = pitch swPool_var00
+scoreboard players operation @s swPool_var00 = @s swPool_pitch
 function pool:classes/math/cosdeg
 scoreboard players operation cospitch swPool_var00 = @s swPool_var00
 scoreboard players operation @s swPool_var00 = r swPool_var00
@@ -360,6 +360,6 @@ scoreboard players operation @s swPool_wz = wz swPool_var00
 #scoreboard players set @s swPool_v 0
 #kill @e[type=arrow,tag=swPool_sb]
 
-scoreboard players set stka swPool_var00 0
-scoreboard players set x swPool_var00 0
-scoreboard players set pitch swPool_var00 0
+scoreboard players set @s swPool_cuea 0
+scoreboard players set @s swPool_cuer 0
+scoreboard players set @s swPool_pitch 0
