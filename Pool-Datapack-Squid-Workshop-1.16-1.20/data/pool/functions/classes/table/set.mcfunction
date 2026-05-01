@@ -94,10 +94,10 @@ execute as @e[tag=swPool_nxside,tag=swPool_pzside] at @s run summon armor_stand 
 execute as @e[tag=swPool_nxside,tag=swPool_nzside] at @s run summon armor_stand ~-0.235 ~0.36875 ~-0.235 {Rotation:[-45.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_c","swPool_fake","swPool_cntr"]}
 
 #    side cntrs
-execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.25 ~0.36875 ~-0.49 {Rotation:[90.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.25 ~0.36875 ~0.49 {Rotation:[-90.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.49 ~0.36875 ~0.25 {Rotation:[180.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
-execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.49 ~0.36875 ~-0.25 {Rotation:[0.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_pxside] at @s run summon armor_stand ~0.25 ~0.36875 ~-0.5 {Rotation:[90.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nxside] at @s run summon armor_stand ~-0.25 ~0.36875 ~0.5 {Rotation:[-90.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_pzside] at @s run summon armor_stand ~0.5 ~0.36875 ~0.25 {Rotation:[180.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
+execute as @e[tag=swPool_potl,tag=swPool_nzside] at @s run summon armor_stand ~-0.5 ~0.36875 ~-0.25 {Rotation:[0.0f,0.0f],Marker:1b,Invisible:1b,Small:1b,Tags:["swPool_pktcntr_s","swPool_fake","swPool_cntr"]}
 
 #equip items
 execute if score table_cloth_color swPool_C matches 0 unless data storage minecraft:swpool {version:[1205]} as @e[tag=swPool_side] run data merge entity @s {Item:{id:"minecraft:acacia_button",Count:1b,tag:{CustomModelData:101}}}

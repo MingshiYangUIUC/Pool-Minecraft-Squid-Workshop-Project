@@ -11,12 +11,21 @@
 #absolute angle
 
 scoreboard players operation @s swPool_drot = @s swPool_Rotation
-tag @e[type=area_effect_cloud,tag=swPool_rhp1] add swPool_facer
-execute at @s run tp @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] ~ ~ ~ facing entity @e[type=item_display,tag=swPool_a2,limit=1]
-execute as @e[type=area_effect_cloud,tag=swPool_facer,limit=1,sort=nearest] store result score FACER swPool_rot run data get entity @s Rotation[0] 10000
-scoreboard players operation @s swPool_drot -= FACER swPool_rot
-tag @e[type=area_effect_cloud,tag=swPool_rhp1] remove swPool_facer
 
+# calculate dr using position
+scoreboard players operation #vIn2 swMath_V = @e[type=item_display,tag=swPool_a2,limit=1] swPool_tmpposx
+scoreboard players operation #vIn swMath_V = @e[type=item_display,tag=swPool_a2,limit=1] swPool_tmpposz
+scoreboard players operation #vIn2 swMath_V -= @s swPool_tmpposx
+scoreboard players operation #vIn swMath_V -= @s swPool_tmpposz
+scoreboard players operation #vIn2 swMath_V *= #C_-1 swMath_C
+
+#tellraw @a [{"text":"variable -dx is "},{"score":{"name": "#vIn2","objective": "swMath_V"}}]
+#tellraw @a [{"text":"variable dz is "},{"score":{"name": "#vIn","objective": "swMath_V"}}]
+function math:classes/core/trig/arctan2_rad
+function math:classes/core/util/swap
+function math:classes/core/util/rad2deg
+#tellraw @a [{"text":"variable vOut is "},{"score":{"name": "#vOut","objective": "swMath_V"}}]
+scoreboard players operation @s swPool_drot -= #vOut swMath_V
 
 #test if need relative
 execute unless entity @s[scores={swPool_v=..0}] unless entity @e[tag=swPool_a2,limit=1,scores={swPool_v=..0}] run tag @s add swPool_aabs
@@ -25,10 +34,6 @@ execute if entity @s[tag=swPool_aabs] run function pool:classes/physics/relative
 
 #unify dr value
 scoreboard players operation @s swPool_drot %= C_3600000 swPool_C
-#scoreboard players remove @s[scores={swPool_drot=3600001..}] swPool_drot 3600000
-#scoreboard players remove @s[scores={swPool_drot=3600001..}] swPool_drot 3600000
-#scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
-#scoreboard players add @s[scores={swPool_drot=..-1}] swPool_drot 3600000
 
 #get distance
 tag @e[type=item_display,tag=swPool_a2,limit=1] add swPool_d2
