@@ -262,14 +262,14 @@ execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run dat
 
 
 #end_output
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14111908"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112309"}}]
 
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/practice/start"}}]
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/snooker/startsp"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/start"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/function pool:classes/uk8ball/startsp"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14111908"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112309"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/call"}}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/function pool:classes/lobby/call"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14111010"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14111010"}}]
 
 
 tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
@@ -280,8 +280,8 @@ execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run sc
 
 kill @e[tag=swPool_placer,type=area_effect_cloud]
 
-tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
-tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}}]
+tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}}]
 
 # test if pooltable is near, if not, warn the player about table placement
 execute unless entity @e[tag=swPool_pooltable,limit=1,sort=nearest,distance=..10] run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"This datapack may not work correctly far from the world origin due to scoreboard scaling. Please use it closer to (0, 0).","color":"red"}]

@@ -27,7 +27,7 @@ all_versions = [(21,0),(21,1),(21,2),(21,4),(21,5)]
 
 os.chdir(os.path.dirname(__file__))
 
-datapack_dir_target_str = 'Pool-Datapack-Squid-Workshop-1.21'
+datapack_dir_target_str = 'Pool-Datapack-Base-Squid-Workshop-1.21'
 resourcepack_dir_target_str = 'Pool-ResourcepackFolder-Squid-Workshop-1.21'
 
 for v in all_versions:
@@ -79,8 +79,8 @@ for v in all_versions:
     resource_initial_dir = 'Pool-ResourcepackFolder-Squid-Workshop-1.16-1.20'
     resource_final_dir = os.path.join(output_dir,'Pool-ResourcepackFolder-Squid-Workshop-1.21-build')
 
-    pool_initial_dir ='Pool-Datapack-Squid-Workshop-1.16-1.20'
-    pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Squid-Workshop-1.21-build')
+    pool_initial_dir ='Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+    pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Base-Squid-Workshop-1.21-build')
 
     remove_built_packs = False
     overwrite_built_packs = True
@@ -242,7 +242,7 @@ for v in all_versions:
         # remove
         print('  Removing all built versions')
         if remove_built_packs:
-            alldirs = glob.glob('Pool-Datapack-Squid-Workshop-1.21*')
+            alldirs = glob.glob('Pool-Datapack-Base-Squid-Workshop-1.21*')
         else:
             alldirs = [pool_final_dir]
         for final_dirs in alldirs:
@@ -287,7 +287,7 @@ for v in all_versions:
     print(f'  Suitable Resourcepack: {res_version_name}')
 
 
-    pool_final_dir_version = os.path.join(output_dir,f'Pool-Datapack-Squid-Workshop-{data_version_name}')
+    pool_final_dir_version = os.path.join(output_dir,f'Pool-Datapack-Base-Squid-Workshop-{data_version_name}')
     if remove_built_packs:
         print('  Removing built D packs')
         if os.path.isdir(pool_final_dir_version):
@@ -953,11 +953,11 @@ def scanfile(dir_scan_str, dir_default_str):
 
 print('Datapack...')
 
-datapack_data = [['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4']]
+datapack_data = [['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
+                 ['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
+                 ['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.4/data','v4_v4']]
 
-datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data'
+datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.5-1.21.11/data'
 
 datapack_dir_target = Path(datapack_dir_target_str)
 if os.path.isdir(datapack_dir_target_str):

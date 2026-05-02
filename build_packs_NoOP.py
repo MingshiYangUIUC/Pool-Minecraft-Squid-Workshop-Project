@@ -38,7 +38,7 @@ def mcfunction_tree_ids(root):
     return ids
 
 
-ids = mcfunction_tree_ids("Pool-Datapack-Squid-Workshop-1.16-1.20")
+ids = mcfunction_tree_ids("Pool-Datapack-Base-Squid-Workshop-1.16-1.20")
 
 ids_mod = {}
 all_vals = [ids[k] for k in ids.keys()]
@@ -828,8 +828,8 @@ variable_names = [
 ]
 
 
-rp_0 = "Pool-Datapack-Squid-Workshop-1.16-1.20"
-rp_0_out = "Pool-Datapack-NoOP-Squid-Workshop-1.16-1.20"
+rp_0 = "Pool-Datapack-Base-Squid-Workshop-1.16-1.20"
+rp_0_out = "Pool-Datapack-Squid-Workshop-1.16-1.20"
 
 print('Working on ',rp_0_out)
 
@@ -843,8 +843,8 @@ convert_scoreboard_set_to_triggers(rp_0_out, variable_names)
 
 
 # make a new dir 1.21
-rp_1 = "Pool-Datapack-Squid-Workshop-1.21plus"
-rp_1_out = "Pool-Datapack-NoOP-Squid-Workshop-1.21plus"
+rp_1 = "Pool-Datapack-Base-Squid-Workshop-1.21plus"
+rp_1_out = "Pool-Datapack-Squid-Workshop-1.21plus"
 
 print('Working on ',rp_1_out)
 

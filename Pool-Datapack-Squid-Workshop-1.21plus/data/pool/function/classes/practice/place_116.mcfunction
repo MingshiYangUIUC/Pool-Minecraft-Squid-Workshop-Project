@@ -42,11 +42,11 @@ scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
 #execute as @e[tag=swPool_free,tag=!swPool_cue] at @s run tp @s ~ ~-1 ~
 
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"white","click_event":{"action":"run_command","command":"/function pool:classes/master/undo"}}]
-tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"white","click_event":{"action":"run_command","command":"/function pool:classes/master/undo"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 14111215"}}]
+tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 14111215"}}]
 
-execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/function pool:classes/cue/map"}}]
-execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/function pool:classes/cue/map"}}]
+execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool__trigger set 14110806"}}]
+execute if entity @e[tag=swPool_free,tag=swPool_cue] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"click_event":{"action":"run_command","command":"/trigger swPool__trigger set 14110806"}}]
 
 tag @e[tag=swPool_free] remove swPool_free
 tag @e[tag=swPool_pool] add swPool_placed
