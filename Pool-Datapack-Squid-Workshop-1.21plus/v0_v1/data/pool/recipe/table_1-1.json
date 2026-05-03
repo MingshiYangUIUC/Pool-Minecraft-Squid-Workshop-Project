@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+        "*": {
+            "item": "minecraft:green_carpet"
+        },
+        "X": {
+            "item": "minecraft:quartz_slab"
+        },
+        "A": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "minecraft:birch_planks"
+        }
+    },
+    "pattern": [
+        "***",
+        "XXX",
+        "ABA"
+    ],
+    "result": {
+        "id": "minecraft:chest",
+        "components": {
+            "minecraft:custom_data": {
+                "swPool_table_core": 1,
+                "swPool_cloth_type": 1,
+                "swPool_rim_type": 1
+            },
+            "minecraft:custom_name": "\"Pool Table\""
+        },
+        "count": 1
+    }
+}

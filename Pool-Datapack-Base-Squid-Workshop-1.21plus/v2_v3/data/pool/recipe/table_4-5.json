@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+        "*": "minecraft:pink_carpet",
+        "X": "minecraft:quartz_slab",
+        "A": "minecraft:jungle_planks",
+        "B": "minecraft:jungle_planks"
+    },
+    "pattern": [
+        "***",
+        "XXX",
+        "ABA"
+    ],
+    "result": {
+        "id": "minecraft:chest",
+        "components": {
+            "minecraft:custom_data": {
+                "swPool_table_core": 1,
+                "swPool_cloth_type": 4,
+                "swPool_rim_type": 5
+            },
+            "minecraft:custom_name": "\"Pool Table\""
+        },
+        "count": 1
+    }
+}
