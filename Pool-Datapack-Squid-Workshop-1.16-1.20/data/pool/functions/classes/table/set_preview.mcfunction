@@ -99,7 +99,7 @@ execute as @e[type=armor_stand,tag=swPool_pooltable,limit=1,sort=nearest] at @s 
 kill @e[tag=swPool_placer,type=area_effect_cloud,limit=1,sort=nearest]
 kill @e[tag=swPool_pooltable,type=armor_stand,limit=1,sort=nearest]
 
-execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"空间检测成功！ ","color":"green"},{"underlined":true,"text":"<现在放置>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112201"}}]
-execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Empty space detection Passed! ","color":"green"},{"underlined":true,"text":"<Set Now>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112201"}}]
+execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"空间检测成功！ ","color":"green"},{"underlined":true,"text":"<现在放置>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}}]
+execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Empty space detection Passed! ","color":"green"},{"underlined":true,"text":"<Set Now>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}}]
 
 tag @s remove swPool_checking

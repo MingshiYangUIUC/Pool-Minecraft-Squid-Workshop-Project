@@ -10,9 +10,9 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Choose z tab
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Suggested sizes: ","color":"white"},{"text":"4*6(Easy) ","color":"green"},{"text":"6*10(Moderate) ","color":"yellow"},{"text":"8*14(Hard)","color":"dark_red"},{"text":" Note: table requires 3 meter height space, and at least 1 meter of empty space is also required outward around the table.","color":"white"}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Preview>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112209"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Set Cloth Color>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 11133041"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Set Rim Type>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 11133043"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Preview>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112209"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Set Cloth Color>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133041"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Set Rim Type>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133043"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112201"}},{"underlined":false,"text":" to place the table.","color":"aqua"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}},{"underlined":false,"text":" to place the table.","color":"aqua"}]
 
 #CN version
 
@@ -24,6 +24,6 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"　点击选
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"建议大小： ","color":"white"},{"text":"4*6（简单） ","color":"green"},{"text":"6*10（中等） ","color":"yellow"},{"text":"8*14（困难）","color":"dark_red"},{"text":" 注意：球桌需要三米高度空间，周围向外也需要至少一米的空间","color":"white"}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<预览大小>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112209"}},{"text":" ","color":"white"},{"underlined":true,"text":"<设置桌布颜色>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 11133041"}},{"text":" ","color":"white"},{"underlined":true,"text":"<设置桌边材质>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 11133043"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<预览大小>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112209"}},{"text":" ","color":"white"},{"underlined":true,"text":"<设置桌布颜色>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133041"}},{"text":" ","color":"white"},{"underlined":true,"text":"<设置桌边材质>","color":"green","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133043"}}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 14112201"}},{"underlined":false,"text":" 尝试放置球桌。","color":"aqua"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}},{"underlined":false,"text":" 尝试放置球桌。","color":"aqua"}]

@@ -20,6 +20,8 @@ from collections import defaultdict
 import gc
 import sys
 import time
+import copy
+from pathlib import Path
 
 gc.collect()
 
@@ -260,6 +262,16 @@ for v in all_versions:
                 if dirname == 'functions':
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
+                    print(f"    Renaming: {old_path} -> {new_path}")
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
+                if dirname == 'recipes':
+                    old_path = os.path.join(dirpath, dirname)
+                    new_path = os.path.join(dirpath, 'recipe')
                     print(f"    Renaming: {old_path} -> {new_path}")
                     while True:
                         try:
@@ -1052,5 +1064,192 @@ if os.path.isdir(Path(resourcepack_dir_target_str+'plus')):
     shutil.rmtree(Path(resourcepack_dir_target_str+'plus'))
 os.rename(Path(datapack_dir_target_str),Path(datapack_dir_target_str+'plus'))
 os.rename(Path(resourcepack_dir_target_str),Path(resourcepack_dir_target_str+'plus'))
+
+
+print('(Re)-injecting Recipes')
+
+def set_key_item_or_id(key_entry, item_name):
+    """
+    Works for both:
+    {'item': 'minecraft:brown_dye'}
+    {'id': 'minecraft:brown_dye'}
+    or:
+    'minecraft:brown_dye'
+    """
+    full_name = f"minecraft:{item_name}"
+
+    if isinstance(key_entry, dict):
+        if 'item' in key_entry:
+            key_entry['item'] = full_name
+        elif 'id' in key_entry:
+            key_entry['id'] = full_name
+        else:
+            # fallback, keep minecraft part
+            key_entry['item'] = full_name
+    else:
+        key_entry = full_name
+
+    return key_entry
+
+sticks = {1:['brown_dye','white_dye'],
+            2:['black_dye','black_dye'],
+            3:['pink_dye','black_dye'],
+            4:['green_dye','green_dye'],
+            5:['yellow_dye','red_dye'],}
+
+table_cloth = {1:'green_carpet',
+               2:'light_blue_carpet',
+               3:'red_carpet',
+               4:'pink_carpet',
+               5:'white_carpet',
+               6:'white_carpet'}
+
+table_rim = {1:['iron_ingot','birch_planks'],
+             2:['oak_planks','oak_planks'],
+             3:['spruce_planks','spruce_planks'],
+             4:['birch_planks','birch_planks'],
+             5:['jungle_planks','jungle_planks'],
+             6:['acacia_planks','acacia_planks'],
+             7:['dark_oak_planks','dark_oak_planks']}
+
+## Stick
+# 1.20.5 init
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipes')
+# cleanup directories...
+if os.path.isdir(recipe_dir):
+    for f in glob.glob(os.path.join(recipe_dir,'*stick*.json')):
+        os.remove(f)
+
+# create directories
+os.makedirs(recipe_dir,exist_ok=True)
+
+# copy stick file
+with open(os.path.join('Recipes','stick_1.20.5+.json'),'r') as f:
+    data = json.load(f)
+
+for s, dyes in sticks.items():
+    dat = copy.deepcopy(data)
+
+    # replace * with first dye, # with second dye
+    dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
+    dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
+
+    # update result data
+    dat['result']['components']['minecraft:custom_model_data'] = s
+
+    with open(os.path.join(recipe_dir,f'stick_{s}.json'), 'w') as f:
+        json.dump(dat, f, indent=4)
+
+
+# 1.21plus
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.21plus'
+
+versions = ['v4_v4','v0_v1','v2_v3','v4_v4']
+
+for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
+    if subv != '':
+        recipe_dir = os.path.join(pack_dir, subv, 'data', 'pool', 'recipe')
+    else:
+        recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipe')
+    
+    # cleanup directories...
+    if os.path.isdir(recipe_dir):
+        for f in glob.glob(os.path.join(recipe_dir,'*stick*.json')):
+            os.remove(f)
+    os.makedirs(recipe_dir,exist_ok=True)
+
+    # copy stick file
+    with open(os.path.join('Recipes',f'stick_1.21_{versions[i]}.json'),'r') as f:
+        data = json.load(f)
+
+    for s, dyes in sticks.items():
+        dat = copy.deepcopy(data)
+
+        # replace * with first dye, # with second dye
+        dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
+        dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
+
+        # update result data
+        if subv in ['v0_v1','v2_v3']:
+            dat['result']['components']['minecraft:custom_model_data'] = s
+        else:
+            dat['result']['components']['minecraft:item_model'] = f'swpool:cuestick{s}'
+
+        with open(os.path.join(recipe_dir,f'stick_{s}.json'), 'w') as f:
+            json.dump(dat, f, indent=4)
+
+
+## Table
+# 1.20.5 init
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipes')
+if os.path.isdir(recipe_dir):
+    for f in glob.glob(os.path.join(recipe_dir,'*table*.json')):
+        os.remove(f)
+
+
+# create directories
+os.makedirs(recipe_dir,exist_ok=True)
+
+# copy table file
+with open(os.path.join('Recipes','table_1.20.5+.json'),'r') as f:
+    data = json.load(f)
+
+
+for tc, carpet in table_cloth.items():
+    for tr, rims in table_rim.items():
+        dat = copy.deepcopy(data)
+
+        # replace * with first dye, # with second dye
+        dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
+        dat['key']['A'] = set_key_item_or_id(dat['key']['A'], rims[0])
+        dat['key']['B'] = set_key_item_or_id(dat['key']['B'], rims[1])
+
+        # update result data
+        dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
+        dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+
+        with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
+            json.dump(dat, f, indent=4)
+
+
+# 1.21plus
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.21plus'
+
+versions = ['v2_v3','v0_v1','v2_v3','v2_v3']
+
+for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
+    if subv != '':
+        recipe_dir = os.path.join(pack_dir, subv, 'data', 'pool', 'recipe')
+    else:
+        recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipe')
+    
+    # cleanup directories...
+    if os.path.isdir(recipe_dir):
+        for f in glob.glob(os.path.join(recipe_dir,'*table*.json')):
+            os.remove(f)
+    os.makedirs(recipe_dir,exist_ok=True)
+
+    # copy stick file
+    with open(os.path.join('Recipes',f'table_1.21_{versions[i]}.json'),'r') as f:
+        data = json.load(f)
+
+    for tc, carpet in table_cloth.items():
+        for tr, rims in table_rim.items():
+            dat = copy.deepcopy(data)
+
+            # replace * with first dye, # with second dye
+            dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
+            dat['key']['A'] = set_key_item_or_id(dat['key']['A'], rims[0])
+            dat['key']['B'] = set_key_item_or_id(dat['key']['B'], rims[1])
+
+            # update result data
+            dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
+            dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+
+            with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
+                json.dump(dat, f, indent=4)
+
 
 print('All Done!')

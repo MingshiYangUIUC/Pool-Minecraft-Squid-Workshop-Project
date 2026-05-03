@@ -23,7 +23,10 @@ def mcfunction_tree_ids(root):
         return max(1, len(str(n)))
 
     def walk(folder, prefix=""):
-        children = sorted(folder.iterdir(), key=lambda p: (p.name.lower(), p.is_file()))
+        children = sorted(
+            folder.iterdir(),
+            key=lambda p: (p.is_dir(), p.name.lower())
+        )
         w = width_for(len(children))
 
         for i, child in enumerate(children, start=1):
@@ -34,7 +37,7 @@ def mcfunction_tree_ids(root):
             elif child.suffix == ".mcfunction":
                 ids[child.relative_to(root).as_posix()] = int(code)
 
-    walk(root)
+    walk(root / 'data')
     return ids
 
 
