@@ -196,8 +196,12 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
         print('  No variable_names provided. Skipping scoreboard trigger conversion.')
         return
 
-    variable_names = sorted(set(variable_names), key=len, reverse=True)
-    var_pat = "|".join(re.escape(v) for v in variable_names)
+    # Keep original input order for generated tick/listener order
+    variable_order = list(dict.fromkeys(variable_names))
+
+    # Use length-sorted order only for regex matching
+    variable_match_order = sorted(variable_order, key=len, reverse=True)
+    var_pat = "|".join(re.escape(v) for v in variable_match_order)
 
     # Match:
     # "run_command","value":"/scoreboard players set @s variable_name value"
@@ -215,7 +219,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
 
     print('  Checking and modifying files again...')
 
-    c_var_names = [v for v in variable_names if "swPool_C" in v]
+    c_var_names = [v for v in variable_match_order if "swPool_C" in v]
     c_target_to_var = {v[7:]: v for v in c_var_names}  # swPool_C_mui -> C_mui
 
     if c_target_to_var:
@@ -308,7 +312,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
         if new_line not in lines:
             lines.append(new_line)
 
-    for var_name in variable_names:
+    for var_name in variable_order:
         trigger_name = f'{var_name}_trigger'
 
         append_if_missing(
@@ -336,7 +340,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
 
     os.makedirs(trigger_dir, exist_ok=True)
 
-    for var_name in variable_names:
+    for var_name in variable_order:
         trigger_name = f'{var_name}_trigger'
 
         triggerfile = os.path.join(trigger_dir, f'{var_name.lower()}.mcfunction')
@@ -365,7 +369,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
     print('  Logging scoreboard trigger changes')
 
     with open(os.path.join(pool_final_dir_version, 'dev_scoreboard_triggers.txt'), 'w', encoding='utf-8') as f:
-        for var_name in variable_names:
+        for var_name in variable_order:
             values = occurred_vars.get(var_name, set())
 
             values = sorted(
@@ -593,8 +597,12 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
         print('  No variable_names provided. Skipping scoreboard trigger conversion.')
         return
 
-    variable_names = sorted(set(variable_names), key=len, reverse=True)
-    var_pat = "|".join(re.escape(v) for v in variable_names)
+    # Keep original input order for generated tick/listener order
+    variable_order = list(dict.fromkeys(variable_names))
+
+    # Use length-sorted order only for regex matching
+    variable_match_order = sorted(variable_order, key=len, reverse=True)
+    var_pat = "|".join(re.escape(v) for v in variable_match_order)
 
     # Normal case:
     # "run_command","value":"/scoreboard players set @s variable value"
@@ -614,7 +622,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
 
     print('  Checking and modifying files again...')
 
-    c_var_names = [v for v in variable_names if "swPool_C" in v]
+    c_var_names = [v for v in variable_match_order if "swPool_C" in v]
     c_target_to_var = {v[7:]: v for v in c_var_names}  # swPool_C_mui -> C_mui
 
     if c_target_to_var:
@@ -725,7 +733,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
         with open(tickfile, 'r', encoding='utf-8') as f:
             tick_lines = f.readlines()
 
-        for var_name in variable_names:
+        for var_name in variable_order:
             trigger_name = f'{var_name}_trigger'
 
             append_if_missing(
@@ -753,7 +761,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
             print(f'  Skipping missing trigger dir: {trigger_dir}')
             continue
 
-        for var_name in variable_names:
+        for var_name in variable_order:
             trigger_name = f'{var_name}_trigger'
             triggerfile = trigger_dir / f'{var_name.lower()}.mcfunction'
 
@@ -785,7 +793,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
     print('  Logging scoreboard trigger changes')
 
     with open(os.path.join(pool_final_dir_version, 'dev_scoreboard_triggers.txt'), 'w', encoding='utf-8') as f:
-        for var_name in variable_names:
+        for var_name in variable_order:
             values = occurred_vars.get(var_name, set())
 
             values = sorted(
