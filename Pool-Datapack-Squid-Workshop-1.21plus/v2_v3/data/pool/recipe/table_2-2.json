@@ -3,7 +3,7 @@
     "category": "equipment",
     "key": {
         "*": "minecraft:light_blue_carpet",
-        "X": "minecraft:quartz_slab",
+        "X": "minecraft:iron_ingot",
         "A": "minecraft:oak_planks",
         "B": "minecraft:oak_planks"
     },
@@ -20,7 +20,10 @@
                 "swPool_cloth_type": 2,
                 "swPool_rim_type": 2
             },
-            "minecraft:custom_name": "\"Pool Table\""
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: light_blue_carpet + oak_planks + oak_planks\""
+            ]
         },
         "count": 1
     }

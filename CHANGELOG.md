@@ -1,3 +1,31 @@
+### <span style="color:orange">May 2026</span> — v1.2.0: Play Without OP Permissions!
+
+- v1.2.0 now fully supports non-operator and survival-mode players. Huge thanks to the community votes and feedback!
+
+- Added the new NoOP version:
+  - Uses `/trigger` commands to replace most direct function calls and scoreboard-setting commands
+  - Allows players without command permissions to open the command window and modify almost all settings
+  - The default public datapack is now the NoOP version. The original command-permission-based version has been renamed to Datapack-Base and is now kept mainly for development
+
+- Added recipe support for Minecraft 1.20.5+ survival players:
+  - Cue sticks and pool table cores can now be crafted at the Crafting Table using very simple materials, and recipe requirements can be turned on or off
+
+- Added craftable cue sticks:
+  - Implemented using unbreakable bows, with invisible arrows automatically provided during gameplay for shooting
+
+- Added craftable pool table cores:
+  - Can generate configured pool tables after placement
+  - Placement can be cancelled and the original item can be recovered at any time
+  - Table cores store the cloth and rim materials used during crafting and generate matching table styles
+
+- This update also includes several fixes and performance optimizations:
+  - Reduced helper entity usage
+  - Optimized the custom cloth resource-pack structure
+  - Improved corner pocket rendering
+  - Fixed a 9-ball respot issue when auto judge is disabled
+
+Please see the full release notes for details.
+
 ### <span style="color:orange">April 2026</span> — v1.1.0: More Custom, More Possibilities!
 
 - Based on feedback from players trying out v1.0.0 (both rc and official releases), v1.1.0 focuses on adding more customization across the datapack, and installation and loading messages are improved so players can get into the game more easily.

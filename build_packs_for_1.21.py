@@ -8,6 +8,9 @@ by Mingshi Yang 2025/07/10
 Updated by Mingshi Yang 2026/03/03
     Merge all 1.21.X packs into single packs.
 
+Updated by Mingshi Yang 2026/05/06
+    Inject recipe information to all datapacks.
+
 """
 
 import os
@@ -1126,28 +1129,15 @@ def set_key_item_or_id(key_entry, item_name):
     return key_entry
 
 
-# You can customize the recipes here!
+# You can customize the recipes in this file!
+recipe_file_dir = os.path.join('Recipes','_registry.json')
 
-sticks = {1:['brown_dye','white_dye'],
-            2:['black_dye','black_dye'],
-            3:['pink_dye','black_dye'],
-            4:['green_dye','green_dye'],
-            5:['yellow_dye','red_dye'],}
+with open(recipe_file_dir, 'r', encoding='utf-8') as f:
+    registry = json.load(f)
 
-table_cloth = {1:'green_carpet',
-               2:'light_blue_carpet',
-               3:'red_carpet',
-               4:'pink_carpet',
-               5:'white_carpet',
-               6:'white_carpet'}
-
-table_rim = {1:['iron_ingot','birch_planks'],
-             2:['oak_planks','oak_planks'],
-             3:['spruce_planks','spruce_planks'],
-             4:['birch_planks','birch_planks'],
-             5:['jungle_planks','jungle_planks'],
-             6:['acacia_planks','acacia_planks'],
-             7:['dark_oak_planks','dark_oak_planks']}
+sticks = {int(k): v for k, v in registry['sticks'].items() if not k.startswith('_')}
+table_cloth = {int(k): v for k, v in registry['table_cloth'].items() if not k.startswith('_')}
+table_rim = {int(k): v for k, v in registry['table_rim'].items() if not k.startswith('_')}
 
 ## Stick
 # 1.20.5 init
@@ -1246,6 +1236,7 @@ for tc, carpet in table_cloth.items():
         # update result data
         dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
         dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+        dat['result']['components']['minecraft:lore'] = [f'"Material: {carpet} + {rims[0]} + {rims[1]}"']
 
         with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
             json.dump(dat, f, indent=4)
@@ -1284,6 +1275,7 @@ for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
             # update result data
             dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
             dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+            dat['result']['components']['minecraft:lore'] = [f'"Material: {carpet} + {rims[0]} + {rims[1]}"']
 
             with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
                 json.dump(dat, f, indent=4)

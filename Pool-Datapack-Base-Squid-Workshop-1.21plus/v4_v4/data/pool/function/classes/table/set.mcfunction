@@ -6,8 +6,8 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请稍候...
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
 summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-scoreboard players operation @e[type=item_display,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
-scoreboard players operation @e[type=item_display,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
+scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
+scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
 
 scoreboard players set @s swPool_var05 10000
 scoreboard players operation @s swPool_sizex /= @s swPool_var05
@@ -20,25 +20,25 @@ scoreboard players operation @s swPool_var01 -= @s swPool_sizex
 scoreboard players operation @s swPool_var02 -= @s swPool_sizez
 
 
-scoreboard players set @e[type=item_display,limit=1,sort=nearest] swPool_var05 10000
-execute as @e[type=item_display,limit=1,sort=nearest] at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
-execute as @e[type=item_display,limit=1,sort=nearest] at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
-execute as @e[type=item_display,limit=1,sort=nearest] run scoreboard players operation @s swPool_posx /= @s swPool_var05
-execute as @e[type=item_display,limit=1,sort=nearest] run scoreboard players operation @s swPool_posz /= @s swPool_var05
-execute as @e[type=item_display,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
-execute as @e[type=item_display,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
+scoreboard players set @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var05 10000
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posx /= @s swPool_var05
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posz /= @s swPool_var05
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
+execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
 
-scoreboard players operation @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var01 = @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 -= @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var02 = @s swPool_var02
-scoreboard players operation @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 -= @s swPool_var02
+scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var01 = @s swPool_var01
+scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 -= @s swPool_var01
+scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var02 = @s swPool_var02
+scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 -= @s swPool_var02
 
 scoreboard players reset @s swPool_posx
 scoreboard players reset @s swPool_posz
 scoreboard players reset @s swPool_var05
 
-execute if score @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 >= @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_x
-execute if score @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 < @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_z
+execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var03 >= @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_x
+execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var03 < @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_z
 
 summon area_effect_cloud ~ ~ ~ {Tags:["swPool_placer"]}
 
@@ -179,7 +179,10 @@ tag @e[tag=swPool_corner] add swPool_rim
 tag @e[tag=swPool_potl] add swPool_rim
 tag @e[tag=swPool_potr] add swPool_rim
 
-execute unless score C_table_rim_type swPool_C matches 1..7 run scoreboard players set C_table_rim_type swPool_C 1
+# no cherry before 1.20
+execute if score C_table_rim_type swPool_C matches 8 if data storage minecraft:swpool {version:[116]} run scoreboard players set C_table_rim_type swPool_C 1
+execute if score C_table_rim_type swPool_C matches 8 if data storage minecraft:swpool {version:[117]} unless data storage minecraft:swpool {version:[1200]} run scoreboard players set C_table_rim_type swPool_C 1
+execute unless score C_table_rim_type swPool_C matches 1..8 run scoreboard players set C_table_rim_type swPool_C 1
 
 execute if score C_table_rim_type swPool_C matches 1 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:iron_trapdoor[open=true,half=top,facing=east]
 execute if score C_table_rim_type swPool_C matches 1 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:iron_trapdoor[open=true,half=top,facing=south]
@@ -243,6 +246,15 @@ execute if score C_table_rim_type swPool_C matches 7 as @e[tag=swPool_pxside,tag
 execute if score C_table_rim_type swPool_C matches 7 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:dark_oak_wall_sign[facing=south]
 execute if score C_table_rim_type swPool_C matches 7 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:dark_oak_wall_sign[facing=west]
 execute if score C_table_rim_type swPool_C matches 7 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:dark_oak_wall_sign[facing=north]
+
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:cherry_trapdoor[open=true,half=top,facing=east]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:cherry_trapdoor[open=true,half=top,facing=south]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:cherry_trapdoor[open=true,half=top,facing=west]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:cherry_trapdoor[open=true,half=top,facing=north]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:cherry_wall_sign[facing=east]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:cherry_wall_sign[facing=south]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:cherry_wall_sign[facing=west]
+execute if score C_table_rim_type swPool_C matches 8 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:cherry_wall_sign[facing=north]
 
 
 execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999}

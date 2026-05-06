@@ -62,6 +62,7 @@ scoreboard objectives remove swPool_ontgt
 scoreboard objectives remove swPool_shoot
 scoreboard objectives remove swPool_crtclk
 scoreboard objectives remove swPool_sneaktime
+scoreboard objectives remove swPool_chest_interact
 scoreboard objectives remove swPool_hidScore
 
 scoreboard objectives remove swPool_vex

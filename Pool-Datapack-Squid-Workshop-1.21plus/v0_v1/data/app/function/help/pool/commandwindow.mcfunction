@@ -22,3 +22,6 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<设置菜单和帮助>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 112171"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ ","color":"white"},{"underlined":true,"text":"<关于台球数据包>❤","color":"#FF9BDC","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 112161"}},{"text":"","color":"white"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
+
+# language setting prompt
+tellraw @s[tag=!swPool_EN,tag=!swPool_CN] [{"text":"➇ ","color":"red"},{"text":"语言 Language: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133061"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1133062"}}]

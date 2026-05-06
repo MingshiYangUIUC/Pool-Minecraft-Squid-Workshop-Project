@@ -108,6 +108,7 @@ scoreboard objectives add swPool_ontgt dummy
 scoreboard objectives add swPool_shoot dummy
 scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
+scoreboard objectives add swPool_chest_interact minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
 
 
@@ -259,7 +260,7 @@ execute unless score tick_interval swPool_C matches 1.. run scoreboard players s
 execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
 
 # table: rim type
-execute unless score C_table_rim_type swPool_C matches 1..7 run scoreboard players set C_table_rim_type swPool_C 1
+execute unless score C_table_rim_type swPool_C matches 1..8 run scoreboard players set C_table_rim_type swPool_C 1
 
 # table: cloth color
 execute unless score C_table_cloth_color swPool_C matches 1..6 run scoreboard players set C_table_cloth_color swPool_C 1

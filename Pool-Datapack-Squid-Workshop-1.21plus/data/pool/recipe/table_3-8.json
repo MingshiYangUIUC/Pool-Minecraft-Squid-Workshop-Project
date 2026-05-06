@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+        "*": "minecraft:red_carpet",
+        "X": "minecraft:iron_ingot",
+        "A": "minecraft:cherry_planks",
+        "B": "minecraft:cherry_planks"
+    },
+    "pattern": [
+        "***",
+        "XXX",
+        "ABA"
+    ],
+    "result": {
+        "id": "minecraft:chest",
+        "components": {
+            "minecraft:custom_data": {
+                "swPool_table_core": 1,
+                "swPool_cloth_type": 3,
+                "swPool_rim_type": 8
+            },
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: red_carpet + cherry_planks + cherry_planks\""
+            ]
+        },
+        "count": 1
+    }
+}

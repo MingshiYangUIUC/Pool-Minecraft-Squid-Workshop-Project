@@ -1,0 +1,37 @@
+{
+  "_comment": "Recipe registry for Pool Datapack, please rebuild packs after customizing these. It is not yet possible to add new numeric keys.",
+
+  "sticks": {
+    "_comment": "cue stick id -> [grip color (upper-left item), shaft color (upper-right item)]",
+
+    "1": ["brown_dye", "white_dye"],
+    "2": ["black_dye", "black_dye"],
+    "3": ["pink_dye", "black_dye"],
+    "4": ["green_dye", "green_dye"],
+    "5": ["yellow_dye", "red_dye"]
+  },
+
+  "table_cloth": {
+    "_comment": "table cloth id -> carpet block (top layer items)",
+
+    "1": "green_carpet",
+    "2": "light_blue_carpet",
+    "3": "red_carpet",
+    "4": "pink_carpet",
+    "5": "white_carpet",
+    "6": "white_carpet"
+  },
+
+  "table_rim": {
+    "_comment": "table rim id -> [trapdoor (bottom-left and bottom-right items), sign (bottom-center item)]",
+
+    "1": ["iron_ingot", "birch_planks"],
+    "2": ["oak_planks", "oak_planks"],
+    "3": ["spruce_planks", "spruce_planks"],
+    "4": ["birch_planks", "birch_planks"],
+    "5": ["jungle_planks", "jungle_planks"],
+    "6": ["acacia_planks", "acacia_planks"],
+    "7": ["dark_oak_planks", "dark_oak_planks"],
+    "8": ["cherry_planks", "cherry_planks"]
+  }
+}

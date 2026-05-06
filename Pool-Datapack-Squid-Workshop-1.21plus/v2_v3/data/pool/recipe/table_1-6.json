@@ -3,7 +3,7 @@
     "category": "equipment",
     "key": {
         "*": "minecraft:green_carpet",
-        "X": "minecraft:quartz_slab",
+        "X": "minecraft:iron_ingot",
         "A": "minecraft:acacia_planks",
         "B": "minecraft:acacia_planks"
     },
@@ -20,7 +20,10 @@
                 "swPool_cloth_type": 1,
                 "swPool_rim_type": 6
             },
-            "minecraft:custom_name": "\"Pool Table\""
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: green_carpet + acacia_planks + acacia_planks\""
+            ]
         },
         "count": 1
     }

@@ -3,6 +3,8 @@ execute if data storage minecraft:swpool {version:[1205]} run function pool:clas
 
 execute unless data storage minecraft:swpool unloaded as @a[tag=!swPool_CN,tag=!swPool_EN,tag=!swPool_welcomed] run function pool:classes/main/welcome_newplayer
 
+execute as @a[scores={swPool_chest_interact=1..}] at @s run function pool:classes/table/helpers/chest_detect
+
 scoreboard players enable @a swPool__trigger
 execute as @a[scores={swPool__trigger=1..}] at @s run function pool:classes/main/trigger
 

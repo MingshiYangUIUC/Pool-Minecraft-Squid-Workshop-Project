@@ -6,7 +6,7 @@
             "item": "minecraft:red_carpet"
         },
         "X": {
-            "item": "minecraft:quartz_slab"
+            "item": "minecraft:iron_ingot"
         },
         "A": {
             "item": "minecraft:iron_ingot"
@@ -28,7 +28,10 @@
                 "swPool_cloth_type": 3,
                 "swPool_rim_type": 1
             },
-            "minecraft:custom_name": "\"Pool Table\""
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: red_carpet + iron_ingot + birch_planks\""
+            ]
         },
         "count": 1
     }

@@ -110,6 +110,7 @@ scoreboard objectives add swPool_ontgt dummy
 scoreboard objectives add swPool_shoot dummy
 scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
+scoreboard objectives add swPool_chest_interact minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
 
 
@@ -261,7 +262,7 @@ execute unless score tick_interval swPool_C matches 1.. run scoreboard players s
 execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
 
 # table: rim type
-execute unless score C_table_rim_type swPool_C matches 1..7 run scoreboard players set C_table_rim_type swPool_C 1
+execute unless score C_table_rim_type swPool_C matches 1..8 run scoreboard players set C_table_rim_type swPool_C 1
 
 # table: cloth color
 execute unless score C_table_cloth_color swPool_C matches 1..6 run scoreboard players set C_table_cloth_color swPool_C 1
@@ -298,8 +299,8 @@ execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=sw
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1133052"}}]
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1133052"}}]
 
-execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-Snooker]: Please pick a place to display score: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <Dialogue> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11330911"}},{"italic":false,"color":"gray","underlined":true,"text":" <Sidebar>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11330912"}}] 
-execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-斯诺克]: 请选择在何处显示分数: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <聊天栏> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11330911"}},{"italic":false,"color":"gray","underlined":true,"text":" <侧边栏>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11330912"}}] 
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-Snooker]: Please pick a place to display score: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <Dialogue> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11331011"}},{"italic":false,"color":"gray","underlined":true,"text":" <Sidebar>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11331012"}}] 
+execute unless data storage minecraft:swpool {displayscore:'sidebar'} unless data storage minecraft:swpool {displayscore:'dialogue'} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-斯诺克]: 请选择在何处显示分数: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <聊天栏> ","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11331011"}},{"italic":false,"color":"gray","underlined":true,"text":" <侧边栏>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11331012"}}] 
 
 scoreboard players set Resetf swPool_var00 0
 

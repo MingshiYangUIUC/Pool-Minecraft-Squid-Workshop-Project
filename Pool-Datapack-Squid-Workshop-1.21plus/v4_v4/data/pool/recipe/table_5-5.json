@@ -3,7 +3,7 @@
     "category": "equipment",
     "key": {
         "*": "minecraft:white_carpet",
-        "X": "minecraft:quartz_slab",
+        "X": "minecraft:iron_ingot",
         "A": "minecraft:jungle_planks",
         "B": "minecraft:jungle_planks"
     },
@@ -20,7 +20,10 @@
                 "swPool_cloth_type": 5,
                 "swPool_rim_type": 5
             },
-            "minecraft:custom_name": "\"Pool Table\""
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: white_carpet + jungle_planks + jungle_planks\""
+            ]
         },
         "count": 1
     }
