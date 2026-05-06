@@ -1,4 +1,4 @@
-scoreboard players set @s swPool_chest_interact 0
+scoreboard players set @s swPool_chst 0
 
 summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_chestplace"],Duration:1}
 

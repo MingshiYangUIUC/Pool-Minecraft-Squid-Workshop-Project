@@ -29,8 +29,8 @@ execute if score @s swPool__trigger matches 1133055 run function app:settings/po
 execute if score @s swPool__trigger matches 1133056 run function app:settings/pool/friction/striking
 execute if score @s swPool__trigger matches 1133061 run function app:settings/pool/language/chinese_simplified
 execute if score @s swPool__trigger matches 1133062 run function app:settings/pool/language/english
-execute if score @s swPool__trigger matches 1133071 run function app:settings/pool/recipes/recipe_off
-execute if score @s swPool__trigger matches 1133072 run function app:settings/pool/recipes/recipe_on
+execute if score @s swPool__trigger matches 1133071 run function app:settings/pool/need_recipes/recipe_off
+execute if score @s swPool__trigger matches 1133072 run function app:settings/pool/need_recipes/recipe_on
 execute if score @s swPool__trigger matches 1133081 run function app:settings/pool/reload/cleanongoingsession
 execute if score @s swPool__trigger matches 1133082 run function app:settings/pool/reload/keepongoingsession
 execute if score @s swPool__trigger matches 1133091 run function app:settings/pool/rules/automatic_judge_off
@@ -89,8 +89,8 @@ execute if score @s swPool__trigger matches 4112008 run function pool:classes/sn
 execute if score @s swPool__trigger matches 4112009 run function pool:classes/snooker/startsp
 execute if score @s swPool__trigger matches 4112011 run function pool:classes/snooker/startsp_helper
 execute if score @s swPool__trigger matches 4112201 run function pool:classes/table/check
-execute if score @s swPool__trigger matches 4112209 run function pool:classes/table/set_preview
-execute if score @s swPool__trigger matches 4112210 run function pool:classes/table/start
+execute if score @s swPool__trigger matches 4112210 run function pool:classes/table/set_preview
+execute if score @s swPool__trigger matches 4112211 run function pool:classes/table/start
 execute if score @s swPool__trigger matches 4112306 run function pool:classes/uk8ball/start
 execute if score @s swPool__trigger matches 4112308 run function pool:classes/uk8ball/start_helper
 execute if score @s swPool__trigger matches 4112309 run function pool:classes/uk8ball/startsp
@@ -102,8 +102,8 @@ execute if score @s swPool__trigger matches 41112171 run function pool:classes/m
 execute if score @s swPool__trigger matches 41112186 run function pool:classes/master/snooker/progression_norule_control
 execute if score @s swPool__trigger matches 41112187 run function pool:classes/master/snooker/progression_norule_control_1205
 execute if score @s swPool__trigger matches 41112188 run function pool:classes/master/snooker/progression_norule_refresh_score
-execute if score @s swPool__trigger matches 41122121 run function pool:classes/table/helpers/chest_check
-execute if score @s swPool__trigger matches 41122125 run function pool:classes/table/helpers/chest_set_preview
+execute if score @s swPool__trigger matches 41122131 run function pool:classes/table/helpers/chest_check
+execute if score @s swPool__trigger matches 41122135 run function pool:classes/table/helpers/chest_set_preview
 execute if score @s swPool__trigger matches 411081001 run function pool:classes/cue/points_v2/p-2000_-2000
 execute if score @s swPool__trigger matches 411081002 run function pool:classes/cue/points_v2/p-2000_-4000
 execute if score @s swPool__trigger matches 411081003 run function pool:classes/cue/points_v2/p-2000_-6000

@@ -6,4 +6,4 @@ execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes
 execute as @e[tag=swPool_fake,type=item_display] at @s run function pool:classes/master/read_tmppos
 
 execute as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
-execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
+execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tpdr swPool_C

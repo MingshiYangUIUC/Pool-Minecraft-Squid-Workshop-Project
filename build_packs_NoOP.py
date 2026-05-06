@@ -264,7 +264,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
 
                     return (
                         f'{match.group(1)}'
-                        f'/trigger {var_name}_trigger set {value}'
+                        f'/trigger {var_name}_tr set {value}'
                         f'{match.group(4)}'
                     )
 
@@ -281,7 +281,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
 
                     return (
                         f'{match.group(1)}'
-                        f'/trigger {var_name}_trigger set '
+                        f'/trigger {var_name}_tr set '
                     )
 
                 newline = c_pattern.sub(replace_swPool_C_set, line)
@@ -313,7 +313,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
             lines.append(new_line)
 
     for var_name in variable_order:
-        trigger_name = f'{var_name}_trigger'
+        trigger_name = f'{var_name}_tr'
 
         append_if_missing(
             tick_lines,
@@ -341,7 +341,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
     os.makedirs(trigger_dir, exist_ok=True)
 
     for var_name in variable_order:
-        trigger_name = f'{var_name}_trigger'
+        trigger_name = f'{var_name}_tr'
 
         triggerfile = os.path.join(trigger_dir, f'{var_name.lower()}.mcfunction')
 
@@ -377,7 +377,7 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
                 key=lambda x: int(x) if str(x).lstrip("-").isdigit() else 10**20
             )
 
-            f.write(f'{var_name}_trigger -> {var_name}\n')
+            f.write(f'{var_name}_tr -> {var_name}\n')
             f.write(f'  values: {", ".join(map(str, values)) if values else "(not used)"}\n')
 
     with open(os.path.join(pool_final_dir_version, 'dev_scoreboard_trigger_modified_files.txt'), 'w', encoding='utf-8') as f:
@@ -672,13 +672,13 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
                     if value is None:
                         return (
                             f'{match.group(1)}'
-                            f'/trigger {var_name}_trigger set '
+                            f'/trigger {var_name}_tr set '
                             f'{match.group(4)}'
                         )
 
                     return (
                         f'{match.group(1)}'
-                        f'/trigger {var_name}_trigger set {value}'
+                        f'/trigger {var_name}_tr set {value}'
                         f'{match.group(4)}'
                     )
 
@@ -697,13 +697,13 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
                     if value is None:
                         return (
                             f'{match.group(1)}'
-                            f'/trigger {var_name}_trigger set '
+                            f'/trigger {var_name}_tr set '
                             f'{match.group(4)}'
                         )
 
                     return (
                         f'{match.group(1)}'
-                        f'/trigger {var_name}_trigger set {value}'
+                        f'/trigger {var_name}_tr set {value}'
                         f'{match.group(4)}'
                     )
 
@@ -734,7 +734,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
             tick_lines = f.readlines()
 
         for var_name in variable_order:
-            trigger_name = f'{var_name}_trigger'
+            trigger_name = f'{var_name}_tr'
 
             append_if_missing(
                 tick_lines,
@@ -762,7 +762,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
             continue
 
         for var_name in variable_order:
-            trigger_name = f'{var_name}_trigger'
+            trigger_name = f'{var_name}_tr'
             triggerfile = trigger_dir / f'{var_name.lower()}.mcfunction'
 
             if not triggerfile.exists():
@@ -801,7 +801,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
                 key=lambda x: int(x) if str(x).lstrip("-").isdigit() else 10**20
             )
 
-            f.write(f'{var_name}_trigger -> {var_name}\n')
+            f.write(f'{var_name}_tr -> {var_name}\n')
             f.write(f'  values: {", ".join(map(str, values)) if values else "(not used)"}\n')
 
     with open(os.path.join(pool_final_dir_version, 'dev_scoreboard_trigger_modified_files.txt'), 'w', encoding='utf-8') as f:
@@ -818,6 +818,7 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
 
 ### Define scoreboard objectives with a trigger variant
 
+'''
 variable_names = [
      "swPool_pitch",
      "swPool_sizex",
@@ -836,8 +837,29 @@ variable_names = [
      "swPool_C_tp_dur",
 
      'swPool_Score'
+]'''
+
+variable_names = [
+     "swPool_pitch",
+     "swPool_sizex",
+     "swPool_sizez",
+     "swPool_stkt",
+     "swPool_brkp",
+     "swPool_cbld",
+
+     "swPool_C_muk",
+     "swPool_C_mur",
+     "swPool_C_mus",
+     "swPool_C_mui",
+     "swPool_C_trt",
+     "swPool_C_tcc",
+     "swPool_C_nn",
+     "swPool_C_tpdr",
+
+     'swPool_Score'
 ]
 
+#variable_names_mapper = {variable_names[i]:variable_short_names[i] for i in range(len(variable_names))}
 
 rp_0 = "Pool-Datapack-Base-Squid-Workshop-1.16-1.20"
 rp_0_out = "Pool-Datapack-Squid-Workshop-1.16-1.20"

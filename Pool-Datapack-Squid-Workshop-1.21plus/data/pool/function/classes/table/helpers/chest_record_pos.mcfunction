@@ -17,8 +17,8 @@ execute store result entity @e[tag=swPool_table_core,limit=1,sort=nearest] Pos[2
 function pool:classes/table/clear
 
 # log score
-execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result score C_table_cloth_color swPool_C run data get block ~ ~ ~ components.minecraft:custom_data.swPool_cloth_type 1
-execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result score C_table_rim_type swPool_C run data get block ~ ~ ~ components.minecraft:custom_data.swPool_rim_type 1
+execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result score C_tcc swPool_C run data get block ~ ~ ~ components.minecraft:custom_data.swPool_cloth_type 1
+execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result score C_trt swPool_C run data get block ~ ~ ~ components.minecraft:custom_data.swPool_rim_type 1
 
 # log lore
 execute at @e[tag=swPool_table_core,limit=1,sort=nearest] run data modify storage minecraft:swpool table_lore set from block ~ ~ ~ components.minecraft:lore
@@ -27,8 +27,8 @@ execute at @e[tag=swPool_table_core,limit=1,sort=nearest] run data modify storag
 execute at @e[tag=swPool_table_core,limit=1,sort=nearest] run item replace block ~ ~ ~ container.0 with minecraft:chest[minecraft:custom_name="\"Pool Table\"",minecraft:custom_data={swPool_table_core:1b}]
 
 # set score
-execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result block ~ ~ ~ Items[0].components.minecraft:custom_data.swPool_cloth_type byte 1 run scoreboard players get C_table_cloth_color swPool_C
-execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result block ~ ~ ~ Items[0].components.minecraft:custom_data.swPool_rim_type byte 1 run scoreboard players get C_table_rim_type swPool_C
+execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result block ~ ~ ~ Items[0].components.minecraft:custom_data.swPool_cloth_type byte 1 run scoreboard players get C_tcc swPool_C
+execute at @e[tag=swPool_table_core,limit=1,sort=nearest] store result block ~ ~ ~ Items[0].components.minecraft:custom_data.swPool_rim_type byte 1 run scoreboard players get C_trt swPool_C
 execute at @e[tag=swPool_table_core,limit=1,sort=nearest] run data modify block ~ ~ ~ Items[0].components.minecraft:lore set from storage minecraft:swpool table_lore
 
 execute as @p run function pool:classes/table/helpers/chest_start_success

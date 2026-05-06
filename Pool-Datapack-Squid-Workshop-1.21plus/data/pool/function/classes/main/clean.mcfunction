@@ -1,24 +1,24 @@
 function pool:classes/table/clear
 
 scoreboard objectives remove swPool__trigger
-scoreboard objectives remove swPool_pitch_trigger
-scoreboard objectives remove swPool_sizex_trigger
-scoreboard objectives remove swPool_sizez_trigger
+scoreboard objectives remove swPool_pitch_tr
+scoreboard objectives remove swPool_sizex_tr
+scoreboard objectives remove swPool_sizez_tr
 
-scoreboard objectives remove swPool_sticktype_trigger
-scoreboard objectives remove swPool_breakpower_trigger
-scoreboard objectives remove swPool_cueball_deflection_trigger
+scoreboard objectives remove swPool_stkt_tr
+scoreboard objectives remove swPool_brkp_tr
+scoreboard objectives remove swPool_cbld_tr
 
-scoreboard objectives remove swPool_C_muk_trigger
-scoreboard objectives remove swPool_C_mur_trigger
-scoreboard objectives remove swPool_C_mus_trigger
-scoreboard objectives remove swPool_C_mui_trigger
-scoreboard objectives remove swPool_C_table_rim_type_trigger
-scoreboard objectives remove swPool_C_table_cloth_color_trigger
-scoreboard objectives remove swPool_C_nn_complexity_trigger
-scoreboard objectives remove swPool_C_tp_dur_trigger
+scoreboard objectives remove swPool_C_muk_tr
+scoreboard objectives remove swPool_C_mur_tr
+scoreboard objectives remove swPool_C_mus_tr
+scoreboard objectives remove swPool_C_mui_tr
+scoreboard objectives remove swPool_C_trt_tr
+scoreboard objectives remove swPool_C_tcc_tr
+scoreboard objectives remove swPool_C_nn_tr
+scoreboard objectives remove swPool_C_tpdr_tr
 
-scoreboard objectives remove swPool_Score_trigger
+scoreboard objectives remove swPool_Score_tr
 
 scoreboard objectives remove swPool_C
 scoreboard objectives remove swPool_D100
@@ -62,7 +62,7 @@ scoreboard objectives remove swPool_ontgt
 scoreboard objectives remove swPool_shoot
 scoreboard objectives remove swPool_crtclk
 scoreboard objectives remove swPool_sneaktime
-scoreboard objectives remove swPool_chest_interact
+scoreboard objectives remove swPool_chst
 scoreboard objectives remove swPool_hidScore
 
 scoreboard objectives remove swPool_vex
@@ -98,15 +98,15 @@ scoreboard objectives remove swPool_Rotation
 scoreboard objectives remove swPool_true_rot0
 scoreboard objectives remove swPool_true_rot1
 
-scoreboard objectives remove swPool_sticktype
-scoreboard objectives remove swPool_cueball_deflection
-scoreboard objectives remove swPool_breakpower
+scoreboard objectives remove swPool_stkt
+scoreboard objectives remove swPool_cbld
+scoreboard objectives remove swPool_brkp
 
 scoreboard objectives remove swPool_pitch
 scoreboard objectives remove swPool_cuex
 scoreboard objectives remove swPool_cuey
 scoreboard objectives remove swPool_cuer
 scoreboard objectives remove swPool_cuea
-scoreboard objectives remove swPool_custompower
-scoreboard objectives remove swPool_custompower_1
-scoreboard objectives remove swPool_custompower_10
+scoreboard objectives remove swPool_cstmp
+scoreboard objectives remove swPool_cstmp_1
+scoreboard objectives remove swPool_cstmp_10

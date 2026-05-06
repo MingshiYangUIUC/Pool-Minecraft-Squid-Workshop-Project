@@ -219,15 +219,15 @@ scoreboard players operation #x0_3 swMath_V = #VELVV swMath_V
 #tellraw @a [{"text":"input 3, "},{"score":{"objective":"swMath_V","name":"#x0_3"}}]
 
 # run model
-execute if score C_nn_complexity swPool_C matches 1 run function pool:classes/break_nn_8ball/breakmodel-1_12
+execute if score C_nn swPool_C matches 1 run function pool:classes/break_nn_8ball/breakmodel-1_12
 # skip one layer because model is shallower
-execute if score C_nn_complexity swPool_C matches 1 run function pool:classes/break_nn_8ball/skip_layer
+execute if score C_nn swPool_C matches 1 run function pool:classes/break_nn_8ball/skip_layer
 
-execute if score C_nn_complexity swPool_C matches 2 run function pool:classes/break_nn_8ball/breakmodel-2_12
+execute if score C_nn swPool_C matches 2 run function pool:classes/break_nn_8ball/breakmodel-2_12
 
-execute if score C_nn_complexity swPool_C matches 3 run function pool:classes/break_nn_8ball/breakmodel_2_16
+execute if score C_nn swPool_C matches 3 run function pool:classes/break_nn_8ball/breakmodel_2_16
 
-execute if score C_nn_complexity swPool_C matches 4 run function pool:classes/break_nn_8ball/breakmodel-2_24
+execute if score C_nn swPool_C matches 4 run function pool:classes/break_nn_8ball/breakmodel-2_24
 
 # SKIP
 # process output, denormalize

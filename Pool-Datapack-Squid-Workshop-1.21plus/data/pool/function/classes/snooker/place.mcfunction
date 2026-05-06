@@ -7,4 +7,4 @@ execute if data storage minecraft:swpool {version:[1205]} run function pool:clas
 # record position once
 execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes/master/read_tmppos
 execute as @e[tag=swPool_fake,type=item_display] at @s run function pool:classes/master/read_tmppos
-execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
+execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tpdr swPool_C

@@ -1,0 +1,8 @@
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_pxside,tag=swPool_rim] at @s run setblock ~1 ~ ~ minecraft:cherry_trapdoor[open=true,half=top,facing=east]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_pzside,tag=swPool_rim] at @s run setblock ~ ~ ~1 minecraft:cherry_trapdoor[open=true,half=top,facing=south]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_nxside,tag=swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:cherry_trapdoor[open=true,half=top,facing=west]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_nzside,tag=swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:cherry_trapdoor[open=true,half=top,facing=north]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_pxside,tag=!swPool_rim] at @s run setblock ~1 ~ ~ minecraft:cherry_wall_sign[facing=east]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_pzside,tag=!swPool_rim] at @s run setblock ~ ~ ~1 minecraft:cherry_wall_sign[facing=south]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_nxside,tag=!swPool_rim] at @s run setblock ~-1 ~ ~ minecraft:cherry_wall_sign[facing=west]
+execute if score C_trt swPool_C matches 8 as @e[tag=swPool_nzside,tag=!swPool_rim] at @s run setblock ~ ~ ~-1 minecraft:cherry_wall_sign[facing=north]

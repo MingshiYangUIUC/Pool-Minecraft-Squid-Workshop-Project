@@ -25,44 +25,44 @@ scoreboard objectives add swPool__trigger trigger
 scoreboard players enable @a swPool__trigger
 
 # add more triggers for click-to-run scoreboard settings
-scoreboard objectives add swPool_pitch_trigger trigger
-scoreboard players enable @a swPool_pitch_trigger
-scoreboard objectives add swPool_sizex_trigger trigger
-scoreboard players enable @a swPool_sizex_trigger
-scoreboard objectives add swPool_sizez_trigger trigger
-scoreboard players enable @a swPool_sizez_trigger
+scoreboard objectives add swPool_pitch_tr trigger
+scoreboard players enable @a swPool_pitch_tr
+scoreboard objectives add swPool_sizex_tr trigger
+scoreboard players enable @a swPool_sizex_tr
+scoreboard objectives add swPool_sizez_tr trigger
+scoreboard players enable @a swPool_sizez_tr
 
 # cue stick
-scoreboard objectives add swPool_sticktype_trigger trigger
-scoreboard players enable @a swPool_sticktype_trigger
+scoreboard objectives add swPool_stkt_tr trigger
+scoreboard players enable @a swPool_stkt_tr
 
 # additonal controls
-scoreboard objectives add swPool_breakpower_trigger trigger
-scoreboard players enable @a swPool_breakpower_trigger
-scoreboard objectives add swPool_cueball_deflection_trigger trigger
-scoreboard players enable @a swPool_cueball_deflection_trigger
+scoreboard objectives add swPool_brkp_tr trigger
+scoreboard players enable @a swPool_brkp_tr
+scoreboard objectives add swPool_cbld_tr trigger
+scoreboard players enable @a swPool_cbld_tr
 
 # setting of global constants
-scoreboard objectives add swPool_C_muk_trigger trigger
-scoreboard players enable @a swPool_C_muk_trigger
-scoreboard objectives add swPool_C_mur_trigger trigger
-scoreboard players enable @a swPool_C_mur_trigger
-scoreboard objectives add swPool_C_mus_trigger trigger
-scoreboard players enable @a swPool_C_mus_trigger
-scoreboard objectives add swPool_C_mui_trigger trigger
-scoreboard players enable @a swPool_C_mui_trigger
-scoreboard objectives add swPool_C_table_rim_type_trigger trigger
-scoreboard players enable @a swPool_C_table_rim_type_trigger
-scoreboard objectives add swPool_C_table_cloth_color_trigger trigger
-scoreboard players enable @a swPool_C_table_cloth_color_trigger
-scoreboard objectives add swPool_C_nn_complexity_trigger trigger
-scoreboard players enable @a swPool_C_nn_complexity_trigger
-scoreboard objectives add swPool_C_tp_dur_trigger trigger
-scoreboard players enable @a swPool_C_tp_dur_trigger
+scoreboard objectives add swPool_C_muk_tr trigger
+scoreboard players enable @a swPool_C_muk_tr
+scoreboard objectives add swPool_C_mur_tr trigger
+scoreboard players enable @a swPool_C_mur_tr
+scoreboard objectives add swPool_C_mus_tr trigger
+scoreboard players enable @a swPool_C_mus_tr
+scoreboard objectives add swPool_C_mui_tr trigger
+scoreboard players enable @a swPool_C_mui_tr
+scoreboard objectives add swPool_C_trt_tr trigger
+scoreboard players enable @a swPool_C_trt_tr
+scoreboard objectives add swPool_C_tcc_tr trigger
+scoreboard players enable @a swPool_C_tcc_tr
+scoreboard objectives add swPool_C_nn_tr trigger
+scoreboard players enable @a swPool_C_nn_tr
+scoreboard objectives add swPool_C_tpdr_tr trigger
+scoreboard players enable @a swPool_C_tpdr_tr
 
 # snooker score
-scoreboard objectives add swPool_Score_trigger trigger
-scoreboard players enable @a swPool_Score_trigger
+scoreboard objectives add swPool_Score_tr trigger
+scoreboard players enable @a swPool_Score_tr
 
 scoreboard objectives add swMath_V dummy
 scoreboard objectives add swPool_C dummy
@@ -108,7 +108,7 @@ scoreboard objectives add swPool_ontgt dummy
 scoreboard objectives add swPool_shoot dummy
 scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
-scoreboard objectives add swPool_chest_interact minecraft.used:minecraft.chest
+scoreboard objectives add swPool_chst minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
 
 
@@ -150,11 +150,11 @@ scoreboard objectives add swPool_true_rot0 dummy
 scoreboard objectives add swPool_true_rot1 dummy
 
 # user score
-scoreboard objectives add swPool_sticktype dummy
+scoreboard objectives add swPool_stkt dummy
 
 # break power and cue ball deflection
-scoreboard objectives add swPool_breakpower dummy
-scoreboard objectives add swPool_cueball_deflection dummy
+scoreboard objectives add swPool_brkp dummy
+scoreboard objectives add swPool_cbld dummy
 
 # cue ball spin and power adjustment
 scoreboard objectives add swPool_pitch dummy
@@ -162,9 +162,9 @@ scoreboard objectives add swPool_cuex dummy
 scoreboard objectives add swPool_cuey dummy
 scoreboard objectives add swPool_cuer dummy
 scoreboard objectives add swPool_cuea dummy
-scoreboard objectives add swPool_custompower dummy
-scoreboard objectives add swPool_custompower_1 dummy
-scoreboard objectives add swPool_custompower_10 dummy
+scoreboard objectives add swPool_cstmp dummy
+scoreboard objectives add swPool_cstmp_1 dummy
+scoreboard objectives add swPool_cstmp_10 dummy
 
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
@@ -240,30 +240,30 @@ scoreboard players set C_l swPool_C 12500
 scoreboard players set i_stick swPool_C 2700
 
 # tp_duration # default: 1
-execute unless score C_tp_dur swPool_C matches 0..59 run scoreboard players set C_tp_dur swPool_C 1
-execute if score C_tp_dur swPool_C matches ..-1 run scoreboard players set C_tp_dur swPool_C 0
-execute if score C_tp_dur swPool_C matches 60.. run scoreboard players set C_tp_dur swPool_C 59
+execute unless score C_tpdr swPool_C matches 0..59 run scoreboard players set C_tpdr swPool_C 1
+execute if score C_tpdr swPool_C matches ..-1 run scoreboard players set C_tpdr swPool_C 0
+execute if score C_tpdr swPool_C matches 60.. run scoreboard players set C_tpdr swPool_C 59
 
 #speed multiplier for breakshot # default: +150 (+150%) (100-200)
-execute as @a unless score @s swPool_breakpower matches 100..200 run scoreboard players set @s swPool_breakpower 150
-execute as @a if score @s swPool_breakpower matches ..99 run scoreboard players set @s swPool_breakpower 100
-execute as @a if score @s swPool_breakpower matches 201.. run scoreboard players set @s swPool_breakpower 200
+execute as @a unless score @s swPool_brkp matches 100..200 run scoreboard players set @s swPool_brkp 150
+execute as @a if score @s swPool_brkp matches ..99 run scoreboard players set @s swPool_brkp 100
+execute as @a if score @s swPool_brkp matches 201.. run scoreboard players set @s swPool_brkp 200
 
 # default: neural network breakshot (default:1)
 execute unless data storage minecraft:swpool def_break run data merge storage minecraft:swpool {nn_break:1}
-execute unless score C_nn_complexity swPool_C matches 1..4 run scoreboard players set C_nn_complexity swPool_C 1
+execute unless score C_nn swPool_C matches 1..4 run scoreboard players set C_nn swPool_C 1
 
 # tick interval
 execute unless score tick_interval swPool_C matches 1.. run scoreboard players set tick_interval swPool_C 1
 
 # cue ball deflection (10000 = 1 deg right ward)
-execute as @a unless score @s swPool_cueball_deflection matches -1800000..1800000 run scoreboard players set @s swPool_cueball_deflection 0
+execute as @a unless score @s swPool_cbld matches -1800000..1800000 run scoreboard players set @s swPool_cbld 0
 
 # table: rim type
-execute unless score C_table_rim_type swPool_C matches 1..8 run scoreboard players set C_table_rim_type swPool_C 1
+execute unless score C_trt swPool_C matches 1..8 run scoreboard players set C_trt swPool_C 1
 
 # table: cloth color
-execute unless score C_table_cloth_color swPool_C matches 1..6 run scoreboard players set C_table_cloth_color swPool_C 1
+execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tcc swPool_C 1
 
 # allow cheat by default, needed by default if trying to play without auto judge
 function app:settings/pool/cheating/allow

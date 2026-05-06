@@ -7,7 +7,7 @@ tag @s add swPool_shooting
 execute as @e[type=arrow,distance=..5,nbt={life:0s}] if score @s swPool_player = @a[tag=swPool_shooting,limit=1] swPool_player run tag @s add swPool_sb
 
 execute store result score cuerot swPool_rot run data get entity @s Rotation[0] 10000
-scoreboard players operation cuerot swPool_rot -= @s swPool_cueball_deflection
+scoreboard players operation cuerot swPool_rot -= @s swPool_cbld
 scoreboard players operation cuerot swPool_rot %= C_3600000 swPool_C
 
 #execute store result entity @e[tag=swPool_pool,tag=swPool_cue,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get cuerot swPool_rot
@@ -50,11 +50,11 @@ scoreboard players operation v_stick swPool_var00 = @s swPool_var00
 #tellraw @a [{"text":" vstick, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
 
 # multiply by custom power score
-execute if score @s swPool_custompower matches 0..100 run scoreboard players set v_stick swPool_var00 300
-execute if score @s swPool_custompower matches 0..100 run scoreboard players operation v_stick swPool_var00 *= @s swPool_custompower
-scoreboard players reset @s swPool_custompower
-scoreboard players reset @s swPool_custompower_10
-scoreboard players reset @s swPool_custompower_1
+execute if score @s swPool_cstmp matches 0..100 run scoreboard players set v_stick swPool_var00 300
+execute if score @s swPool_cstmp matches 0..100 run scoreboard players operation v_stick swPool_var00 *= @s swPool_cstmp
+scoreboard players reset @s swPool_cstmp
+scoreboard players reset @s swPool_cstmp_10
+scoreboard players reset @s swPool_cstmp_1
 
 #tellraw @a [{"text":" vstick new, "},{"score":{"objective":"swPool_var00","name":"v_stick"}}]
 scoreboard players operation @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_pitch = @s swPool_pitch
@@ -76,7 +76,7 @@ scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] s
 
 #tellraw @a [{"text":" v, "},{"score":{"objective":"swPool_v","name":"@e[tag=swPool_pool,tag=swPool_cue,limit=1]"}}]
 
-execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = @s swPool_breakpower
+execute if score #breakshot swPool_v matches 1 run scoreboard players operation #breakpower swMath_V = @s swPool_brkp
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=item_display,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v /= #C_100 swMath_C
 execute if score #breakshot swPool_v matches 1 run scoreboard players operation @e[type=item_display,tag=swPool_pool,tag=swPool_cue,limit=1] swPool_v *= #breakpower swMath_V
 execute if score #breakshot swPool_v matches 1 run scoreboard players set #breakshot swPool_v 0

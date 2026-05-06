@@ -512,6 +512,9 @@ for v in all_versions:
                 json.dump(declare_file, f, indent=4)
             # no need to walk through directory, because we have already done so
 
+        
+        modelnames = []
+
         # get object models
         cmd_link_object_arrow = {}
         print('  Creating arrow item')
@@ -526,6 +529,9 @@ for v in all_versions:
             #print(cmd, path)
             modelname = path.split("/")[1]
             print(f'    model: {modelname}')
+
+            modelnames.append(modelname)
+
             cmd_link_object_arrow[cmd] = f'swpool:object_{modelname}'
 
             declare_file = {"model": {
@@ -540,7 +546,6 @@ for v in all_versions:
         print('  Modifying Cue stick model')
 
         # repeat for 5 models
-        modelnames = []
 
         for ctype in [1,2,3,4,5]:
 
@@ -917,9 +922,8 @@ for v in all_versions:
                     lines[i] = newline
 
         # add teleport_duration change setting to place.mcfunction and undo_run.mcfunction
-        # execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
         if 'undo_run.mcfunction' in file or 'place.mcfunction' in file:
-            lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C\n')
+            lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tpdr swPool_C\n')
 
         with open(file, 'w', encoding='utf-8') as f:
             f.writelines(lines)
