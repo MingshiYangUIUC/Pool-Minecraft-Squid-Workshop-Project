@@ -22,6 +22,7 @@ tag @a remove swPool_hitcue
 tag @a remove swPool_nextturn
 tag @a remove swPool_foul
 
+clear @a arrow[minecraft:custom_model_data=1]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=99]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=100]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=101]

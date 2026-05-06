@@ -6,3 +6,5 @@ execute unless data storage minecraft:swpool {version:[1205]} unless entity @a[t
 execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] run function pool:classes/9ball/startsp_1205
 
 tag @e[tag=swPool_pooltable] add swPool_9ball_aibreak
+
+execute as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper

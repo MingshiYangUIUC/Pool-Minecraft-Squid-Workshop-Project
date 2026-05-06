@@ -22,6 +22,7 @@ tag @a remove swPool_hitcue
 tag @a remove swPool_nextturn
 tag @a remove swPool_foul
 
+clear @a arrow[minecraft:item_model="swpool:object_arrow_offhand"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean"]
 clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_red"]

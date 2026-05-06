@@ -30,7 +30,7 @@ all_versions = [(21,0),(21,1),(21,2),(21,4),(21,5)]
 os.chdir(os.path.dirname(__file__))
 
 datapack_dir_target_str = 'Pool-Datapack-Base-Squid-Workshop-1.21'
-resourcepack_dir_target_str = 'Pool-ResourcepackFolder-Squid-Workshop-1.21'
+resourcepack_dir_target_str = 'Pool-Resourcepack-Squid-Workshop-1.21'
 
 for v in all_versions:
     # desired version
@@ -78,8 +78,8 @@ for v in all_versions:
     math_initial_dir = 'Math-Datapack-Squid-Workshop'
     math_final_dir = os.path.join(output_dir,'Math-Datapack-Squid-Workshop-1.21')
 
-    resource_initial_dir = 'Pool-ResourcepackFolder-Squid-Workshop-1.16-1.20'
-    resource_final_dir = os.path.join(output_dir,'Pool-ResourcepackFolder-Squid-Workshop-1.21-build')
+    resource_initial_dir = 'Pool-Resourcepack-Squid-Workshop-1.16-1.20'
+    resource_final_dir = os.path.join(output_dir,'Pool-Resourcepack-Squid-Workshop-1.21-build')
 
     pool_initial_dir ='Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
     pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Base-Squid-Workshop-1.21-build')
@@ -221,7 +221,7 @@ for v in all_versions:
         # remove
         print('  Removing all dirs')
         if remove_built_packs:
-            alldirs = glob.glob('Pool-ResourcepackFolder-Squid-Workshop-1.21*')
+            alldirs = glob.glob('Pool-Resourcepack-Squid-Workshop-1.21*')
         else:
             alldirs = [resource_final_dir]
         for final_dirs in alldirs:
@@ -316,7 +316,7 @@ for v in all_versions:
             else:
                 shutil.rmtree(pool_final_dir)
 
-    resource_final_dir_version = os.path.join(output_dir,f'Pool-ResourcepackFolder-Squid-Workshop-{res_version_name}')
+    resource_final_dir_version = os.path.join(output_dir,f'Pool-Resourcepack-Squid-Workshop-{res_version_name}')
     if remove_built_packs:
         print('  Removing built R packs')
         if os.path.isdir(resource_final_dir_version):
@@ -509,6 +509,29 @@ for v in all_versions:
                 json.dump(declare_file, f, indent=4)
             # no need to walk through directory, because we have already done so
 
+        # get object models
+        cmd_link_object_arrow = {}
+        print('  Creating arrow item')
+        with open(os.path.join(model_item_dir, 'arrow.json'), 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # find and link items
+        for ovr in data['overrides'][1:-1]:
+            #print(ovr)
+            cmd = ovr['predicate']['custom_model_data']
+            path = ovr['model']
+            #print(cmd, path)
+            modelname = path.split("/")[1]
+            print(f'    model: {modelname}')
+            cmd_link_object_arrow[cmd] = f'swpool:object_{modelname}'
+
+            declare_file = {"model": {
+                    "type": "minecraft:model", "model": f"swpool:{path}"}}
+
+            with open(os.path.join(model_declare_dir, f'object_{modelname}.json'), 'w', encoding='utf-8') as f:
+                json.dump(declare_file, f, indent=4)
+            # no need to walk through directory, because we have already done so
+
         # get cuestick model
         # modify default model
         print('  Modifying Cue stick model')
@@ -663,6 +686,17 @@ for v in all_versions:
                             lines[i] = newline
                         elif 'custom_model_data' in line:
                             print('    !!!! Undealt case for carrot_on_a_stick',line)
+                    
+                    elif 'arrow' in line and 'custom_model_data' in line:
+                        parse = 'custom_model_data='
+                        d1 = line.find(parse) + len(parse)
+                        d2 = d1
+                        while line[d2] in '0123456789':
+                            d2 += 1
+                        itemid = int(line[d1:d2])
+                        newline = line[:line.find(parse)] + f'item_model="{cmd_link_object_arrow[itemid]}"' + line[d2:]
+                        #print(newline)
+                        lines[i] = newline
             
                 if 'playsound minecraft:custom' in line:
                     newline = str(line)
@@ -840,7 +874,7 @@ for v in all_versions:
                         lines[i] = newline
             
             # old armor stand equipping
-            if 'item replace entity' in lines[i] and 'item_model' in lines[i]:
+            if 'item replace entity' in lines[i] and 'item_model' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:item_model=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":')
@@ -849,7 +883,7 @@ for v in all_versions:
                 if newline != lines[i]:
                     lines[i] = newline
             
-            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i]:
+            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:custom_model_data=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":')
@@ -1009,10 +1043,10 @@ for dir_scan_str, dir_overlay_name in datapack_data:
 
 print('Resourcepack...')
 
-resourcepack_data = [['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
+resourcepack_data = [['Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
+                     ['Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
 
-resourcepack_dir_default_str = 'Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets'
+resourcepack_dir_default_str = 'Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.4-1.21.11/assets'
 
 resourcepack_dir_target = Path(resourcepack_dir_target_str)
 if os.path.isdir(resourcepack_dir_target_str):
@@ -1090,6 +1124,9 @@ def set_key_item_or_id(key_entry, item_name):
         key_entry = full_name
 
     return key_entry
+
+
+# You can customize the recipes here!
 
 sticks = {1:['brown_dye','white_dye'],
             2:['black_dye','black_dye'],

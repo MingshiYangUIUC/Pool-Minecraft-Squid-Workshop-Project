@@ -80,7 +80,10 @@ tellraw @s[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ║ ","color":"white"},
 
 tag @a remove swPool_calling
 
-tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<About the Games>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112131"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Gamerule Settings>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11212"}}]
-tellraw @s[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<游戏介绍>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112131"}},{"text":" ","underlined":false},{"underlined":true,"text":"<游戏规则设置>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11212"}}]
+tellraw @s[tag=!swPool_mute,tag=swPool_EN] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<About the Games>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112141"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Gamerule Settings>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11213"}}]
+tellraw @s[tag=!swPool_mute,tag=swPool_CN] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<游戏介绍>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112141"}},{"text":" ","underlined":false},{"underlined":true,"text":"<游戏规则设置>","color":"gold","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11213"}}]
+
+tellraw @s[tag=!swPool_mute,tag=swPool_EN,gamemode=!creative] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<Non-Creative Notice>","color":"red","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11212"}}]
+tellraw @s[tag=!swPool_mute,tag=swPool_CN,gamemode=!creative] [{"text":"➇ ║ ","color":"white"},{"text":""},{"underlined":true,"text":"<非创造模式须知>","color":"red","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11212"}}]
 
 tellraw @s[tag=!swPool_mute] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]

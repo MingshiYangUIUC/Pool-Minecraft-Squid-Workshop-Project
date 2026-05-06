@@ -1,0 +1,18 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "item/arrow"
+	},
+	"display": {
+		"thirdperson_lefthand": {
+			"scale": [0, 0, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 180, 180],
+			"translation": [0, 4, 0],
+			"scale": [0.1, 0.1, 0.1]
+		}
+	}
+}

@@ -10,3 +10,5 @@ execute unless data storage minecraft:swpool {version:[1205]} unless entity @a[t
 execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] if entity @a[tag=swPool_wait_snooker] as @a[tag=swPool_wait_snooker,limit=1,sort=random] at @s if entity @a[tag=swPool_wait_snooker,distance=0.001..] run function pool:classes/snooker/start_1205
 
 tag @s remove swPool_startmpsnooker
+
+execute as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
