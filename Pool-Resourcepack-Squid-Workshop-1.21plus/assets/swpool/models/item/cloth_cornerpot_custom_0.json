@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.6",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "0": "swpool:item/pool/cloth_rag_custom_0",
+        "1": "swpool:item/pool/wood",
+        "2": "swpool:item/pool/black",
+        "4": "swpool:item/pool/wood_light",
+        "5": "swpool:item/pool/cloth_rag_custom_0",
+        "particle": "swpool:item/pool/cloth_rag_custom_0"
+    },
+    "parent": "swpool:item/cloth_cornerpot_green"
+}

@@ -1,0 +1,3 @@
+tellraw @s [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: 欢迎 Welcome.","italic":true,"color":"gray"}]
+tellraw @s [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 Pool Datapack]: ","italic":true,"color":"gray"},{"text":"语言 Language: ","italic":true,"color":"red"},{"italic":false,"color":"gray","underlined":true,"text":" <简体中文> ","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/chinese_simplified"}},{"italic":false,"color":"gray","underlined":true,"text":" <English>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/language/english"}}]
+tag @s add swPool_welcomed

@@ -1,0 +1,11 @@
+{
+  "format_version": "1.21.6",
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "item/pool/cloth_rag_blue",
+    "1": "item/pool/wood",
+    "2": "item/pool/cloth_rag_blue",
+    "particle": "item/pool/cloth_rag_blue"
+  },
+  "parent": "item/cloth_cushion_green"
+}

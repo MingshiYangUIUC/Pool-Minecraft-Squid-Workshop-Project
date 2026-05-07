@@ -1,0 +1,33 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+        "*": {
+            "item": "minecraft:brown_dye"
+        },
+        "#": {
+            "item": "minecraft:white_dye"
+        },
+        "X": {
+            "item": "minecraft:stick"
+        }
+    },
+    "pattern": [
+        "* #",
+        "XXX",
+        "   "
+    ],
+    "result": {
+        "id": "minecraft:bow",
+        "components": {
+            "minecraft:custom_data": {
+                "swPool_cuestick": 1
+            },
+            "minecraft:unbreakable": {},
+            "minecraft:custom_name": "\"Cue Stick\"",
+            "minecraft:custom_model_data": 1
+        },
+        "count": 1
+    },
+    "group": "swpool:recipes"
+}

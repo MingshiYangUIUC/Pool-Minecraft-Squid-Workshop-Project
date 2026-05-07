@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+        "*": {
+            "item": "minecraft:pink_carpet"
+        },
+        "X": {
+            "item": "minecraft:iron_ingot"
+        },
+        "A": {
+            "item": "minecraft:spruce_planks"
+        },
+        "B": {
+            "item": "minecraft:spruce_planks"
+        }
+    },
+    "pattern": [
+        "***",
+        "XXX",
+        "ABA"
+    ],
+    "result": {
+        "id": "minecraft:chest",
+        "components": {
+            "minecraft:custom_data": {
+                "swPool_table_core": 1,
+                "swPool_cloth_type": 4,
+                "swPool_rim_type": 3
+            },
+            "minecraft:custom_name": "\"Pool Table\"",
+            "minecraft:lore": [
+                "\"Material: pink_carpet + spruce_planks + spruce_planks\""
+            ]
+        },
+        "count": 1
+    },
+    "group": "swpool:recipes"
+}

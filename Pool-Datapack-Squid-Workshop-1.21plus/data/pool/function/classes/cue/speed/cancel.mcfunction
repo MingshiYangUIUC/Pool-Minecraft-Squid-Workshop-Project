@@ -1,3 +1,3 @@
-scoreboard players reset #custompower_10 swMath_V
-scoreboard players reset #custompower_1 swMath_V
-scoreboard players reset #custompower swMath_V
+scoreboard players reset @s swPool_cstmp_10
+scoreboard players reset @s swPool_cstmp_1
+scoreboard players reset @s swPool_cstmp

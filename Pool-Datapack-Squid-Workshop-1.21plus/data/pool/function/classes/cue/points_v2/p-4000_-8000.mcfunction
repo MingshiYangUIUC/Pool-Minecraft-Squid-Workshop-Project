@@ -1,3 +1,3 @@
-scoreboard players set cuex swMath_V -4000
-scoreboard players set cuey swMath_V -8000
+scoreboard players set @s swPool_cuex -4000
+scoreboard players set @s swPool_cuey -8000
 function pool:classes/cue/xy_to_angle

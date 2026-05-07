@@ -22,6 +22,7 @@ tag @a remove swPool_hitcue
 tag @a remove swPool_nextturn
 tag @a remove swPool_foul
 
+clear @a arrow{CustomModelData:1}
 clear @a carrot_on_a_stick{CustomModelData:99}
 clear @a carrot_on_a_stick{CustomModelData:100}
 clear @a carrot_on_a_stick{CustomModelData:101}

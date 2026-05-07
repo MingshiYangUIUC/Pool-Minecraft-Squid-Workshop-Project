@@ -8,6 +8,9 @@ by Mingshi Yang 2025/07/10
 Updated by Mingshi Yang 2026/03/03
     Merge all 1.21.X packs into single packs.
 
+Updated by Mingshi Yang 2026/05/06
+    Inject recipe information to all datapacks.
+
 """
 
 import os
@@ -20,13 +23,17 @@ from collections import defaultdict
 import gc
 import sys
 import time
+import copy
+from pathlib import Path
 
 gc.collect()
 
 all_versions = [(21,0),(21,1),(21,2),(21,4),(21,5)]
 
-datapack_dir_target_str = 'Pool-Datapack-Squid-Workshop-1.21'
-resourcepack_dir_target_str = 'Pool-ResourcepackFolder-Squid-Workshop-1.21'
+os.chdir(os.path.dirname(__file__))
+
+datapack_dir_target_str = 'Pool-Datapack-Base-Squid-Workshop-1.21'
+resourcepack_dir_target_str = 'Pool-Resourcepack-Squid-Workshop-1.21'
 
 for v in all_versions:
     # desired version
@@ -44,7 +51,7 @@ for v in all_versions:
     modify_scale_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
     modify_height_armor_stand = pool_major_version == 21 and pool_minor_version >= 2
     modify_custom_model_data = pool_major_version == 21 and pool_minor_version >= 4
-    modify_pool_clickevent = pool_major_version == 21 and pool_minor_version >= 5
+    modify_pool_clickevent_and_misc_data = pool_major_version == 21 and pool_minor_version >= 5
 
     if pool_minor_version <= 1:
         data_version_range = [0,1]
@@ -74,11 +81,11 @@ for v in all_versions:
     math_initial_dir = 'Math-Datapack-Squid-Workshop'
     math_final_dir = os.path.join(output_dir,'Math-Datapack-Squid-Workshop-1.21')
 
-    resource_initial_dir = 'Pool-ResourcepackFolder-Squid-Workshop-1.16-1.20'
-    resource_final_dir = os.path.join(output_dir,'Pool-ResourcepackFolder-Squid-Workshop-1.21-build')
+    resource_initial_dir = 'Pool-Resourcepack-Squid-Workshop-1.16-1.20'
+    resource_final_dir = os.path.join(output_dir,'Pool-Resourcepack-Squid-Workshop-1.21-build')
 
-    pool_initial_dir ='Pool-Datapack-Squid-Workshop-1.16-1.20'
-    pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Squid-Workshop-1.21-build')
+    pool_initial_dir ='Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+    pool_final_dir = os.path.join(output_dir,'Pool-Datapack-Base-Squid-Workshop-1.21-build')
 
     remove_built_packs = False
     overwrite_built_packs = True
@@ -217,7 +224,7 @@ for v in all_versions:
         # remove
         print('  Removing all dirs')
         if remove_built_packs:
-            alldirs = glob.glob('Pool-ResourcepackFolder-Squid-Workshop-1.21*')
+            alldirs = glob.glob('Pool-Resourcepack-Squid-Workshop-1.21*')
         else:
             alldirs = [resource_final_dir]
         for final_dirs in alldirs:
@@ -240,7 +247,7 @@ for v in all_versions:
         # remove
         print('  Removing all built versions')
         if remove_built_packs:
-            alldirs = glob.glob('Pool-Datapack-Squid-Workshop-1.21*')
+            alldirs = glob.glob('Pool-Datapack-Base-Squid-Workshop-1.21*')
         else:
             alldirs = [pool_final_dir]
         for final_dirs in alldirs:
@@ -258,6 +265,16 @@ for v in all_versions:
                 if dirname == 'functions':
                     old_path = os.path.join(dirpath, dirname)
                     new_path = os.path.join(dirpath, 'function')
+                    print(f"    Renaming: {old_path} -> {new_path}")
+                    while True:
+                        try:
+                            os.rename(old_path, new_path)
+                            break
+                        except:
+                            time.sleep(0.1)
+                if dirname == 'recipes':
+                    old_path = os.path.join(dirpath, dirname)
+                    new_path = os.path.join(dirpath, 'recipe')
                     print(f"    Renaming: {old_path} -> {new_path}")
                     while True:
                         try:
@@ -285,7 +302,7 @@ for v in all_versions:
     print(f'  Suitable Resourcepack: {res_version_name}')
 
 
-    pool_final_dir_version = os.path.join(output_dir,f'Pool-Datapack-Squid-Workshop-{data_version_name}')
+    pool_final_dir_version = os.path.join(output_dir,f'Pool-Datapack-Base-Squid-Workshop-{data_version_name}')
     if remove_built_packs:
         print('  Removing built D packs')
         if os.path.isdir(pool_final_dir_version):
@@ -302,7 +319,7 @@ for v in all_versions:
             else:
                 shutil.rmtree(pool_final_dir)
 
-    resource_final_dir_version = os.path.join(output_dir,f'Pool-ResourcepackFolder-Squid-Workshop-{res_version_name}')
+    resource_final_dir_version = os.path.join(output_dir,f'Pool-Resourcepack-Squid-Workshop-{res_version_name}')
     if remove_built_packs:
         print('  Removing built R packs')
         if os.path.isdir(resource_final_dir_version):
@@ -330,7 +347,7 @@ for v in all_versions:
         f'  Rescale Armor Stand:    {modify_scale_armor_stand}\n' + 
         f'  Rise Armor Stand:       {modify_height_armor_stand}\n' + 
         f'  Fix Custom Model Data:  {modify_custom_model_data}\n'
-        f'  Modify Click Event:     {modify_pool_clickevent}\n'
+        f'  Modify Click Event:     {modify_pool_clickevent_and_misc_data}\n'
         )
 
 
@@ -495,12 +512,40 @@ for v in all_versions:
                 json.dump(declare_file, f, indent=4)
             # no need to walk through directory, because we have already done so
 
+        
+        modelnames = []
+
+        # get object models
+        cmd_link_object_arrow = {}
+        print('  Creating arrow item')
+        with open(os.path.join(model_item_dir, 'arrow.json'), 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # find and link items
+        for ovr in data['overrides'][1:-1]:
+            #print(ovr)
+            cmd = ovr['predicate']['custom_model_data']
+            path = ovr['model']
+            #print(cmd, path)
+            modelname = path.split("/")[1]
+            print(f'    model: {modelname}')
+
+            modelnames.append(modelname)
+
+            cmd_link_object_arrow[cmd] = f'swpool:object_{modelname}'
+
+            declare_file = {"model": {
+                    "type": "minecraft:model", "model": f"swpool:{path}"}}
+
+            with open(os.path.join(model_declare_dir, f'object_{modelname}.json'), 'w', encoding='utf-8') as f:
+                json.dump(declare_file, f, indent=4)
+            # no need to walk through directory, because we have already done so
+
         # get cuestick model
         # modify default model
         print('  Modifying Cue stick model')
 
         # repeat for 5 models
-        modelnames = []
 
         for ctype in [1,2,3,4,5]:
 
@@ -649,6 +694,17 @@ for v in all_versions:
                             lines[i] = newline
                         elif 'custom_model_data' in line:
                             print('    !!!! Undealt case for carrot_on_a_stick',line)
+                    
+                    elif 'arrow' in line and 'custom_model_data' in line:
+                        parse = 'custom_model_data='
+                        d1 = line.find(parse) + len(parse)
+                        d2 = d1
+                        while line[d2] in '0123456789':
+                            d2 += 1
+                        itemid = int(line[d1:d2])
+                        newline = line[:line.find(parse)] + f'item_model="{cmd_link_object_arrow[itemid]}"' + line[d2:]
+                        #print(newline)
+                        lines[i] = newline
             
                 if 'playsound minecraft:custom' in line:
                     newline = str(line)
@@ -677,7 +733,8 @@ for v in all_versions:
         modify_custom_model_data_status = 'Skipped'
 
 
-    if modify_pool_clickevent:
+    if modify_pool_clickevent_and_misc_data:
+        
         print('  Fixing click event related commands in Datapack for 1.21.5+...')
 
         filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
@@ -701,6 +758,7 @@ for v in all_versions:
             with open(file, 'w', encoding='utf-8') as f:
                 f.writelines(modified_lines)
 
+        '''
         print('  Setting click_event commands to triggers...')
 
         filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
@@ -761,7 +819,7 @@ for v in all_versions:
         with open(os.path.join(pool_final_dir_version,'dev_modified_files.txt'), 'w', encoding='utf-8') as f:
             for file in filenames:
                 f.write(f'{file}\n')
-
+        '''
 
         print('  Modify area_effect_cloud data')
         for file in filenames:
@@ -824,7 +882,7 @@ for v in all_versions:
                         lines[i] = newline
             
             # old armor stand equipping
-            if 'item replace entity' in lines[i] and 'item_model' in lines[i]:
+            if 'item replace entity' in lines[i] and 'item_model' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:item_model=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":')
@@ -833,7 +891,7 @@ for v in all_versions:
                 if newline != lines[i]:
                     lines[i] = newline
             
-            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i]:
+            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:custom_model_data=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":')
@@ -864,9 +922,8 @@ for v in all_versions:
                     lines[i] = newline
 
         # add teleport_duration change setting to place.mcfunction and undo_run.mcfunction
-        # execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C
         if 'undo_run.mcfunction' in file or 'place.mcfunction' in file:
-            lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tp_dur swPool_C\n')
+            lines.append('execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tpdr swPool_C\n')
 
         with open(file, 'w', encoding='utf-8') as f:
             f.writelines(lines)
@@ -949,11 +1006,11 @@ def scanfile(dir_scan_str, dir_default_str):
 
 print('Datapack...')
 
-datapack_data = [['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
-                 ['Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.4/data','v4_v4']]
+datapack_data = [['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.0-1.21.1/data','v0_v1'],
+                 ['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.2-1.21.3/data','v2_v3'],
+                 ['Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.4/data','v4_v4']]
 
-datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Squid-Workshop-1.21.5-1.21.11/data'
+datapack_dir_default_str = 'Releases_1.21/Pool-Datapack-Base-Squid-Workshop-1.21.5-1.21.11/data'
 
 datapack_dir_target = Path(datapack_dir_target_str)
 if os.path.isdir(datapack_dir_target_str):
@@ -993,10 +1050,10 @@ for dir_scan_str, dir_overlay_name in datapack_data:
 
 print('Resourcepack...')
 
-resourcepack_data = [['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
-                     ['Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
+resourcepack_data = [['Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.0-1.21.1/assets','v0_v1'],
+                     ['Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.2-1.21.3/assets','v2_v3']]
 
-resourcepack_dir_default_str = 'Releases_1.21/Pool-ResourcepackFolder-Squid-Workshop-1.21.4-1.21.11/assets'
+resourcepack_dir_default_str = 'Releases_1.21/Pool-Resourcepack-Squid-Workshop-1.21.4-1.21.11/assets'
 
 resourcepack_dir_target = Path(resourcepack_dir_target_str)
 if os.path.isdir(resourcepack_dir_target_str):
@@ -1048,5 +1105,199 @@ if os.path.isdir(Path(resourcepack_dir_target_str+'plus')):
     shutil.rmtree(Path(resourcepack_dir_target_str+'plus'))
 os.rename(Path(datapack_dir_target_str),Path(datapack_dir_target_str+'plus'))
 os.rename(Path(resourcepack_dir_target_str),Path(resourcepack_dir_target_str+'plus'))
+
+
+print('(Re)-injecting Recipes')
+
+def set_key_item_or_id(key_entry, item_name):
+    """
+    Works for both:
+    {'item': 'minecraft:brown_dye'}
+    {'id': 'minecraft:brown_dye'}
+    or:
+    'minecraft:brown_dye'
+    """
+    full_name = f"minecraft:{item_name}"
+
+    if isinstance(key_entry, dict):
+        if 'item' in key_entry:
+            key_entry['item'] = full_name
+        elif 'id' in key_entry:
+            key_entry['id'] = full_name
+        else:
+            # fallback, keep minecraft part
+            key_entry['item'] = full_name
+    else:
+        key_entry = full_name
+
+    return key_entry
+
+
+# You can customize the recipes in this file!
+recipe_file_dir = os.path.join('Recipes','_registry.json')
+
+with open(recipe_file_dir, 'r', encoding='utf-8') as f:
+    registry = json.load(f)
+
+sticks = {int(k): v for k, v in registry['sticks'].items() if not k.startswith('_')}
+table_cloth = {int(k): v for k, v in registry['table_cloth'].items() if not k.startswith('_')}
+table_rim = {int(k): v for k, v in registry['table_rim'].items() if not k.startswith('_')}
+
+## Stick
+# 1.20.5 init
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipes')
+# cleanup directories...
+if os.path.isdir(recipe_dir):
+    for f in glob.glob(os.path.join(recipe_dir,'*stick*.json')):
+        os.remove(f)
+
+# create directories
+os.makedirs(recipe_dir,exist_ok=True)
+
+# copy stick file
+with open(os.path.join('Recipes','stick_1.20.5+.json'),'r') as f:
+    data = json.load(f)
+
+for s, dyes in sticks.items():
+    dat = copy.deepcopy(data)
+
+    dat['group'] = 'swpool:recipes'
+
+    # replace * with first dye, # with second dye
+    dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
+    dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
+
+    # update result data
+    dat['result']['components']['minecraft:custom_model_data'] = s
+
+    with open(os.path.join(recipe_dir,f'stick_{s}.json'), 'w') as f:
+        json.dump(dat, f, indent=4)
+
+
+# 1.21plus
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.21plus'
+
+versions = ['v4_v4','v0_v1','v2_v3','v4_v4']
+
+for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
+    if subv != '':
+        recipe_dir = os.path.join(pack_dir, subv, 'data', 'pool', 'recipe')
+    else:
+        recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipe')
+    
+    # cleanup directories...
+    if os.path.isdir(recipe_dir):
+        for f in glob.glob(os.path.join(recipe_dir,'*stick*.json')):
+            os.remove(f)
+    os.makedirs(recipe_dir,exist_ok=True)
+
+    # copy stick file
+    with open(os.path.join('Recipes',f'stick_1.21_{versions[i]}.json'),'r') as f:
+        data = json.load(f)
+
+    for s, dyes in sticks.items():
+        dat = copy.deepcopy(data)
+
+        dat['group'] = 'swpool:recipes'
+
+        # replace * with first dye, # with second dye
+        dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
+        dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
+
+        # update result data
+        if subv in ['v0_v1','v2_v3']:
+            dat['result']['components']['minecraft:custom_model_data'] = s
+        else:
+            dat['result']['components']['minecraft:item_model'] = f'swpool:cuestick{s}'
+
+        with open(os.path.join(recipe_dir,f'stick_{s}.json'), 'w') as f:
+            json.dump(dat, f, indent=4)
+
+
+## Table
+# 1.20.5 init
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.16-1.20'
+recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipes')
+if os.path.isdir(recipe_dir):
+    for f in glob.glob(os.path.join(recipe_dir,'*table*.json')):
+        os.remove(f)
+
+
+# create directories
+os.makedirs(recipe_dir,exist_ok=True)
+
+# copy table file
+with open(os.path.join('Recipes','table_1.20.5+.json'),'r') as f:
+    data = json.load(f)
+
+
+for tc, carpet in table_cloth.items():
+    for tr, rims in table_rim.items():
+        dat = copy.deepcopy(data)
+
+        dat['group'] = 'swpool:recipes'
+
+        # replace * with first dye, # with second dye
+        dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
+        dat['key']['A'] = set_key_item_or_id(dat['key']['A'], rims[0])
+        dat['key']['B'] = set_key_item_or_id(dat['key']['B'], rims[1])
+
+        # update result data
+        dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
+        dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+        dat['result']['components']['minecraft:lore'] = [f'"Material: {carpet} + {rims[0]} + {rims[1]}"']
+
+        with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
+            json.dump(dat, f, indent=4)
+
+
+# 1.21plus
+pack_dir = 'Pool-Datapack-Base-Squid-Workshop-1.21plus'
+
+versions = ['v2_v3','v0_v1','v2_v3','v2_v3']
+
+for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
+    if subv != '':
+        recipe_dir = os.path.join(pack_dir, subv, 'data', 'pool', 'recipe')
+    else:
+        recipe_dir = os.path.join(pack_dir, 'data', 'pool', 'recipe')
+    
+    # cleanup directories...
+    if os.path.isdir(recipe_dir):
+        for f in glob.glob(os.path.join(recipe_dir,'*table*.json')):
+            os.remove(f)
+    os.makedirs(recipe_dir,exist_ok=True)
+
+    # copy stick file
+    with open(os.path.join('Recipes',f'table_1.21_{versions[i]}.json'),'r') as f:
+        data = json.load(f)
+
+    for tc, carpet in table_cloth.items():
+        for tr, rims in table_rim.items():
+            dat = copy.deepcopy(data)
+
+            dat['group'] = 'swpool:recipes'
+
+            # replace * with first dye, # with second dye
+            dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
+            dat['key']['A'] = set_key_item_or_id(dat['key']['A'], rims[0])
+            dat['key']['B'] = set_key_item_or_id(dat['key']['B'], rims[1])
+
+            # update result data
+            dat['result']['components']['minecraft:custom_data']['swPool_cloth_type'] = tc
+            dat['result']['components']['minecraft:custom_data']['swPool_rim_type'] = tr
+            dat['result']['components']['minecraft:lore'] = [f'"Material: {carpet} + {rims[0]} + {rims[1]}"']
+
+            with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
+                json.dump(dat, f, indent=4)
+
+
+print('Adding readme to datapack files')
+
+for folder in os.listdir():
+    if os.path.isdir(folder) and 'Pool-Datapack' in folder:
+        shutil.copy2('README.md', os.path.join(folder, 'README.md'))
+        shutil.copy2('使用说明.md', os.path.join(folder, '使用说明.md'))
 
 print('All Done!')

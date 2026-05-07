@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/arrow"
+  },
+  "overrides":[
+	{"predicate":{"custom_model_data":0},"model":"item/arrow0"},
+	{"predicate":{"custom_model_data":1},"model":"item/arrow_offhand"},
+	{"predicate":{"custom_model_data":2},"model":"item/arrow0"}
+  ]
+}
