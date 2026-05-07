@@ -1162,6 +1162,8 @@ with open(os.path.join('Recipes','stick_1.20.5+.json'),'r') as f:
 for s, dyes in sticks.items():
     dat = copy.deepcopy(data)
 
+    dat['group'] = 'swpool:recipes'
+
     # replace * with first dye, # with second dye
     dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
     dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
@@ -1197,6 +1199,8 @@ for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
     for s, dyes in sticks.items():
         dat = copy.deepcopy(data)
 
+        dat['group'] = 'swpool:recipes'
+
         # replace * with first dye, # with second dye
         dat['key']['*'] = set_key_item_or_id(dat['key']['*'], dyes[0])
         dat['key']['#'] = set_key_item_or_id(dat['key']['#'], dyes[1])
@@ -1231,6 +1235,8 @@ with open(os.path.join('Recipes','table_1.20.5+.json'),'r') as f:
 for tc, carpet in table_cloth.items():
     for tr, rims in table_rim.items():
         dat = copy.deepcopy(data)
+
+        dat['group'] = 'swpool:recipes'
 
         # replace * with first dye, # with second dye
         dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
@@ -1271,6 +1277,8 @@ for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
         for tr, rims in table_rim.items():
             dat = copy.deepcopy(data)
 
+            dat['group'] = 'swpool:recipes'
+
             # replace * with first dye, # with second dye
             dat['key']['*'] = set_key_item_or_id(dat['key']['*'], carpet)
             dat['key']['A'] = set_key_item_or_id(dat['key']['A'], rims[0])
@@ -1284,5 +1292,12 @@ for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
             with open(os.path.join(recipe_dir,f'table_{tc}-{tr}.json'), 'w') as f:
                 json.dump(dat, f, indent=4)
 
+
+print('Adding readme to datapack files')
+
+for folder in os.listdir():
+    if os.path.isdir(folder) and 'Pool-Datapack' in folder:
+        shutil.copy2('README.md', os.path.join(folder, 'README.md'))
+        shutil.copy2('使用说明.md', os.path.join(folder, '使用说明.md'))
 
 print('All Done!')

@@ -22,5 +22,6 @@
             "minecraft:custom_model_data": 3
         },
         "count": 1
-    }
+    },
+    "group": "swpool:recipes"
 }

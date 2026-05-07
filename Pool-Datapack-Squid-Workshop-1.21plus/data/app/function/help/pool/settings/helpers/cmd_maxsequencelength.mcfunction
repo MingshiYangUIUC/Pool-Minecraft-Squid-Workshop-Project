@@ -1,1 +1,1 @@
-gamerule max_command_sequence_length 200000
+gamerule max_command_sequence_length 500000

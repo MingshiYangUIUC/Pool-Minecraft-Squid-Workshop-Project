@@ -1,1 +1,1 @@
-gamerule maxCommandChainLength 200000
+gamerule maxCommandChainLength 500000

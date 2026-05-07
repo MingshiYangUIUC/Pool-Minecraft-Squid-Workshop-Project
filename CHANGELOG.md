@@ -11,20 +11,16 @@
   - Cue sticks and pool table cores can now be crafted at the Crafting Table using very simple materials, and recipe requirements can be turned on or off
 
 - Added craftable cue sticks:
+  <img src="Gallery/Images/stick_recipe.webp" alt="Cue stick crafting recipe" width="50%">
   - Implemented using unbreakable bows, with invisible arrows automatically provided during gameplay for shooting
 
 - Added craftable pool table cores:
+  <img src="Gallery/Images/table_recipe.webp" alt="Pool table core crafting recipe" width="50%">
   - Can generate configured pool tables after placement
   - Placement can be cancelled and the original item can be recovered at any time
   - Table cores store the cloth and rim materials used during crafting and generate matching table styles
 
-- This update also includes several fixes and performance optimizations:
-  - Reduced helper entity usage
-  - Optimized the custom cloth resource-pack structure
-  - Improved corner pocket rendering
-  - Fixed a 9-ball respot issue when auto judge is disabled
-
-Please see the full release notes for details.
+- This update also includes several fixes and performance optimizations. Please see the full release notes for details.
 
 ### <span style="color:orange">April 2026</span> — v1.1.0: More Custom, More Possibilities!
 
