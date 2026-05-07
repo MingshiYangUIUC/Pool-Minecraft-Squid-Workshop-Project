@@ -1,10 +1,11 @@
-### <span style="color:orange">May 2026</span> — v1.2.0: Play Without OP Permissions!
+### <span style="color:orange">May 2026</span> — v1.2.0: No OP Needed — Survival Mode Ready!
 
 - v1.2.0 now fully supports non-operator and survival-mode players. Huge thanks to the community votes and feedback!
 
 - Added the new NoOP version:
   - Uses `/trigger` commands to replace most direct function calls and scoreboard-setting commands
   - Allows players without command permissions to open the command window and modify almost all settings
+  - Use `/trigger swPool__trigger set 1` to open the command window.
   - The default public datapack is now the NoOP version. The original command-permission-based version has been renamed to Datapack-Base and is now kept mainly for development
 
 - Added recipe support for Minecraft 1.20.5+ survival players:
