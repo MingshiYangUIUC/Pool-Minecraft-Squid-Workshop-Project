@@ -262,6 +262,16 @@ tp @s ~ ~1 ~
 
 scoreboard players operation TABLE swPool_sizex = @e[tag=swPool_pooltable,limit=1] swPool_sizex
 scoreboard players operation TABLE swPool_sizez = @e[tag=swPool_pooltable,limit=1] swPool_sizez
+
+scoreboard players operation TABLE_1250 swPool_sizex = TABLE swPool_sizex
+scoreboard players operation TABLE_1250 swPool_sizez = TABLE swPool_sizez
+
+# shift by R0-R1
+scoreboard players add TABLE swPool_sizex 1250
+scoreboard players operation TABLE swPool_sizex -= C_r swPool_C
+scoreboard players add TABLE swPool_sizez 1250
+scoreboard players operation TABLE swPool_sizez -= C_r swPool_C
+
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
 

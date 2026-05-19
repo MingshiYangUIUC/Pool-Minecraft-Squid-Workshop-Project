@@ -263,7 +263,7 @@ execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches 1 at 
 execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon armor_stand ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-90.0f,0.0f],Invisible:1b}
 
 # map
-execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand] at @s run function pool:classes/break_nn_9ball/map_balls
+execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand] at @s run function pool:classes/break_nn_9ball/map_balls_arbitrary
 kill @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand]
 
 # for all balls, map from HV to XZ based on Xdir

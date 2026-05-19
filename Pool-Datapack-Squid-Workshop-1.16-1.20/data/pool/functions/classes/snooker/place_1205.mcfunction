@@ -73,3 +73,5 @@ execute unless score #skiprec swPool_var00 matches 1 run function pool:classes/m
 
 execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
 execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
+
+execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r

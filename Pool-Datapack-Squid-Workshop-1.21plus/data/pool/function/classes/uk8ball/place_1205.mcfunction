@@ -28,3 +28,5 @@ tag @e[tag=swPool_start] remove swPool_start
 
 
 function pool:classes/master/record
+
+execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r

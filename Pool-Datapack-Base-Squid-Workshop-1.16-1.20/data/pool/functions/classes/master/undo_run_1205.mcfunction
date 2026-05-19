@@ -142,3 +142,6 @@ tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+
+execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r
+

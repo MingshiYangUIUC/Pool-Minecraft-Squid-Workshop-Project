@@ -1,3 +1,4 @@
+# m
 #find out if two objects will collide, return value of "swPool_ontgt". given current velocity profile:
 #positive means will a1 will hit a2, negative means will not hit or too far away
 #	only consider angle around vertical 
@@ -47,13 +48,27 @@ tag @s remove swPool_d1
 
 #equation: swPool_ontgt=0.25/d-sin(dr)
 #modify equation for different radius...
-scoreboard players set @s swPool_var01 25000000
 
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
+# (r1 + r2) * 10000
+scoreboard players operation @s swPool_var01 = C_r swPool_C
 
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
-execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
+execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation @s swPool_var01 += C_r swPool_C
+
+execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players operation @s swPool_var01 += C_r_edge_c swPool_C
+execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players operation @s swPool_var01 += C_r_edge_s swPool_C
+
+execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players operation @s swPool_var01 += C_r2_cntr_c swPool_C
+execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players operation @s swPool_var01 += C_r2_cntr_s swPool_C
+
+scoreboard players operation @s swPool_var01 *= C_10000 swPool_C
+
+#scoreboard players set @s swPool_var01 25000000
+
+#execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
+#execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
+
+#execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
+#execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
 
 #tellraw @a [{"text":"variable swPool_v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
 

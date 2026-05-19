@@ -43,6 +43,8 @@ execute if score @s swPool_sizex < @s swPool_sizez run tag @s add swPool_z
 
 execute if score TABLE swPool_dl matches 33750.. run scoreboard players add @s swPool_dl 8660
 
+scoreboard players set old_r swMath_V 1250
+
 #Black K
 execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s Pos[0] 10000
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
@@ -77,6 +79,8 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add 2500
 scoreboard players set @s swPool_var02 -4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 0
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
@@ -102,7 +106,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add 2500
 scoreboard players set @s swPool_var02 -2200
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 -1250
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -128,6 +136,8 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 0
 scoreboard players set @s swPool_var03 2600
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -152,7 +162,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 2200
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 1300
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -177,7 +191,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 2250
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 -3900
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -202,7 +220,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 5200
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -227,7 +249,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 -2600
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -254,7 +280,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 -2200
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 1300
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -280,6 +310,8 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 0
 scoreboard players set @s swPool_var03 -2600
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -304,7 +336,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 2250
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 3900
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -329,7 +365,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 2250
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 -1300
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -354,7 +394,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 2600
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
@@ -379,6 +423,8 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 0
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
@@ -404,7 +450,11 @@ scoreboard players operation @s swPool_var01 += @s swPool_var03
 
 #change individuals by changing swPool_var02 and swPool_var03 add/remove 2166/1250/2500
 scoreboard players set @s swPool_var02 4500
+scoreboard players operation @s swPool_var02 *= C_r swPool_C
+scoreboard players operation @s swPool_var02 /= old_r swMath_V
 scoreboard players set @s swPool_var03 -5200
+scoreboard players operation @s swPool_var03 *= C_r swPool_C
+scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03

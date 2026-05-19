@@ -1,3 +1,4 @@
+# m
 #from object real distance and relative angle find the relative distance along the relative trajectory
 #just calculation, no tag is needed for specification here
 #object real distance should be smaller than 3
@@ -22,14 +23,38 @@ scoreboard players operation @s swPool_var03 = @s swPool_dist
 scoreboard players operation @s swPool_var03 *= @s swPool_var03
 scoreboard players operation @s swPool_var02 -= @s swPool_var03
 
-#2500^2
-execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players add @s swPool_var02 6250000
+# determines (r1+r2)^2, if ball-ball, it is 0.25^2
+scoreboard players set #r1r2_sqr swMath_V 0
+scoreboard players operation #r1r2_sqr swMath_V = C_r swPool_C
 
-execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players add @s swPool_var02 24502500
-execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players add @s swPool_var02 16402500
+execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #r1r2_sqr swMath_V += C_r swPool_C
 
-execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players add @s swPool_var02 18705625
-execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players add @s swPool_var02 6502500
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players operation #r1r2_sqr swMath_V += C_r_edge_c swPool_C
+
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players operation #r1r2_sqr swMath_V += C_r_edge_s swPool_C
+
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players operation #r1r2_sqr swMath_V += C_r2_cntr_c swPool_C
+
+execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players operation #r1r2_sqr swMath_V += C_r2_cntr_s swPool_C
+
+scoreboard players operation #r1r2_sqr swMath_V *= #r1r2_sqr swMath_V
+
+scoreboard players operation @s swPool_var02 += #r1r2_sqr swMath_V
+
+# (1250+1250)**2
+#execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players add @s swPool_var02 6250000
+
+# (1250+3700)**2
+#execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players add @s swPool_var02 24502500
+
+# (1250+2800)**2
+#execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players add @s swPool_var02 16402500
+
+# (1250+3075)**2
+#execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players add @s swPool_var02 18705625
+
+# (1250+1300)**2
+#execute if entity @e[tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players add @s swPool_var02 6502500
 
 #	take square root
 scoreboard players operation #vIn swMath_V = @s swPool_var02

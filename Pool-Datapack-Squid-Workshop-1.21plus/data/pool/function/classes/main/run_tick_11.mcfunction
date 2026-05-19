@@ -38,7 +38,7 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] 
 #execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",tag:{swPool_cuestick:1b}}]}] at @s run function pool:classes/cue/aim
 execute if score #tick swPool_var00 matches 0 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pooltable] remove swPool_progressed
 execute if score #tick swPool_var00 matches 0 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pool] at @s[scores={swPool_DXX=1..}] run function pool:classes/master/main
-execute if score #tick swPool_var00 matches 0 as @e[type=item_display,tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
+execute if score #tick swPool_var00 matches 0 if score C_r swPool_C matches 1250 as @e[type=item_display,tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
 tag @e[type=item_display,tag=swPool_a1] remove swPool_a1
 tag @e[type=item_display,tag=swPool_colliding] remove swPool_colliding
 execute unless entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pooltable,tag=!swPool_start,tag=!swPool_progressed] run function pool:classes/master/idle

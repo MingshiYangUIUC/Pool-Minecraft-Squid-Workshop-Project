@@ -8,7 +8,7 @@ function pool:classes/physics/vamagnitude
 #now O's swPool_Vmag is the magnitude
 
 #0.0291=2/7/g
-scoreboard players set @s swPool_T_roll 291
+scoreboard players operation @s swPool_T_roll = C_291 swPool_C
 scoreboard players operation @s swPool_T_roll *= O swPool_Vmag
 scoreboard players operation @s swPool_T_roll /= C_muk swPool_C
 

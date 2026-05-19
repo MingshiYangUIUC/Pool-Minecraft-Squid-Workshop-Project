@@ -168,6 +168,9 @@ scoreboard objectives add swPool_cstmp dummy
 scoreboard objectives add swPool_cstmp_1 dummy
 scoreboard objectives add swPool_cstmp_10 dummy
 
+# item display shift
+scoreboard objectives add swPool_itm_y dummy
+
 # rename some scores
 scoreboard objectives modify swPool_Score displayname "Score"
 
@@ -200,6 +203,7 @@ scoreboard players set C_30 swPool_C 30
 scoreboard players set C_20 swPool_C 20
 scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10
+scoreboard players set C_7 swPool_C 7
 scoreboard players set C_5 swPool_C 5
 scoreboard players set C_2 swPool_C 2
 scoreboard players set C_-1 swPool_C -1
@@ -207,6 +211,12 @@ scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000 #Don't change this! This is somehow hard coded.
 scoreboard players set C_r swPool_C 1250
+
+# radius * 10000 for corner and edge entities
+scoreboard players set C_r_edge_c swPool_C 3700
+scoreboard players set C_r_edge_s swPool_C 2800
+scoreboard players set C_r_cntr_c swPool_C 3075
+scoreboard players set C_r_cntr_s swPool_C 1300
 
 #muk*10000 kinetic friction
 scoreboard players set C_muk swPool_C 3000
@@ -232,10 +242,16 @@ execute store result score C_mus swPool_C run data get storage minecraft:swpool 
 scoreboard players set C_g swPool_C 98100
 #g*100 W = Mg
 scoreboard players set C_0.01g swPool_C 981
+#other constants
+# 5/7*g
+scoreboard players set C_70071 swPool_C 70071
+# 2/7/g
+scoreboard players set C_291 swPool_C 291
 
 #constants needed for strike, predefined.
 scoreboard players set m_ball swPool_C 1700
 scoreboard players set m_stick swPool_C 6000
+# true radius of ball
 scoreboard players set C_r2 swPool_C 286
 scoreboard players set i_ball_100 swPool_C 56
 scoreboard players set C_l swPool_C 12500

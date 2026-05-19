@@ -32,7 +32,7 @@ tag @s[tag=swPool_z,scores={swPool_vez=..-1}] add swPool_-z
 #record vnormal for convenience
 execute if entity @s[tag=swPool_x] run scoreboard players operation VN swPool_var00 = @s swPool_vex
 execute if entity @s[tag=swPool_z] run scoreboard players operation VN swPool_var00 = @s swPool_vez
-
+#tellraw @a [{"text":"VN, "},{"score":{"objective":"swPool_var00","name":"VN"}}]
 
 #step 1 get K
 scoreboard players operation WR swPool_var00 = @s swPool_wy
@@ -45,6 +45,15 @@ execute if entity @s[tag=swPool_+x] run scoreboard players operation K swPool_va
 execute if entity @s[tag=swPool_-x] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_+z] run scoreboard players operation K swPool_var00 += WR swPool_var00
 execute if entity @s[tag=swPool_-z] run scoreboard players operation K swPool_var00 -= WR swPool_var00
+
+# maximum
+scoreboard players operation KABS swPool_var00 = K swPool_var00
+execute if score KABS swPool_var00 matches ..-1 run scoreboard players operation KABS swPool_var00 *= C_-1 swPool_C
+# MAXDVP = 2*|K|/7
+scoreboard players operation MAXDVP swPool_var00 = KABS swPool_var00
+scoreboard players operation MAXDVP swPool_var00 *= C_2 swPool_C
+scoreboard players operation MAXDVP swPool_var00 /= C_7 swPool_C
+
 
 # get K' 
 execute if entity @s[tag=swPool_x] run scoreboard players operation Kp swPool_var00 = @s swPool_wz
@@ -69,6 +78,10 @@ scoreboard players operation dVP swPool_var00 /= C_10000 swPool_C
 execute if score dVP swPool_var00 matches ..-1 run scoreboard players operation dVP swPool_var00 *= C_-1 swPool_C
 
 #tellraw @a [{"text":"dVP, "},{"score":{"objective":"swPool_var00","name":"dVP"}}]
+#tellraw @a [{"text":"maxdVP, "},{"score":{"objective":"swPool_var00","name":"MAXDVP"}}]
+execute if score dVP swPool_var00 > MAXDVP swPool_var00 run scoreboard players operation dVP swPool_var00 = MAXDVP swPool_var00
+
+#tellraw @a [{"text":"dVP, "},{"score":{"objective":"swPool_var00","name":"dVP"}}]
 
 #step5 get magnitude of Δomega_y = Δv_parallel/r/2*5
 scoreboard players operation dWY swPool_var00 = dVP swPool_var00
@@ -77,7 +90,9 @@ scoreboard players operation dWY swPool_var00 /= C_2 swPool_C
 scoreboard players operation dWY swPool_var00 *= C_100 swPool_C
 scoreboard players operation dWY swPool_var00 /= C_r swPool_C
 scoreboard players operation dWY swPool_var00 *= C_100 swPool_C
-execute if score dWY swPool_var00 matches ..-1 run scoreboard players operation dVP swPool_var00 *= C_-1 swPool_C
+execute if score dWY swPool_var00 matches ..-1 run scoreboard players operation dWY swPool_var00 *= C_-1 swPool_C
+
+#tellraw @a [{"text":"dWY, "},{"score":{"objective":"swPool_var00","name":"dWY"}}]
 
 #step 6: dVP is negative sign of K, and dWY positive if -z and +x, negative if +z and -x
 #dVP:
@@ -95,6 +110,10 @@ scoreboard players operation @s[tag=swPool_x] swPool_vez += dVP swPool_var00
 scoreboard players operation @s[tag=swPool_z] swPool_vex += dVP swPool_var00
 
 scoreboard players operation @s swPool_wy += dWY swPool_var00
+
+#tellraw @a [{"text":"final wy, "},{"score":{"objective":"swPool_wy","name":"@s"}}]
+#tellraw @a [{"text":"final vx, "},{"score":{"objective":"swPool_vex","name":"@s"}}]
+#tellraw @a [{"text":"final vz, "},{"score":{"objective":"swPool_vez","name":"@s"}}]
 
 #vcombine_ultimate, after flipping the sign of v_normal
 execute if entity @s[tag=swPool_x] run scoreboard players operation @s swPool_vex *= C_-1 swPool_C
@@ -128,9 +147,23 @@ scoreboard players operation dWp swPool_var00 /= C_r swPool_C
 scoreboard players operation dWp swPool_var00 *= C_mui swPool_C
 scoreboard players operation dWp swPool_var00 /= C_100 swPool_C
 
+# maximum
+scoreboard players operation KABS swPool_var00 = Kp swPool_var00
+execute if score KABS swPool_var00 matches ..-1 run scoreboard players operation KABS swPool_var00 *= C_-1 swPool_C
+# MAX_DWP = 5 * |K| / (7r)
+scoreboard players operation MAXDWP swPool_var00 = KABS swPool_var00
+scoreboard players operation MAXDWP swPool_var00 *= C_5 swPool_C
+scoreboard players operation MAXDWP swPool_var00 /= C_7 swPool_C
+scoreboard players operation MAXDWP swPool_var00 *= C_100 swPool_C
+scoreboard players operation MAXDWP swPool_var00 /= C_r swPool_C
+scoreboard players operation MAXDWP swPool_var00 *= C_100 swPool_C
+
 # remove omegas. if omega positive, substract, otherwise, add.
 # absolute value
 execute if score dWp swPool_var00 matches ..-1 run scoreboard players operation dWp swPool_var00 *= C_-1 swPool_C
+#tellraw @a [{"text":"changed w, "},{"score":{"objective":"swPool_var00","name":"dWp"}}]
+execute if score dWp swPool_var00 > MAXDWP swPool_var00 run scoreboard players operation dWp swPool_var00 = MAXDWP swPool_var00
+
 # get input omega, wz changed by x direction, vice versa
 execute if entity @s[tag=swPool_x] run scoreboard players operation W0 swPool_var00 = @s swPool_wz
 execute if entity @s[tag=swPool_z] run scoreboard players operation W0 swPool_var00 = @s swPool_wx

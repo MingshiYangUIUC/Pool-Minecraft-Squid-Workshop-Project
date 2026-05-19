@@ -163,3 +163,5 @@ execute as @e[scores={swPool_rank=4}] run data merge entity @s {CustomName:"\"4 
 execute as @e[scores={swPool_rank=5}] run data merge entity @s {CustomName:"\"5 Pts\""}
 execute as @e[scores={swPool_rank=6}] run data merge entity @s {CustomName:"\"6 Pts\""}
 execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 Pts\""}
+
+execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r

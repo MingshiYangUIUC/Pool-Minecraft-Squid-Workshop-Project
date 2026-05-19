@@ -44,6 +44,22 @@ tag @s remove swPool_d2
 #scoreboard players reset D2_self swPool_var01
 #scoreboard players reset D2_self swPool_var02
 
+# CHANGE POCKET CENTER RADIUS TO BE LARGER!!!
+scoreboard players operation C_r2_cntr_c swPool_C = C_r_cntr_c swPool_C
+scoreboard players add C_r2_cntr_c swPool_C 1250
+scoreboard players operation C_r2_cntr_c swPool_C -= C_r swPool_C
+scoreboard players operation C_r2_cntr_s swPool_C = C_r_cntr_s swPool_C
+scoreboard players add C_r2_cntr_s swPool_C 1250
+scoreboard players operation C_r2_cntr_s swPool_C -= C_r swPool_C
+
+# shift table dim by R0-R1
+scoreboard players operation TABLE swPool_sizex = TABLE_1250 swPool_sizex
+scoreboard players operation TABLE swPool_sizez = TABLE_1250 swPool_sizez
+scoreboard players add TABLE swPool_sizex 1250
+scoreboard players operation TABLE swPool_sizex -= C_r swPool_C
+scoreboard players add TABLE swPool_sizez 1250
+scoreboard players operation TABLE swPool_sizez -= C_r swPool_C
+
 execute at @s as @e[type=item_display,tag=swPool_near,sort=random] at @s run function pool:classes/master/select
 
 execute unless score @s swPool_v matches 0 at @s run function pool:classes/cushion/main
