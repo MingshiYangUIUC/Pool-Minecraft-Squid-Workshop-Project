@@ -357,7 +357,7 @@ for v in all_versions:
         loadfile = os.path.join(pool_final_dir_version,'data','pool','function','classes','main','load.mcfunction')
         with open(loadfile, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-        lines = [f'data merge storage minecraft:swpool {{version:[1205,1]}}\n\n'] + lines
+        lines = [f'data merge storage minecraft:swpool {{version:[1205,1210,1]}}\n\n'] + lines
         with open(loadfile, 'w', encoding='utf-8') as f:
             f.writelines(lines)
         
@@ -836,7 +836,7 @@ for v in all_versions:
 
         print('  Modify armor items criteria')
         for file in filenames:
-            if 'master' in file and 'record.mcfunction' in file:
+            if 'master' in file and ('record.mcfunction' in file or 'record_long.mcfunction' in file):
                 with open(file, 'r', encoding='utf-8') as f:
                     content = f.read()
                 content = content.replace('@s[nbt={ArmorItems:[{},{},{},{id:"minecraft:acacia_button"}]}]',
@@ -865,9 +865,9 @@ for v in all_versions:
                 if 'summon' in lines[i]:
                     newline = lines[i].replace('armor_stand','item_display')
                     if modify_height_armor_stand:
-                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
+                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
                     else:
-                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
+                        display_info = '{interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}'
                     # replace Item with item
                     newline = newline.replace('Item:','item:')
                     newline = newline.replace('Selecteditem:','SelectedItem:')
@@ -901,7 +901,7 @@ for v in all_versions:
                     lines[i] = newline
             
             # modify record functionalities
-            if 'master' in file and 'record.mcfunction' in file:
+            if 'master' in file and ('record.mcfunction' in file or 'record_long.mcfunction' in file):
                 newline = lines[i].replace('Pose.Head','transformation.right_rotation')
                 # both old and new armor stand criteria
                 newline = newline.replace('nbt={equipment:{head:{id:"minecraft:acacia_button"}}}',

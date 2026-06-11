@@ -30,10 +30,10 @@
 tag @s remove swPool_x
 tag @s remove swPool_z
 
-execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_dl = @s swPool_sizex
-execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_ds = @s swPool_sizez
-execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_dl = @s swPool_sizez
-execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_ds = @s swPool_sizex
+execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_dl = TABLE swPool_sizex
+execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_ds = TABLE swPool_sizez
+execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_dl = TABLE swPool_sizez
+execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_ds = TABLE swPool_sizex
 scoreboard players operation TABLE swPool_dl = @s swPool_dl
 scoreboard players operation TABLE swPool_ds = @s swPool_ds
 
@@ -42,10 +42,10 @@ execute if score @s swPool_sizex < @s swPool_sizez run tag @s add swPool_z
 
 
 # slightly adjust swPool_dl
-scoreboard players set #mtp swMath_V 22
-scoreboard players set #div swMath_V 20
-scoreboard players operation @s swPool_ds *= #mtp swMath_V
-scoreboard players operation @s swPool_ds /= #div swMath_V
+#scoreboard players set #mtp swMath_V 22
+#scoreboard players set #div swMath_V 20
+#scoreboard players operation @s swPool_ds *= #mtp swMath_V
+#scoreboard players operation @s swPool_ds /= #div swMath_V
 
 ### BALL
 execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s Pos[0] 10000

@@ -29,10 +29,10 @@ tag @s add swPool_snookermode
 tag @s remove swPool_x
 tag @s remove swPool_z
 
-execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_dl = @s swPool_sizex
-execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_ds = @s swPool_sizez
-execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_dl = @s swPool_sizez
-execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_ds = @s swPool_sizex
+execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_dl = TABLE swPool_sizex
+execute if score @s swPool_sizex >= @s swPool_sizez run scoreboard players operation @s swPool_ds = TABLE swPool_sizez
+execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_dl = TABLE swPool_sizez
+execute if score @s swPool_sizex < @s swPool_sizez run scoreboard players operation @s swPool_ds = TABLE swPool_sizex
 scoreboard players operation TABLE swPool_dl = @s swPool_dl
 scoreboard players operation TABLE swPool_ds = @s swPool_ds
 
@@ -174,10 +174,10 @@ execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s 
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
 summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_black"],NoGravity:1,Small:1,Invisible:1}
-scoreboard players set @s swPool_var05 6
+scoreboard players set @s swPool_var05 11
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
-scoreboard players set @s swPool_var05 5
+scoreboard players set @s swPool_var05 9
 scoreboard players operation @s swPool_var02 *= @s swPool_var05
 scoreboard players set @s swPool_var03 0
 scoreboard players operation @s swPool_var00 -= @s swPool_var02

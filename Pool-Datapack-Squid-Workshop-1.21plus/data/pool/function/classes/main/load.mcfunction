@@ -1,4 +1,4 @@
-data merge storage minecraft:swpool {version:[1205,1]}
+data merge storage minecraft:swpool {version:[1205,1210,1]}
 
 #save parameters
 
@@ -61,6 +61,8 @@ scoreboard objectives add swPool_C_nn_tr trigger
 scoreboard players enable @a swPool_C_nn_tr
 scoreboard objectives add swPool_C_tpdr_tr trigger
 scoreboard players enable @a swPool_C_tpdr_tr
+scoreboard objectives add swPool_C_r_tr trigger
+scoreboard players enable @a swPool_C_r_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
@@ -112,6 +114,7 @@ scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_sti
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
 scoreboard objectives add swPool_chst minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
+scoreboard objectives add swPool_long_hidScore dummy
 
 
 scoreboard objectives add swPool_vex dummy
@@ -210,7 +213,13 @@ scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000 #Don't change this! This is somehow hard coded.
-scoreboard players set C_r swPool_C 1250
+scoreboard players set C_r0 swPool_C 1250
+#scoreboard players set C_r swPool_C 1250
+
+# if valid value not present: force set to 1250 
+execute unless score C_r swPool_C matches 1..2000 run scoreboard players set C_r swPool_C 1250
+# if not 1.21plus version: force set to 1250
+execute unless data storage minecraft:swpool {version:[1210]} run scoreboard players set C_r swPool_C 1250
 
 # radius * 10000 for corner and edge entities
 scoreboard players set C_r_edge_c swPool_C 3700
@@ -309,8 +318,8 @@ function pool:classes/cue/reset
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}}]
 execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包-鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}}]
 
-execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112172"}}]
-execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112172"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112182"}}]
+execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 112182"}}]
 
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[PoolDatapack-installer]: Please set coefficients of friction. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Individual Settings> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <Use Default>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1133052"}}]
 execute if data storage minecraft:swpool {version:[1]} if score C_muk swPool_C matches 0 if score C_mur swPool_C matches 0 if score C_mui swPool_C matches 0 if score C_mus swPool_C matches 0 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包-安装]: 请设定摩擦系数。","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<单独分别设置> ","color":"gray","click_event":{"action":"suggest_command","command":"/function app:settings/pool/friction"}},{"italic":false,"underlined":true,"text":" <点此使用默认值>","color":"gray","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1133052"}}]

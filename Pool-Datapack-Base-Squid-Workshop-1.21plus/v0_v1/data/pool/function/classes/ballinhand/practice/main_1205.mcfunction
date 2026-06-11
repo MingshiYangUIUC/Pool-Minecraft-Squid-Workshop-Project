@@ -13,7 +13,7 @@ execute as @p[tag=swPool_ballinhand] at @s store result score @s swPool_posy run
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace] at @s run function pool:classes/ballinhand/practice/tp
 
 
-#execute at @e[tag=swPool_brown,tag=swPool_pin] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+#execute at @e[tag=swPool_brown,tag=swPool_pin] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 
 
@@ -36,7 +36,11 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_x] if score TABLE swPool_dl
 
 execute if entity @e[tag=swPool_pooltable,tag=swPool_z] if score TABLE swPool_dl > @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posz if score @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posx < TABLE swPool_ds run tag @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] add swPool_valid
 
-execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
+scoreboard players operation C_2r swMath_V = C_r swPool_C
+scoreboard players operation C_2r swMath_V += C_r swPool_C
+#execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
+execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ run function pool:classes/ballinhand/helper/find_nearest_ball
+execute as @e[tag=swPool_valid] if score @s swPool_dist < C_2r swMath_V run tag @s remove swPool_valid
 
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=1] at @s run particle composter ~ ~ ~ 0 0 0 0 1 force
 #execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=!swPool_valid,limit=1] at @s run particle witch ~ ~ ~ 0 0 0 0 1 force
@@ -44,7 +48,7 @@ execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=
 execute if entity @s[scores={swPool_crtclk=1..}] if entity @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run function pool:classes/master/record
 
 #execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run say valid
-execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if entity @s[scores={swPool_crtclk=1..}] at @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid] run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 #execute as @e[tag=swPool_free,tag=swPool_cue] run data modify entity @s Pos[0] set from entity @e[tag=swPool_cueplace,limit=1] Pos[0]
 #execute as @e[tag=swPool_free,tag=swPool_cue] run data modify entity @s Pos[2] set from entity @e[tag=swPool_cueplace,limit=1] Pos[2]

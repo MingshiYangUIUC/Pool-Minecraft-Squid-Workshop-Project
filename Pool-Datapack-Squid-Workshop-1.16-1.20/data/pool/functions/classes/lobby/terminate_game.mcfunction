@@ -9,6 +9,7 @@ tag @e[tag=swPool_pooltable] remove swPool_9ball_aibreak
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
+kill @e[tag=swPool_long_temppin]
 kill @e[tag=swPool_spot]
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
 tag @a remove swPool_spec

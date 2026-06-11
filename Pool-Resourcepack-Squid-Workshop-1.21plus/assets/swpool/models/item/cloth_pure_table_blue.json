@@ -1,0 +1,10 @@
+{
+    "format_version": "1.21.6",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "0": "swpool:item/pool/cloth_pure_blue",
+        "1": "swpool:item/pool/cloth_pure_blue",
+        "particle": "swpool:item/pool/cloth_pure_blue"
+    },
+    "parent": "swpool:item/cloth_table_green"
+}

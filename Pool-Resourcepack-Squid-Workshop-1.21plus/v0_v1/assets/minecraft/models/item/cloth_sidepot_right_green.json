@@ -279,7 +279,7 @@
 			"rotation": [90, 0, 0]
 		},
 		"head": {
-			"translation": [0, 14.5, 0]
+			"translation": [0, -8, 0]
 		},
 		"fixed": {
 			"rotation": [-90, -90, 0],

@@ -855,6 +855,7 @@ variable_names = [
      "swPool_C_tcc",
      "swPool_C_nn",
      "swPool_C_tpdr",
+     "swPool_C_r",
 
      'swPool_Score'
 ]

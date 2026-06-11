@@ -1,12 +1,11 @@
 {
-  "format_version": "1.21.6",
+  "format_version": "1.9.0",
   "credit": "Made with Blockbench",
   "textures": {
     "0": "item/pool/cloth_rag_custom_2",
     "1": "item/pool/wood",
     "2": "item/pool/black",
     "4": "item/pool/wood_light",
-    "5": "item/pool/cloth_rag_custom_2",
     "particle": "item/pool/cloth_rag_custom_2"
   },
   "parent": "item/cloth_cornerpot_green"

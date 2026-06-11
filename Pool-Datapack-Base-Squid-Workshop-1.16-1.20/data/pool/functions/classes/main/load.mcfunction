@@ -59,6 +59,8 @@ scoreboard objectives add swPool_C_nn_tr trigger
 scoreboard players enable @a swPool_C_nn_tr
 scoreboard objectives add swPool_C_tpdr_tr trigger
 scoreboard players enable @a swPool_C_tpdr_tr
+scoreboard objectives add swPool_C_r_tr trigger
+scoreboard players enable @a swPool_C_r_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
@@ -110,6 +112,7 @@ scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_sti
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
 scoreboard objectives add swPool_chst minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
+scoreboard objectives add swPool_long_hidScore dummy
 
 
 scoreboard objectives add swPool_vex dummy
@@ -208,7 +211,13 @@ scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
 
 #radius*10000 #Don't change this! This is somehow hard coded.
-scoreboard players set C_r swPool_C 1250
+scoreboard players set C_r0 swPool_C 1250
+#scoreboard players set C_r swPool_C 1250
+
+# if valid value not present: force set to 1250 
+execute unless score C_r swPool_C matches 1..2000 run scoreboard players set C_r swPool_C 1250
+# if not 1.21plus version: force set to 1250
+execute unless data storage minecraft:swpool {version:[1210]} run scoreboard players set C_r swPool_C 1250
 
 # radius * 10000 for corner and edge entities
 scoreboard players set C_r_edge_c swPool_C 3700

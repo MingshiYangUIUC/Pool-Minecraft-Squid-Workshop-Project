@@ -17,6 +17,7 @@ scoreboard objectives remove swPool_C_trt_tr
 scoreboard objectives remove swPool_C_tcc_tr
 scoreboard objectives remove swPool_C_nn_tr
 scoreboard objectives remove swPool_C_tpdr_tr
+scoreboard objectives remove swPool_C_r_tr
 
 scoreboard objectives remove swPool_Score_tr
 
@@ -64,6 +65,7 @@ scoreboard objectives remove swPool_crtclk
 scoreboard objectives remove swPool_sneaktime
 scoreboard objectives remove swPool_chst
 scoreboard objectives remove swPool_hidScore
+scoreboard objectives remove swPool_long_hidScore
 
 scoreboard objectives remove swPool_vex
 scoreboard objectives remove swPool_vey

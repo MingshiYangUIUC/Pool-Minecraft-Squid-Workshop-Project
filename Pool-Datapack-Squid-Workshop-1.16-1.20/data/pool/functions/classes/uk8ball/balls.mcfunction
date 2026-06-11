@@ -41,9 +41,13 @@ execute if score @s swPool_sizex >= @s swPool_sizez run tag @s add swPool_x
 execute if score @s swPool_sizex < @s swPool_sizez run tag @s add swPool_z
 
 
-execute if score TABLE swPool_dl matches 33750.. run scoreboard players add @s swPool_dl 8660
-
 scoreboard players set old_r swMath_V 1250
+
+# scale the shift by r and table size
+scoreboard players set #dlshift swMath_V 4330
+scoreboard players operation #dlshift swMath_V *= C_r swPool_C
+scoreboard players operation #dlshift swMath_V /= old_r swMath_V
+scoreboard players operation #dlshift swMath_V += C_r swPool_C
 
 #Black K
 execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s Pos[0] 10000
@@ -57,6 +61,7 @@ scoreboard players operation @s swPool_var02 /= @s swPool_var05
 scoreboard players set @s swPool_var03 0
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_black,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_black,limit=1] swPool_var01 = @s swPool_var01
@@ -85,6 +90,7 @@ scoreboard players set @s swPool_var03 0
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -114,6 +120,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -141,6 +148,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -170,6 +178,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -199,6 +208,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -228,6 +238,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -257,6 +268,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -288,6 +300,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -315,6 +328,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -344,6 +358,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -373,6 +388,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -402,6 +418,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -429,6 +446,7 @@ scoreboard players set @s swPool_var03 0
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
@@ -458,6 +476,7 @@ scoreboard players operation @s swPool_var03 /= old_r swMath_V
 
 scoreboard players operation @s swPool_var00 -= @s swPool_var02
 scoreboard players operation @s swPool_var01 += @s swPool_var03
+scoreboard players operation @s swPool_var00 -= #dlshift swMath_V
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var00
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01

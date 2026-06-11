@@ -37,7 +37,7 @@ tag @s remove swPool_nfred
 
 
 #if another color ball is pocketed if aiming to hit one, test if swPool_rank = swPool_firsthit, swPool_foul if yes
-execute as @e[scores={swPool_rank=2..7}] if score @s swPool_rank = @a[tag=swPool_hitcue,limit=1] swPool_firsthit run tag @e[tag=swPool_pooltable,limit=1] add swPool_foulred
+execute as @e[tag=swPool_pool,scores={swPool_rank=2..7}] if score @s swPool_rank = @a[tag=swPool_hitcue,limit=1] swPool_firsthit run tag @e[tag=swPool_pooltable,limit=1] add swPool_foulred
 
 execute if entity @s[tag=swPool_foulred] unless entity @e[scores={swPool_rank=5},tag=swPool_pool] run scoreboard players set @s[scores={swPool_foul=..4}] swPool_foul 5
 execute if entity @s[tag=swPool_foulred] unless entity @e[scores={swPool_rank=6},tag=swPool_pool] run scoreboard players set @s[scores={swPool_foul=..5}] swPool_foul 6

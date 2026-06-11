@@ -76,16 +76,16 @@ scoreboard players operation @s[tag=swPool_cush] swPool_posz -= TABLE swPool_pos
 scoreboard players set old_r swMath_V 1250
 scoreboard players set #pktm_range1 swMath_V -4900
 scoreboard players set #pktm_range2 swMath_V 4900
-#scoreboard players operation #pktm_range1 swMath_V *= C_r swPool_C
-#scoreboard players operation #pktm_range1 swMath_V /= old_r swMath_V
-#scoreboard players operation #pktm_range2 swMath_V *= C_r swPool_C
-#scoreboard players operation #pktm_range2 swMath_V /= old_r swMath_V
+scoreboard players operation #pktm_range1 swMath_V *= C_r swPool_C
+scoreboard players operation #pktm_range1 swMath_V /= old_r swMath_V
+scoreboard players operation #pktm_range2 swMath_V *= C_r swPool_C
+scoreboard players operation #pktm_range2 swMath_V /= old_r swMath_V
 
 execute if entity @s[tag=swPool_x3] if score @s swPool_posx >= #pktm_range1 swMath_V if score @s swPool_posx <= #pktm_range2 swMath_V run tag @s add swPool_pktm
 execute if entity @s[tag=swPool_z3] if score @s swPool_posz >= #pktm_range1 swMath_V if score @s swPool_posz <= #pktm_range2 swMath_V run tag @s add swPool_pktm
 
-tag @s[tag=swPool_x3,scores={swPool_posx=-4900..4900}] add swPool_pktm
-tag @s[tag=swPool_z3,scores={swPool_posz=-4900..4900}] add swPool_pktm
+#tag @s[tag=swPool_x3,scores={swPool_posx=-4900..4900}] add swPool_pktm
+#tag @s[tag=swPool_z3,scores={swPool_posz=-4900..4900}] add swPool_pktm
 
 scoreboard players operation @s[tag=swPool_cush] swPool_var00 = @s swPool_posx
 scoreboard players operation @s[tag=swPool_cush] swPool_var01 = @s swPool_posz
@@ -102,13 +102,13 @@ scoreboard players operation @s[tag=swPool_cush] swPool_var01 -= TABLE swPool_si
 #execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"corner edge v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
 
 scoreboard players set #pktc_range swMath_V -3150
-#scoreboard players operation #pktc_range swMath_V *= C_r swPool_C
-#scoreboard players operation #pktc_range swMath_V /= old_r swMath_V
+scoreboard players operation #pktc_range swMath_V *= C_r swPool_C
+scoreboard players operation #pktc_range swMath_V /= old_r swMath_V
 execute if entity @s[tag=swPool_cush] if score @s swPool_var00 >= #pktc_range swMath_V run tag @s add swPool_pktx
 execute if entity @s[tag=swPool_cush] if score @s swPool_var01 >= #pktc_range swMath_V run tag @s add swPool_pktz
 
-tag @s[tag=swPool_cush,scores={swPool_var00=-3150..}] add swPool_pktx
-tag @s[tag=swPool_cush,scores={swPool_var01=-3150..}] add swPool_pktz
+#tag @s[tag=swPool_cush,scores={swPool_var00=-3150..}] add swPool_pktx
+#tag @s[tag=swPool_cush,scores={swPool_var01=-3150..}] add swPool_pktz
 
 # above is for saving bounce computing time
 

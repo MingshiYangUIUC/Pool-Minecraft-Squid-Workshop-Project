@@ -50,5 +50,8 @@ execute as @a[scores={swPool_C_nn_tr=1..}] at @s run function pool:classes/main/
 scoreboard players enable @a swPool_C_tpdr_tr
 execute as @a[scores={swPool_C_tpdr_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_tpdr
 
+scoreboard players enable @a swPool_C_r_tr
+execute as @a[scores={swPool_C_r_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_r
+
 scoreboard players enable @a swPool_Score_tr
 execute as @a[scores={swPool_Score_tr=1..}] at @s run function pool:classes/main/triggers/swpool_score
