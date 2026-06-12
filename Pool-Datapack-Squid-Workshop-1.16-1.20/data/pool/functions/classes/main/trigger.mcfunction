@@ -83,7 +83,7 @@ execute if score @s swPool__trigger matches 4111015 run function pool:classes/lo
 execute if score @s swPool__trigger matches 4111016 run function pool:classes/lobby/spec_off
 execute if score @s swPool__trigger matches 4111017 run function pool:classes/lobby/spec_on
 execute if score @s swPool__trigger matches 4111020 run function pool:classes/lobby/terminate_helper
-execute if score @s swPool__trigger matches 4111211 run function pool:classes/master/undo
+execute if score @s swPool__trigger matches 4111212 run function pool:classes/master/undo
 execute if score @s swPool__trigger matches 4111901 run function pool:classes/practice/_lobby
 execute if score @s swPool__trigger matches 4111907 run function pool:classes/practice/start
 execute if score @s swPool__trigger matches 4111909 run function pool:classes/practice/start_helper
@@ -101,11 +101,11 @@ execute if score @s swPool__trigger matches 4112309 run function pool:classes/uk
 execute if score @s swPool__trigger matches 4112311 run function pool:classes/uk8ball/startsp_helper
 execute if score @s swPool__trigger matches 11331011 run function app:settings/pool/snooker/display/dialogue
 execute if score @s swPool__trigger matches 11331012 run function app:settings/pool/snooker/display/sidebar
-execute if score @s swPool__trigger matches 41112176 run function pool:classes/master/9ball/respot_9_manual
-execute if score @s swPool__trigger matches 41112191 run function pool:classes/master/practice/ballinhand
-execute if score @s swPool__trigger matches 41112206 run function pool:classes/master/snooker/progression_norule_control
-execute if score @s swPool__trigger matches 41112207 run function pool:classes/master/snooker/progression_norule_control_1205
-execute if score @s swPool__trigger matches 41112208 run function pool:classes/master/snooker/progression_norule_refresh_score
+execute if score @s swPool__trigger matches 41112186 run function pool:classes/master/9ball/respot_9_manual
+execute if score @s swPool__trigger matches 41112201 run function pool:classes/master/practice/ballinhand
+execute if score @s swPool__trigger matches 41112216 run function pool:classes/master/snooker/progression_norule_control
+execute if score @s swPool__trigger matches 41112217 run function pool:classes/master/snooker/progression_norule_control_1205
+execute if score @s swPool__trigger matches 41112218 run function pool:classes/master/snooker/progression_norule_refresh_score
 execute if score @s swPool__trigger matches 41122151 run function pool:classes/table/helpers/chest_check
 execute if score @s swPool__trigger matches 41122156 run function pool:classes/table/helpers/chest_set_preview
 execute if score @s swPool__trigger matches 411081001 run function pool:classes/cue/points_v2/p-2000_-2000

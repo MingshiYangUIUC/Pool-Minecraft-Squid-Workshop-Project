@@ -1,4 +1,4 @@
-
+scoreboard players operation @s swPool_hittime = MinTime swPool_hittime
 
 scoreboard players operation #self swPool_vx = @s swPool_vex
 scoreboard players operation #self swPool_vz = @s swPool_vez

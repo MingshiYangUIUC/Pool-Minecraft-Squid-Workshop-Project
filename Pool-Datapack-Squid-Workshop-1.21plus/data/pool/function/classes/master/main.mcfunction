@@ -73,7 +73,7 @@ execute at @s as @e[type=item_display,tag=swPool_near,sort=random] at @s run fun
 
 execute unless score @s swPool_v matches 0 at @s run function pool:classes/cushion/main
 
-scoreboard players operation @e[type=item_display,tag=swPool_col] swPool_hittime = MinTime swPool_hittime
+#scoreboard players operation @e[type=item_display,tag=swPool_col,limit=2] swPool_hittime = MinTime swPool_hittime
 execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=item_display,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run function pool:classes/collision/new_join
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=item_display,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
@@ -98,7 +98,7 @@ tag @e[type=item_display,tag=swPool_col] remove swPool_col2
 tag @e[type=item_display,tag=swPool_col] remove swPool_col
 tag @s remove swPool_bounce
 tag @s remove swPool_nobounce
-tag @e[type=item_display] remove swPool_near
+tag @e[type=item_display,tag=swPool_near] remove swPool_near
 tag @e[type=item_display,tag=swPool_fake] remove swPool_pool
 #execute at @s run function pool:classes/cushion/main
 tag @s remove swPool_a1

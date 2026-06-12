@@ -13,3 +13,5 @@ function math:classes/core/util/rad2deg
 scoreboard players operation @s swPool_rot = @s swPool_Rotation
 scoreboard players operation @s swPool_rot -= #vOut swMath_V
 scoreboard players operation @s swPool_drot -= @s swPool_rot
+
+tag @s remove swPool_aabs

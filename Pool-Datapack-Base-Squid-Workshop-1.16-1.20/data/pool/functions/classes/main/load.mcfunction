@@ -348,6 +348,8 @@ tag @a[tag=!swPool_CN,tag=!swPool_EN] remove swPool_welcomed
 # auto modify max command chain/sequence length
 function app:help/pool/settings/helpers/cmd_maxchainlength
 function app:help/pool/settings/helpers/cmd_maxsequencelength
+# if chose fast forward, set a default max iter.
+execute if score #fastfwd swMath_V matches 1 unless score #fastfwd_maxiter swMath_V matches 1.. run scoreboard players set #fastfwd_maxiter swMath_V 20
 
 # grant all recipes
 execute as @a run recipe give @s pool:stick_1
