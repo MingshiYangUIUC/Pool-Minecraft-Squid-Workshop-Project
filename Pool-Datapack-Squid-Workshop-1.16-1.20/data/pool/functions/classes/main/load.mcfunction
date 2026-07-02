@@ -112,7 +112,11 @@ scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_sti
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
 scoreboard objectives add swPool_chst minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
-scoreboard objectives add swPool_long_hidScore dummy
+scoreboard objectives add swPool_lhidScore dummy
+scoreboard objectives add swPool_pktid dummy
+scoreboard objectives add swPool_objid dummy
+scoreboard objectives add swPool_calcScore dummy
+scoreboard objectives add swPool_shotScore dummy
 
 
 scoreboard objectives add swPool_vex dummy
@@ -348,6 +352,8 @@ tag @a[tag=!swPool_CN,tag=!swPool_EN] remove swPool_welcomed
 # auto modify max command chain/sequence length
 function app:help/pool/settings/helpers/cmd_maxchainlength
 function app:help/pool/settings/helpers/cmd_maxsequencelength
+# if chose fast forward, set a default max iter.
+execute if score #fastfwd swMath_V matches 1 unless score #fastfwd_maxiter swMath_V matches 1.. run scoreboard players set #fastfwd_maxiter swMath_V 20
 
 # grant all recipes
 execute as @a run recipe give @s pool:stick_1

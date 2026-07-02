@@ -1,4 +1,4 @@
-#scoreboard players remove RedoTime swPool_long_hidScore 1
+#scoreboard players remove RedoTime swPool_lhidScore 1
 
 
 
@@ -53,21 +53,21 @@ scoreboard players set @e[tag=swPool_pool] swPool_DXX 99000
 tag @e[tag=swPool_long_temppin] remove swPool_long_temppin
 
 
-execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_Score = @s swPool_long_hidScore
+execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_Score = @s swPool_lhidScore
 
-scoreboard players operation Opponent swPool_Score = Opponent swPool_long_hidScore
+scoreboard players operation Opponent swPool_Score = Opponent swPool_lhidScore
 
-scoreboard players operation Stroke swPool_long_hidScore = StrokeRec swPool_long_hidScore
+scoreboard players operation Stroke swPool_lhidScore = StrokeRec swPool_lhidScore
 
-scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = FirstHit swPool_long_hidScore
+scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = FirstHit swPool_lhidScore
 
-scoreboard players operation #breakshot swPool_v = #breakshot swPool_long_hidScore
+scoreboard players operation #breakshot swPool_v = #breakshot swPool_lhidScore
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] add swPool_8ball_aibreak
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode] add swPool_9ball_aibreak
 
-scoreboard players operation Pocketed_Total swPool_long_hidScore = Pocketed_T_rec swPool_long_hidScore
-scoreboard players operation Pocketed_Turn swPool_long_hidScore = Pocketed_Turn_rec swPool_long_hidScore
+scoreboard players operation Pocketed_Total swPool_lhidScore = Pocketed_T_rec swPool_lhidScore
+scoreboard players operation Pocketed_Turn swPool_lhidScore = Pocketed_Turn_rec swPool_lhidScore
 
 tag @a remove swPool_ballinhand
 tag @a remove swPool_aimred

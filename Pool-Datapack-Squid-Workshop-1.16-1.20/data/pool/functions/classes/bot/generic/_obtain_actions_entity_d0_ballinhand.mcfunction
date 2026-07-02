@@ -1,0 +1,1 @@
+# place at several random locations, find max 2 S for two balls (if there is two balls), then place, then normal eval.

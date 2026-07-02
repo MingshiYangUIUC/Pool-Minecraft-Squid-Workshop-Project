@@ -27,6 +27,7 @@
 tag @s remove swPool_snookermode
 tag @s remove swPool_practicemode
 tag @s add swPool_cn8ballmode
+scoreboard players set swPool_cn8ballmode swMath_V 1
 tag @s remove swPool_x
 tag @s remove swPool_z
 

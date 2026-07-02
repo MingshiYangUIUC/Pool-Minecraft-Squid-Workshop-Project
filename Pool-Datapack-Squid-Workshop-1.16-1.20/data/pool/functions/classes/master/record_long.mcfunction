@@ -13,15 +13,15 @@ execute as @e[tag=swPool_pool] unless entity @s[nbt={ArmorItems:[{},{},{},{id:"m
 
 tag @e[tag=swPool_long_temppin] remove swPool_pool
 
-execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_long_hidScore = @s swPool_Score
-scoreboard players operation Opponent swPool_long_hidScore = Opponent swPool_Score
-scoreboard players operation StrokeRec swPool_long_hidScore = Stroke swPool_long_hidScore
-scoreboard players operation FirstHit swPool_long_hidScore = @e[tag=swPool_pooltable,limit=1] swPool_firsthit
+execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_lhidScore = @s swPool_Score
+scoreboard players operation Opponent swPool_lhidScore = Opponent swPool_Score
+scoreboard players operation StrokeRec swPool_lhidScore = Stroke swPool_lhidScore
+scoreboard players operation FirstHit swPool_lhidScore = @e[tag=swPool_pooltable,limit=1] swPool_firsthit
 
-scoreboard players operation #breakshot swPool_long_hidScore = #breakshot swPool_v
+scoreboard players operation #breakshot swPool_lhidScore = #breakshot swPool_v
 
-scoreboard players operation Pocketed_T_rec swPool_long_hidScore = Pocketed_Total swPool_long_hidScore
-scoreboard players operation Pocketed_Turn_rec swPool_long_hidScore = Pocketed_Turn swPool_long_hidScore
+scoreboard players operation Pocketed_T_rec swPool_lhidScore = Pocketed_Total swPool_lhidScore
+scoreboard players operation Pocketed_Turn_rec swPool_lhidScore = Pocketed_Turn swPool_lhidScore
 
 tag @a remove swPool_long_redrec
 tag @a remove swPool_long_ylwrec

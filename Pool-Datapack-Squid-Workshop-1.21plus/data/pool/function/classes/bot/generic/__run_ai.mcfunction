@@ -1,0 +1,2 @@
+execute if score Stroke swPool_hidScore matches 0 unless entity @e[type=item_display,tag=swPool_snookermode,limit=1] run function pool:classes/bot/generic/_obtain_actions_entity_d0_break
+execute unless score Stroke swPool_hidScore matches 0 unless entity @e[type=item_display,tag=swPool_snookermode,limit=1] run function pool:classes/bot/generic/_obtain_actions_entity_d0_main

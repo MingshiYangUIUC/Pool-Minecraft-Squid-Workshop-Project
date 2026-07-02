@@ -112,7 +112,11 @@ scoreboard objectives add swPool_crtclk minecraft.used:minecraft.carrot_on_a_sti
 scoreboard objectives add swPool_sneaktime minecraft.custom:minecraft.sneak_time
 scoreboard objectives add swPool_chst minecraft.used:minecraft.chest
 scoreboard objectives add swPool_hidScore dummy
-scoreboard objectives add swPool_long_hidScore dummy
+scoreboard objectives add swPool_lhidScore dummy
+scoreboard objectives add swPool_pktid dummy
+scoreboard objectives add swPool_objid dummy
+scoreboard objectives add swPool_calcScore dummy
+scoreboard objectives add swPool_shotScore dummy
 
 
 scoreboard objectives add swPool_vex dummy
@@ -199,6 +203,7 @@ scoreboard players set C_256 swPool_C 256
 scoreboard players set C_250 swPool_C 250
 scoreboard players set C_100 swPool_C 100
 scoreboard players set C_99 swPool_C 99
+scoreboard players set C_60 swPool_C 60
 scoreboard players set C_50 swPool_C 50
 scoreboard players set C_30 swPool_C 30
 scoreboard players set C_20 swPool_C 20
