@@ -131,13 +131,13 @@ scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_calcScore
 # remove new tag to wrap up
 tag @e[tag=swPool_aim_obj_new,limit=1] remove swPool_aim_obj_new
 
-#execute if score #usefakecenter swMath_V matches 1 run say FAKECNTR
-#tellraw @a [{"text":"vvvv"}]
-#tellraw @a [{"text":"crnr, "},{"score":{"objective":"swMath_V","name":"#cornerpot"}}]
-#tellraw @a [{"text":"blck, "},{"score":{"objective":"swMath_V","name":"#pkt_blocked"}}]
+#execute if score #usefakecenter swMath_V matches 1 run  sayFAKECNTR
+#tellraw @a[tag=swPool_debug] [{"text":"vvvv"}]
+#tellraw @a[tag=swPool_debug] [{"text":"crnr, "},{"score":{"objective":"swMath_V","name":"#cornerpot"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"blck, "},{"score":{"objective":"swMath_V","name":"#pkt_blocked"}}]
 # inputs in unit of 1000
-#tellraw @a [{"text":"dcue, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
-#tellraw @a [{"text":"dpkt, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]
-#tellraw @a [{"text":"acut, "},{"score":{"objective":"swMath_V","name":"#acut"}}]
-#tellraw @a [{"text":"apkt, "},{"score":{"objective":"swMath_V","name":"#pktdrot"}}]
-#tellraw @a [{"text":"Prob, "},{"score":{"objective":"swMath_V","name":"#S"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dcue, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dpkt, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"acut, "},{"score":{"objective":"swMath_V","name":"#acut"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"apkt, "},{"score":{"objective":"swMath_V","name":"#pktdrot"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"Prob, "},{"score":{"objective":"swMath_V","name":"#S"}}]

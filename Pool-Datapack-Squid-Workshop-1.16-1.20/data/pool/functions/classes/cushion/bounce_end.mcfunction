@@ -17,7 +17,7 @@ scoreboard players operation @s swPool_v = @s swPool_var02
 
 
 tag @s add swPool_colliding
-playsound minecraft:block.wood.break ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:block.wood.break ambient @a ~ ~ ~ 1 1
 
 #change of velocity and spin due to friction, if there is spin in y axis
 

@@ -1,5 +1,5 @@
 # place at several random locations, find max 2 S for two balls (if there is two balls), then place, then normal eval.
-say trying ball in hand
+#say trying ball in hand
 kill @e[tag=swPool_cue]
 # summon a cue ball
 # add random shift to pool table location
@@ -15,14 +15,20 @@ execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset
 
 #execute at @e[tag=swPool_rhp1,limit=1] run particle minecraft:campfire_signal_smoke ~ ~1 ~ 0 0 0 0 1 force
-#execute if entity @e[tag=swPool_cue,tag=swPool_pool] run say placed!!!
+#execute if entity @e[tag=swPool_cue,tag=swPool_pool] run  sayplaced!!!
 
+tag @a[tag=swPool_spec] add swPool_spec_tmp
+tag @a[tag=swPool_spec_tmp] remove swPool_spec
 function pool:classes/practice/place
+tag @a[tag=swPool_spec_tmp] add swPool_spec
+tag @a[tag=swPool_spec] remove swPool_spec_tmp
 
 function pool:classes/bot/generic/_obtain_actions_entity_d0_ballinhand_eval
 
 # s1 + s2 averaged
-tellraw @a [{"text":"max_S_place 2 average, "},{"score":{"objective":"swMath_V","name":"#placescore"}}]
+tellraw @a[tag=swPool_debug] [{"text":"max_S_place 2 average, "},{"score":{"objective":"swMath_V","name":"#placescore"}}]
 
-# if not early game (~in kitchen placement and break), retry placement if score not high enough
-execute if score Stroke swPool_hidScore matches 2.. unless score #placescore swMath_V matches 7500.. run function pool:classes/bot/generic/_obtain_actions_entity_d0_ballinhand
+# if not early game (~in kitchen placement and break), retry placement if score not high enough and lower bar a bit
+scoreboard players set #try_threshold swMath_V 9000
+execute if score Stroke swPool_hidScore matches 2.. if score #placescore swMath_V < #try_threshold swMath_V run function pool:classes/bot/generic/_obtain_actions_entity_d0_ballinhand
+execute if score Stroke swPool_hidScore matches 2.. if score #placescore swMath_V >= #try_threshold swMath_V run scoreboard players remove #try_threshold swMath_V 200

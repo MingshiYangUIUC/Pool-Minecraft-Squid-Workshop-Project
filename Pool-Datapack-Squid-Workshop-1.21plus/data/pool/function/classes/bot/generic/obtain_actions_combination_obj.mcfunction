@@ -2,7 +2,9 @@
 # execute location is object ball location
 
 # begin summon aim objects
-summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_aim_obj","swPool_aim_obj_new"],Duration:1200,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+#summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_aim_obj","swPool_aim_obj_new"],Duration:1200,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute if data storage minecraft:swpool {version:[116]} run function pool:classes/bot/116/summon_aim_obj
+execute unless data storage minecraft:swpool {version:[116]} run function pool:classes/bot/117/summon_aim_obj
 
 # assign pktid
 scoreboard players operation @e[tag=swPool_aim_obj_new,distance=..0.001,limit=1] swPool_pktid = @s swPool_pktid
@@ -12,8 +14,8 @@ scoreboard players operation @e[tag=swPool_tmp_legal,distance=..0.001,limit=1] s
 scoreboard players operation @e[tag=swPool_aim_obj_new,distance=..0.001,limit=1] swPool_objid = objid swPool_objid
 scoreboard players add objid swPool_objid 1
 
-#tellraw @a [{"text":"pktids, "},{"score":{"objective":"swPool_pktid","name":"@s"}}]
-#tellraw @a [{"text":"pktido, "},{"score":{"objective":"swPool_pktid","name":"@e[tag=swPool_aim_obj_new,limit=1]"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"pktids, "},{"score":{"objective":"swPool_pktid","name":"@s"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"pktido, "},{"score":{"objective":"swPool_pktid","name":"@e[tag=swPool_aim_obj_new,limit=1]"}}]
 
 # data modify entity @e[tag=swPool_aim_obj_new,distance=..0.001,limit=1] Pos[1] set from entity @s Pos[1]
 
@@ -34,8 +36,8 @@ execute at @e[tag=swPool_cue,tag=swPool_pool] run tp @e[tag=swPool_rhp1,limit=1]
 
 execute store result score cue swPool_rot run data get entity @e[tag=swPool_rhp1,limit=1] Rotation[0] 10000
 
-#tellraw @a [{"text":"r1, "},{"score":{"objective":"swPool_rot","name":"cue"}}]
-#tellraw @a [{"text":"r2, "},{"score":{"objective":"swPool_rot","name":"@e[tag=swPool_aim_obj_new,limit=1]"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"r1, "},{"score":{"objective":"swPool_rot","name":"cue"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"r2, "},{"score":{"objective":"swPool_rot","name":"@e[tag=swPool_aim_obj_new,limit=1]"}}]
 
 scoreboard players operation cut_angle swPool_rot = cue swPool_rot
 scoreboard players operation cut_angle swPool_rot -= @e[tag=swPool_aim_obj_new,limit=1] swPool_rot
@@ -46,7 +48,7 @@ scoreboard players operation cut_angle swPool_rot %= C_3600000 swPool_C
 execute if score cut_angle swPool_rot matches 1800001.. run scoreboard players operation cut_angle swPool_rot -= C_3600000 swPool_C
 execute if score cut_angle swPool_rot matches ..-1 run scoreboard players operation cut_angle swPool_rot *= C_-1 swPool_C
 
-#tellraw @a [{"text":"dr, "},{"score":{"objective":"swPool_rot","name":"cut_angle"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dr, "},{"score":{"objective":"swPool_rot","name":"cut_angle"}}]
 
 # RULE OUT if cut angle > 90
 execute if score cut_angle swPool_rot matches 900000.. run kill @e[tag=swPool_aim_obj_new,limit=1]

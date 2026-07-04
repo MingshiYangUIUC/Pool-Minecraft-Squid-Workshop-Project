@@ -9,6 +9,6 @@ execute if entity @s[tag=swPool_cue] run scoreboard players remove Pocketed_Tota
 scoreboard players add Pocketed_Total swPool_hidScore 1
 scoreboard players add Pocketed_Turn swPool_hidScore 1
 
-playsound swpool:custom.pool.pocket ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound swpool:custom.pool.pocket ambient @a ~ ~ ~ 1 1
 #kill @s
 function pool:classes/pocketing/animation/main

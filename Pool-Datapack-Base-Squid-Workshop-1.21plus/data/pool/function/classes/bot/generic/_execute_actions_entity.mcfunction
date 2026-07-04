@@ -46,7 +46,7 @@ scoreboard players set @e[tag=swPool_shooter,limit=1] swPool_cbld 0
 
 scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_player = @s swPool_player
 
-#tellraw @a [{"text":"player, "},{"score":{"objective":"swPool_player","name":"@s"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"player, "},{"score":{"objective":"swPool_player","name":"@s"}}]
 
 execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
 

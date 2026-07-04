@@ -23,7 +23,7 @@ execute if score #pktface swMath_V matches -1350000 run scoreboard players set #
 execute if score #pktface swMath_V matches 450000 run scoreboard players set #cornerpot swMath_V 1
 execute if score #pktface swMath_V matches 1350000 run scoreboard players set #cornerpot swMath_V 1
 
-#execute if entity @e[tag=swPool_aim_obj_new,limit=1] run tellraw @a [{"text":"pktface, "},{"score":{"objective":"swMath_V","name":"#pktface"}}]
+#execute if entity @e[tag=swPool_aim_obj_new,limit=1] run tellraw @a[tag=swPool_debug] [{"text":"pktface, "},{"score":{"objective":"swMath_V","name":"#pktface"}}]
 
 # since @s is pocket location execute location is at object ball, tp helper entity to object ball facing @s and read Rotation + 180 deg
 tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ facing entity @s

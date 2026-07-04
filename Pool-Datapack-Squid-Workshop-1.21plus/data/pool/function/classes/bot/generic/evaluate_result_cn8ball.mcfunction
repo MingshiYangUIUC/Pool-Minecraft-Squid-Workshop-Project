@@ -17,8 +17,8 @@ tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
 #rerack request
 execute if entity @s[tag=swPool_pkt08] if score Stroke swPool_hidScore matches 1 run tag @s add swPool_rerack
-#execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack!"}]
-#execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，重新开球。"}]
+#execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack!"}]
+#execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，重新开球。"}]
 execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] add swPool_spectemp
 execute if entity @s[tag=swPool_rerack] run tag @a[tag=swPool_spec] remove swPool_spec
 execute if entity @s[tag=swPool_rerack] run tag @s remove swPool_pkt08
@@ -34,13 +34,13 @@ tag @e[tag=swPool_shooter] remove swPool_foul
 # foul: if NOT open, hit wrong ball first.
 execute unless entity @s[tag=swPool_cn8ball_open] as @e[tag=swPool_shooter,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tag @s add swPool_foul1
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul1] add swPool_foul
-#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul1] run say f1
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul1] run  sayf1
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul1] remove swPool_foul1
 
 # foul: hit 8 ball if should not hit 8 ball
 execute as @e[tag=swPool_shooter,limit=1] if entity @s[scores={swPool_firsthit=8}] unless entity @s[tag=swPool_aim08] run tag @s add swPool_foul2
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul2] add swPool_foul
-#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul2] run say f2
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul2] run  sayf2
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul2] remove swPool_foul2
 
 # add hitrail if rail rule is ignored
@@ -48,19 +48,19 @@ execute if data storage minecraft:swpool ignore_rail_rule run tag @s add swPool_
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
 execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tag @e[tag=swPool_shooter,limit=1] add swPool_foul3
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] add swPool_foul
-#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] run say f3
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] run  sayf3
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] remove swPool_foul3
 
 # foul: if pocketed cue ball
 execute if entity @s[tag=swPool_pktcue] run tag @e[tag=swPool_shooter,limit=1] add swPool_foul4
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul4] add swPool_foul
-#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul4] run say f4
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul4] run  sayf4
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul4] remove swPool_foul4
 
 # foul: if behind headstring, cue ball does not move downward
 execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @e[tag=swPool_shooter,limit=1] add swPool_foul5
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul5] add swPool_foul
-#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul5] run say f5
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul5] run  sayf5
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul5] remove swPool_foul5
 
 
@@ -71,10 +71,10 @@ execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] run tag @e[tag=swPool_
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul6] add swPool_foul
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul6] remove swPool_foul6
 
-#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=!swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
-#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
-#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=!swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":"完成本局。"}]
-#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":"完成本局。"}]
+#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=!swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
+#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
+#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=!swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":"完成本局。"}]
+#execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":"完成本局。"}]
 
 
 # determine next player

@@ -113,8 +113,8 @@ scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
-playsound minecraft:entity.arrow.hit_player ambient @a[tag=swPool_beep] ~ ~ ~ 1 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:entity.arrow.hit_player ambient @a[tag=swPool_beep] ~ ~ ~ 1 1 1
 
 scoreboard players set @s swPool_T 0
 execute at @s run function pool:classes/spin/change_of_state

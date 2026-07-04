@@ -25,9 +25,9 @@ scoreboard players operation #wz swMath_V -= #zcue swMath_V
 
 function pool:classes/bot/generic/compute_path_down10
 
-#tellraw @a [{"text":"dot, "},{"score":{"objective":"swMath_V","name":"#dot"}}]
-#tellraw @a [{"text":"adsq, "},{"score":{"objective":"swMath_V","name":"#adsq"}}]
-#tellraw @a [{"text":"crosssq, "},{"score":{"objective":"swMath_V","name":"#crosssq"}}]
-#tellraw @a [{"text":"blocksq, "},{"score":{"objective":"swMath_V","name":"#blocksq"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dot, "},{"score":{"objective":"swMath_V","name":"#dot"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"adsq, "},{"score":{"objective":"swMath_V","name":"#adsq"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"crosssq, "},{"score":{"objective":"swMath_V","name":"#crosssq"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"blocksq, "},{"score":{"objective":"swMath_V","name":"#blocksq"}}]
 
 execute if score #dot swMath_V matches 1.. if score #dot swMath_V < #adsq swMath_V if score #crosssq swMath_V < #blocksq swMath_V run scoreboard players set #blocked swMath_V 1

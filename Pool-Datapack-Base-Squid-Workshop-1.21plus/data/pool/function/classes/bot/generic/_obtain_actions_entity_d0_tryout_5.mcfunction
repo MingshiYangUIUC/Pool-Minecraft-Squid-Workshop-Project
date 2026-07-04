@@ -4,7 +4,7 @@
 scoreboard players set #bestshot swMath_V 0
 scoreboard players set #bestshotscore swMath_V -99999
 # tryout sample 1
-#say 1
+##say 1
 
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
@@ -19,7 +19,7 @@ execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard pl
 
 
 # tryout sample 2
-#say 2
+##say 2
 
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
@@ -33,7 +33,7 @@ execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard pl
 
 
 # tryout sample 3
-#say 3
+##say 3
 
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
@@ -47,7 +47,7 @@ execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard pl
 
 
 # tryout sample 4
-#say 4
+##say 4
 
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
@@ -62,7 +62,7 @@ execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard pl
 
 
 # tryout sample 5
-#say 5
+##say 5
 
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
@@ -85,5 +85,5 @@ execute if score #bestshot swMath_V matches 5 run tag @e[tag=swPool_aim_obj_sele
 
 scoreboard players operation @s swPool_shotScore = #bestshotscore swMath_V
 
-tellraw @a [{"text":"Best Act, "},{"score":{"objective":"swMath_V","name":"#bestshot"}}]
-tellraw @a [{"text":"Best Score, "},{"score":{"objective":"swMath_V","name":"#bestshotscore"}}]
+tellraw @a[tag=swPool_debug] [{"text":"Best Act, "},{"score":{"objective":"swMath_V","name":"#bestshot"}}]
+tellraw @a[tag=swPool_debug] [{"text":"Best Score, "},{"score":{"objective":"swMath_V","name":"#bestshotscore"}}]

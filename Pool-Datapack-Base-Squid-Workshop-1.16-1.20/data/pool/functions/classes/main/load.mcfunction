@@ -117,6 +117,7 @@ scoreboard objectives add swPool_pktid dummy
 scoreboard objectives add swPool_objid dummy
 scoreboard objectives add swPool_calcScore dummy
 scoreboard objectives add swPool_shotScore dummy
+scoreboard objectives add swPool_original dummy
 
 
 scoreboard objectives add swPool_vex dummy

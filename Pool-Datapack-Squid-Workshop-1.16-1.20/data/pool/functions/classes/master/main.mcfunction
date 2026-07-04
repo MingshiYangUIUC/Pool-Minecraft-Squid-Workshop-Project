@@ -1,9 +1,4 @@
-#execute if entity @e[type=armor_stand,tag=swPool_9ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/9ball/main
-#execute if entity @e[type=armor_stand,tag=swPool_cn8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
-#execute if entity @e[type=armor_stand,tag=swPool_snookermode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main
-#execute if entity @e[type=armor_stand,tag=swPool_uk8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/uk8ball/main
-#execute if entity @e[type=armor_stand,tag=swPool_practicemode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/practice/main
-
+# alternative faster mode detection for pocketing
 execute if score swPool_9ballmode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/9ball/main
 execute if score swPool_cn8ballmode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
 execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main

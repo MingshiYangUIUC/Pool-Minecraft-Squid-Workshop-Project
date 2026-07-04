@@ -28,8 +28,9 @@ scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp sw
 # evaluate, and updated shooter tag when necessary
 scoreboard players set #simendgame swMath_V 0
 execute as @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] at @s run function pool:classes/bot/generic/evaluate_result_cn8ball
+execute as @e[tag=swPool_pooltable,tag=swPool_9ballmode] at @s run function pool:classes/bot/generic/evaluate_result_9ball
 
-#tellraw @a [{"text":"sim_, "},{"score":{"objective":"swMath_V","name":"#simresult"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"sim_, "},{"score":{"objective":"swMath_V","name":"#simresult"}}]
 
 execute if score #simresult swMath_V matches 10000 run scoreboard players set #simstat swMath_V 1
 execute if score #simresult swMath_V matches -10000 run scoreboard players set #simstat swMath_V -1
@@ -75,17 +76,17 @@ execute unless score #simstat swMath_V matches ..-1 as @e[tag=swPool_shooter] ru
 execute if score #simstat swMath_V matches 1 run scoreboard players operation @s swPool_shotScore += #maxcalcscore swMath_V
 
 # use probability weighting of stat 1
-execute if score #simstat swMath_V matches 1 run scoreboard players operation @s swPool_shotScore *= @s swPool_calcScore
-execute if score #simstat swMath_V matches 1 run scoreboard players operation @s swPool_shotScore /= #C_10000 swMath_C
+execute unless score #simendgame swMath_V matches 1 if score #simstat swMath_V matches 1 run scoreboard players operation @s swPool_shotScore *= @s swPool_calcScore
+execute unless score #simendgame swMath_V matches 1 if score #simstat swMath_V matches 1 run scoreboard players operation @s swPool_shotScore /= #C_10000 swMath_C
 # for normal end game (win) as well
-execute if score #simstat swMath_V matches -1 if score #simendgame swMath_V matches 1 run scoreboard players operation @s swPool_shotScore *= @s swPool_calcScore
-execute if score #simstat swMath_V matches -1 if score #simendgame swMath_V matches 1 run scoreboard players operation @s swPool_shotScore /= #C_10000 swMath_C
+execute if score #simendgame swMath_V matches 1 run scoreboard players operation @s swPool_shotScore *= @s swPool_calcScore
+execute if score #simendgame swMath_V matches 1 run scoreboard players operation @s swPool_shotScore /= #C_10000 swMath_C
 
 
 execute if score #simstat swMath_V matches 0 run scoreboard players operation @s swPool_shotScore -= #maxcalcscore swMath_V
 
 # print final score of this action
-#tellraw @a [{"text":"Full eval, "},{"score":{"objective":"swPool_shotScore","name":"@s"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"Full eval, "},{"score":{"objective":"swPool_shotScore","name":"@s"}}]
 
 # undo and cleanup
 function pool:classes/master/undo_run

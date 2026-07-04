@@ -119,6 +119,7 @@ scoreboard objectives add swPool_pktid dummy
 scoreboard objectives add swPool_objid dummy
 scoreboard objectives add swPool_calcScore dummy
 scoreboard objectives add swPool_shotScore dummy
+scoreboard objectives add swPool_original dummy
 
 
 scoreboard objectives add swPool_vex dummy
@@ -205,6 +206,7 @@ scoreboard players set C_256 swPool_C 256
 scoreboard players set C_250 swPool_C 250
 scoreboard players set C_100 swPool_C 100
 scoreboard players set C_99 swPool_C 99
+scoreboard players set C_60 swPool_C 60
 scoreboard players set C_50 swPool_C 50
 scoreboard players set C_30 swPool_C 30
 scoreboard players set C_20 swPool_C 20

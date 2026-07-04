@@ -40,8 +40,8 @@ scoreboard players operation #vIn swMath_V += #dz swMath_V
 function math:classes/core/operations/sqrt
 scoreboard players operation #dpkt swMath_V = #vOut swMath_V
 
-#tellraw @a [{"text":"dcue, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
-#tellraw @a [{"text":"dpkt, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dcue, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dpkt, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]
 
 # scale to multiple of ball radius
 scoreboard players operation #dcue swMath_V *= #C_10000 swMath_C
@@ -49,5 +49,5 @@ scoreboard players operation #dcue swMath_V /= C_r swPool_C
 scoreboard players operation #dpkt swMath_V *= #C_10000 swMath_C
 scoreboard players operation #dpkt swMath_V /= C_r swPool_C
 
-#tellraw @a [{"text":"dcue2, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
-#tellraw @a [{"text":"dpkt2, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dcue2, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"dpkt2, "},{"score":{"objective":"swMath_V","name":"#dpkt"}}]

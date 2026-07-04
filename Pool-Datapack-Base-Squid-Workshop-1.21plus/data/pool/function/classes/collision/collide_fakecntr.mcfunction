@@ -40,6 +40,6 @@ execute if score C_r swPool_C matches 1250.. as @e[tag=swPool_col2,tag=swPool_pk
 scoreboard players set @s swPool_v 1
 
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 
 tag @s add swPool_inpocket

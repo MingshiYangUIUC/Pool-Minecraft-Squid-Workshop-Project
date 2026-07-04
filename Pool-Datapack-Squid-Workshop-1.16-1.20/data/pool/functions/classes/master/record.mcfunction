@@ -2,6 +2,7 @@ tag @s[tag=swPool_ballinhand] add swPool_placingcue
 
 kill @e[tag=swPool_temppin]
 
+scoreboard players set @e[tag=swPool_pool] swPool_original 1
 execute as @e[tag=swPool_pool] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b}
 
 execute as @e[tag=swPool_temppin] at @s run data modify entity @s Pose.Head set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] Pose.Head
@@ -9,9 +10,11 @@ execute as @e[tag=swPool_temppin] at @s run data modify entity @s Tags set from 
 
 
 
-execute as @e[tag=swPool_pool] unless entity @s[nbt={ArmorItems:[{},{},{},{id:"minecraft:acacia_button"}]}] run tag @s add swPool_temppin
+execute as @e[tag=swPool_pool] unless score @s swPool_original matches 1 run tag @s add swPool_temppin
 
 tag @e[tag=swPool_temppin] remove swPool_pool
+
+scoreboard players reset @e[tag=swPool_pool] swPool_original
 
 execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
 scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
