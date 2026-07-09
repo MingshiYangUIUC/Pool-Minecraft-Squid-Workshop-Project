@@ -19,6 +19,10 @@ scoreboard objectives remove swPool_C_nn_tr
 scoreboard objectives remove swPool_C_tpdr_tr
 scoreboard objectives remove swPool_C_r_tr
 
+scoreboard objectives remove swPool_C_ne_tr
+scoreboard objectives remove swPool_C_te_tr
+scoreboard objectives remove swPool_C_as_tr
+
 scoreboard objectives remove swPool_Score_tr
 
 scoreboard objectives remove swPool_C
@@ -68,6 +72,10 @@ scoreboard objectives remove swPool_hidScore
 scoreboard objectives remove swPool_lhidScore
 scoreboard objectives remove swPool_pktid
 scoreboard objectives remove swPool_calcScore
+scoreboard objectives remove swPool_objid
+scoreboard objectives remove swPool_shotScore
+scoreboard objectives remove swPool_original
+scoreboard objectives remove swPool_itm_y
 
 scoreboard objectives remove swPool_vex
 scoreboard objectives remove swPool_vey

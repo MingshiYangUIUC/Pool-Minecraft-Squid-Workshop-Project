@@ -10,6 +10,15 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"t
 tellraw @s[tag=swPool_EN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<aim/nozoom>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/aim/nozoom"}},{"underlined":false, "color":"white","text":"    you are not given screen zoom-in (slowness effect) when you point towards cue ball (pressing shift)"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<aim/nozoom>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/aim/nozoom"}},{"underlined":false, "color":"white","text":"    瞄准球时（按住shift）画面不会放大"}]
 
+tellraw @s[tag=swPool_EN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/angle_std>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/angle_std"}},{"underlined":false, "color":"white","text":"    Adjust the random angle spread of bot shots. Lower values make the bot stronger."}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/angle_std>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/angle_std"}},{"underlined":false, "color":"white","text":"    调整电脑玩家出杆的随机角度偏差，数值越低电脑玩家越强"}]
+
+tellraw @s[tag=swPool_EN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/n_aims_eval>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/n_aims_eval"}},{"underlined":false, "color":"white","text":"    Adjust the number of aim points evaluated by the bot. Higher values make the bot stronger."}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/n_aims_eval>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/n_aims_eval"}},{"underlined":false, "color":"white","text":"    调整电脑玩家评估的瞄准点数量，数值越高电脑玩家越强"}]
+
+tellraw @s[tag=swPool_EN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/tick_per_eval>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/tick_per_eval"}},{"underlined":false, "color":"white","text":"    Adjust the tick time allocated to each bot simulation. Increase this to reduce lag accumulation."}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<bot/tick_per_eval>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/bot/tick_per_eval"}},{"underlined":false, "color":"white","text":"    调整每次模拟分配的刻数，调高可减少卡顿累积"}]
+
 tellraw @s[tag=swPool_EN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<breakshot/breakpower>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/breakshot/breakpower"}},{"underlined":false, "color":"white","text":"    (8/9 ball) modify relative speed of breakshot (120 means 120% speed)"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ", "color":"gold"},{"underlined":true,"text":"<breakshot/breakpower>","clickEvent":{"action":"run_command","value":"/function app:settings/pool/breakshot/breakpower"}},{"underlined":false, "color":"white","text":"    （八/九球）更改开球相对速度（120为120%速度）"}]
 

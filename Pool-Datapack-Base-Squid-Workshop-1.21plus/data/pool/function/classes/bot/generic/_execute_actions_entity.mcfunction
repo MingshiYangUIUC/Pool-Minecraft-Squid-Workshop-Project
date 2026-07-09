@@ -42,7 +42,20 @@ execute if entity @s[tag=swPool_act10] as @e[tag=swPool_shooter,limit=1] run fun
 #execute if entity @s[tag=swPool_act5] run say a5
 
 execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run tp @e[tag=swPool_shooter,limit=1] ~ ~ ~ facing entity @s
-scoreboard players set @e[tag=swPool_shooter,limit=1] swPool_cbld 0
+# cue ball deflection angle in terms of 0.0001 degrees
+# scoreboard players set @e[tag=swPool_shooter,limit=1] swPool_cbld 0
+
+# random sampling of uniform distribution 30 times to get a approximate normal distribution of mean 0 and std 10000
+scoreboard players set #vIn swMath_V 30
+function math:classes/core/random/randint_t
+scoreboard players operation #cbld swMath_V = #vOut swMath_V
+# multiply by angle std dev (set smaller than 1 value to 0)
+execute if score C_as swPool_C matches ..1 run scoreboard players set #cbld swMath_V 0
+execute if score C_as swPool_C matches 2.. run scoreboard players operation #cbld swMath_V *= C_as swPool_C
+execute if score C_as swPool_C matches 2.. run scoreboard players operation #cbld swMath_V /= #C_10000 swMath_C
+scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_cbld = #cbld swMath_V
+
+tellraw @a[tag=swPool_debug] [{"text":"cbld "},{"score":{"objective":"swPool_cbld","name":"@e[tag=swPool_shooter,limit=1]"}}]
 
 scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_player = @s swPool_player
 

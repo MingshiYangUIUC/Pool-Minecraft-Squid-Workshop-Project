@@ -4,7 +4,7 @@
 #say normal
 
 scoreboard players operation #topk swMath_V = #n_pkt_valid_aim swMath_V
-execute if score #topk swMath_V matches 3.. run scoreboard players set #topk swMath_V 2
+execute if score #topk swMath_V > C_ne swPool_C run scoreboard players operation #topk swMath_V = C_ne swPool_C
 execute if score #topk swMath_V matches ..0 run scoreboard players set #topk swMath_V 1
 scoreboard players set #rank_i swMath_V 0
 

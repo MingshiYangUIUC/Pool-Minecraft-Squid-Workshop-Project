@@ -28,7 +28,46 @@ execute if score #rank_i swMath_V < #topk swMath_V run scoreboard players add #r
 tag @e[tag=swPool_aim_obj_selected] remove swPool_aim_obj_selected
 
 # continue only if rank_i < topk
-execute if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 30t
+#execute if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 30t
+#execute if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+#execute if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 30t
 
-execute if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
-execute if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 30t
+execute if score C_te swPool_C matches 1 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 10t
+execute if score C_te swPool_C matches 1 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 1 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 10t
+
+execute if score C_te swPool_C matches 2 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 20t
+execute if score C_te swPool_C matches 2 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 2 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 20t
+
+execute if score C_te swPool_C matches 3 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 30t
+execute if score C_te swPool_C matches 3 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 3 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 30t
+
+execute if score C_te swPool_C matches 4 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 40t
+execute if score C_te swPool_C matches 4 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 4 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 40t
+
+execute if score C_te swPool_C matches 5 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 50t
+execute if score C_te swPool_C matches 5 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 5 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 50t
+
+execute if score C_te swPool_C matches 6 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 60t
+execute if score C_te swPool_C matches 6 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 6 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 60t
+
+execute if score C_te swPool_C matches 7 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 70t
+execute if score C_te swPool_C matches 7 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 7 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 70t
+
+execute if score C_te swPool_C matches 8 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 80t
+execute if score C_te swPool_C matches 8 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 8 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 80t
+
+execute if score C_te swPool_C matches 9 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 90t
+execute if score C_te swPool_C matches 9 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 9 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 90t
+
+execute if score C_te swPool_C matches 10 if score #rank_i swMath_V < #topk swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry 100t
+execute if score C_te swPool_C matches 10 if score #rank_i swMath_V = #topk swMath_V if score #maxshotscore_d0 swMath_V matches ..-10000 run function pool:classes/bot/generic/_obtain_actions_entity_d0_main_blocked
+execute if score C_te swPool_C matches 10 if score #rank_i swMath_V = #topk swMath_V unless score #maxshotscore_d0 swMath_V matches ..-10000 run schedule function pool:classes/bot/generic/_demo_action_helper 100t

@@ -840,6 +840,7 @@ variable_names = [
 ]'''
 
 variable_names = [
+     # game
      "swPool_pitch",
      "swPool_sizex",
      "swPool_sizez",
@@ -847,6 +848,7 @@ variable_names = [
      "swPool_brkp",
      "swPool_cbld",
 
+     # setting
      "swPool_C_muk",
      "swPool_C_mur",
      "swPool_C_mus",
@@ -857,6 +859,12 @@ variable_names = [
      "swPool_C_tpdr",
      "swPool_C_r",
 
+     # bot
+     "swPool_C_ne",
+     "swPool_C_te",
+     "swPool_C_as",
+
+     # snooker score
      'swPool_Score'
 ]
 

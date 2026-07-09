@@ -64,11 +64,18 @@ scoreboard players enable @a swPool_C_tpdr_tr
 scoreboard objectives add swPool_C_r_tr trigger
 scoreboard players enable @a swPool_C_r_tr
 
+scoreboard objectives add swPool_C_ne_tr trigger
+scoreboard players enable @a swPool_C_ne_tr
+scoreboard objectives add swPool_C_te_tr trigger
+scoreboard players enable @a swPool_C_te_tr
+scoreboard objectives add swPool_C_as_tr trigger
+scoreboard players enable @a swPool_C_as_tr
+
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
 scoreboard players enable @a swPool_Score_tr
 
-scoreboard objectives add swMath_V dummy
+#scoreboard objectives add swMath_V dummy
 scoreboard objectives add swPool_C dummy
 scoreboard objectives add swPool_D100 dummy
 scoreboard objectives add swPool_DXX dummy
@@ -297,6 +304,11 @@ execute unless score C_trt swPool_C matches 1..8 run scoreboard players set C_tr
 
 # table: cloth color
 execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tcc swPool_C 1
+
+# bot default values
+execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
+execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 4
+execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
 
 # allow cheat by default, needed by default if trying to play without auto judge
 function app:settings/pool/cheating/allow
