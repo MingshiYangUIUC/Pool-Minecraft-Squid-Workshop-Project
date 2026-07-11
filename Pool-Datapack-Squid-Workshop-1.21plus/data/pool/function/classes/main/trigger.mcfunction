@@ -66,6 +66,7 @@ execute if score @s swPool__trigger matches 4110110 run function pool:classes/9b
 execute if score @s swPool__trigger matches 4110704 run function pool:classes/cn8ball/start
 execute if score @s swPool__trigger matches 4110707 run function pool:classes/cn8ball/start_helper
 execute if score @s swPool__trigger matches 4110710 run function pool:classes/cn8ball/startsp_helper
+execute if score @s swPool__trigger matches 4110711 run function pool:classes/cn8ball/startsp_helper_botmode
 execute if score @s swPool__trigger matches 4110903 run function pool:classes/cue/help_adjust
 execute if score @s swPool__trigger matches 4110904 run function pool:classes/cue/help_speed
 execute if score @s swPool__trigger matches 4110906 run function pool:classes/cue/map

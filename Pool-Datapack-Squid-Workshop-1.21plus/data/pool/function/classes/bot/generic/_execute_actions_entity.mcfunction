@@ -3,7 +3,7 @@
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.
 # execute the shot
 
-function pool:classes/bot/generic/_configure_shooter
+function pool:classes/bot/generic/_configure_shooter_anim
 # add force - spin choices to shooter
 execute if entity @s[tag=swPool_act1] as @e[tag=swPool_shooter,limit=1] run function pool:classes/cue/speed/pl_050
 execute if entity @s[tag=swPool_act1] as @e[tag=swPool_shooter,limit=1] run function pool:classes/cue/points_v2/p0_0
@@ -41,7 +41,7 @@ execute if entity @s[tag=swPool_act10] as @e[tag=swPool_shooter,limit=1] run fun
 #execute if entity @s[tag=swPool_act4] run say a4
 #execute if entity @s[tag=swPool_act5] run say a5
 
-execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run tp @e[tag=swPool_shooter,limit=1] ~ ~ ~ facing entity @s
+#execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run tp @e[tag=swPool_shooter,limit=1] ~ ~ ~ facing entity @s
 # cue ball deflection angle in terms of 0.0001 degrees
 # scoreboard players set @e[tag=swPool_shooter,limit=1] swPool_cbld 0
 
@@ -61,9 +61,12 @@ scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_player = @s s
 
 #tellraw @a[tag=swPool_debug] [{"text":"player, "},{"score":{"objective":"swPool_player","name":"@s"}}]
 
-execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
 
-# cleanup
+# delay this
+#execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
+schedule function pool:classes/bot/animation/shoot_helper 22t
 
-kill @e[tag=swPool_shooter]
+# delay this cleanup
 
+#kill @e[tag=swPool_shooter] moved into __cleanup
+schedule function pool:classes/bot/generic/__cleanup 40t

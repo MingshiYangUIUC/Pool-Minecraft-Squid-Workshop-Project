@@ -27,8 +27,11 @@ function pool:classes/bot/generic/_obtain_actions_entity_d0_ballinhand_eval
 
 # s1 + s2 averaged
 tellraw @a[tag=swPool_debug] [{"text":"max_S_place 2 average, "},{"score":{"objective":"swMath_V","name":"#placescore"}}]
+# default fallback score
+execute unless score #placescore swMath_V matches -10000..10000 run scoreboard players set #placescore swMath_V 0
 
 # if not early game (~in kitchen placement and break), retry placement if score not high enough and lower bar a bit
-scoreboard players set #try_threshold swMath_V 9000
+#scoreboard players set #try_threshold swMath_V 9000 defined before calling this function
+execute if score Stroke swPool_hidScore matches 2.. if score #placescore swMath_V < #try_threshold swMath_V run scoreboard players remove #try_threshold swMath_V 300
 execute if score Stroke swPool_hidScore matches 2.. if score #placescore swMath_V < #try_threshold swMath_V run function pool:classes/bot/generic/_obtain_actions_entity_d0_ballinhand
-execute if score Stroke swPool_hidScore matches 2.. if score #placescore swMath_V >= #try_threshold swMath_V run scoreboard players remove #try_threshold swMath_V 200
+

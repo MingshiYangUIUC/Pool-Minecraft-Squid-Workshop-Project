@@ -4,6 +4,10 @@ tag @e[tag=swPool_pooltable,limit=1] add swPool_pocketing
 
 #execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_solid] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1 run say swPool_aimsolid
 #execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_stripe] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 2 run say swPool_aimstripe
+#execute if entity @s[tag=swPool_solid] run say self solid
+#execute if entity @s[tag=swPool_stripe] run say self stripe
+#execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_solid] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1 run say tag @e[tag=swPool_hitcue] add swPool_aimsolid
+#execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_stripe] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 2 run say tag @e[tag=swPool_hitcue] add swPool_aimstripe
 
 execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_solid] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1 run tag @e[tag=swPool_hitcue] add swPool_aimsolid
 execute if entity @e[tag=swPool_pooltable,tag=swPool_cn8ball_open,tag=!swPool_cn8ball_breaking] if entity @s[tag=swPool_solid] if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1 run tag @e[tag=swPool_poolplay,tag=!swPool_hitcue] add swPool_aimstripe

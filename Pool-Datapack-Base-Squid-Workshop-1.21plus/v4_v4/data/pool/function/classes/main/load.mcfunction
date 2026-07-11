@@ -1,4 +1,4 @@
-data merge storage minecraft:swpool {version:[1205,1210,1]}
+data merge storage minecraft:swpool {version:[1205,1210,1240,1]}
 
 #save parameters
 

@@ -9,7 +9,6 @@ execute as @e[tag=swPool_best_aim_obj] at @s run tellraw @a[tag=swPool_debug] [{
 # demo shot
 execute store result score @e[tag=swPool_best_aim_obj,limit=1] swPool_player run data get entity @s UUID[1]
 execute if entity @e[tag=swPool_best_aim_obj,limit=1] run tag @s add swPool_hitcue
+
+execute unless entity @e[tag=swPool_best_aim_obj,limit=1] run function pool:classes/bot/generic/__cleanup
 execute as @e[tag=swPool_best_aim_obj,limit=1] run function pool:classes/bot/generic/_execute_actions_entity
-
-
-function pool:classes/bot/generic/__cleanup

@@ -12,14 +12,17 @@ scoreboard players set swPool_snookermode swMath_V 0
 scoreboard players set swPool_uk8ballmode swMath_V 0
 scoreboard players set swPool_practicemode swMath_V 0
 
+scoreboard players set #shootanim swMath_V 0
+
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
 kill @e[tag=swPool_temppin]
 kill @e[tag=swPool_long_temppin]
 kill @e[tag=swPool_spot]
 kill @e[tag=swPool_poolplay,type=area_effect_cloud]
+kill @e[tag=swPool_botmode]
 tag @a remove swPool_spec
-tag @a remove swPool_poolplay
+tag @e remove swPool_poolplay
 tag @a remove swPool_ballinhand
 tag @a remove swPool_ballinhand_obj
 tag @a remove swPool_streak

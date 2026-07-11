@@ -127,6 +127,8 @@ function pool:classes/master/record
 tag @a[tag=swPool_placingcue] add swPool_ballinhand
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
 
+execute unless entity @e[tag=swPool_cue,tag=swPool_pool] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball_helper
+
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ballinhand
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball"]
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean"]

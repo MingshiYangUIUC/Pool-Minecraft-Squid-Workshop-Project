@@ -8,9 +8,6 @@
 # already summoned entity to execute shot
 execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run tp @e[tag=swPool_shooter,limit=1] ~ ~ ~ facing entity @s
 
-#function math:classes/core/random/randint_base
-#scoreboard players operation #vOut swMath_V %= #C_100 swMath_V
-
 scoreboard players set @e[tag=swPool_shooter,limit=1] swPool_cbld 0
 
 execute store result score @s swPool_player run data get entity @s UUID[1]
@@ -84,6 +81,8 @@ execute if score #simendgame swMath_V matches 1 run scoreboard players operation
 
 
 execute if score #simstat swMath_V matches 0 run scoreboard players operation @s swPool_shotScore -= #maxcalcscore swMath_V
+
+execute if score #simstat swMath_V matches -2 run scoreboard players set @s swPool_shotScore -20000
 
 # print final score of this action
 #tellraw @a[tag=swPool_debug] [{"text":"Full eval, "},{"score":{"objective":"swPool_shotScore","name":"@s"}}]

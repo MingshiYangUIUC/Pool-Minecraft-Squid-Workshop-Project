@@ -6,4 +6,4 @@ execute store result score @e[tag=swPool_best_aim_obj,limit=1] swPool_player run
 execute if entity @e[tag=swPool_best_aim_obj,limit=1] run tag @s add swPool_hitcue
 execute as @e[tag=swPool_best_aim_obj,limit=1] run function pool:classes/bot/generic/_execute_actions_entity_break
 
-function pool:classes/bot/generic/__cleanup
+#function pool:classes/bot/generic/__cleanup

@@ -69,7 +69,10 @@ tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul5] remove swPool_foul5
 tag @s[tag=!swPool_rerack,tag=swPool_pkt08] add swPool_endgame 
 execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08] run tag @e[tag=swPool_shooter,tag=!swPool_aim08] add swPool_foul6
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul6] add swPool_foul
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul6] run say f6
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul6] remove swPool_foul6
+
+#execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul] run say fx
 
 #execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=!swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
 #execute if entity @s[tag=!swPool_rerack,tag=swPool_pkt08,tag=swPool_singleplayer] if entity @e[tag=swPool_shooter,tag=swPool_foul] run tellraw @a[tag=swPool_debug][tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_shooter]"},{"text":" Completes the Game. "}]
@@ -124,6 +127,8 @@ execute if entity @e[tag=swPool_shooter,tag=swPool_foul] run scoreboard players 
 execute if entity @s[tag=swPool_endgame] run scoreboard players operation #simresult swMath_V *= #C_2 swMath_C
 execute if entity @s[tag=swPool_endgame] run scoreboard players set #simendgame swMath_V 1
 
+tellraw @a[tag=swPool_debug] [{"text":"simresult, "},{"score":{"objective":"swMath_V","name":"#simresult"}}]
+
 #end of progression
 tag @s remove swPool_pktcue
 tag @s remove swPool_pktsolid
@@ -131,7 +136,7 @@ tag @s remove swPool_pktstripe
 tag @s remove swPool_pkt08
 tag @s remove swPool_foulpass
 tag @s remove swPool_hitrail
-#tag @s remove swPool_endgame
+tag @s remove swPool_endgame
 tag @s remove swPool_nextturn
 tag @s remove swPool_switch
 tag @s remove swPool_rerack

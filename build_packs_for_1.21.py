@@ -357,7 +357,10 @@ for v in all_versions:
         loadfile = os.path.join(pool_final_dir_version,'data','pool','function','classes','main','load.mcfunction')
         with open(loadfile, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-        lines = [f'data merge storage minecraft:swpool {{version:[1205,1210,1]}}\n\n'] + lines
+        if pool_minor_version >= 4:
+            lines = [f'data merge storage minecraft:swpool {{version:[1205,1210,1240,1]}}\n\n'] + lines
+        else:
+            lines = [f'data merge storage minecraft:swpool {{version:[1205,1210,1]}}\n\n'] + lines
         with open(loadfile, 'w', encoding='utf-8') as f:
             f.writelines(lines)
         
@@ -857,6 +860,11 @@ for v in all_versions:
     filenames = sorted(get_all_file_paths(pool_final_dir_version,'mcfunction'))
     print(f'  {len(filenames)} mcfunction found.')
     for file in filenames:
+        # files that skip modifications
+        if '_configure_shooter_anim' in file:
+            continue
+        if 'bot' in file and 'animation' in file and 'equip_1' in file:
+            continue
         with open(file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
         for i, line in enumerate(lines):
@@ -882,7 +890,7 @@ for v in all_versions:
                         lines[i] = newline
             
             # old armor stand equipping
-            if 'item replace entity' in lines[i] and 'item_model' in lines[i] and 'minecraft:arrow' not in line:
+            if 'acacia_button' in lines[i] and 'item replace entity' in lines[i] and 'item_model' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:item_model=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":')
@@ -891,7 +899,7 @@ for v in all_versions:
                 if newline != lines[i]:
                     lines[i] = newline
             
-            if 'item replace entity' in lines[i] and 'custom_model_data' in lines[i] and 'minecraft:arrow' not in line:
+            if 'acacia_button' in lines[i] and 'item replace entity' in lines[i] and 'custom_model_data' in lines[i] and 'minecraft:arrow' not in line:
                 newline = lines[i].replace('item replace entity', 'execute as')
                 newline = newline.replace('armor.head with minecraft:acacia_button[minecraft:custom_model_data=',
                     'run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":')
