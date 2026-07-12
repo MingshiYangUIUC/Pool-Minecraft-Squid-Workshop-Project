@@ -100,7 +100,10 @@ def convert_function_call_to_triggers(pool_final_dir_version):
             changed_this_line = [False]
 
             def replace_func(match):
-                func_str = match.group(1)  # e.g. /function app:settings/pool/breakshot/breakpower
+                func_str = match.group(1)
+
+                if func_str in trigger_conversion_skip_funcs:
+                    return match.group(0)
 
                 if func_str not in ids_mod:
                     missing_funcs.add(func_str)
@@ -160,9 +163,24 @@ def convert_function_call_to_triggers(pool_final_dir_version):
         lines = []
 
         for func_str, idx in sorted(occurred_funcs.items(), key=lambda x: x[1]):
-            lines.append(
-                f'execute if score @s swPool__trigger matches {idx} run {func_str[1:]}\n'
-            )
+            if func_str in whitelist_required_funcs:
+                lines.append(
+                    f'execute unless data storage minecraft:swpool whitelist '
+                    f'if score @s swPool__trigger matches {idx} '
+                    f'run {func_str[1:]}\n'
+                )
+                lines.append(
+                    f'execute if data storage minecraft:swpool whitelist '
+                    f'if score @s swPool__trigger matches {idx} '
+                    f'if entity @s[tag=swPool_whitelisted] '
+                    f'run {func_str[1:]}\n'
+                )
+            else:
+                lines.append(
+                    f'execute if score @s swPool__trigger matches {idx} '
+                    f'run {func_str[1:]}\n'
+                )
+            lines.append('\n')
 
         lines.append('\nscoreboard players reset @s swPool__trigger\n')
         f.writelines(lines)
@@ -490,7 +508,10 @@ def convert_function_call_to_triggers_121(pool_final_dir_version):
             changed_this_line = [False]
 
             def replace_func(match):
-                func_str = match.group(2)  # e.g. /function app:settings/pool/breakshot/breakpower
+                func_str = match.group(2)
+
+                if func_str in trigger_conversion_skip_funcs:
+                    return match.group(0)
 
                 if func_str not in ids_mod:
                     missing_funcs.add(func_str)
@@ -555,9 +576,24 @@ def convert_function_call_to_triggers_121(pool_final_dir_version):
             lines = []
 
             for func_str, idx in sorted(occurred_funcs.items(), key=lambda x: x[1]):
-                lines.append(
-                    f'execute if score @s swPool__trigger matches {idx} run {func_str[1:]}\n'
-                )
+                if func_str in whitelist_required_funcs:
+                    lines.append(
+                        f'execute unless data storage minecraft:swpool whitelist '
+                        f'if score @s swPool__trigger matches {idx} '
+                        f'run {func_str[1:]}\n'
+                    )
+                    lines.append(
+                        f'execute if data storage minecraft:swpool whitelist '
+                        f'if score @s swPool__trigger matches {idx} '
+                        f'if entity @s[tag=swPool_whitelisted] '
+                        f'run {func_str[1:]}\n'
+                    )
+                else:
+                    lines.append(
+                        f'execute if score @s swPool__trigger matches {idx} '
+                        f'run {func_str[1:]}\n'
+                    )
+                lines.append('\n')
 
             lines.append('\nscoreboard players reset @s swPool__trigger\n')
             f.writelines(lines)
@@ -815,6 +851,20 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
     print(f'  {len(modified_files)} files modified.')
     print(f'  {len(occurred_vars)} scoreboard variables converted.')
 
+
+### Define restricted (whitelist needed) functions
+with open("restricted_functions.txt", "r") as f:
+    whitelist_required_funcs = [
+        line.strip()
+        for line in f
+        if line.strip().startswith("/function")
+    ]
+print(len(whitelist_required_funcs), 'Restricted Functions Found.')
+
+trigger_conversion_skip_funcs = {
+    '/function app:settings/pool/whitelist/disable',
+    '/function app:settings/pool/whitelist/enable',
+}
 
 ### Define scoreboard objectives with a trigger variant
 
