@@ -19,8 +19,10 @@ execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poo
 
 #rerack request
 execute if entity @s[tag=swPool_pkt08] if score Stroke swPool_hidScore matches 1 run tag @s add swPool_rerack
-execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack!"}]
-execute if entity @s[tag=swPool_rerack] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，重新开球。"}]
+execute if entity @s[tag=swPool_rerack,tag=!swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack and break again."}]
+execute if entity @s[tag=swPool_rerack,tag=!swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，请重新开球。"}]
+execute if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Opponent please break again."}]
+execute if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，对手重新开球。"}]
 execute if entity @s[tag=swPool_rerack] run tag @e[tag=swPool_spec] add swPool_spectemp
 execute if entity @s[tag=swPool_rerack] run tag @e[tag=swPool_spec] remove swPool_spec
 execute if entity @s[tag=swPool_rerack] run tag @s remove swPool_pkt08
@@ -197,7 +199,8 @@ execute if entity @s[tag=!swPool_cn8ball_open,tag=!swPool_endgame] if entity @e[
 execute if entity @s[tag=!swPool_cn8ball_open,tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_nextturn,tag=swPool_aimstripe] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" please shoot. "},{"text":"Target ball: "},{"text":"St","color":"aqua"},{"text":"ri","color":"white"},{"text":"pe","color":"aqua"}]
 execute if entity @s[tag=!swPool_cn8ball_open,tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_nextturn,tag=swPool_aim08] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" please shoot. "},{"text":"Target ball: "},{"text":"Eight Ball","color":"black"}]
 
-
+# stop bot if endgame
+execute if entity @s[tag=swPool_endgame] run kill @e[tag=swPool_botmode]
 
 
 tag @e[tag=swPool_spectemp] add swPool_spec

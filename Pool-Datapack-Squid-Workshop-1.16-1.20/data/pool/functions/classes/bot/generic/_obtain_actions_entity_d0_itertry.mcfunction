@@ -16,7 +16,8 @@ execute if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj,tag=
 execute if score #rank_i swMath_V < #topk swMath_V run tag @e[tag=swPool_aim_obj_selected] add swPool_aim_obj_used
 
 # tryout selected action
-execute if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj_selected,limit=1] run function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_5
+execute if score n_act_space swPool_C matches 5 if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj_selected,limit=1] run function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_5
+execute if score n_act_space swPool_C matches 10 if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj_selected,limit=1] run function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_10
 
 #tellraw @a[tag=swPool_debug] [{"text":"Rank "},{"score":{"objective":"swMath_V","name":"#rank_i"}},{"text":" result score, "},{"score":{"objective":"swPool_shotScore","name":"@e[tag=swPool_aim_obj_selected,limit=1]"}}]
 execute as @e[tag=swPool_aim_obj_selected,limit=1] if score @s swPool_shotScore > #maxshotscore_d0 swMath_V run scoreboard players operation #maxshotscore_d0 swMath_V = @s swPool_shotScore

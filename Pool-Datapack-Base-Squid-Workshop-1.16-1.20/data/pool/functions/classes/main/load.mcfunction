@@ -51,6 +51,8 @@ scoreboard objectives add swPool_C_mus_tr trigger
 scoreboard players enable @a swPool_C_mus_tr
 scoreboard objectives add swPool_C_mui_tr trigger
 scoreboard players enable @a swPool_C_mui_tr
+scoreboard objectives add swPool_C_rei_tr trigger
+scoreboard players enable @a swPool_C_rei_tr
 scoreboard objectives add swPool_C_trt_tr trigger
 scoreboard players enable @a swPool_C_trt_tr
 scoreboard objectives add swPool_C_tcc_tr trigger
@@ -94,6 +96,7 @@ scoreboard objectives add swPool_var03 dummy
 scoreboard objectives add swPool_var04 dummy
 scoreboard objectives add swPool_var05 dummy
 scoreboard objectives add swPool_v dummy
+scoreboard objectives add swPool_vt_adj dummy
 scoreboard objectives add swPool_vx dummy
 scoreboard objectives add swPool_vz dummy
 scoreboard objectives add swPool_vr dummy
@@ -258,6 +261,9 @@ scoreboard players set C_mus swPool_C 7000
 #set from storage!
 execute store result score C_mus swPool_C run data get storage minecraft:swpool fstrike
 
+#restitution
+execute unless score C_rei swPool_C matches 1..10000 run scoreboard players set C_rei swPool_C 9000
+
 #g*10000 W = Mg
 scoreboard players set C_g swPool_C 98100
 #g*100 W = Mg
@@ -307,6 +313,7 @@ execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tc
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
 execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 4
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
+execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
 
 # allow cheat by default, needed by default if trying to play without auto judge
 function app:settings/pool/cheating/allow

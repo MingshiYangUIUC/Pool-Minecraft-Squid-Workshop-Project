@@ -1,5 +1,6 @@
 summon minecraft:armor_stand ~ ~ ~ {Tags:["swPool_helper","swPool_shooter"],NoGravity:1,Invisible:1}
-execute as @e[tag=swPool_shooter] at @s run function pool:classes/bot/animation/equip_helper
+execute as @e[tag=swPool_shooter] at @s run function pool:classes/bot/animation/move_shooter
+schedule function pool:classes/bot/animation/equip_helper 6t
 
 # assign shooting tag based on self tag
 # cn 8 ball

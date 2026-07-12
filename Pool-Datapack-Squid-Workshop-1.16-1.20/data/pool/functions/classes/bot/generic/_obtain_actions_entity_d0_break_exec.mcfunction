@@ -1,5 +1,6 @@
 # simple, aim at the nearest ball, hit it fully with max power.
-execute as @e[tag=swPool_cue,tag=swPool_pool] at @s at @e[tag=swPool_pool,sort=nearest,limit=1,distance=0.01..] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_aim_obj","swPool_best_aim_obj"],Duration:1200}
+execute if data storage minecraft:swpool {version:[116]} run function pool:classes/bot/116/summon_aim_obj_break
+execute unless data storage minecraft:swpool {version:[116]} run function pool:classes/bot/117/summon_aim_obj_break
 
 # demo shot
 execute store result score @e[tag=swPool_best_aim_obj,limit=1] swPool_player run data get entity @s UUID[1]

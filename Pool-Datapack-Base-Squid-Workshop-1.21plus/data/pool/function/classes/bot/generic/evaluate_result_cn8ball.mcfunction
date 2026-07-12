@@ -127,7 +127,7 @@ execute if entity @e[tag=swPool_shooter,tag=swPool_foul] run scoreboard players 
 execute if entity @s[tag=swPool_endgame] run scoreboard players operation #simresult swMath_V *= #C_2 swMath_C
 execute if entity @s[tag=swPool_endgame] run scoreboard players set #simendgame swMath_V 1
 
-tellraw @a[tag=swPool_debug] [{"text":"simresult, "},{"score":{"objective":"swMath_V","name":"#simresult"}}]
+#tellraw @a[tag=swPool_debug] [{"text":"simresult, "},{"score":{"objective":"swMath_V","name":"#simresult"}}]
 
 #end of progression
 tag @s remove swPool_pktcue

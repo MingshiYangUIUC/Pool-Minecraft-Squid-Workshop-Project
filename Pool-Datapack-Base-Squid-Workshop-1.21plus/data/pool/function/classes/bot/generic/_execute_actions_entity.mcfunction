@@ -3,7 +3,7 @@
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.
 # execute the shot
 
-function pool:classes/bot/generic/_configure_shooter_anim
+execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run function pool:classes/bot/generic/_configure_shooter_anim
 # add force - spin choices to shooter
 execute if entity @s[tag=swPool_act1] as @e[tag=swPool_shooter,limit=1] run function pool:classes/cue/speed/pl_050
 execute if entity @s[tag=swPool_act1] as @e[tag=swPool_shooter,limit=1] run function pool:classes/cue/points_v2/p0_0
@@ -64,9 +64,9 @@ scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_player = @s s
 
 # delay this
 #execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
-schedule function pool:classes/bot/animation/shoot_helper 22t
+schedule function pool:classes/bot/animation/shoot_helper 28t
 
 # delay this cleanup
 
 #kill @e[tag=swPool_shooter] moved into __cleanup
-schedule function pool:classes/bot/generic/__cleanup 40t
+schedule function pool:classes/bot/generic/__cleanup 46t

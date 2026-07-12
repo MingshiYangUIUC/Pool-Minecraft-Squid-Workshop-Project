@@ -13,6 +13,7 @@ scoreboard objectives remove swPool_C_muk_tr
 scoreboard objectives remove swPool_C_mur_tr
 scoreboard objectives remove swPool_C_mus_tr
 scoreboard objectives remove swPool_C_mui_tr
+scoreboard objectives remove swPool_C_rei_tr
 scoreboard objectives remove swPool_C_trt_tr
 scoreboard objectives remove swPool_C_tcc_tr
 scoreboard objectives remove swPool_C_nn_tr
@@ -46,6 +47,7 @@ scoreboard objectives remove swPool_var05
 scoreboard objectives remove swPool_v
 scoreboard objectives remove swPool_vx
 scoreboard objectives remove swPool_vz
+scoreboard objectives remove swPool_vt_adj
 scoreboard objectives remove swPool_vr
 scoreboard objectives remove swPool_vrx
 scoreboard objectives remove swPool_vrz

@@ -39,6 +39,9 @@ execute as @a[scores={swPool_C_mus_tr=1..}] at @s run function pool:classes/main
 scoreboard players enable @a swPool_C_mui_tr
 execute as @a[scores={swPool_C_mui_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_mui
 
+scoreboard players enable @a swPool_C_rei_tr
+execute as @a[scores={swPool_C_rei_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_rei
+
 scoreboard players enable @a swPool_C_trt_tr
 execute as @a[scores={swPool_C_trt_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_trt
 

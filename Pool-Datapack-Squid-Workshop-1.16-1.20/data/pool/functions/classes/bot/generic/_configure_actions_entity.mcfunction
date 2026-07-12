@@ -1,3 +1,7 @@
+# in case delayed cleanup removes them...
+scoreboard players set #muteall swPool_C 1
+scoreboard players set #botthinking swPool_C 1
+
 # executor is the aim point
 
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.

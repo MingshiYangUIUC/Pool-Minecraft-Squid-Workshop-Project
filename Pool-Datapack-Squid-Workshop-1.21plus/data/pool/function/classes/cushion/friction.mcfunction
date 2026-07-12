@@ -121,6 +121,10 @@ execute if entity @s[tag=swPool_z] run scoreboard players operation @s swPool_ve
 function pool:classes/physics/vcombine_ve
 #scoreboard players operation @s swPool_v *= C_500 swPool_C
 
+# restitution
+scoreboard players operation @s swPool_v /= #C_10000 swMath_C
+scoreboard players operation @s swPool_v *= C_rei swPool_C
+
 
 # Addition: modify wx or wz      Δomega_(x|z)=F*r*1tick/I  = v_normal*5/r*K'*mui
 #step4 get magnitude of Δv_parallel  v_normal*2*K*mui

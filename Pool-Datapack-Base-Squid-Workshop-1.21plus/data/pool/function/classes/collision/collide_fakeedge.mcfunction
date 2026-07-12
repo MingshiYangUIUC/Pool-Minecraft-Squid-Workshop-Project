@@ -91,6 +91,9 @@ scoreboard players operation @s swPool_Rotation = newrot swPool_rot
 #merge stuff back to c1, c2
 scoreboard players operation @s swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 
+# restitution
+scoreboard players operation @s swPool_v /= #C_10000 swMath_C
+scoreboard players operation @s swPool_v *= C_rei swPool_C
 
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1
