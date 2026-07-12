@@ -27,43 +27,56 @@ execute as @a[scores={swPool_brkp_tr=1..}] at @s run function pool:classes/main/
 scoreboard players enable @a swPool_cbld_tr
 execute as @a[scores={swPool_cbld_tr=1..}] at @s run function pool:classes/main/triggers/swpool_cbld
 
-scoreboard players enable @a swPool_C_muk_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_muk_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_muk_tr
 execute as @a[scores={swPool_C_muk_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_muk
 
-scoreboard players enable @a swPool_C_mur_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_mur_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_mur_tr
 execute as @a[scores={swPool_C_mur_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_mur
 
-scoreboard players enable @a swPool_C_mus_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_mus_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_mus_tr
 execute as @a[scores={swPool_C_mus_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_mus
 
-scoreboard players enable @a swPool_C_mui_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_mui_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_mui_tr
 execute as @a[scores={swPool_C_mui_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_mui
 
-scoreboard players enable @a swPool_C_rei_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_rei_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_rei_tr
 execute as @a[scores={swPool_C_rei_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_rei
 
-scoreboard players enable @a swPool_C_trt_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_trt_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_trt_tr
 execute as @a[scores={swPool_C_trt_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_trt
 
-scoreboard players enable @a swPool_C_tcc_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_tcc_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_tcc_tr
 execute as @a[scores={swPool_C_tcc_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_tcc
 
-scoreboard players enable @a swPool_C_nn_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_nn_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_nn_tr
 execute as @a[scores={swPool_C_nn_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_nn
 
-scoreboard players enable @a swPool_C_tpdr_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_tpdr_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_tpdr_tr
 execute as @a[scores={swPool_C_tpdr_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_tpdr
 
-scoreboard players enable @a swPool_C_r_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_r_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_r_tr
 execute as @a[scores={swPool_C_r_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_r
 
-scoreboard players enable @a swPool_C_ne_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_ne_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_ne_tr
 execute as @a[scores={swPool_C_ne_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_ne
 
-scoreboard players enable @a swPool_C_te_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_te_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_te_tr
 execute as @a[scores={swPool_C_te_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_te
 
-scoreboard players enable @a swPool_C_as_tr
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_as_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_as_tr
 execute as @a[scores={swPool_C_as_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_as
 
 scoreboard players enable @a swPool_Score_tr

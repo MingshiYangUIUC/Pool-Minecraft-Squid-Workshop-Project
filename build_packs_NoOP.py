@@ -333,10 +333,28 @@ def convert_scoreboard_set_to_triggers(pool_final_dir_version, variable_names):
     for var_name in variable_order:
         trigger_name = f'{var_name}_tr'
 
-        append_if_missing(
-            tick_lines,
-            f'\nscoreboard players enable @a {trigger_name}\n'
-        )
+        if var_name in restricted_variable_names:
+            append_if_missing(
+                tick_lines,
+                (
+                    f'\nexecute unless data storage minecraft:swpool whitelist '
+                    f'run scoreboard players enable @a {trigger_name}\n'
+                )
+            )
+
+            append_if_missing(
+                tick_lines,
+                (
+                    f'execute if data storage minecraft:swpool whitelist '
+                    f'run scoreboard players enable '
+                    f'@a[tag=swPool_whitelisted] {trigger_name}\n'
+                )
+            )
+        else:
+            append_if_missing(
+                tick_lines,
+                f'\nscoreboard players enable @a {trigger_name}\n'
+            )
 
         append_if_missing(
             tick_lines,
@@ -772,10 +790,28 @@ def convert_scoreboard_set_to_triggers_121(pool_final_dir_version, variable_name
         for var_name in variable_order:
             trigger_name = f'{var_name}_tr'
 
-            append_if_missing(
-                tick_lines,
-                f'\nscoreboard players enable @a {trigger_name}\n'
-            )
+            if var_name in restricted_variable_names:
+                append_if_missing(
+                    tick_lines,
+                    (
+                        f'\nexecute unless data storage minecraft:swpool whitelist '
+                        f'run scoreboard players enable @a {trigger_name}\n'
+                    )
+                )
+
+                append_if_missing(
+                    tick_lines,
+                    (
+                        f'execute if data storage minecraft:swpool whitelist '
+                        f'run scoreboard players enable '
+                        f'@a[tag=swPool_whitelisted] {trigger_name}\n'
+                    )
+                )
+            else:
+                append_if_missing(
+                    tick_lines,
+                    f'\nscoreboard players enable @a {trigger_name}\n'
+                )
 
             append_if_missing(
                 tick_lines,
@@ -917,6 +953,25 @@ variable_names = [
 
      # snooker score
      'swPool_Score'
+]
+
+restricted_variable_names = [
+     # setting
+     "swPool_C_muk",
+     "swPool_C_mur",
+     "swPool_C_mus",
+     "swPool_C_mui",
+     "swPool_C_rei",
+     "swPool_C_trt",
+     "swPool_C_tcc",
+     "swPool_C_nn",
+     "swPool_C_tpdr",
+     "swPool_C_r",
+
+     # bot
+     "swPool_C_ne",
+     "swPool_C_te",
+     "swPool_C_as",
 ]
 
 #variable_names_mapper = {variable_names[i]:variable_short_names[i] for i in range(len(variable_names))}

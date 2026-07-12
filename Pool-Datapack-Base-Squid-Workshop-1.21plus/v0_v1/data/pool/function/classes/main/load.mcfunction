@@ -44,34 +44,34 @@ scoreboard players enable @a swPool_brkp_tr
 scoreboard objectives add swPool_cbld_tr trigger
 scoreboard players enable @a swPool_cbld_tr
 
-# setting of global constants
+# setting of global constants, with permission restriction (not enabled automatically)
 scoreboard objectives add swPool_C_muk_tr trigger
-scoreboard players enable @a swPool_C_muk_tr
+#scoreboard players enable @a swPool_C_muk_tr
 scoreboard objectives add swPool_C_mur_tr trigger
-scoreboard players enable @a swPool_C_mur_tr
+#scoreboard players enable @a swPool_C_mur_tr
 scoreboard objectives add swPool_C_mus_tr trigger
-scoreboard players enable @a swPool_C_mus_tr
+#scoreboard players enable @a swPool_C_mus_tr
 scoreboard objectives add swPool_C_mui_tr trigger
-scoreboard players enable @a swPool_C_mui_tr
+#scoreboard players enable @a swPool_C_mui_tr
 scoreboard objectives add swPool_C_rei_tr trigger
-scoreboard players enable @a swPool_C_rei_tr
+#scoreboard players enable @a swPool_C_rei_tr
 scoreboard objectives add swPool_C_trt_tr trigger
-scoreboard players enable @a swPool_C_trt_tr
+#scoreboard players enable @a swPool_C_trt_tr
 scoreboard objectives add swPool_C_tcc_tr trigger
-scoreboard players enable @a swPool_C_tcc_tr
+#scoreboard players enable @a swPool_C_tcc_tr
 scoreboard objectives add swPool_C_nn_tr trigger
-scoreboard players enable @a swPool_C_nn_tr
+#scoreboard players enable @a swPool_C_nn_tr
 scoreboard objectives add swPool_C_tpdr_tr trigger
-scoreboard players enable @a swPool_C_tpdr_tr
+#scoreboard players enable @a swPool_C_tpdr_tr
 scoreboard objectives add swPool_C_r_tr trigger
-scoreboard players enable @a swPool_C_r_tr
+#scoreboard players enable @a swPool_C_r_tr
 
 scoreboard objectives add swPool_C_ne_tr trigger
-scoreboard players enable @a swPool_C_ne_tr
+#scoreboard players enable @a swPool_C_ne_tr
 scoreboard objectives add swPool_C_te_tr trigger
-scoreboard players enable @a swPool_C_te_tr
+#scoreboard players enable @a swPool_C_te_tr
 scoreboard objectives add swPool_C_as_tr trigger
-scoreboard players enable @a swPool_C_as_tr
+#scoreboard players enable @a swPool_C_as_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
