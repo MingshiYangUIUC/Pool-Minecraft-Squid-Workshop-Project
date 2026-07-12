@@ -7,7 +7,7 @@ tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ --------","color":"white
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ --------","color":"white"}]
 
 # give new arrow if in survival mode
-execute as @a[tag=swPool_hitcue,tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
+execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_hitcue,tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] run scoreboard players set @s[scores={swPool_foul=..3}] swPool_foul 4
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace

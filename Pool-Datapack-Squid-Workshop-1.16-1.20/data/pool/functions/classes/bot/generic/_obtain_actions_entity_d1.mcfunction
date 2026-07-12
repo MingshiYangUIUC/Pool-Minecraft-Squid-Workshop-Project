@@ -1,7 +1,4 @@
-gamerule maxCommandChainLength 999999999
-
 # evaluate game scenario after a simulated shot
-
 # executor is a fake entity called swPool_AI
 
 # determine legal balls

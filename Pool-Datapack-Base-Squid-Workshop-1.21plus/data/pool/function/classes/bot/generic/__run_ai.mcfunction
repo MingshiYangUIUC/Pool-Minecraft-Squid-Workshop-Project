@@ -1,8 +1,6 @@
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"电脑玩家计算中..."}]
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Bot Player is thinking..."}]
 
-gamerule maxCommandChainLength 999999999
-
 tag @s add swPool_bot_thinking
 
 # log current tag

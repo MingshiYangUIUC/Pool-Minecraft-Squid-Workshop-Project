@@ -5,5 +5,5 @@ execute if data storage minecraft:swpool {version:[1205]} run function pool:clas
 execute as @e[tag=swPool_pool,type=armor_stand] at @s run function pool:classes/master/read_tmppos
 execute as @e[tag=swPool_fake,type=armor_stand] at @s run function pool:classes/master/read_tmppos
 
-execute if score #muteall swPool_C matches 1 as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
+execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 scoreboard players set #outoftable_scheduled swPool_var00 0

@@ -32,6 +32,8 @@ scoreboard players set Pocketed_Turn swPool_hidScore 0
 execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.001..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
 
+tag @a[tag=swPool_poolplay] add swPool_spec
+
 execute unless score #bot_turn swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", place the cue ball and break."}]
 execute unless score #bot_turn swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":", 请放置白球后开球。"}]
 
@@ -44,7 +46,5 @@ tag @a remove swPool_wait_9ball
 tag @a remove swPool_wait_cn8ball
 tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
-
-tag @a[tag=swPool_poolplay] add swPool_spec
 
 scoreboard players set #9ball_init swMath_V 1

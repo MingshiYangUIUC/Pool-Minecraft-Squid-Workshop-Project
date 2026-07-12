@@ -4,10 +4,10 @@
     "pack_format": 34,
     "supported_formats": {
       "min_inclusive": 34,
-      "max_inclusive": 84
+      "max_inclusive": 88
     },
     "min_format": 34,
-    "max_format": 84
+    "max_format": 88
   },
   "overlays": {
     "entries": [
