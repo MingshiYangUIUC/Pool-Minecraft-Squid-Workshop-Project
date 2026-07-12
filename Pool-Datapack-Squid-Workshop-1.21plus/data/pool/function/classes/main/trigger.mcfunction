@@ -77,6 +77,10 @@ execute if score @s swPool__trigger matches 1133055 run function app:settings/po
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 run function app:settings/pool/equipment/table_rim_type
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_rim_type
 
+execute if score @s swPool__trigger matches 1133057 run function app:settings/pool/equipment/table_scale_fix
+
+execute if score @s swPool__trigger matches 1133058 run function app:settings/pool/equipment/table_scale_unfix
+
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 run function app:settings/pool/friction/clear
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/clear
 
