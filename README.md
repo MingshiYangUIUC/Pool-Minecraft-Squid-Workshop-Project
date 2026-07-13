@@ -1,16 +1,18 @@
 # Minecraft Pool & Billiards Datapack 台球数据包
 
-Realistic cue sport game in **Minecraft Java Edition** like in real life.  
-Supports **Snooker, UK 8 Ball, Chinese 8 Ball, 9 Ball**, and custom practice mode.  
-Supports **single-player** games and **duo-player** PVP games.
+> Realistic cue-sport games in **Minecraft Java Edition**, with custom ball physics, spin, automatic rule handling, and computer-controlled opponents.  
+> Supports **Snooker, UK 8-Ball, Generic Solid-Stripe 8-Ball, 9-Ball**, and a custom Practice Mode.  
+> Supports **single-player, player-versus-bot, and two-player PvP games**.
+
+The default datapack supports survival-mode and non-OP players through clickable trigger-based controls. Minecraft 1.21 and later additionally support configurable ball radius, dynamic table scaling, and improved item-display-based visuals.
 
 Content creator: **YMS2001** at [_Squid Workshop_](https://github.com/Squid-Workshop)  
 Contact: mingshi3@illinois.edu
 
-[中文版使用说明](使用说明.md)   
-[Modrinth Page](https://modrinth.com/datapack/pool-and-billiards) [Recommended for auto dependency download]   
-[CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
-[Recent Updates](CHANGELOG.md)
+> [中文版使用说明](使用说明.md)   
+> [Modrinth Page](https://modrinth.com/datapack/pool-and-billiards) [Recommended for auto dependency download]   
+> [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
+> [Recent Updates](CHANGELOG.md)
 
 ---
 
@@ -30,17 +32,17 @@ Contact: mingshi3@illinois.edu
 
 # Installation
 
+> **After Updating the Packs:** Please completely remove existing tables and place them again after updating. This ensures that the tables use the new entities, pocket positions, rendering system, and scaling logic.
+
 - Step 01 Download this repository as a zip and unpack.
 - Step 02 Go to minecraft directory, usually "C:/Users/youUserName/AppData/Roaming/.minecraft" if in Windows.
 - Step 03 Move your `Pool-ResourcepackFolder-Squid-Workshop-YOURVERSION` folder (not the root folder) into **.../resourcepacks** folder.
 - Step 04 Choose the world folder in which you want to install the packs. Go to **.../saves/world/datapacks** folder.
 - Step 05 Move your `Pool-Datapack-Squid-Workshop-YOURVERSION` folder (not the root folder) into **.../saves/world/datapacks** folder. Each world must have its own copy of the datapack.
-- **Pre-release v1.0.0-rc.1 and before: Please manually install [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project) following similar steps. Manual installation not required for current and future official release.**
 - Step 06 Open Minecraft and open the world.
 - Step 07 Press Esc, click options... and **resourcepacks...** and move Pool-Resourcepack-Squid-Workshop-YOURVERSION to the upper right. Do this everytime you change the game version.
 - Step 08 Type `/reload` command then press enter and follow the installation prompt to configure the datapack.
-- Step 09 Recommended: Type `/gamerule` command to set the `maxCommandChainLength` or `max_command_sequence_length` to 131072 or higher.
-- Step 10 Enjoy 
+- Step 09 Enjoy!
 
 If not working, check whether the datapack is enabled by `/datapack list` and enable it by `/datapack enable "datapackname"`. \
 Although not required, zipping the datapack and resourcepack folders can significantly reduce file sizes.
@@ -65,13 +67,14 @@ Most interactions do not require typing commands. You only need to click <<ins>t
 - [5. Set Up the Table](#5-set-up-the-table)
 - [6. Open the Game Lobby](#6-open-the-game-lobby)
 - [7. Start a Singleplayer Game](#7-start-a-singleplayer-game)
-- [8. Start a Multiplayer Game](#8-start-a-multiplayer-game)
-- [9. Shoot a Ball](#9-shoot-a-ball)
-- [10. Cue Ball Control](#10-cue-ball-control)
-- [11. Undo the Last Shot](#11-undo-the-last-shot)
-- [12. Practice Mode](#12-practice-mode)
-- [13. _**Notes and Tips!!!**_](#13-notes-and-tips)
-- [14. Non OP and Survival Mode Players](#14-non-op-and-survival-mode-players)
+- [8. Play Against the Bot](#8-play-against-the-bot)
+- [9. Start a Multiplayer Game](#9-start-a-multiplayer-game)
+- [10. Shoot a Ball](#10-shoot-a-ball)
+- [11. Cue Ball Control](#11-cue-ball-control)
+- [12. Undo the Last Shot](#12-undo-the-last-shot)
+- [13. Practice Mode](#13-practice-mode)
+- [14. _**Notes and Tips!!!**_](#14-notes-and-tips)
+- [15. Non OP and Survival Mode Players](#15-non-op-and-survival-mode-players)
 
 ### 1. Initialize the Datapack
 <video src="Gallery/Videos/user_guides_EN/01_load_datapack_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -108,6 +111,8 @@ You can access all settings from the Command Window. For a detailed explanation,
 
 Recommended values will appear during adjustment of physics parameters. Values that are too large or too small may overflow the scoreboard and cause game instability.
 
+On shared servers, OPs may enable a whitelist restriction for table management and global settings. Restricted entries appear gray to players without permission. Player-specific options and normal game controls remain available.
+
 ### 4. Get the Cue Stick
 <video src="Gallery/Videos/user_guides_EN/04_get_cuestick_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
@@ -118,7 +123,7 @@ https://github.com/user-attachments/assets/07528876-1033-46f1-a75b-779fbd0dac60
 Use the Command Window to get a cue stick (function as a bow when no game is active).
 
 ### 5. Set Up the Table
-<video src="Gallery/Videos/user_guides_EN/FFOutput/05_set_table_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+<video src="Gallery/Videos/user_guides_EN/05_set_table_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/845cc769-16a5-4bd8-92d8-c18b48c197a7
@@ -146,8 +151,27 @@ Choose a singleplayer mode in the game lobby and confirm to start. Interactive i
 
 If the cue ball is off the table (e.g. before breaking), you need to place it. When holding the cue ball and standing on or near the table, green particles will indicate valid placement areas.
 
-### 8. Start a Multiplayer Game
-<video src="Gallery/Videos/user_guides_EN/08_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+### 8. Play Against the Bot
+<video src="Gallery/Videos/user_guides_EN/08_play_with_bot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+
+
+https://github.com/user-attachments/assets/d7817aeb-15a8-4d24-804d-e45923f18459
+
+
+The datapack supports computer-controlled opponents in **8-Ball and 9-Ball**.
+
+1. Place a table and open the game lobby.
+2. Choose an 8-Ball or 9-Ball single-player game.
+3. Select **Play with Bot**.
+4. Confirm the game and play normally when it is your turn.
+
+The bot's strength and performance can be configured through the bot settings in the menu.
+
+> Automatic judge must be enabled when playing against the bot.   
+> Avoid using the bot on multiplayer servers or during combat and other time-sensitive gameplay. Bot calculations can temporarily reduce the game tick rate.
+
+### 9. Start a Multiplayer Game
+<video src="Gallery/Videos/user_guides_EN/09_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/ce029e86-2865-4434-b1a0-827b18eede08
@@ -155,8 +179,8 @@ https://github.com/user-attachments/assets/ce029e86-2865-4434-b1a0-827b18eede08
 
 After selecting a multiplayer mode in the game lobby, other online players will receive a broadcast invitation. When someone joins your queue, follow the prompt and click <<ins>Begin</ins>> to begin. The breaking player is randomly chosen.
 
-### 9. Shoot a Ball
-<video src="Gallery/Videos/user_guides_EN/09_shoot_ball_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+### 10. Shoot a Ball
+<video src="Gallery/Videos/user_guides_EN/10_shoot_ball_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/d391ef73-de93-4428-bcb0-ec2e58bd8b62
@@ -169,8 +193,8 @@ You can enable zoom-in while sneaking to help aim more precisely. This is not re
 
 	/function app:settings/pool/aim/
 
-### 10. Cue Ball Control
-<video src="Gallery/Videos/user_guides_EN/10_cue_ball_control_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+### 11. Cue Ball Control
+<video src="Gallery/Videos/user_guides_EN/11_cue_ball_control_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/731041a5-13e5-4d59-9197-f5a2cb4ce857
@@ -182,8 +206,8 @@ Besides power, you can apply spin to the cue ball. Before shooting, click <<ins>
 
 The adjustment UI shows hit point grid on the left, elevation on the right, and fine-tuning options including manual force control below. Fine-tuning enables highly flexible choice of hit point. The GIF shows a slight-backspin example.
 
-### 11. Undo the Last Shot
-<video src="Gallery/Videos/user_guides_EN/11_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+### 12. Undo the Last Shot
+<video src="Gallery/Videos/user_guides_EN/12_undo_shot_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/b637e62d-7808-485e-ae96-9ffd998cfd22
@@ -191,10 +215,10 @@ https://github.com/user-attachments/assets/b637e62d-7808-485e-ae96-9ffd998cfd22
 
 If cheats are allowed, you can click <<ins>/back</ins>> to restore the table to its state before the shot. You can only undo one step backward. The target ball is also preserved, and if you committed a foul by hitting the wrong ball, undoing it will also clear the foul.
 
-### 12. Practice Mode
+### 13. Practice Mode
 You can enter Practice Mode via the Command Window. There are no rules in this mode. You have access to all balls and can freely place and shoot them anywhere on the table. 
 
-<video src="Gallery/Videos/user_guides_EN/12_practice_mode_0_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+<video src="Gallery/Videos/user_guides_EN/13_practice_mode_0_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/9dd2779c-04a2-4633-a7f7-bc840b95e46a
@@ -202,7 +226,7 @@ https://github.com/user-attachments/assets/9dd2779c-04a2-4633-a7f7-bc840b95e46a
 
 Select empty table, all balls on the table will be cleared. 
 
-<video src="Gallery/Videos/user_guides_EN/12_practice_mode_1_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
+<video src="Gallery/Videos/user_guides_EN/13_practice_mode_1_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
 
 
 https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
@@ -210,7 +234,7 @@ https://github.com/user-attachments/assets/3e945097-f269-4372-8ef1-9f5a61e4e8eb
 
 Select line-up mode, the datapack will place balls along a straight line. You can choose whether to align them along the long edge or the short edge of the table, and specify how many balls to place.
 
-### 13. Notes and Tips
+### 14. Notes and Tips
 - Here are a few helpful commands.
 	1. Open command window directly without clicking any buttons in chat.  
 	`/function app:help/pool/commandwindow`
@@ -231,7 +255,7 @@ Select line-up mode, the datapack will place balls along a straight line. You ca
 - If you are unsure about the valid ball-in-hand region, the kitchen and/or D zone are located on the positive X or Z side of the table (i.e., the break shot is directed toward the negative side).
 - If multiple players are placing balls on the table, please avoid standing too close, as the line-of-sight indicator may behave unexpectedly.
 
-### 14. Non-OP and Survival Mode Players
+### 15. Non-OP and Survival Mode Players
 
 Starting from **v1.2.0**, the default datapack supports non-OP players and survival-mode players through trigger-based commands.
 
@@ -275,7 +299,24 @@ To place a table:
 
 After placement is confirmed, the chest and the item inside will be removed, and the pool table will be created at the chest location.
 
-> Note: The temporary table placement helper lasts for about 60 seconds. If it expires, take the pool table core item out of the chest and place it again.
+Note: The temporary table placement helper lasts for about 60 seconds. If it expires, take the pool table core item out of the chest and place it again.
+
+#### Restricting Table Management on Servers
+
+Server operators can optionally enable a whitelist restriction for table placement, table configuration, and global settings.
+
+When enabled:
+
+- The OP enabling the restriction is automatically whitelisted.
+- OPs can grant or revoke access using the `swPool_whitelisted` player tag.
+- Whitelisted players can use protected settings and table-management controls.
+- Other players can still use player-specific settings and normal game controls.
+
+The whitelist enable/disable controls require command permission and therefore cannot be activated by ordinary non-OP players.
+
+To grant access: `/tag <player> add swPool_whitelisted`   
+
+To revoke access: `/tag <player> remove swPool_whitelisted`   
 
 ---
 # Frequently Asked Questions
@@ -307,6 +348,18 @@ Please try to undo the shot and try again, reset the game, reset the table, or u
 9. The game log recorded many errors. \
 This is expected, as the datapack includes functions written for different game versions. Some old versions may be incompatible with the current version and therefore fail to load, resulting in error messages.
 
+10. The bot takes a long time to shoot or causes temporary lag.  
+The bot evaluates shots through internal physics simulations. Reduce the number of evaluated aim points, use the 5-combination action space, or increase the tick time allocated to each simulation. Avoid very low friction values because simulated balls will take much longer to stop.
+
+11. The game suddenly speeds up after the bot thinks.  
+The game may be catching up after a long simulation tick. Increase the bot's ticks-per-simulation setting to provide more recovery time between simulations.
+
+12. I cannot start a game with the bot.  
+Automatic judge must be enabled. Bot gameplay currently supports 8-Ball and 9-Ball and is tuned for the default ball radius of `1250`.
+
+13. The ball radius or pockets do not match the table.  
+Ball-radius and table-scaling settings affect newly placed tables. Remove the existing table and place it again after changing these settings.
+
 ---
 # Notes and Terms of Use
 
@@ -319,7 +372,7 @@ Included mechanics:
 
 The numerical simulation of break physics consulted [this link](https://math.stackexchange.com/questions/658871/perfectly-centered-break-of-a-perfectly-aligned-pool-ball-rack/659318). Other mechanics are original and did not reference any published work. For deeper insight, you may refer to introductory physics textbooks or search “billiard physics” online.
 
-Ball sizes are intentionally enlarged to improve playability. While smaller balls would resemble real pool better, Minecraft's mouse sensitivity does not allow fine-grained aiming at that scale. Please understand this “disloyalty” to realism is meant to improve gameplay experience. Accordingly, players may feel that movement speed of the balls are too low compared to reality.
+The default ball radius is intentionally enlarged to improve visibility and playability. While smaller balls may more closely resemble real equipment, Minecraft mouse / keyboard sensitivity makes precise aiming more difficult at that scale. In Minecraft 1.21 and later, the ball radius can be adjusted.
 
 Rules enforcements in this datapack are simplified to support popular and convenient gameplay. You may refer to [Snooker Rules (English)](https://en.wikipedia.org/wiki/Rules_of_snooker), [8 Ball Rules (English)](https://en.wikipedia.org/wiki/Blackball_(pool)), [8 Ball Rules (Generic)](https://en.wikipedia.org/wiki/Eight-ball), [9 Ball Rules](https://en.wikipedia.org/wiki/Nine-ball).
 
