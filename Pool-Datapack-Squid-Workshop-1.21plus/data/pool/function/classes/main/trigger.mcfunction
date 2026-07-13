@@ -37,6 +37,9 @@ execute if data storage minecraft:swpool whitelist if score @s swPool__trigger m
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 run function app:settings/pool/bot/action_space_5
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_5
 
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133023 run function app:settings/pool/bot/angle_std
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133023 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/angle_std
+
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 run function app:settings/pool/bot/n_aims_eval
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
 

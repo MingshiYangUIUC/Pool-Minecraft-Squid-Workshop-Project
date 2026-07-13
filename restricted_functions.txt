@@ -3,6 +3,7 @@
 /function pool:classes/main/load
 /function app:settings/pool/bot/action_space_10
 /function app:settings/pool/bot/action_space_5
+/function app:settings/pool/bot/angle_std
 /function app:settings/pool/bot/n_aims_eval
 /function app:settings/pool/bot/tick_per_eval
 /function app:settings/pool/breakshot/default_break
