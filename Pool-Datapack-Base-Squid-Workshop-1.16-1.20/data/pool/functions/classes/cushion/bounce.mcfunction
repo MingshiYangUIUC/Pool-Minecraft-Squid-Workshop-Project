@@ -2,8 +2,11 @@
 
 #if uk8ball or cn8ball or 9ball: count cushion
 tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode,limit=1] add swPool_hitrail
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
+execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
+execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
+# cn8ball and 9ball bots
+execute if score #botthinking swPool_C matches 1 if score @e[tag=swPool_shooter,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
+execute if score #botthinking swPool_C matches 1 if score @e[tag=swPool_shooter,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
 
 #put back position components
 #swPool_var00 is modified swPool_vx, swPool_var01 is modified swPool_vz
@@ -88,8 +91,19 @@ scoreboard players operation bounce_adjust swPool_posz -= TABLE swPool_posz
 #execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"Side edge z is "},{"score":{"objective":"swPool_posz","name":"bounce_adjust"}}]
 
 # inside 4900, use fake side edge
-execute if score bounce_adjust swPool_posx matches -4900..4900 run tag @s[tag=swPool_x3] add swPool_pktm
-execute if score bounce_adjust swPool_posz matches -4900..4900 run tag @s[tag=swPool_z3] add swPool_pktm
+scoreboard players set old_r swMath_V 1250
+scoreboard players set #pktm_range1 swMath_V -4900
+scoreboard players set #pktm_range2 swMath_V 4900
+scoreboard players operation #pktm_range1 swMath_V *= C_r swPool_C
+scoreboard players operation #pktm_range1 swMath_V /= old_r swMath_V
+scoreboard players operation #pktm_range2 swMath_V *= C_r swPool_C
+scoreboard players operation #pktm_range2 swMath_V /= old_r swMath_V
+
+execute if entity @s[tag=swPool_x3] if score bounce_adjust swPool_posx >= #pktm_range1 swMath_V if score bounce_adjust swPool_posx <= #pktm_range2 swMath_V run tag @s add swPool_pktm
+execute if entity @s[tag=swPool_z3] if score bounce_adjust swPool_posz >= #pktm_range1 swMath_V if score bounce_adjust swPool_posz <= #pktm_range2 swMath_V run tag @s add swPool_pktm
+
+#execute if score bounce_adjust swPool_posx matches -4900..4900 run tag @s[tag=swPool_x3] add swPool_pktm
+#execute if score bounce_adjust swPool_posz matches -4900..4900 run tag @s[tag=swPool_z3] add swPool_pktm
 
 scoreboard players operation bounce_adjust_c swPool_var00 = bounce_adjust swPool_posx
 scoreboard players operation bounce_adjust_c swPool_var01 = bounce_adjust swPool_posz
@@ -104,9 +118,13 @@ scoreboard players operation bounce_adjust_c swPool_var01 -= TABLE swPool_sizez
 
 #execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"corner edge v0 is "},{"score":{"objective":"swPool_var00","name":"@s"}}]
 #execute if entity @s[tag=swPool_cush] run tellraw @a [{"text":"corner edge v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
-
-execute if score bounce_adjust_c swPool_var00 matches -3150.. run tag @s add swPool_pktx
-execute if score bounce_adjust_c swPool_var01 matches -3150.. run tag @s add swPool_pktz
+scoreboard players set #pktc_range swMath_V -3150
+scoreboard players operation #pktc_range swMath_V *= C_r swPool_C
+scoreboard players operation #pktc_range swMath_V /= old_r swMath_V
+execute if score bounce_adjust_c swPool_var00 >= #pktc_range swMath_V run tag @s add swPool_pktx
+execute if score bounce_adjust_c swPool_var01 >= #pktc_range swMath_V run tag @s add swPool_pktz
+#execute if score bounce_adjust_c swPool_var00 matches -3150.. run tag @s add swPool_pktx
+#execute if score bounce_adjust_c swPool_var01 matches -3150.. run tag @s add swPool_pktz
 #tag @s[tag=swPool_cush,scores={swPool_var00=-3150..}] add swPool_pktx
 #tag @s[tag=swPool_cush,scores={swPool_var01=-3150..}] add swPool_pktz
 

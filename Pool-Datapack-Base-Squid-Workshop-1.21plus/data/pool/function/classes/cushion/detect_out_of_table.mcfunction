@@ -20,7 +20,8 @@ scoreboard players remove #displace swPool_posz 2500
 #tellraw @a [{"text":"x, "},{"score":{"objective":"swPool_posx","name":"#displace"}},{"text":" xt, "},{"score":{"objective":"swPool_sizex","name":"TABLE"}}]
 #tellraw @a [{"text":"z, "},{"score":{"objective":"swPool_posz","name":"#displace"}},{"text":" zt, "},{"score":{"objective":"swPool_sizez","name":"TABLE"}}]
 scoreboard players set #outoftable swPool_var00 0
-execute unless score #outoftable_scheduled swPool_var00 matches 1 unless score #displace swPool_posx < TABLE swPool_sizex unless score #displace swPool_posz < TABLE swPool_sizez run scoreboard players set #outoftable swPool_var00 1
+execute unless score #outoftable_scheduled swPool_var00 matches 1 if score #displace swPool_posx > TABLE swPool_sizex run scoreboard players set #outoftable swPool_var00 1
+execute unless score #outoftable_scheduled swPool_var00 matches 1 if score #displace swPool_posz > TABLE swPool_sizez run scoreboard players set #outoftable swPool_var00 1
 execute if score #outoftable swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"[ERROR] Ball Left Table!","color":"dark_red"},{"text":" The current shot will be reverted in 3 seconds. Please try it again. If problem persists, you may contact me with a record.","color":"white"}]
 execute if score #outoftable swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"[错误] 球飞出了球桌！","color":"dark_red"},{"text":" 本次击球三秒后会被撤销，请再试一次。如果问题持续出现，可以记录下来告知作者。","color":"white"}]
 execute if score #outoftable swPool_var00 matches 1 run scoreboard players set @e[tag=swPool_pool] swPool_v 0

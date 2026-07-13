@@ -19,7 +19,7 @@ scoreboard players operation @e[tag=swPool_pool,tag=swPool_cue,limit=1] swPool_p
 stopsound @a * minecraft:entity.arrow.shoot
 #execute at @p rotated as @s run tp @p ~ ~ ~ ~ 0
 
-execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s run playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+execute as @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] at @s unless score #muteall swPool_C matches 1 run playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 
 execute store result score @s swPool_var00 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[0] 10000
 execute store result score @s swPool_var01 run data get entity @e[type=arrow,tag=swPool_sb,limit=1] Motion[1] 10000

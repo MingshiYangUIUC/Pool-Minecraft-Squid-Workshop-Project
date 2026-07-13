@@ -24,6 +24,4 @@ scoreboard players operation #vIn swMath_V = DD1 swPool_var01
 scoreboard players operation #vIn swMath_V += DD1 swPool_var02
 
 function math:classes/core/operations/sqrt
-execute unless entity @e[type=item_display,tag=swPool_d2,distance=..3,limit=1] run scoreboard players set @s swPool_dist 99999999
-execute if entity @e[type=item_display,tag=swPool_d2,distance=..3,limit=1] run scoreboard players operation @s swPool_dist = #vOut swMath_V
-#execute if entity @e[tag=swPool_d2] run scoreboard players operation @s swPool_dist = @s swPool_var00
+scoreboard players operation @s swPool_dist = #vOut swMath_V

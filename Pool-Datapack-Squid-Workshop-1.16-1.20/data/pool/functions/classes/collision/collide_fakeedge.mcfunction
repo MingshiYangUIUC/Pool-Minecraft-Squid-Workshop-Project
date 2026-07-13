@@ -16,8 +16,8 @@ tag @s add swPool_colliding
 
 #if uk8ball or cn8ball or 9 ball: count as hitting cushion
 tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode,limit=1] add swPool_hitrail
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
-execute if score @a[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
+execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode,limit=1] add swPool_hitrail
+execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
 
 #record parameters
 tag @e[tag=swPool_rhp1] add swPool_t1
@@ -91,6 +91,9 @@ scoreboard players operation @s swPool_Rotation = newrot swPool_rot
 #merge stuff back to c1, c2
 scoreboard players operation @s swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
 
+# restitution
+scoreboard players operation @s swPool_v /= #C_10000 swMath_C
+scoreboard players operation @s swPool_v *= C_rei swPool_C
 
 #reset t1,t2,facerc
 tag @e[tag=swPool_rhp1] remove swPool_t1
@@ -113,8 +116,8 @@ scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 
 
-playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
-playsound minecraft:entity.arrow.hit_player ambient @a[tag=swPool_beep] ~ ~ ~ 1 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:entity.arrow.hit_player ambient @a[tag=swPool_beep] ~ ~ ~ 1 1 1
 
 scoreboard players set @s swPool_T 0
 execute at @s run function pool:classes/spin/change_of_state

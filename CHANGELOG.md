@@ -1,3 +1,30 @@
+### <span style="color:orange">July 2026</span> — v1.3.0: Play Against the Pool Bot!
+
+- Added a playable pool bot for **8-Ball and 9-Ball**. 
+  - Huge thanks to everyone who voted for and supported this feature!
+  - <img src="Gallery/Images/bot_shooting.webp" alt="Bot Player Making a Shot" width="50%">    
+  - You can now start a single-player game with a computer-controlled opponent.
+  - The bot handles normal rules, ball-in-hand, break shots, fouls, and cue-stick animations.
+  - You can adjust its aiming accuracy, the number of shots it considers, and the time allocated to each simulation through the settings menu.
+  - Automatic judging must be enabled when playing with the bot.
+  - Bot simulations are computationally intensive, so single-player worlds and a safe environment are strongly recommended.
+
+- Added configurable ball radius and dynamic table scaling for Minecraft 1.21+.
+  - This makes it possible to recreate accurately scaled tables.
+  - Tables, pockets, and visuals can scale with the selected ball size.
+  - Exact 1×2 table proportions and fixed table scaling are also available for greater customization.
+
+- Added an optional whitelist system for shared servers.
+  - OPs can restrict table placement, table configuration, and global settings while keeping normal player controls available.
+
+- This update also includes several fixes and performance improvements.
+  - Datapack performance has been greatly improved to make bot simulations practical.
+  - Added cushion restitution, improved rack placement, fixed snooker rule behavior, and made other gameplay refinements.
+
+- After updating, it is recommended to completely remove existing tables and place them again.
+
+- Please see the full v1.3.0 release notes for details.
+
 ### <span style="color:orange">May 2026</span> — v1.2.0: No OP Needed — Survival Mode Ready!
 
 - v1.2.0 now fully supports non-operator and survival-mode players. Huge thanks to the community votes and feedback!

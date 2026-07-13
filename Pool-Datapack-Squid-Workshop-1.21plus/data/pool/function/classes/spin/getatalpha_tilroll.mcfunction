@@ -64,7 +64,7 @@ scoreboard players operation @s swPool_az /= C_20 swPool_C
 
 #tellraw @a [{"text":"vmag, "},{"score":{"objective":"swPool_Vmag","name":"O"}}]
 
-scoreboard players set @s swPool_T_roll 291
+scoreboard players operation @s swPool_T_roll = C_291 swPool_C
 scoreboard players operation @s swPool_T_roll *= O swPool_Vmag
 #tellraw @a [{"text":"291vmag, "},{"score":{"objective":"swPool_T_roll","name":"@s"}}]
 scoreboard players operation @s swPool_T_roll /= C_muk swPool_C

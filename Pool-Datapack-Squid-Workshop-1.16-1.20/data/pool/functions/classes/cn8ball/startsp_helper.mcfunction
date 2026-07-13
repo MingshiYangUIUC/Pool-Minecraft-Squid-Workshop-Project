@@ -1,3 +1,4 @@
+scoreboard players reset #bot_turn swMath_V
 execute if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"A game is already active, please terminate it before trying again.","color":"red"}]
 execute if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"请先结束正在运行的游戏。","color":"red"}]
 execute unless entity @a[tag=swPool_poolplay] run tag @s add swPool_wait_cn8ball

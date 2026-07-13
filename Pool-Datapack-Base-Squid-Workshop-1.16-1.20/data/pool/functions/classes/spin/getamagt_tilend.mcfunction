@@ -1,7 +1,7 @@
 #before stop:
 #a = -5/7*g*mur
 
-scoreboard players set @s swPool_amag 70071
+scoreboard players operation @s swPool_amag = C_70071 swPool_C
 scoreboard players operation @s swPool_amag *= C_mur swPool_C
 scoreboard players operation @s swPool_amag /= C_10000 swPool_C
 scoreboard players operation @s swPool_amag *= C_20 swPool_C

@@ -1,0 +1,1 @@
+execute as @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/_demo_action

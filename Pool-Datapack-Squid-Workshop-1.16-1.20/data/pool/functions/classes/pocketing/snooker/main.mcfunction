@@ -17,6 +17,6 @@ execute if entity @s[scores={swPool_rank=2..7}] if score @s swPool_rank > @e[tag
 
 #playsound minecraft:block.stone.break ambient @a ~ ~ ~ 1 1
 #playsound minecraft:block.barrel.close ambient @a ~ ~ ~ 1 1
-playsound minecraft:custom.pool.pocket ambient @a ~ ~ ~ 1 1
+execute unless score #muteall swPool_C matches 1 run playsound minecraft:custom.pool.pocket ambient @a ~ ~ ~ 1 1
 #kill @s
 function pool:classes/pocketing/animation/main

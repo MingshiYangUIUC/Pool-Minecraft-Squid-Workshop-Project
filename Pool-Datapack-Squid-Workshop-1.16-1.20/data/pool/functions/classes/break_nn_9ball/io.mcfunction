@@ -263,7 +263,7 @@ execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches 1 at 
 execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon armor_stand ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-90.0f,0.0f],Invisible:1b}
 
 # map
-execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand] at @s run function pool:classes/break_nn_9ball/map_balls
+execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand] at @s run function pool:classes/break_nn_9ball/map_balls_arbitrary
 kill @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=armor_stand]
 
 # for all balls, map from HV to XZ based on Xdir
@@ -287,15 +287,15 @@ scoreboard players reset COL swPool_vrz
 tag @e[tag=swPool_9ball_aibreak,limit=1] remove swPool_9ball_aibreak
 
 # get nearest for 9ball
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_01] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_02] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_03] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 3
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_04] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 4
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_05] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 5
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_06] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 6
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_07] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 7
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_08] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 8
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_09] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 9
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_01] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_02] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 2
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_03] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 3
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_04] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 4
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_05] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 5
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_06] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 6
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_07] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 7
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_08] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 8
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_09] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 9
 
 scoreboard players set @e[tag=swPool_pool,type=armor_stand] swPool_T 0
 execute as @e[tag=swPool_pool,type=armor_stand] at @s run function pool:classes/spin/change_of_state

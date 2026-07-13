@@ -25,12 +25,13 @@ execute if score #wmag swMath_V matches 30000.. run function pool:classes/pose_q
 # dt = t / 100  # 10000 is 1 in this function  # 100 is 0.01 in this function 
 # adaptive integration step
 scoreboard players set maxRdt swMath_V 10000
-execute if score #wmag swMath_V matches ..2000 run scoreboard players set DT swMath_V 10000
-execute if score #wmag swMath_V matches 2001..5000 run scoreboard players set DT swMath_V 5000
-execute if score #wmag swMath_V matches 5001..10000 run scoreboard players set DT swMath_V 2000
-execute if score #wmag swMath_V matches 10001..20000 run scoreboard players set DT swMath_V 1000
-execute if score #wmag swMath_V matches 20001..50000 run scoreboard players set DT swMath_V 500
-execute if score #wmag swMath_V matches 50001.. run scoreboard players set DT swMath_V 200
+scoreboard players set DT swMath_V 10000
+#execute if score #wmag swMath_V matches ..2000 run scoreboard players set DT swMath_V 10000
+#execute if score #wmag swMath_V matches 2001..5000 run scoreboard players set DT swMath_V 5000
+#execute if score #wmag swMath_V matches 5001..10000 run scoreboard players set DT swMath_V 2000
+#execute if score #wmag swMath_V matches 10001..20000 run scoreboard players set DT swMath_V 1000
+#execute if score #wmag swMath_V matches 20001..50000 run scoreboard players set DT swMath_V 500
+#execute if score #wmag swMath_V matches 50001.. run scoreboard players set DT swMath_V 200
 
 # obtain q_delta
 #   wmag = math.sqrt(wx*wx + wy*wy + wz*wz)

@@ -6,7 +6,7 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"火焰粒子
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 scoreboard players operation #preview swPool_sizex = @s swPool_sizex
 scoreboard players operation #preview swPool_sizez = @s swPool_sizez
@@ -53,7 +53,7 @@ kill @e[tag=swPool_placer,type=area_effect_cloud,limit=1,sort=nearest]
 kill @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest]
 
 
-summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 scoreboard players operation #preview swPool_sizex = @s swPool_sizex
 scoreboard players operation #preview swPool_sizez = @s swPool_sizez

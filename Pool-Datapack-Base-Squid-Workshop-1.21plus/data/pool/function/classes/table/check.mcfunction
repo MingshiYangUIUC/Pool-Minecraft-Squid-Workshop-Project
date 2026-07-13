@@ -11,4 +11,16 @@ execute unless entity @s[nbt={OnGround:1b}] run tellraw @s[tag=swPool_CN] [{"tex
 
 execute unless entity @s[nbt={OnGround:1b}] run tag @s remove swPool_success
 
-execute if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set
+# execute if data storage minecraft:swpool fixtablescale run old function for every case
+execute if data storage minecraft:swpool fixtablescale if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set
+
+# 1.21, radius is not default: use item_display
+execute unless data storage minecraft:swpool fixtablescale if data storage minecraft:swpool {version:[1210]} unless score C_r swPool_C matches 1250 if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set_item_display
+# 1.21, radius is default but table1x2 is enabled: use item_display
+execute unless data storage minecraft:swpool fixtablescale if data storage minecraft:swpool {version:[1210]} if score C_r swPool_C matches 1250 if data storage minecraft:swpool table1x2 if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set_item_display
+# 1.21, radius is default and table1x2 is not enabled: use old set
+execute unless data storage minecraft:swpool fixtablescale if data storage minecraft:swpool {version:[1210]} if score C_r swPool_C matches 1250 unless data storage minecraft:swpool table1x2 if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set
+# older versions: use old set
+execute unless data storage minecraft:swpool fixtablescale unless data storage minecraft:swpool {version:[1210]} if entity @s[tag=swPool_success] positioned ~ ~ ~ run function pool:classes/table/set
+
+tag @s remove swPool_success

@@ -72,18 +72,26 @@ tag @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] add swPool_08
 execute store result score #8 swPool_posx run data get entity @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] Pos[0] 10000
 execute store result score #8 swPool_posz run data get entity @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] Pos[2] 10000
 
+# 2R/sqrt(3), scale by R (1443 = 2R/sqrt(3))
+scoreboard players operation #HCoffset swMath_V = C_r swPool_C
+scoreboard players operation #HCoffset swMath_V *= #C_10000 swMath_C
+scoreboard players operation #HCoffset swMath_V *= #C_2 swMath_C
+scoreboard players set #HCoffset2 swMath_V 17321
+scoreboard players operation #HCoffset swMath_V /= #HCoffset2 swMath_V
+#tellraw @a [{"text":"HCoffset, "},{"score":{"objective":"swMath_V","name":"#HCoffset"}}]
+
 # Xdir=0: VC = -8 ball X, HC = - 8 ball Z + 1443 (1443 = 2R/sqrt(3))
 execute if score #Xdir swMath_V matches 0 run scoreboard players operation #VC swMath_V = #8 swPool_posx
 execute if score #Xdir swMath_V matches 0 run scoreboard players operation #VC swMath_V *= #C_-1 swMath_C
 execute if score #Xdir swMath_V matches 0 run scoreboard players operation #HC swMath_V = #8 swPool_posz
 execute if score #Xdir swMath_V matches 0 run scoreboard players operation #HC swMath_V *= #C_-1 swMath_C
-execute if score #Xdir swMath_V matches 0 run scoreboard players add #HC swMath_V 1443
+execute if score #Xdir swMath_V matches 0 run scoreboard players operation #HC swMath_V += #HCoffset swMath_V
 
 # Xdir=1: VC = 8 ball Z, HC = - 8 ball X position + 1443 (2R/sqrt(3))
 execute if score #Xdir swMath_V matches 1 run scoreboard players operation #VC swMath_V = #8 swPool_posz
 execute if score #Xdir swMath_V matches 1 run scoreboard players operation #HC swMath_V = #8 swPool_posx
 execute if score #Xdir swMath_V matches 1 run scoreboard players operation #HC swMath_V *= #C_-1 swMath_C
-execute if score #Xdir swMath_V matches 1 run scoreboard players add #HC swMath_V 1443
+execute if score #Xdir swMath_V matches 1 run scoreboard players operation #HC swMath_V += #HCoffset swMath_V
 
 
 # get HD and VD as displacement 
@@ -335,23 +343,23 @@ execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches -
 
 #tag @e[tag=swPool_tip] list
 
-# summon item_display and set their rotation based on #Xdir and #tipregio,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+# summon item_display and set their rotation based on #Xdir and #tipregio,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # z in game: 0:180, 1:-60, -1:60
 # x in game: 0:90, 1:-150, -1:-30
 
 # z
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 0 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-60.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[60.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 0 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-60.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[60.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # x
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 0 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-150.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-30.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 0 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-150.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-30.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # map
-execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display] at @s run function pool:classes/break_nn_8ball/map_balls
+execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display] at @s run function pool:classes/break_nn_8ball/map_balls_arbitrary
 kill @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display]
 
 # for all balls, map from HV to XZ based on Xdir

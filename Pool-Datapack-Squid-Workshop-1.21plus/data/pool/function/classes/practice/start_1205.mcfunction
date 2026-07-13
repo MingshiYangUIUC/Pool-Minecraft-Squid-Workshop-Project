@@ -43,6 +43,7 @@ scoreboard players set @a swPool_Score 0
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] add swPool_practicemode
+scoreboard players set swPool_practicemode swMath_V 1
 
 # prescribed ball choice
 execute if entity @e[tag=swPool_pooltable,tag=swPool_snake] if score #nsnake swMath_V matches 1.. run execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/practice/balls/snake

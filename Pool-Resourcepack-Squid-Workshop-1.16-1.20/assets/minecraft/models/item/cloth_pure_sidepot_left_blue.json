@@ -1,0 +1,13 @@
+{
+  "format_version": "1.21.6",
+  "credit": "Made with Blockbench",
+  "textures": {
+    "1": "item/pool/wood",
+    "2": "item/pool/black",
+    "4": "item/pool/wood_light",
+    "5": "item/pool/qrcode",
+    "6": "item/pool/cloth_pure_blue",
+    "particle": "item/pool/cloth_pure_blue"
+  },
+  "parent": "item/cloth_sidepot_left_green"
+}

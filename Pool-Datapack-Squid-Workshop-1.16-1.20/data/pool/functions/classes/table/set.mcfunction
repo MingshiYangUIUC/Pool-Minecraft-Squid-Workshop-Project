@@ -262,19 +262,55 @@ tp @s ~ ~1 ~
 
 scoreboard players operation TABLE swPool_sizex = @e[tag=swPool_pooltable,limit=1] swPool_sizex
 scoreboard players operation TABLE swPool_sizez = @e[tag=swPool_pooltable,limit=1] swPool_sizez
+
+scoreboard players operation TABLE_1250 swPool_sizex = TABLE swPool_sizex
+scoreboard players operation TABLE_1250 swPool_sizez = TABLE swPool_sizez
+
+# shift by R0-R1
+scoreboard players add TABLE swPool_sizex 1250
+scoreboard players operation TABLE swPool_sizex -= C_r swPool_C
+scoreboard players add TABLE swPool_sizez 1250
+scoreboard players operation TABLE swPool_sizez -= C_r swPool_C
+
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
 execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
 
 
+# log the table size to pocket center entities (used by other features)
+execute as @e[tag=swPool_pktcntr_c] run scoreboard players set @s swPool_sizex 0
+execute as @e[tag=swPool_pktcntr_c] run scoreboard players set @s swPool_sizez 0
+
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizex -= TABLE swPool_sizex
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizex += TABLE swPool_sizex
+
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizez -= TABLE swPool_sizez
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizez += TABLE swPool_sizez
+
+
+# for side pkt, shift pocket center outward by r 
+execute as @e[tag=swPool_pktcntr_s] run scoreboard players set @s swPool_sizex 0
+execute as @e[tag=swPool_pktcntr_s] run scoreboard players set @s swPool_sizez 0
+
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex -= TABLE swPool_sizex
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex -= C_r swPool_C
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex += TABLE swPool_sizex
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex += C_r swPool_C
+
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez -= TABLE swPool_sizez
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez -= C_r swPool_C
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez += TABLE swPool_sizez
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez += C_r swPool_C
+
+
 #end_output
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111907"}}]
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112309"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112007"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112106"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112109"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112406"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112409"}}]
 
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111907"}}]
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112309"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112007"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112106"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112109"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112406"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112409"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111010"}}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111010"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111110"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111110"}}]
 
 
 tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render

@@ -41,7 +41,11 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_x] if score @s swPool_dl <=
 
 execute if entity @e[tag=swPool_pooltable,tag=swPool_z] if score @s swPool_dl <= @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posz if score TABLE swPool_dl > @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posz if score @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] swPool_posx < TABLE swPool_ds run tag @e[type=area_effect_cloud,tag=swPool_cueplace,limit=1] add swPool_valid
 
-execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
+scoreboard players operation C_2r swMath_V = C_r swPool_C
+scoreboard players operation C_2r swMath_V += C_r swPool_C
+#execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ if entity @e[tag=swPool_pool,distance=..0.25] run tag @s remove swPool_valid
+execute as @e[tag=swPool_valid] at @s positioned ~ ~-0.6 ~ run function pool:classes/ballinhand/helper/find_nearest_ball
+execute as @e[tag=swPool_valid] if score @s swPool_dist < C_2r swMath_V run tag @s remove swPool_valid
 
 execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=swPool_valid,limit=1] at @s run particle composter ~ ~ ~ 0 0 0 0 1 force
 #execute as @e[type=area_effect_cloud,tag=swPool_cueplace,tag=!swPool_valid,limit=1] at @s run particle witch ~ ~ ~ 0 0 0 0 1 force

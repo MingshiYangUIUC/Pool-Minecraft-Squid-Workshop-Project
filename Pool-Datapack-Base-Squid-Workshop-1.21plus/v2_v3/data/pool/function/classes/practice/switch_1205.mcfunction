@@ -40,6 +40,7 @@ scoreboard players set @a swPool_Score 0
 tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_snookermode
 tag @e[tag=swPool_pooltable] add swPool_practicemode
+scoreboard players set swPool_practicemode swMath_V 1
 tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
 tag @e[tag=swPool_pooltable] remove swPool_9ballmode
 

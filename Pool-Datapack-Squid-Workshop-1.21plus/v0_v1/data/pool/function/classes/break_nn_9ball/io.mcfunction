@@ -249,21 +249,21 @@ execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches -1 at
 
 #tag @e[tag=swPool_tip] list
 
-# summon item_display and set their rotation based on #Xdir and #tipregio,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+# summon item_display and set their rotation based on #Xdir and #tipregio,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # z in game: 0:180, 1:-60, -1:60
 # x in game: 0:90, 1:-150, -1:-30
 
 # z
-execute if score #Xdir swMath_V matches 0 if score #hflip swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 0 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 0 if score #hflip swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 0 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-180.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # x
-execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.73f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches 1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #Xdir swMath_V matches 1 if score #hflip swMath_V matches -1 at @e[tag=swPool_tip,limit=1] run summon item_display ~ ~ ~ {Tags:["swPool_rackmapper"],NoGravity:1b,Rotation:[-90.0f,0.0f],Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 # map
-execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display] at @s run function pool:classes/break_nn_9ball/map_balls
+execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display] at @s run function pool:classes/break_nn_9ball/map_balls_arbitrary
 kill @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display]
 
 # for all balls, map from HV to XZ based on Xdir
@@ -287,15 +287,15 @@ scoreboard players reset COL swPool_vrz
 tag @e[tag=swPool_9ball_aibreak,limit=1] remove swPool_9ball_aibreak
 
 # get nearest for 9ball
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_01] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_02] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_03] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 3
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_04] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 4
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_05] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 5
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_06] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 6
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_07] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 7
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_08] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 8
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_09] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 9
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_01] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_02] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 2
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_03] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 3
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_04] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 4
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_05] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 5
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_06] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 6
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_07] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 7
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_08] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 8
+execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_09] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 9
 
 scoreboard players set @e[tag=swPool_pool,type=item_display] swPool_T 0
 execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes/spin/change_of_state

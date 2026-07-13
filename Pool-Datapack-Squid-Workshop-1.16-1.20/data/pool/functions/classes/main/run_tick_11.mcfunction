@@ -36,9 +36,10 @@ execute if entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_snookermod
 
 execute as @a[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] at @s run function pool:classes/cue/main
 #execute as @a[nbt={OnGround:1b,Inventory:[{Slot:-106b,id:"minecraft:bow",tag:{swPool_cuestick:1b}}]}] at @s run function pool:classes/cue/aim
+scoreboard players set #fastfwd_iter swMath_V 0
 execute if score #tick swPool_var00 matches 0 if entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] run tag @e[type=armor_stand,tag=swPool_pooltable] remove swPool_progressed
-execute if score #tick swPool_var00 matches 0 if entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pool] at @s[scores={swPool_DXX=1..}] run function pool:classes/master/main
-execute if score #tick swPool_var00 matches 0 as @e[type=armor_stand,tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
+execute if score #tick swPool_var00 matches 0 if entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] run function pool:classes/main/tick_iterate
+execute if score #tick swPool_var00 matches 0 if score C_r swPool_C matches 1250 as @e[type=armor_stand,tag=swPool_pool] at @s if entity @e[tag=swPool_pool,distance=0.0001..0.25] run function pool:classes/motion/new_retreat
 tag @e[type=armor_stand,tag=swPool_a1] remove swPool_a1
 tag @e[type=armor_stand,tag=swPool_colliding] remove swPool_colliding
 execute unless entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] as @e[tag=swPool_pooltable,tag=!swPool_start,tag=!swPool_progressed] run function pool:classes/master/idle
@@ -46,6 +47,6 @@ scoreboard players add @e[type=armor_stand,tag=swPool_pooltable] swPool_lifetime
 #execute as @a at @s if score @e[type=arrow,distance=..4,limit=1] swPool_player = @s swPool_player run kill @e[type=arrow,distance=..4,limit=1]
 scoreboard players set @a swPool_crtclk 0
 
-execute if score #tick swPool_var00 matches 0 if data storage minecraft:swpool {allowspin:1} as @e[tag=swPool_pool,scores={swPool_T=1..,swPool_v=1..}] run function pool:classes/pose/w2dpdt_iterative
+execute unless score #fastfwd swMath_V matches 1 if score #tick swPool_var00 matches 0 if data storage minecraft:swpool {allowspin:1} as @e[tag=swPool_pool,scores={swPool_T=1..,swPool_v=1..}] run function pool:classes/pose/w2dpdt_iterative
 
-execute if score #tick swPool_var00 matches 0 as @e[tag=swPool_potting,type=armor_stand] at @s run function pool:classes/pocketing/animation/loop
+execute unless score #fastfwd swMath_V matches 1 if score #tick swPool_var00 matches 0 as @e[tag=swPool_potting,type=armor_stand] at @s run function pool:classes/pocketing/animation/loop

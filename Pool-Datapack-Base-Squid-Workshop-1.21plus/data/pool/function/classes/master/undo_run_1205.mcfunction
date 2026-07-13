@@ -117,15 +117,17 @@ scoreboard players set @a[tag=swPool_poolplay] swPool_foul 0
 scoreboard players reset @a[tag=swPool_hitcue] swPool_firsthit
 tag @a[tag=swPool_hitcue] remove swPool_hitcue
 
-execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Done. Backed to the previous turn. The last player, please try again."}]
+execute unless score #muteall swPool_C matches 1 run execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Done. Backed to the previous turn. The last player, please try again."}]
 
-execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"完成回到上一回合。上回合击球方请重新摆/击球。"}]
+execute unless score #muteall swPool_C matches 1 run execute if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"完成回到上一回合。上回合击球方请重新摆/击球。"}]
 
 function pool:classes/master/record
 
 
 tag @a[tag=swPool_placingcue] add swPool_ballinhand
 tag @a[tag=swPool_placingcue] remove swPool_placingcue
+
+execute unless entity @e[tag=swPool_cue,tag=swPool_pool] as @a[tag=swPool_ballinhand] run function app:get/pool/cueball_helper
 
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ballinhand
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball"]
@@ -142,3 +144,6 @@ tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
 tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+
+execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r
+

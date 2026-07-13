@@ -1,3 +1,4 @@
+# m
 #find out if two objects will collide, return value of "swPool_ontgt". given current velocity profile:
 #positive means will a1 will hit a2, negative means will not hit or too far away
 #	only consider angle around vertical 
@@ -39,7 +40,8 @@ scoreboard players operation @s swPool_drot %= C_3600000 swPool_C
 tag @e[type=item_display,tag=swPool_a2,limit=1] add swPool_d2
 #tag @e[type=area_effect_cloud,tag=swPool_fake,tag=swPool_a2,limit=1] add swPool_d2
 tag @s add swPool_d1
-execute at @s run function pool:classes/physics/distance1
+scoreboard players set @s swPool_dist 99999999
+execute if entity @e[type=item_display,tag=swPool_d2,distance=..3,limit=1] at @s run function pool:classes/physics/distance1
 tag @e[type=item_display,tag=swPool_a2,limit=1] remove swPool_d2
 tag @s remove swPool_d1
 
@@ -47,29 +49,37 @@ tag @s remove swPool_d1
 
 #equation: swPool_ontgt=0.25/d-sin(dr)
 #modify equation for different radius...
-scoreboard players set @s swPool_var01 25000000
 
-execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players set @s swPool_var01 49500000
-execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players set @s swPool_var01 40500000
+# (r1 + r2) * 10000  #ontgt swPool_var01
+scoreboard players operation #ontgt swPool_var01 = C_r swPool_C
 
-execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players set @s swPool_var01 43250000
-execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players set @s swPool_var01 25500000
+execute as @e[tag=swPool_a2,limit=1] run function pool:classes/physics/target_helper
 
-#tellraw @a [{"text":"variable swPool_v1 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
+#execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #ontgt swPool_var01 += C_r swPool_C
 
-scoreboard players operation @s swPool_var01 /= @s swPool_dist
+#execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players operation #ontgt swPool_var01 += C_r2_edge_c swPool_C
+#execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktedge_s] run scoreboard players operation #ontgt swPool_var01 += C_r2_edge_s swPool_C
+
+#execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_c] run scoreboard players operation #ontgt swPool_var01 += C_r2_cntr_c swPool_C
+#execute if entity @e[type=item_display,tag=swPool_a2,limit=1,tag=swPool_pktcntr_s] run scoreboard players operation #ontgt swPool_var01 += C_r2_cntr_s swPool_C
+
+scoreboard players operation #ontgt swPool_var01 *= C_10000 swPool_C
+
+#tellraw @a [{"text":"variable swPool_v1 is "},{"score":{"objective":"swPool_var01","name":"#ontgt"}}]
+
+scoreboard players operation #ontgt swPool_var01 /= @s swPool_dist
 scoreboard players operation @s swPool_var00 = @s swPool_drot
 execute at @s run function pool:classes/math/sindeg
 #	minus absolute value
-execute if entity @s[scores={swPool_var00=1..}] run scoreboard players operation @s swPool_var01 -= @s swPool_var00
-execute if entity @s[scores={swPool_var00=..0}] run scoreboard players operation @s swPool_var01 += @s swPool_var00
+execute if entity @s[scores={swPool_var00=1..}] run scoreboard players operation #ontgt swPool_var01 -= @s swPool_var00
+execute if entity @s[scores={swPool_var00=..0}] run scoreboard players operation #ontgt swPool_var01 += @s swPool_var00
 
 #tellraw @a [{"text":"variable v01 is "},{"score":{"objective":"swPool_var01","name":"@s"}}]
 
 #	flip if target is behind object
-scoreboard players set @s swPool_var02 -1
-execute if entity @s[scores={swPool_drot=900000..2700000}] if entity @s[scores={swPool_var01=1..}] run scoreboard players operation @s swPool_var01 *= @s swPool_var02
-scoreboard players operation @s swPool_ontgt = @s swPool_var01
+#scoreboard players set @s swPool_var02 -1
+execute if entity @s[scores={swPool_drot=900000..2700000}] if score #ontgt swPool_var01 matches 1.. run scoreboard players operation #ontgt swPool_var01 *= C_-1 swPool_C
+scoreboard players operation @s swPool_ontgt = #ontgt swPool_var01
 
 #tellraw @a [{"text":"variable ontgt is "},{"score":{"objective":"swPool_ontgt","name":"@s"}}]
 

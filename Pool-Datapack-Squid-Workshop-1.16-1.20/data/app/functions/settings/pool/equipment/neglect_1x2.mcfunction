@@ -1,0 +1,1 @@
+data remove storage minecraft:swpool table1x2

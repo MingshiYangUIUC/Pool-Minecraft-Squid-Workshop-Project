@@ -1,212 +1,503 @@
 execute if score @s swPool__trigger matches 1 run function app:help/pool/commandwindow
-execute if score @s swPool__trigger matches 1141 run function app:unload/pool
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1141 run function app:unload/pool
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1141 if entity @s[tag=swPool_whitelisted] run function app:unload/pool
+
 execute if score @s swPool__trigger matches 11212 run function app:help/pool/noncreativewindow
-execute if score @s swPool__trigger matches 11213 run function app:help/pool/rulewindow
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11213 run function app:help/pool/rulewindow
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11213 if entity @s[tag=swPool_whitelisted] run function app:help/pool/rulewindow
+
+execute if score @s swPool__trigger matches 11214 run function app:help/pool/tableclothwindow
+
 execute if score @s swPool__trigger matches 111110 run function app:get/pool/cuestick_helper
-execute if score @s swPool__trigger matches 112141 run function app:help/pool/about/games
-execute if score @s swPool__trigger matches 112142 run function app:help/pool/about/rules
-execute if score @s swPool__trigger matches 112161 run function app:help/pool/notes/release_note
-execute if score @s swPool__trigger matches 112171 run function app:help/pool/settings/_help
-execute if score @s swPool__trigger matches 112172 run function app:help/pool/settings/_help_version
-execute if score @s swPool__trigger matches 411112 run function pool:classes/main/load
+
+execute if score @s swPool__trigger matches 112151 run function app:help/pool/about/games
+
+execute if score @s swPool__trigger matches 112152 run function app:help/pool/about/rules
+
+execute if score @s swPool__trigger matches 112171 run function app:help/pool/notes/release_note
+
+execute if score @s swPool__trigger matches 112181 run function app:help/pool/settings/_help
+
+execute if score @s swPool__trigger matches 112182 run function app:help/pool/settings/_help_version
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 411122 run function pool:classes/main/load
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 411122 if entity @s[tag=swPool_whitelisted] run function pool:classes/main/load
+
 execute if score @s swPool__trigger matches 1133011 run function app:settings/pool/aim/cue_deflection
+
 execute if score @s swPool__trigger matches 1133012 run function app:settings/pool/aim/nozoom
+
 execute if score @s swPool__trigger matches 1133013 run function app:settings/pool/aim/zoom
-execute if score @s swPool__trigger matches 1133021 run function app:settings/pool/breakshot/breakpower
-execute if score @s swPool__trigger matches 1133022 run function app:settings/pool/breakshot/default_break
-execute if score @s swPool__trigger matches 1133023 run function app:settings/pool/breakshot/nn_break
-execute if score @s swPool__trigger matches 1133024 run function app:settings/pool/breakshot/nn_complexity
-execute if score @s swPool__trigger matches 1133031 run function app:settings/pool/cheating/allow
-execute if score @s swPool__trigger matches 1133032 run function app:settings/pool/cheating/disallow
-execute if score @s swPool__trigger matches 1133041 run function app:settings/pool/equipment/cloth_color
-execute if score @s swPool__trigger matches 1133042 run function app:settings/pool/equipment/stick_type
-execute if score @s swPool__trigger matches 1133043 run function app:settings/pool/equipment/table_rim_type
-execute if score @s swPool__trigger matches 1133051 run function app:settings/pool/friction/clear
-execute if score @s swPool__trigger matches 1133052 run function app:settings/pool/friction/default
-execute if score @s swPool__trigger matches 1133053 run function app:settings/pool/friction/impact
-execute if score @s swPool__trigger matches 1133054 run function app:settings/pool/friction/rolling
-execute if score @s swPool__trigger matches 1133055 run function app:settings/pool/friction/sliding
-execute if score @s swPool__trigger matches 1133056 run function app:settings/pool/friction/striking
-execute if score @s swPool__trigger matches 1133061 run function app:settings/pool/language/chinese_simplified
-execute if score @s swPool__trigger matches 1133062 run function app:settings/pool/language/english
-execute if score @s swPool__trigger matches 1133071 run function app:settings/pool/need_recipes/recipe_off
-execute if score @s swPool__trigger matches 1133072 run function app:settings/pool/need_recipes/recipe_on
-execute if score @s swPool__trigger matches 1133081 run function app:settings/pool/reload/cleanongoingsession
-execute if score @s swPool__trigger matches 1133082 run function app:settings/pool/reload/keepongoingsession
-execute if score @s swPool__trigger matches 1133091 run function app:settings/pool/rules/automatic_judge_off
-execute if score @s swPool__trigger matches 1133092 run function app:settings/pool/rules/automatic_judge_on
-execute if score @s swPool__trigger matches 1133093 run function app:settings/pool/rules/foul_reason_feedback
-execute if score @s swPool__trigger matches 1133094 run function app:settings/pool/rules/foul_reason_hide
-execute if score @s swPool__trigger matches 1133095 run function app:settings/pool/rules/rail_rule_enforce
-execute if score @s swPool__trigger matches 1133096 run function app:settings/pool/rules/rail_rule_ignore
-execute if score @s swPool__trigger matches 1133097 run function app:settings/pool/rules/singleplayer_role_keep
-execute if score @s swPool__trigger matches 1133098 run function app:settings/pool/rules/singleplayer_role_switch
-execute if score @s swPool__trigger matches 1133111 run function app:settings/pool/version/1_16
-execute if score @s swPool__trigger matches 1133112 run function app:settings/pool/version/1_17
-execute if score @s swPool__trigger matches 1133113 run function app:settings/pool/version/1_18
-execute if score @s swPool__trigger matches 1133114 run function app:settings/pool/version/1_19
-execute if score @s swPool__trigger matches 1133115 run function app:settings/pool/version/1_20_4_andminus
-execute if score @s swPool__trigger matches 1133116 run function app:settings/pool/version/1_20_5_andplus
-execute if score @s swPool__trigger matches 1133117 run function app:settings/pool/version/reset
-execute if score @s swPool__trigger matches 1133121 run function app:settings/pool/visuals/cueball_clean
-execute if score @s swPool__trigger matches 1133122 run function app:settings/pool/visuals/cueball_red_dots
-execute if score @s swPool__trigger matches 1133123 run function app:settings/pool/visuals/disable_ball_spinning
-execute if score @s swPool__trigger matches 1133124 run function app:settings/pool/visuals/enable_ball_spinning
-execute if score @s swPool__trigger matches 1133125 run function app:settings/pool/visuals/tp_duration
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133021 run function app:settings/pool/bot/action_space_10
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133021 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_10
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 run function app:settings/pool/bot/action_space_5
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_5
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 run function app:settings/pool/bot/n_aims_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133025 run function app:settings/pool/bot/tick_per_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133025 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
+
+execute if score @s swPool__trigger matches 1133031 run function app:settings/pool/breakshot/breakpower
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133032 run function app:settings/pool/breakshot/default_break
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133032 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/default_break
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133033 run function app:settings/pool/breakshot/nn_break
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133033 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_break
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133034 run function app:settings/pool/breakshot/nn_complexity
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133034 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_complexity
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133041 run function app:settings/pool/cheating/allow
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133041 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/allow
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133042 run function app:settings/pool/cheating/disallow
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133042 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/disallow
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133051 run function app:settings/pool/equipment/ball_radius
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133051 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/ball_radius
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133052 run function app:settings/pool/equipment/cloth_color
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133052 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/cloth_color
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133053 run function app:settings/pool/equipment/enforce_1x2
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133053 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/enforce_1x2
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133054 run function app:settings/pool/equipment/neglect_1x2
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133054 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/neglect_1x2
+
+execute if score @s swPool__trigger matches 1133055 run function app:settings/pool/equipment/stick_type
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 run function app:settings/pool/equipment/table_rim_type
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_rim_type
+
+execute if score @s swPool__trigger matches 1133057 run function app:settings/pool/equipment/table_scale_fix
+
+execute if score @s swPool__trigger matches 1133058 run function app:settings/pool/equipment/table_scale_unfix
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 run function app:settings/pool/friction/clear
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/clear
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133062 run function app:settings/pool/friction/default
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133062 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/default
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133063 run function app:settings/pool/friction/impact
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133063 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/impact
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133064 run function app:settings/pool/friction/rolling
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133064 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/rolling
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133065 run function app:settings/pool/friction/sliding
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133065 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/sliding
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133066 run function app:settings/pool/friction/striking
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133066 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/striking
+
+execute if score @s swPool__trigger matches 1133071 run function app:settings/pool/language/chinese_simplified
+
+execute if score @s swPool__trigger matches 1133072 run function app:settings/pool/language/english
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133081 run function app:settings/pool/need_recipes/recipe_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133081 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_off
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133082 run function app:settings/pool/need_recipes/recipe_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133082 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_on
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133091 run function app:settings/pool/reload/cleanongoingsession
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133091 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/cleanongoingsession
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133092 run function app:settings/pool/reload/keepongoingsession
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133092 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/keepongoingsession
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133101 run function app:settings/pool/restitution/impact
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133101 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/restitution/impact
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133111 run function app:settings/pool/rules/automatic_judge_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133111 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_off
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133112 run function app:settings/pool/rules/automatic_judge_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133112 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_on
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133113 run function app:settings/pool/rules/foul_reason_feedback
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133113 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_feedback
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133114 run function app:settings/pool/rules/foul_reason_hide
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133114 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_hide
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133115 run function app:settings/pool/rules/rail_rule_enforce
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133115 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_enforce
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133116 run function app:settings/pool/rules/rail_rule_ignore
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133116 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_ignore
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133117 run function app:settings/pool/rules/singleplayer_role_keep
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133117 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_keep
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133118 run function app:settings/pool/rules/singleplayer_role_switch
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133118 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_switch
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133131 run function app:settings/pool/version/1_16
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133131 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_16
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133132 run function app:settings/pool/version/1_17
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133132 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_17
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133133 run function app:settings/pool/version/1_18
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133133 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_18
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133134 run function app:settings/pool/version/1_19
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133134 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_19
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133135 run function app:settings/pool/version/1_20_4_andminus
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133135 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_4_andminus
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133136 run function app:settings/pool/version/1_20_5_andplus
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133136 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_5_andplus
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133137 run function app:settings/pool/version/reset
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133137 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/reset
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133141 run function app:settings/pool/visuals/cueball_clean
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133141 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_clean
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133142 run function app:settings/pool/visuals/cueball_red_dots
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133142 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_red_dots
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133143 run function app:settings/pool/visuals/disable_ball_spinning
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133143 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/disable_ball_spinning
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133144 run function app:settings/pool/visuals/enable_ball_spinning
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133144 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/enable_ball_spinning
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133145 run function app:settings/pool/visuals/tp_duration
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133145 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/tp_duration
+
 execute if score @s swPool__trigger matches 4110104 run function pool:classes/9ball/start
+
 execute if score @s swPool__trigger matches 4110107 run function pool:classes/9ball/start_helper
+
 execute if score @s swPool__trigger matches 4110110 run function pool:classes/9ball/startsp_helper
-execute if score @s swPool__trigger matches 4110604 run function pool:classes/cn8ball/start
-execute if score @s swPool__trigger matches 4110607 run function pool:classes/cn8ball/start_helper
-execute if score @s swPool__trigger matches 4110610 run function pool:classes/cn8ball/startsp_helper
-execute if score @s swPool__trigger matches 4110803 run function pool:classes/cue/help_adjust
-execute if score @s swPool__trigger matches 4110804 run function pool:classes/cue/help_speed
-execute if score @s swPool__trigger matches 4110806 run function pool:classes/cue/map
-execute if score @s swPool__trigger matches 4111002 run function pool:classes/lobby/beginmp9ball
-execute if score @s swPool__trigger matches 4111003 run function pool:classes/lobby/beginmpcn8ball
-execute if score @s swPool__trigger matches 4111004 run function pool:classes/lobby/beginmpsnooker
-execute if score @s swPool__trigger matches 4111005 run function pool:classes/lobby/beginmpuk8ball
-execute if score @s swPool__trigger matches 4111006 run function pool:classes/lobby/beginsp9ball
-execute if score @s swPool__trigger matches 4111007 run function pool:classes/lobby/beginspcn8ball
-execute if score @s swPool__trigger matches 4111008 run function pool:classes/lobby/beginspsnooker
-execute if score @s swPool__trigger matches 4111009 run function pool:classes/lobby/beginspuk8ball
-execute if score @s swPool__trigger matches 4111010 run function pool:classes/lobby/call
-execute if score @s swPool__trigger matches 4111011 run function pool:classes/lobby/joinmp9ball
-execute if score @s swPool__trigger matches 4111012 run function pool:classes/lobby/joinmpcn8ball
-execute if score @s swPool__trigger matches 4111013 run function pool:classes/lobby/joinmpsnooker
-execute if score @s swPool__trigger matches 4111014 run function pool:classes/lobby/joinmpuk8ball
-execute if score @s swPool__trigger matches 4111015 run function pool:classes/lobby/leave
-execute if score @s swPool__trigger matches 4111016 run function pool:classes/lobby/spec_off
-execute if score @s swPool__trigger matches 4111017 run function pool:classes/lobby/spec_on
-execute if score @s swPool__trigger matches 4111020 run function pool:classes/lobby/terminate_helper
-execute if score @s swPool__trigger matches 4111210 run function pool:classes/master/undo
-execute if score @s swPool__trigger matches 4111901 run function pool:classes/practice/_lobby
-execute if score @s swPool__trigger matches 4111907 run function pool:classes/practice/start
-execute if score @s swPool__trigger matches 4111909 run function pool:classes/practice/start_helper
-execute if score @s swPool__trigger matches 4111912 run function pool:classes/practice/switch_helper
-execute if score @s swPool__trigger matches 4112006 run function pool:classes/snooker/start
-execute if score @s swPool__trigger matches 4112008 run function pool:classes/snooker/start_helper
-execute if score @s swPool__trigger matches 4112009 run function pool:classes/snooker/startsp
-execute if score @s swPool__trigger matches 4112011 run function pool:classes/snooker/startsp_helper
-execute if score @s swPool__trigger matches 4112201 run function pool:classes/table/check
-execute if score @s swPool__trigger matches 4112210 run function pool:classes/table/set_preview
-execute if score @s swPool__trigger matches 4112211 run function pool:classes/table/start
-execute if score @s swPool__trigger matches 4112306 run function pool:classes/uk8ball/start
-execute if score @s swPool__trigger matches 4112308 run function pool:classes/uk8ball/start_helper
-execute if score @s swPool__trigger matches 4112309 run function pool:classes/uk8ball/startsp
-execute if score @s swPool__trigger matches 4112311 run function pool:classes/uk8ball/startsp_helper
-execute if score @s swPool__trigger matches 11331011 run function app:settings/pool/snooker/display/dialogue
-execute if score @s swPool__trigger matches 11331012 run function app:settings/pool/snooker/display/sidebar
-execute if score @s swPool__trigger matches 41112156 run function pool:classes/master/9ball/respot_9_manual
-execute if score @s swPool__trigger matches 41112171 run function pool:classes/master/practice/ballinhand
-execute if score @s swPool__trigger matches 41112186 run function pool:classes/master/snooker/progression_norule_control
-execute if score @s swPool__trigger matches 41112187 run function pool:classes/master/snooker/progression_norule_control_1205
-execute if score @s swPool__trigger matches 41112188 run function pool:classes/master/snooker/progression_norule_refresh_score
-execute if score @s swPool__trigger matches 41122131 run function pool:classes/table/helpers/chest_check
-execute if score @s swPool__trigger matches 41122135 run function pool:classes/table/helpers/chest_set_preview
-execute if score @s swPool__trigger matches 411081001 run function pool:classes/cue/points_v2/p-2000_-2000
-execute if score @s swPool__trigger matches 411081002 run function pool:classes/cue/points_v2/p-2000_-4000
-execute if score @s swPool__trigger matches 411081003 run function pool:classes/cue/points_v2/p-2000_-6000
-execute if score @s swPool__trigger matches 411081004 run function pool:classes/cue/points_v2/p-2000_-8000
-execute if score @s swPool__trigger matches 411081005 run function pool:classes/cue/points_v2/p-2000_0
-execute if score @s swPool__trigger matches 411081006 run function pool:classes/cue/points_v2/p-2000_2000
-execute if score @s swPool__trigger matches 411081007 run function pool:classes/cue/points_v2/p-2000_4000
-execute if score @s swPool__trigger matches 411081008 run function pool:classes/cue/points_v2/p-2000_6000
-execute if score @s swPool__trigger matches 411081009 run function pool:classes/cue/points_v2/p-2000_8000
-execute if score @s swPool__trigger matches 411081010 run function pool:classes/cue/points_v2/p-4000_-2000
-execute if score @s swPool__trigger matches 411081011 run function pool:classes/cue/points_v2/p-4000_-4000
-execute if score @s swPool__trigger matches 411081012 run function pool:classes/cue/points_v2/p-4000_-6000
-execute if score @s swPool__trigger matches 411081013 run function pool:classes/cue/points_v2/p-4000_-8000
-execute if score @s swPool__trigger matches 411081014 run function pool:classes/cue/points_v2/p-4000_0
-execute if score @s swPool__trigger matches 411081015 run function pool:classes/cue/points_v2/p-4000_2000
-execute if score @s swPool__trigger matches 411081016 run function pool:classes/cue/points_v2/p-4000_4000
-execute if score @s swPool__trigger matches 411081017 run function pool:classes/cue/points_v2/p-4000_6000
-execute if score @s swPool__trigger matches 411081018 run function pool:classes/cue/points_v2/p-4000_8000
-execute if score @s swPool__trigger matches 411081019 run function pool:classes/cue/points_v2/p-6000_-2000
-execute if score @s swPool__trigger matches 411081020 run function pool:classes/cue/points_v2/p-6000_-4000
-execute if score @s swPool__trigger matches 411081021 run function pool:classes/cue/points_v2/p-6000_-6000
-execute if score @s swPool__trigger matches 411081022 run function pool:classes/cue/points_v2/p-6000_0
-execute if score @s swPool__trigger matches 411081023 run function pool:classes/cue/points_v2/p-6000_2000
-execute if score @s swPool__trigger matches 411081024 run function pool:classes/cue/points_v2/p-6000_4000
-execute if score @s swPool__trigger matches 411081025 run function pool:classes/cue/points_v2/p-6000_6000
-execute if score @s swPool__trigger matches 411081026 run function pool:classes/cue/points_v2/p-8000_-2000
-execute if score @s swPool__trigger matches 411081027 run function pool:classes/cue/points_v2/p-8000_-4000
-execute if score @s swPool__trigger matches 411081028 run function pool:classes/cue/points_v2/p-8000_0
-execute if score @s swPool__trigger matches 411081029 run function pool:classes/cue/points_v2/p-8000_2000
-execute if score @s swPool__trigger matches 411081030 run function pool:classes/cue/points_v2/p-8000_4000
-execute if score @s swPool__trigger matches 411081031 run function pool:classes/cue/points_v2/p0_-2000
-execute if score @s swPool__trigger matches 411081032 run function pool:classes/cue/points_v2/p0_-4000
-execute if score @s swPool__trigger matches 411081033 run function pool:classes/cue/points_v2/p0_-6000
-execute if score @s swPool__trigger matches 411081034 run function pool:classes/cue/points_v2/p0_-8000
-execute if score @s swPool__trigger matches 411081035 run function pool:classes/cue/points_v2/p0_0
-execute if score @s swPool__trigger matches 411081036 run function pool:classes/cue/points_v2/p0_2000
-execute if score @s swPool__trigger matches 411081037 run function pool:classes/cue/points_v2/p0_4000
-execute if score @s swPool__trigger matches 411081038 run function pool:classes/cue/points_v2/p0_6000
-execute if score @s swPool__trigger matches 411081039 run function pool:classes/cue/points_v2/p0_8000
-execute if score @s swPool__trigger matches 411081040 run function pool:classes/cue/points_v2/p2000_-2000
-execute if score @s swPool__trigger matches 411081041 run function pool:classes/cue/points_v2/p2000_-4000
-execute if score @s swPool__trigger matches 411081042 run function pool:classes/cue/points_v2/p2000_-6000
-execute if score @s swPool__trigger matches 411081043 run function pool:classes/cue/points_v2/p2000_-8000
-execute if score @s swPool__trigger matches 411081044 run function pool:classes/cue/points_v2/p2000_0
-execute if score @s swPool__trigger matches 411081045 run function pool:classes/cue/points_v2/p2000_2000
-execute if score @s swPool__trigger matches 411081046 run function pool:classes/cue/points_v2/p2000_4000
-execute if score @s swPool__trigger matches 411081047 run function pool:classes/cue/points_v2/p2000_6000
-execute if score @s swPool__trigger matches 411081048 run function pool:classes/cue/points_v2/p2000_8000
-execute if score @s swPool__trigger matches 411081049 run function pool:classes/cue/points_v2/p4000_-2000
-execute if score @s swPool__trigger matches 411081050 run function pool:classes/cue/points_v2/p4000_-4000
-execute if score @s swPool__trigger matches 411081051 run function pool:classes/cue/points_v2/p4000_-6000
-execute if score @s swPool__trigger matches 411081052 run function pool:classes/cue/points_v2/p4000_-8000
-execute if score @s swPool__trigger matches 411081053 run function pool:classes/cue/points_v2/p4000_0
-execute if score @s swPool__trigger matches 411081054 run function pool:classes/cue/points_v2/p4000_2000
-execute if score @s swPool__trigger matches 411081055 run function pool:classes/cue/points_v2/p4000_4000
-execute if score @s swPool__trigger matches 411081056 run function pool:classes/cue/points_v2/p4000_6000
-execute if score @s swPool__trigger matches 411081057 run function pool:classes/cue/points_v2/p4000_8000
-execute if score @s swPool__trigger matches 411081058 run function pool:classes/cue/points_v2/p6000_-2000
-execute if score @s swPool__trigger matches 411081059 run function pool:classes/cue/points_v2/p6000_-4000
-execute if score @s swPool__trigger matches 411081060 run function pool:classes/cue/points_v2/p6000_-6000
-execute if score @s swPool__trigger matches 411081061 run function pool:classes/cue/points_v2/p6000_0
-execute if score @s swPool__trigger matches 411081062 run function pool:classes/cue/points_v2/p6000_2000
-execute if score @s swPool__trigger matches 411081063 run function pool:classes/cue/points_v2/p6000_4000
-execute if score @s swPool__trigger matches 411081064 run function pool:classes/cue/points_v2/p6000_6000
-execute if score @s swPool__trigger matches 411081065 run function pool:classes/cue/points_v2/p8000_-2000
-execute if score @s swPool__trigger matches 411081066 run function pool:classes/cue/points_v2/p8000_-4000
-execute if score @s swPool__trigger matches 411081067 run function pool:classes/cue/points_v2/p8000_0
-execute if score @s swPool__trigger matches 411081068 run function pool:classes/cue/points_v2/p8000_2000
-execute if score @s swPool__trigger matches 411081069 run function pool:classes/cue/points_v2/p8000_4000
-execute if score @s swPool__trigger matches 411081070 run function pool:classes/cue/points_v2/x_add_200
-execute if score @s swPool__trigger matches 411081071 run function pool:classes/cue/points_v2/x_add_400
-execute if score @s swPool__trigger matches 411081072 run function pool:classes/cue/points_v2/x_remove_200
-execute if score @s swPool__trigger matches 411081073 run function pool:classes/cue/points_v2/x_remove_400
-execute if score @s swPool__trigger matches 411081074 run function pool:classes/cue/points_v2/y_add_200
-execute if score @s swPool__trigger matches 411081075 run function pool:classes/cue/points_v2/y_add_400
-execute if score @s swPool__trigger matches 411081076 run function pool:classes/cue/points_v2/y_remove_200
-execute if score @s swPool__trigger matches 411081077 run function pool:classes/cue/points_v2/y_remove_400
-execute if score @s swPool__trigger matches 411081101 run function pool:classes/cue/speed/cancel
-execute if score @s swPool__trigger matches 411081103 run function pool:classes/cue/speed/pl_000
-execute if score @s swPool__trigger matches 411081104 run function pool:classes/cue/speed/pl_010
-execute if score @s swPool__trigger matches 411081105 run function pool:classes/cue/speed/pl_020
-execute if score @s swPool__trigger matches 411081106 run function pool:classes/cue/speed/pl_030
-execute if score @s swPool__trigger matches 411081107 run function pool:classes/cue/speed/pl_040
-execute if score @s swPool__trigger matches 411081108 run function pool:classes/cue/speed/pl_050
-execute if score @s swPool__trigger matches 411081109 run function pool:classes/cue/speed/pl_060
-execute if score @s swPool__trigger matches 411081110 run function pool:classes/cue/speed/pl_070
-execute if score @s swPool__trigger matches 411081111 run function pool:classes/cue/speed/pl_080
-execute if score @s swPool__trigger matches 411081112 run function pool:classes/cue/speed/pl_090
-execute if score @s swPool__trigger matches 411081113 run function pool:classes/cue/speed/pl_100
-execute if score @s swPool__trigger matches 411081114 run function pool:classes/cue/speed/ps_001
-execute if score @s swPool__trigger matches 411081115 run function pool:classes/cue/speed/ps_002
-execute if score @s swPool__trigger matches 411081116 run function pool:classes/cue/speed/ps_003
-execute if score @s swPool__trigger matches 411081117 run function pool:classes/cue/speed/ps_004
-execute if score @s swPool__trigger matches 411081118 run function pool:classes/cue/speed/ps_005
-execute if score @s swPool__trigger matches 411081119 run function pool:classes/cue/speed/ps_006
-execute if score @s swPool__trigger matches 411081120 run function pool:classes/cue/speed/ps_007
-execute if score @s swPool__trigger matches 411081121 run function pool:classes/cue/speed/ps_008
-execute if score @s swPool__trigger matches 411081122 run function pool:classes/cue/speed/ps_009
-execute if score @s swPool__trigger matches 411191351 run function pool:classes/practice/balls/settings/snake_15
-execute if score @s swPool__trigger matches 411191352 run function pool:classes/practice/balls/settings/snake_3
-execute if score @s swPool__trigger matches 411191353 run function pool:classes/practice/balls/settings/snake_7
-execute if score @s swPool__trigger matches 411191354 run function pool:classes/practice/balls/settings/vsnake_15
-execute if score @s swPool__trigger matches 411191355 run function pool:classes/practice/balls/settings/vsnake_3
-execute if score @s swPool__trigger matches 411191356 run function pool:classes/practice/balls/settings/vsnake_7
+
+execute if score @s swPool__trigger matches 4110111 run function pool:classes/9ball/startsp_helper_botmode
+
+execute if score @s swPool__trigger matches 4110704 run function pool:classes/cn8ball/start
+
+execute if score @s swPool__trigger matches 4110707 run function pool:classes/cn8ball/start_helper
+
+execute if score @s swPool__trigger matches 4110710 run function pool:classes/cn8ball/startsp_helper
+
+execute if score @s swPool__trigger matches 4110711 run function pool:classes/cn8ball/startsp_helper_botmode
+
+execute if score @s swPool__trigger matches 4110903 run function pool:classes/cue/help_adjust
+
+execute if score @s swPool__trigger matches 4110904 run function pool:classes/cue/help_speed
+
+execute if score @s swPool__trigger matches 4110906 run function pool:classes/cue/map
+
+execute if score @s swPool__trigger matches 4111102 run function pool:classes/lobby/beginmp9ball
+
+execute if score @s swPool__trigger matches 4111103 run function pool:classes/lobby/beginmpcn8ball
+
+execute if score @s swPool__trigger matches 4111104 run function pool:classes/lobby/beginmpsnooker
+
+execute if score @s swPool__trigger matches 4111105 run function pool:classes/lobby/beginmpuk8ball
+
+execute if score @s swPool__trigger matches 4111106 run function pool:classes/lobby/beginsp9ball
+
+execute if score @s swPool__trigger matches 4111107 run function pool:classes/lobby/beginspcn8ball
+
+execute if score @s swPool__trigger matches 4111108 run function pool:classes/lobby/beginspsnooker
+
+execute if score @s swPool__trigger matches 4111109 run function pool:classes/lobby/beginspuk8ball
+
+execute if score @s swPool__trigger matches 4111110 run function pool:classes/lobby/call
+
+execute if score @s swPool__trigger matches 4111111 run function pool:classes/lobby/joinmp9ball
+
+execute if score @s swPool__trigger matches 4111112 run function pool:classes/lobby/joinmpcn8ball
+
+execute if score @s swPool__trigger matches 4111113 run function pool:classes/lobby/joinmpsnooker
+
+execute if score @s swPool__trigger matches 4111114 run function pool:classes/lobby/joinmpuk8ball
+
+execute if score @s swPool__trigger matches 4111115 run function pool:classes/lobby/leave
+
+execute if score @s swPool__trigger matches 4111116 run function pool:classes/lobby/spec_off
+
+execute if score @s swPool__trigger matches 4111117 run function pool:classes/lobby/spec_on
+
+execute if score @s swPool__trigger matches 4111120 run function pool:classes/lobby/terminate_helper
+
+execute if score @s swPool__trigger matches 4111312 run function pool:classes/master/undo
+
+execute if score @s swPool__trigger matches 4112001 run function pool:classes/practice/_lobby
+
+execute if score @s swPool__trigger matches 4112007 run function pool:classes/practice/start
+
+execute if score @s swPool__trigger matches 4112009 run function pool:classes/practice/start_helper
+
+execute if score @s swPool__trigger matches 4112012 run function pool:classes/practice/switch_helper
+
+execute if score @s swPool__trigger matches 4112106 run function pool:classes/snooker/start
+
+execute if score @s swPool__trigger matches 4112108 run function pool:classes/snooker/start_helper
+
+execute if score @s swPool__trigger matches 4112109 run function pool:classes/snooker/startsp
+
+execute if score @s swPool__trigger matches 4112111 run function pool:classes/snooker/startsp_helper
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112301 run function pool:classes/table/check
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112301 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/check
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112312 run function pool:classes/table/set_preview
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112312 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/set_preview
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112313 run function pool:classes/table/start
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112313 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/start
+
+execute if score @s swPool__trigger matches 4112406 run function pool:classes/uk8ball/start
+
+execute if score @s swPool__trigger matches 4112408 run function pool:classes/uk8ball/start_helper
+
+execute if score @s swPool__trigger matches 4112409 run function pool:classes/uk8ball/startsp
+
+execute if score @s swPool__trigger matches 4112411 run function pool:classes/uk8ball/startsp_helper
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331211 run function app:settings/pool/snooker/display/dialogue
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331211 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/dialogue
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331212 run function app:settings/pool/snooker/display/sidebar
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331212 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/sidebar
+
+execute if score @s swPool__trigger matches 41113186 run function pool:classes/master/9ball/respot_9_manual
+
+execute if score @s swPool__trigger matches 41113211 run function pool:classes/master/practice/ballinhand
+
+execute if score @s swPool__trigger matches 41113226 run function pool:classes/master/snooker/progression_norule_control
+
+execute if score @s swPool__trigger matches 41113227 run function pool:classes/master/snooker/progression_norule_control_1205
+
+execute if score @s swPool__trigger matches 41113228 run function pool:classes/master/snooker/progression_norule_refresh_score
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41123151 run function pool:classes/table/helpers/chest_check
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41123151 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/helpers/chest_check
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41123156 run function pool:classes/table/helpers/chest_set_preview
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41123156 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/helpers/chest_set_preview
+
+execute if score @s swPool__trigger matches 411091001 run function pool:classes/cue/points_v2/p-2000_-2000
+
+execute if score @s swPool__trigger matches 411091002 run function pool:classes/cue/points_v2/p-2000_-4000
+
+execute if score @s swPool__trigger matches 411091003 run function pool:classes/cue/points_v2/p-2000_-6000
+
+execute if score @s swPool__trigger matches 411091004 run function pool:classes/cue/points_v2/p-2000_-8000
+
+execute if score @s swPool__trigger matches 411091005 run function pool:classes/cue/points_v2/p-2000_0
+
+execute if score @s swPool__trigger matches 411091006 run function pool:classes/cue/points_v2/p-2000_2000
+
+execute if score @s swPool__trigger matches 411091007 run function pool:classes/cue/points_v2/p-2000_4000
+
+execute if score @s swPool__trigger matches 411091008 run function pool:classes/cue/points_v2/p-2000_6000
+
+execute if score @s swPool__trigger matches 411091009 run function pool:classes/cue/points_v2/p-2000_8000
+
+execute if score @s swPool__trigger matches 411091010 run function pool:classes/cue/points_v2/p-4000_-2000
+
+execute if score @s swPool__trigger matches 411091011 run function pool:classes/cue/points_v2/p-4000_-4000
+
+execute if score @s swPool__trigger matches 411091012 run function pool:classes/cue/points_v2/p-4000_-6000
+
+execute if score @s swPool__trigger matches 411091013 run function pool:classes/cue/points_v2/p-4000_-8000
+
+execute if score @s swPool__trigger matches 411091014 run function pool:classes/cue/points_v2/p-4000_0
+
+execute if score @s swPool__trigger matches 411091015 run function pool:classes/cue/points_v2/p-4000_2000
+
+execute if score @s swPool__trigger matches 411091016 run function pool:classes/cue/points_v2/p-4000_4000
+
+execute if score @s swPool__trigger matches 411091017 run function pool:classes/cue/points_v2/p-4000_6000
+
+execute if score @s swPool__trigger matches 411091018 run function pool:classes/cue/points_v2/p-4000_8000
+
+execute if score @s swPool__trigger matches 411091019 run function pool:classes/cue/points_v2/p-6000_-2000
+
+execute if score @s swPool__trigger matches 411091020 run function pool:classes/cue/points_v2/p-6000_-4000
+
+execute if score @s swPool__trigger matches 411091021 run function pool:classes/cue/points_v2/p-6000_-6000
+
+execute if score @s swPool__trigger matches 411091022 run function pool:classes/cue/points_v2/p-6000_0
+
+execute if score @s swPool__trigger matches 411091023 run function pool:classes/cue/points_v2/p-6000_2000
+
+execute if score @s swPool__trigger matches 411091024 run function pool:classes/cue/points_v2/p-6000_4000
+
+execute if score @s swPool__trigger matches 411091025 run function pool:classes/cue/points_v2/p-6000_6000
+
+execute if score @s swPool__trigger matches 411091026 run function pool:classes/cue/points_v2/p-8000_-2000
+
+execute if score @s swPool__trigger matches 411091027 run function pool:classes/cue/points_v2/p-8000_-4000
+
+execute if score @s swPool__trigger matches 411091028 run function pool:classes/cue/points_v2/p-8000_0
+
+execute if score @s swPool__trigger matches 411091029 run function pool:classes/cue/points_v2/p-8000_2000
+
+execute if score @s swPool__trigger matches 411091030 run function pool:classes/cue/points_v2/p-8000_4000
+
+execute if score @s swPool__trigger matches 411091031 run function pool:classes/cue/points_v2/p0_-2000
+
+execute if score @s swPool__trigger matches 411091032 run function pool:classes/cue/points_v2/p0_-4000
+
+execute if score @s swPool__trigger matches 411091033 run function pool:classes/cue/points_v2/p0_-6000
+
+execute if score @s swPool__trigger matches 411091034 run function pool:classes/cue/points_v2/p0_-8000
+
+execute if score @s swPool__trigger matches 411091035 run function pool:classes/cue/points_v2/p0_0
+
+execute if score @s swPool__trigger matches 411091036 run function pool:classes/cue/points_v2/p0_2000
+
+execute if score @s swPool__trigger matches 411091037 run function pool:classes/cue/points_v2/p0_4000
+
+execute if score @s swPool__trigger matches 411091038 run function pool:classes/cue/points_v2/p0_6000
+
+execute if score @s swPool__trigger matches 411091039 run function pool:classes/cue/points_v2/p0_8000
+
+execute if score @s swPool__trigger matches 411091040 run function pool:classes/cue/points_v2/p2000_-2000
+
+execute if score @s swPool__trigger matches 411091041 run function pool:classes/cue/points_v2/p2000_-4000
+
+execute if score @s swPool__trigger matches 411091042 run function pool:classes/cue/points_v2/p2000_-6000
+
+execute if score @s swPool__trigger matches 411091043 run function pool:classes/cue/points_v2/p2000_-8000
+
+execute if score @s swPool__trigger matches 411091044 run function pool:classes/cue/points_v2/p2000_0
+
+execute if score @s swPool__trigger matches 411091045 run function pool:classes/cue/points_v2/p2000_2000
+
+execute if score @s swPool__trigger matches 411091046 run function pool:classes/cue/points_v2/p2000_4000
+
+execute if score @s swPool__trigger matches 411091047 run function pool:classes/cue/points_v2/p2000_6000
+
+execute if score @s swPool__trigger matches 411091048 run function pool:classes/cue/points_v2/p2000_8000
+
+execute if score @s swPool__trigger matches 411091049 run function pool:classes/cue/points_v2/p4000_-2000
+
+execute if score @s swPool__trigger matches 411091050 run function pool:classes/cue/points_v2/p4000_-4000
+
+execute if score @s swPool__trigger matches 411091051 run function pool:classes/cue/points_v2/p4000_-6000
+
+execute if score @s swPool__trigger matches 411091052 run function pool:classes/cue/points_v2/p4000_-8000
+
+execute if score @s swPool__trigger matches 411091053 run function pool:classes/cue/points_v2/p4000_0
+
+execute if score @s swPool__trigger matches 411091054 run function pool:classes/cue/points_v2/p4000_2000
+
+execute if score @s swPool__trigger matches 411091055 run function pool:classes/cue/points_v2/p4000_4000
+
+execute if score @s swPool__trigger matches 411091056 run function pool:classes/cue/points_v2/p4000_6000
+
+execute if score @s swPool__trigger matches 411091057 run function pool:classes/cue/points_v2/p4000_8000
+
+execute if score @s swPool__trigger matches 411091058 run function pool:classes/cue/points_v2/p6000_-2000
+
+execute if score @s swPool__trigger matches 411091059 run function pool:classes/cue/points_v2/p6000_-4000
+
+execute if score @s swPool__trigger matches 411091060 run function pool:classes/cue/points_v2/p6000_-6000
+
+execute if score @s swPool__trigger matches 411091061 run function pool:classes/cue/points_v2/p6000_0
+
+execute if score @s swPool__trigger matches 411091062 run function pool:classes/cue/points_v2/p6000_2000
+
+execute if score @s swPool__trigger matches 411091063 run function pool:classes/cue/points_v2/p6000_4000
+
+execute if score @s swPool__trigger matches 411091064 run function pool:classes/cue/points_v2/p6000_6000
+
+execute if score @s swPool__trigger matches 411091065 run function pool:classes/cue/points_v2/p8000_-2000
+
+execute if score @s swPool__trigger matches 411091066 run function pool:classes/cue/points_v2/p8000_-4000
+
+execute if score @s swPool__trigger matches 411091067 run function pool:classes/cue/points_v2/p8000_0
+
+execute if score @s swPool__trigger matches 411091068 run function pool:classes/cue/points_v2/p8000_2000
+
+execute if score @s swPool__trigger matches 411091069 run function pool:classes/cue/points_v2/p8000_4000
+
+execute if score @s swPool__trigger matches 411091070 run function pool:classes/cue/points_v2/x_add_200
+
+execute if score @s swPool__trigger matches 411091071 run function pool:classes/cue/points_v2/x_add_400
+
+execute if score @s swPool__trigger matches 411091072 run function pool:classes/cue/points_v2/x_remove_200
+
+execute if score @s swPool__trigger matches 411091073 run function pool:classes/cue/points_v2/x_remove_400
+
+execute if score @s swPool__trigger matches 411091074 run function pool:classes/cue/points_v2/y_add_200
+
+execute if score @s swPool__trigger matches 411091075 run function pool:classes/cue/points_v2/y_add_400
+
+execute if score @s swPool__trigger matches 411091076 run function pool:classes/cue/points_v2/y_remove_200
+
+execute if score @s swPool__trigger matches 411091077 run function pool:classes/cue/points_v2/y_remove_400
+
+execute if score @s swPool__trigger matches 411091101 run function pool:classes/cue/speed/cancel
+
+execute if score @s swPool__trigger matches 411091103 run function pool:classes/cue/speed/pl_000
+
+execute if score @s swPool__trigger matches 411091104 run function pool:classes/cue/speed/pl_010
+
+execute if score @s swPool__trigger matches 411091105 run function pool:classes/cue/speed/pl_020
+
+execute if score @s swPool__trigger matches 411091106 run function pool:classes/cue/speed/pl_030
+
+execute if score @s swPool__trigger matches 411091107 run function pool:classes/cue/speed/pl_040
+
+execute if score @s swPool__trigger matches 411091108 run function pool:classes/cue/speed/pl_050
+
+execute if score @s swPool__trigger matches 411091109 run function pool:classes/cue/speed/pl_060
+
+execute if score @s swPool__trigger matches 411091110 run function pool:classes/cue/speed/pl_070
+
+execute if score @s swPool__trigger matches 411091111 run function pool:classes/cue/speed/pl_080
+
+execute if score @s swPool__trigger matches 411091112 run function pool:classes/cue/speed/pl_090
+
+execute if score @s swPool__trigger matches 411091113 run function pool:classes/cue/speed/pl_100
+
+execute if score @s swPool__trigger matches 411091114 run function pool:classes/cue/speed/ps_001
+
+execute if score @s swPool__trigger matches 411091115 run function pool:classes/cue/speed/ps_002
+
+execute if score @s swPool__trigger matches 411091116 run function pool:classes/cue/speed/ps_003
+
+execute if score @s swPool__trigger matches 411091117 run function pool:classes/cue/speed/ps_004
+
+execute if score @s swPool__trigger matches 411091118 run function pool:classes/cue/speed/ps_005
+
+execute if score @s swPool__trigger matches 411091119 run function pool:classes/cue/speed/ps_006
+
+execute if score @s swPool__trigger matches 411091120 run function pool:classes/cue/speed/ps_007
+
+execute if score @s swPool__trigger matches 411091121 run function pool:classes/cue/speed/ps_008
+
+execute if score @s swPool__trigger matches 411091122 run function pool:classes/cue/speed/ps_009
+
+execute if score @s swPool__trigger matches 411201351 run function pool:classes/practice/balls/settings/snake_15
+
+execute if score @s swPool__trigger matches 411201352 run function pool:classes/practice/balls/settings/snake_3
+
+execute if score @s swPool__trigger matches 411201353 run function pool:classes/practice/balls/settings/snake_7
+
+execute if score @s swPool__trigger matches 411201354 run function pool:classes/practice/balls/settings/vsnake_15
+
+execute if score @s swPool__trigger matches 411201355 run function pool:classes/practice/balls/settings/vsnake_3
+
+execute if score @s swPool__trigger matches 411201356 run function pool:classes/practice/balls/settings/vsnake_7
+
 
 scoreboard players reset @s swPool__trigger

@@ -1,8 +1,9 @@
-execute if entity @e[type=item_display,tag=swPool_9ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/9ball/main
-execute if entity @e[type=item_display,tag=swPool_cn8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
-execute if entity @e[type=item_display,tag=swPool_snookermode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main
-execute if entity @e[type=item_display,tag=swPool_uk8ballmode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/uk8ball/main
-execute if entity @e[type=item_display,tag=swPool_practicemode,limit=1] if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/practice/main
+# alternative faster mode detection for pocketing
+execute if score swPool_9ballmode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/9ball/main
+execute if score swPool_cn8ballmode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/cn8ball/main
+execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/snooker/main
+execute if score swPool_uk8ballmode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/uk8ball/main
+execute if score swPool_practicemode swMath_V matches 1 if entity @s[tag=swPool_inpocket] run function pool:classes/pocketing/practice/main
 
 tag @s remove swPool_pktx
 tag @s remove swPool_pktz
@@ -20,13 +21,13 @@ tag @e[type=item_display,tag=swPool_fake] add swPool_pool
 execute if score Stroke swPool_hidScore matches 0 run function pool:classes/master/pre_select_aggressive
 execute if score Stroke swPool_hidScore matches 1.. run function pool:classes/master/pre_select
 
-# if setting applied if cn/uk8ball mode if 08 has not moved, breaking mode = 1
+# if setting applied if cn/uk8ball mode if 08/black has not moved and stroke number is 0, breaking mode = 1
 scoreboard players set #breakmode swMath_V 0
-execute if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_cn8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_08,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
-execute if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_uk8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_black,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
+execute if score Stroke swPool_hidScore matches 0 if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_cn8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_08,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
+execute if score Stroke swPool_hidScore matches 0 if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_uk8ballmode,tag=swPool_8ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_black,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
 
-# if setting applied if 9ball mode if 09 has not moved, breaking mode = 1
-execute if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_9ballmode,tag=swPool_9ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_09,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_09,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
+# if setting applied if 9ball mode if 09 has not moved and stroke number is 0, breaking mode = 1
+execute if score Stroke swPool_hidScore matches 0 if data storage minecraft:swpool nn_break if entity @e[type=item_display,tag=swPool_9ballmode,tag=swPool_9ball_aibreak,limit=1] at @e[type=item_display,tag=swPool_pool,tag=swPool_09,limit=1] if entity @e[type=item_display,tag=swPool_temppin,tag=swPool_09,limit=1,distance=..0.001] run scoreboard players set #breakmode swMath_V 1
 
 #quicksort exclude some swPool_near
 tag @s add swPool_origin
@@ -44,11 +45,38 @@ tag @s remove swPool_d2
 #scoreboard players reset D2_self swPool_var01
 #scoreboard players reset D2_self swPool_var02
 
+# if fixtablescale, change pocket center radius to be larger so pocket size is the same
+# if not fixtablescale, rescale radii of all fake balls
+# no longer shift table dim by R0-R1, these are defined as needed in the table set functions
+
+scoreboard players set old_r swMath_V 1250
+
+# no rescale if there is fixtablescale storage
+scoreboard players operation C_r2_cntr_c swPool_C = C_r_cntr_c swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_c swPool_C *= C_r swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_c swPool_C /= old_r swMath_V
+scoreboard players operation C_r2_cntr_s swPool_C = C_r_cntr_s swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_s swPool_C *= C_r swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_s swPool_C /= old_r swMath_V
+scoreboard players operation C_r2_edge_c swPool_C = C_r_edge_c swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_edge_c swPool_C *= C_r swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_edge_c swPool_C /= old_r swMath_V
+scoreboard players operation C_r2_edge_s swPool_C = C_r_edge_s swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_edge_s swPool_C *= C_r swPool_C
+execute unless data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_edge_s swPool_C /= old_r swMath_V
+
+# increase center detection if there is fixtablescale storage
+execute if data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_c swPool_C += old_r swMath_V
+execute if data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_c swPool_C -= C_r swPool_C
+execute if data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_s swPool_C += old_r swMath_V
+execute if data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_s swPool_C -= C_r swPool_C
+
+
 execute at @s as @e[type=item_display,tag=swPool_near,sort=random] at @s run function pool:classes/master/select
 
 execute unless score @s swPool_v matches 0 at @s run function pool:classes/cushion/main
 
-scoreboard players operation @e[type=item_display,tag=swPool_col] swPool_hittime = MinTime swPool_hittime
+#scoreboard players operation @e[type=item_display,tag=swPool_col,limit=2] swPool_hittime = MinTime swPool_hittime
 execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=item_display,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run function pool:classes/collision/new_join
 #execute if entity @s[tag=swPool_col1,tag=!swPool_bounce] as @e[type=item_display,tag=swPool_col,limit=2,scores={swPool_v=1..}] at @s run say join
 #execute if entity @e[tag=swPool_col,tag=swPool_fake,tag=swPool_edge] run say colfake
@@ -67,13 +95,10 @@ execute unless score #breakhappen swMath_V matches 0 if entity @e[type=item_disp
 #execute at @s[tag=swPool_col,tag=!swPool_bounce] run say col
 execute at @s[tag=swPool_bounce] run function pool:classes/cushion/bounce_end
 
-scoreboard players reset @e[type=item_display,tag=swPool_col] swPool_hittime
-tag @e[type=item_display,tag=swPool_col] remove swPool_col1
-tag @e[type=item_display,tag=swPool_col] remove swPool_col2
-tag @e[type=item_display,tag=swPool_col] remove swPool_col
+execute as @e[type=item_display,tag=swPool_col] run function pool:classes/master/_helpers/clean_col_tags
 tag @s remove swPool_bounce
 tag @s remove swPool_nobounce
-tag @e[type=item_display] remove swPool_near
+#tag @e[type=item_display,tag=swPool_near] remove swPool_near
 tag @e[type=item_display,tag=swPool_fake] remove swPool_pool
 #execute at @s run function pool:classes/cushion/main
 tag @s remove swPool_a1

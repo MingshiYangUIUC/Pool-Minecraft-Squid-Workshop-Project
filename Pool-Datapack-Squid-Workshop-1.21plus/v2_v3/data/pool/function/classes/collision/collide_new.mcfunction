@@ -17,10 +17,10 @@ tag @s add swPool_colliding
 #set information of first hit ball to swPool_player
 tag @s add swPool_c
 tag @e[tag=swPool_col2] add swPool_c
-execute if entity @e[tag=swPool_snookermode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/snooker_hitball
-execute if entity @e[tag=swPool_uk8ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/uk8ball_hitball
-execute if entity @e[tag=swPool_cn8ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..8}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/cn8ball_hitball
-execute if entity @e[tag=swPool_9ballmode,limit=1] unless entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1..9}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/9ball_hitball
+execute if entity @e[tag=swPool_snookermode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/snooker_hitball
+execute if entity @e[tag=swPool_uk8ballmode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/uk8ball_hitball
+execute if entity @e[tag=swPool_cn8ballmode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..8}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/cn8ball_hitball
+execute if entity @e[tag=swPool_9ballmode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..9}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/9ball_hitball
 tag @e[tag=swPool_c] remove swPool_c
 
 
@@ -124,83 +124,83 @@ scoreboard players reset COL swPool_vrz
 
 
 
-execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
-execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
-execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
-execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
-execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
-execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
-execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
-execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
-execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
-execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
-execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
-execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
-execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
-execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
-execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
-execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
-execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
-execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
-execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
-execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
-execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
-execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
-execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
-execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
-execute if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
 
-execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
-execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
-execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
-execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
-execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
-execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
-execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
-execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
-execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
-execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
-execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
-execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
-execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
-execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
-execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
-execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
-execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
-execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
-execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
-execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
-execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
-execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
-execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
-execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
-execute if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
 
-execute if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
-execute if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
-execute if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
-execute if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
-execute if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
-execute if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
-execute if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
-execute if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
-execute if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
-execute if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
-execute if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
-execute if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
-execute if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
-execute if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
-execute if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
-execute if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
-execute if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
-execute if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
-execute if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
-execute if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
-execute if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
-execute if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
-execute if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
-execute if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
-execute if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 0..1071978 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.1 0.707
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 1071979..2247381 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.138 0.727717
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 2247382..3536184 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.175 0.74904
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 3536185..4949329 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.212 0.770989
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 4949330..6498812 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.25 0.793581
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 6498813..8197785 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.288 0.816834
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 8197786..10060673 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.325 0.840769
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 10060674..12103289 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.363 0.865406
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 12103290..14342972 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.4 0.890764
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 14342973..16798737 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.438 0.916866
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 16798738..19491429 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.475 0.943732
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 19491430..22443907 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.512 0.971385
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 22443908..25681234 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.55 0.999849
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 25681235..29230893 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.588 1.029147
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 29230894..33123017 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.625 1.059303
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 33123018..37390647 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.662 1.090343
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 37390648..42070009 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.7 1.122293
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 42070010..47200827 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.737 1.155178
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 47200828..52826658 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.775 1.189028
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 52826659..58995259 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.812 1.223869
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 58995260..65758995 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.85 1.259731
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 65758996..73175285 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.888 1.296644
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 73175286..81307084 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.925 1.334638
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 81307085..90223425 run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 0.962 1.373746
+execute unless score #muteall swPool_C matches 1 if score pitch swMath_V matches 90223426.. run playsound minecraft:custom.pool.hit ambient @a ~ ~ ~ 1.0 1.373746
 
 scoreboard players set @e[tag=swPool_col2,limit=1] swPool_T 0
 scoreboard players set @s swPool_T 0
