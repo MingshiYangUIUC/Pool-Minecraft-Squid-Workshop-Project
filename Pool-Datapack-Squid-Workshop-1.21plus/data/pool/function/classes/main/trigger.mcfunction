@@ -14,172 +14,193 @@ execute if score @s swPool__trigger matches 111110 run function app:get/pool/cue
 
 execute if score @s swPool__trigger matches 112151 run function app:help/pool/about/games
 
-execute if score @s swPool__trigger matches 112152 run function app:help/pool/about/rules
+execute if score @s swPool__trigger matches 112152 run function app:help/pool/about/guide
+
+execute if score @s swPool__trigger matches 112153 run function app:help/pool/about/rules
 
 execute if score @s swPool__trigger matches 112171 run function app:help/pool/notes/release_note
-
-execute if score @s swPool__trigger matches 112181 run function app:help/pool/settings/_help
-
-execute if score @s swPool__trigger matches 112182 run function app:help/pool/settings/_help_version
 
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 411122 run function pool:classes/main/load
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 411122 if entity @s[tag=swPool_whitelisted] run function pool:classes/main/load
 
-execute if score @s swPool__trigger matches 1133011 run function app:settings/pool/aim/cue_deflection
+execute if score @s swPool__trigger matches 1121801 run function app:help/pool/settings/_help
 
-execute if score @s swPool__trigger matches 1133012 run function app:settings/pool/aim/nozoom
+execute if score @s swPool__trigger matches 1121803 run function app:help/pool/settings/_help_version
 
-execute if score @s swPool__trigger matches 1133013 run function app:settings/pool/aim/zoom
+execute if score @s swPool__trigger matches 1121804 run function app:help/pool/settings/bot_player
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133021 run function app:settings/pool/bot/action_space_10
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133021 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_10
+execute if score @s swPool__trigger matches 1121805 run function app:help/pool/settings/datapack_management
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 run function app:settings/pool/bot/action_space_5
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133022 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_5
+execute if score @s swPool__trigger matches 1121807 run function app:help/pool/settings/game_settings
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133023 run function app:settings/pool/bot/angle_std
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133023 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/angle_std
+execute if score @s swPool__trigger matches 1121808 run function app:help/pool/settings/physics_settings
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 run function app:settings/pool/bot/n_aims_eval
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
+execute if score @s swPool__trigger matches 1121809 run function app:help/pool/settings/player_control
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133025 run function app:settings/pool/bot/tick_per_eval
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133025 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
+execute if score @s swPool__trigger matches 1121810 run function app:help/pool/settings/table_and_equipment
 
-execute if score @s swPool__trigger matches 1133031 run function app:settings/pool/breakshot/breakpower
+execute if score @s swPool__trigger matches 1121811 run function app:help/pool/settings/visuals
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133032 run function app:settings/pool/breakshot/default_break
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133032 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/default_break
+execute if score @s swPool__trigger matches 1135011 run function app:settings/pool/aim/cue_deflection
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133033 run function app:settings/pool/breakshot/nn_break
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133033 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_break
+execute if score @s swPool__trigger matches 1135012 run function app:settings/pool/aim/nozoom
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133034 run function app:settings/pool/breakshot/nn_complexity
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133034 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_complexity
+execute if score @s swPool__trigger matches 1135013 run function app:settings/pool/aim/zoom
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133041 run function app:settings/pool/cheating/allow
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133041 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/allow
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135021 run function app:settings/pool/bot/action_space_10
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135021 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_10
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133042 run function app:settings/pool/cheating/disallow
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133042 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/disallow
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135022 run function app:settings/pool/bot/action_space_5
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135022 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/action_space_5
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133051 run function app:settings/pool/equipment/ball_radius
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133051 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/ball_radius
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135023 run function app:settings/pool/bot/angle_std
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135023 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/angle_std
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133052 run function app:settings/pool/equipment/cloth_color
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133052 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/cloth_color
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 run function app:settings/pool/bot/n_aims_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133053 run function app:settings/pool/equipment/enforce_1x2
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133053 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/enforce_1x2
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 run function app:settings/pool/bot/tick_per_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133054 run function app:settings/pool/equipment/neglect_1x2
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133054 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/neglect_1x2
+execute if score @s swPool__trigger matches 1135031 run function app:settings/pool/breakshot/breakpower
 
-execute if score @s swPool__trigger matches 1133055 run function app:settings/pool/equipment/stick_type
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135032 run function app:settings/pool/breakshot/default_break
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135032 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/default_break
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 run function app:settings/pool/equipment/table_rim_type
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133056 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_rim_type
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135033 run function app:settings/pool/breakshot/nn_break
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135033 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_break
 
-execute if score @s swPool__trigger matches 1133057 run function app:settings/pool/equipment/table_scale_fix
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135034 run function app:settings/pool/breakshot/nn_complexity
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135034 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/breakshot/nn_complexity
 
-execute if score @s swPool__trigger matches 1133058 run function app:settings/pool/equipment/table_scale_unfix
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135041 run function app:settings/pool/cheating/allow
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135041 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/allow
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 run function app:settings/pool/friction/clear
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133061 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/clear
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135042 run function app:settings/pool/cheating/disallow
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135042 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/cheating/disallow
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133062 run function app:settings/pool/friction/default
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133062 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/default
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135051 run function app:settings/pool/equipment/ball_radius
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135051 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/ball_radius
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133063 run function app:settings/pool/friction/impact
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133063 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/impact
+execute if score @s swPool__trigger matches 1135052 run function app:settings/pool/equipment/stick_type
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133064 run function app:settings/pool/friction/rolling
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133064 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/rolling
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135053 run function app:settings/pool/equipment/table_cloth_color
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135053 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_cloth_color
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133065 run function app:settings/pool/friction/sliding
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133065 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/sliding
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135054 run function app:settings/pool/equipment/table_enforce_1x2
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135054 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_enforce_1x2
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133066 run function app:settings/pool/friction/striking
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133066 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/striking
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135055 run function app:settings/pool/equipment/table_neglect_1x2
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135055 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_neglect_1x2
 
-execute if score @s swPool__trigger matches 1133071 run function app:settings/pool/language/chinese_simplified
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135056 run function app:settings/pool/equipment/table_rim_type
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135056 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_rim_type
 
-execute if score @s swPool__trigger matches 1133072 run function app:settings/pool/language/english
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135057 run function app:settings/pool/equipment/table_scale_fix
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135057 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_scale_fix
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133081 run function app:settings/pool/need_recipes/recipe_off
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133081 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_off
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135058 run function app:settings/pool/equipment/table_scale_unfix
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135058 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/equipment/table_scale_unfix
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133082 run function app:settings/pool/need_recipes/recipe_on
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133082 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_on
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135061 run function app:settings/pool/friction/clear
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135061 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/clear
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133091 run function app:settings/pool/reload/cleanongoingsession
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133091 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/cleanongoingsession
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135062 run function app:settings/pool/friction/default
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135062 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/default
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133092 run function app:settings/pool/reload/keepongoingsession
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133092 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/keepongoingsession
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135063 run function app:settings/pool/friction/impact
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135063 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/impact
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133101 run function app:settings/pool/restitution/impact
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133101 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/restitution/impact
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135064 run function app:settings/pool/friction/rolling
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135064 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/rolling
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133111 run function app:settings/pool/rules/automatic_judge_off
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133111 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_off
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135065 run function app:settings/pool/friction/sliding
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135065 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/sliding
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133112 run function app:settings/pool/rules/automatic_judge_on
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133112 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_on
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135066 run function app:settings/pool/friction/striking
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135066 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/friction/striking
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133113 run function app:settings/pool/rules/foul_reason_feedback
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133113 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_feedback
+execute if score @s swPool__trigger matches 1135071 run function app:settings/pool/language/chinese_simplified
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133114 run function app:settings/pool/rules/foul_reason_hide
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133114 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_hide
+execute if score @s swPool__trigger matches 1135072 run function app:settings/pool/language/english
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133115 run function app:settings/pool/rules/rail_rule_enforce
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133115 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_enforce
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135081 run function app:settings/pool/need_recipes/recipe_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135081 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_off
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133116 run function app:settings/pool/rules/rail_rule_ignore
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133116 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_ignore
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135082 run function app:settings/pool/need_recipes/recipe_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135082 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/need_recipes/recipe_on
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133117 run function app:settings/pool/rules/singleplayer_role_keep
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133117 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_keep
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135091 run function app:settings/pool/reload/cleanongoingsession
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135091 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/cleanongoingsession
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133118 run function app:settings/pool/rules/singleplayer_role_switch
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133118 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_switch
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135092 run function app:settings/pool/reload/keepongoingsession
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135092 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/reload/keepongoingsession
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133131 run function app:settings/pool/version/1_16
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133131 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_16
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135101 run function app:settings/pool/restitution/impact
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135101 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/restitution/impact
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133132 run function app:settings/pool/version/1_17
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133132 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_17
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135111 run function app:settings/pool/rules/_rule_window_sc
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135111 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/_rule_window_sc
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133133 run function app:settings/pool/version/1_18
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133133 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_18
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135112 run function app:settings/pool/rules/automatic_judge_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135112 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_off
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133134 run function app:settings/pool/version/1_19
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133134 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_19
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135113 run function app:settings/pool/rules/automatic_judge_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135113 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/automatic_judge_on
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133135 run function app:settings/pool/version/1_20_4_andminus
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133135 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_4_andminus
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135114 run function app:settings/pool/rules/foul_reason_feedback
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135114 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_feedback
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133136 run function app:settings/pool/version/1_20_5_andplus
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133136 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_5_andplus
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135115 run function app:settings/pool/rules/foul_reason_hide
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135115 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/foul_reason_hide
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133137 run function app:settings/pool/version/reset
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133137 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/reset
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135116 run function app:settings/pool/rules/rail_rule_enforce
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135116 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_enforce
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133141 run function app:settings/pool/visuals/cueball_clean
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133141 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_clean
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135117 run function app:settings/pool/rules/rail_rule_ignore
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135117 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/rail_rule_ignore
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133142 run function app:settings/pool/visuals/cueball_red_dots
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133142 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_red_dots
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135118 run function app:settings/pool/rules/singleplayer_role_keep
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135118 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_keep
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133143 run function app:settings/pool/visuals/disable_ball_spinning
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133143 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/disable_ball_spinning
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135119 run function app:settings/pool/rules/singleplayer_role_switch
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135119 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/rules/singleplayer_role_switch
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133144 run function app:settings/pool/visuals/enable_ball_spinning
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133144 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/enable_ball_spinning
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135131 run function app:settings/pool/version/1_16
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135131 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_16
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133145 run function app:settings/pool/visuals/tp_duration
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1133145 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/tp_duration
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135132 run function app:settings/pool/version/1_17
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135132 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_17
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135133 run function app:settings/pool/version/1_18
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135133 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_18
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135134 run function app:settings/pool/version/1_19
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135134 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_19
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135135 run function app:settings/pool/version/1_20_4_andminus
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135135 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_4_andminus
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135136 run function app:settings/pool/version/1_20_5_andplus
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135136 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/1_20_5_andplus
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135137 run function app:settings/pool/version/reset
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135137 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/version/reset
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135141 run function app:settings/pool/visuals/cueball_clean
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135141 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_clean
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135142 run function app:settings/pool/visuals/cueball_red_dots
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135142 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/cueball_red_dots
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135143 run function app:settings/pool/visuals/disable_ball_spinning
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135143 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/disable_ball_spinning
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135144 run function app:settings/pool/visuals/enable_ball_spinning
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135144 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/enable_ball_spinning
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135145 run function app:settings/pool/visuals/tp_duration
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135145 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/tp_duration
 
 execute if score @s swPool__trigger matches 4110104 run function pool:classes/9ball/start
 
@@ -272,11 +293,11 @@ execute if score @s swPool__trigger matches 4112409 run function pool:classes/uk
 
 execute if score @s swPool__trigger matches 4112411 run function pool:classes/uk8ball/startsp_helper
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331211 run function app:settings/pool/snooker/display/dialogue
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331211 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/dialogue
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351211 run function app:settings/pool/snooker/display/dialogue
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351211 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/dialogue
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331212 run function app:settings/pool/snooker/display/sidebar
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11331212 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/sidebar
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351212 run function app:settings/pool/snooker/display/sidebar
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351212 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/sidebar
 
 execute if score @s swPool__trigger matches 41113186 run function pool:classes/master/9ball/respot_9_manual
 

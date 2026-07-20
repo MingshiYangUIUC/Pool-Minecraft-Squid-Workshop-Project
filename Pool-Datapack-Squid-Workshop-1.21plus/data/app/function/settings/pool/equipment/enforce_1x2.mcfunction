@@ -1,1 +1,0 @@
-data merge storage minecraft:swpool {table1x2:1}

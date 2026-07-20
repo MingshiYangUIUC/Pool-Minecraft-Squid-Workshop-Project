@@ -125,7 +125,7 @@ item replace entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_blue] armor.hea
 item replace entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_pink] armor.head with minecraft:acacia_button{CustomModelData:7}
 item replace entity @e[tag=swPool_pool,tag=swPool_new,tag=swPool_black] armor.head with minecraft:acacia_button{CustomModelData:8}
 
-execute as @e[tag=swPool_pool,tag=swPool_new] at @s run function pool:classes/pose/randomize_pose
+execute if data storage minecraft:swpool {allowspin:1} as @e[tag=swPool_pool,tag=swPool_new] at @s run function pool:classes/pose/randomize_pose
 
 tag @e[tag=swPool_new] add swPool_placed
 tag @e[tag=swPool_new] remove swPool_new
