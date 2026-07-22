@@ -56,11 +56,17 @@ execute if data storage minecraft:swpool whitelist if score @s swPool__trigger m
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135023 run function app:settings/pool/bot/angle_std
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135023 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/angle_std
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 run function app:settings/pool/bot/n_aims_eval
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 run function app:settings/pool/bot/instant_mode_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135024 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/instant_mode_off
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 run function app:settings/pool/bot/tick_per_eval
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 run function app:settings/pool/bot/instant_mode_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135025 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/instant_mode_on
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135026 run function app:settings/pool/bot/n_aims_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135026 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135027 run function app:settings/pool/bot/tick_per_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135027 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
 
 execute if score @s swPool__trigger matches 1135031 run function app:settings/pool/breakshot/breakpower
 
