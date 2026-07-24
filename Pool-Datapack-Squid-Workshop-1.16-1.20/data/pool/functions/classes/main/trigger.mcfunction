@@ -208,13 +208,14 @@ execute if data storage minecraft:swpool whitelist if score @s swPool__trigger m
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135145 run function app:settings/pool/visuals/tp_duration
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 1135145 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/visuals/tp_duration
 
-execute if score @s swPool__trigger matches 4110104 run function pool:classes/9ball/start
+execute if score @s swPool__trigger matches 4110105 run function pool:classes/9ball/start
 
-execute if score @s swPool__trigger matches 4110107 run function pool:classes/9ball/start_helper
+execute if score @s swPool__trigger matches 4110108 run function pool:classes/9ball/start_helper
 
-execute if score @s swPool__trigger matches 4110110 run function pool:classes/9ball/startsp_helper
+execute if score @s swPool__trigger matches 4110111 run function pool:classes/9ball/startsp_helper
 
-execute if score @s swPool__trigger matches 4110111 run function pool:classes/9ball/startsp_helper_botmode
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4110112 run function pool:classes/9ball/startsp_helper_botmode
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4110112 if entity @s[tag=swPool_whitelisted] run function pool:classes/9ball/startsp_helper_botmode
 
 execute if score @s swPool__trigger matches 4110704 run function pool:classes/cn8ball/start
 
@@ -222,7 +223,8 @@ execute if score @s swPool__trigger matches 4110707 run function pool:classes/cn
 
 execute if score @s swPool__trigger matches 4110710 run function pool:classes/cn8ball/startsp_helper
 
-execute if score @s swPool__trigger matches 4110711 run function pool:classes/cn8ball/startsp_helper_botmode
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4110711 run function pool:classes/cn8ball/startsp_helper_botmode
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4110711 if entity @s[tag=swPool_whitelisted] run function pool:classes/cn8ball/startsp_helper_botmode
 
 execute if score @s swPool__trigger matches 4110903 run function pool:classes/cue/help_adjust
 

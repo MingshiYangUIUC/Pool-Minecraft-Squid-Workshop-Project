@@ -59,3 +59,5 @@
 /function app:settings/pool/snooker/display/sidebar
 /function pool:classes/table/helpers/chest_check
 /function pool:classes/table/helpers/chest_set_preview
+/function pool:classes/9ball/startsp_helper_botmode
+/function pool:classes/cn8ball/startsp_helper_botmode

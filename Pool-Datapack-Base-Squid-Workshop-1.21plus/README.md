@@ -168,7 +168,7 @@ The datapack supports computer-controlled opponents in **8-Ball and 9-Ball**.
 The bot's strength and performance can be configured through the bot settings in the menu.
 
 > Automatic judge must be enabled when playing against the bot.   
-> Unless instant mode is turned on, avoid using the bot on multiplayer servers or during combat and other time-sensitive gameplay. Bot calculations can temporarily reduce the game tick rate.
+> Unless instant mode is turned on, avoid using the bot on multiplayer servers or during combat and other time-sensitive gameplay. Bot calculations can temporarily reduce the game tick rate. In instant mode, the bot is much lighter to run, but its performance may be significantly weaker.
 
 ### 9. Start a Multiplayer Game
 <video src="Gallery/Videos/user_guides_EN/09_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>

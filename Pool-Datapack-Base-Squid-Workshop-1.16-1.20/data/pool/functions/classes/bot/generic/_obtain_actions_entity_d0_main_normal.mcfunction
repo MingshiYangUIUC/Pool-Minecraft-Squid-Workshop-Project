@@ -11,7 +11,8 @@ scoreboard players set #rank_i swMath_V 0
 tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_used
 tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_selected
 
-function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry
-
-
-#function pool:classes/bot/generic/_demo_action_helper
+# if not instant mode: run simulation
+execute unless data storage minecraft:swpool bot_instant_mode run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry
+# if instant mode: directly give shotscore based on calcscore and random perturb then directly run
+execute if data storage minecraft:swpool bot_instant_mode as @e[tag=swPool_aim_obj] run function pool:classes/bot/generic/_rand_shotscore
+execute if data storage minecraft:swpool bot_instant_mode run function pool:classes/bot/generic/_demo_action_helper
