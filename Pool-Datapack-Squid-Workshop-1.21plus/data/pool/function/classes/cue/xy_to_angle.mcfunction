@@ -8,7 +8,7 @@
 scoreboard players operation #vIn2 swMath_V = @s swPool_cuey
 scoreboard players operation #vIn swMath_V = @s swPool_cuex
 
-function math:classes/core/trig/arctan2_rad
+function pool:classes/math/arctan2_rad
 
 #tellraw @a [{"text":"vOut = "},{"score":{"name":"#vOut","objective":"swMath_V"}}]
 

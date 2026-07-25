@@ -6,7 +6,7 @@ scoreboard players operation #vIn swMath_V = @s swPool_vz
 scoreboard players operation #vIn2 swMath_V -= @s swPool_vx
 scoreboard players operation #vIn swMath_V -= @e[type=item_display,tag=swPool_a2,limit=1] swPool_vz
 
-function math:classes/core/trig/arctan2_rad
+function pool:classes/math/arctan2_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
 

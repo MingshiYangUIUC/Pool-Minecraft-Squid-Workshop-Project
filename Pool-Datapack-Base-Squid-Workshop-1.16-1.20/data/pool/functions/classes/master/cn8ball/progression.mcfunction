@@ -33,6 +33,14 @@ tag @s remove swPool_foul
 tag @e[tag=swPool_poolplay] remove swPool_foul
 # @s is pooltable
 
+# foul: if does not hit any ball.
+execute as @e[tag=swPool_hitcue,limit=1] unless score @s swPool_firsthit matches 1..8 run tag @s add swPool_foul0
+execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul0] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中目标球。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul0] run tellraw @a[tag=swPool_debug] [{"text":"➇ ","color":"white"},{"text":"FR 0"}]
+execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul0] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit any object ball."}]
+tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul0] add swPool_foul
+tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul0] remove swPool_foul0
+
 # foul: if NOT open, hit wrong ball first.
 execute unless entity @s[tag=swPool_cn8ball_open] as @e[tag=swPool_hitcue,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tag @s add swPool_foul1
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul1] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中正确的目标球。"}]
@@ -54,7 +62,7 @@ tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul2] remove swPool_foul2
 # add hitrail if rail rule is ignored
 execute if data storage minecraft:swpool ignore_rail_rule run tag @s add swPool_hitrail
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
-execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tag @e[tag=swPool_hitcue,limit=1] add swPool_foul3
+execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] as @e[tag=swPool_hitcue,limit=1] if score @s swPool_firsthit matches 1.. run tag @s add swPool_foul3
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul3] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：（击中子球后）没有球碰撞库边或落袋。"}]
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul3] run tellraw @a[tag=swPool_debug] [{"text":"➇ ","color":"white"},{"text":"FR 3"}]
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul3] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: no balls potted or touched the rail (after hitting an object ball)."}]
