@@ -318,13 +318,13 @@ execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as s
 execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
 
 # allow cheat by default, needed by default if trying to play without auto judge
-function app:settings/pool/cheating/allow
+execute unless data storage minecraft:swpool disallowcheats unless data storage minecraft:swpool allowcheats run function app:settings/pool/cheating/allow
 
 # keep session by default
-function app:settings/pool/reload/keepongoingsession
+execute unless data storage minecraft:swpool cleansession unless data storage minecraft:swpool keepsession run function app:settings/pool/reload/keepongoingsession
 
 # ball spinning by default
-function app:settings/pool/visuals/enable_ball_spinning
+execute unless data storage minecraft:swpool disallowspin unless data storage minecraft:swpool allowspin run function app:settings/pool/visuals/enable_ball_spinning
 
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback

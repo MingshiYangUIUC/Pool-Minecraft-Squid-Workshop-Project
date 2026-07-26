@@ -30,7 +30,7 @@ scoreboard players operation @s swPool_v = #vOut swMath_V
 scoreboard players operation #vIn2 swMath_V = @s swPool_vx
 scoreboard players operation #vIn swMath_V = @s swPool_vz
 
-function math:classes/core/trig/arctan2_rad
+function pool:classes/math/arctan2_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
 

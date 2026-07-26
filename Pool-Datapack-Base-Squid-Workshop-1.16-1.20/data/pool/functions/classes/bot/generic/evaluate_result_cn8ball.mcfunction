@@ -31,6 +31,11 @@ tag @a[tag=swPool_poolplay] remove swPool_foul
 tag @e[tag=swPool_shooter] remove swPool_foul
 # @s is pooltable
 
+# foul: if does not hit any ball.
+execute as @e[tag=swPool_shooter,limit=1] unless score @s swPool_firsthit matches 1..8 run tag @s add swPool_foul0
+tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul0] add swPool_foul
+tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul0] remove swPool_foul0
+
 # foul: if NOT open, hit wrong ball first.
 execute unless entity @s[tag=swPool_cn8ball_open] as @e[tag=swPool_shooter,limit=1] unless entity @s[tag=swPool_aimsolid,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimstripe,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aim08,scores={swPool_firsthit=8}] run tag @s add swPool_foul1
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul1] add swPool_foul
@@ -46,7 +51,7 @@ tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul2] remove swPool_foul2
 # add hitrail if rail rule is ignored
 execute if data storage minecraft:swpool ignore_rail_rule run tag @s add swPool_hitrail
 # foul: if not pocketing or not hitting rail after hitting ball (determined during hitrail logic not here)
-execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] run tag @e[tag=swPool_shooter,limit=1] add swPool_foul3
+execute if score Pocketed_Turn swPool_hidScore matches 0 if entity @s[tag=swPool_cn8ballmode,tag=!swPool_hitrail] as @e[tag=swPool_shooter,limit=1] if score @s swPool_firsthit matches 1.. run tag @s add swPool_foul3
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] add swPool_foul
 #execute if entity @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] run  sayf3
 tag @e[tag=swPool_shooter,limit=1,tag=swPool_foul3] remove swPool_foul3

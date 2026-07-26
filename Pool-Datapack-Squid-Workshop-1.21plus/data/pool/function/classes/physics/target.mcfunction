@@ -22,7 +22,7 @@ scoreboard players operation #vIn2 swMath_V *= #C_-1 swMath_C
 
 #tellraw @a [{"text":"variable -dx is "},{"score":{"name": "#vIn2","objective": "swMath_V"}}]
 #tellraw @a [{"text":"variable dz is "},{"score":{"name": "#vIn","objective": "swMath_V"}}]
-function math:classes/core/trig/arctan2_rad
+function pool:classes/math/arctan2_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
 #tellraw @a [{"text":"variable vOut is "},{"score":{"name": "#vOut","objective": "swMath_V"}}]

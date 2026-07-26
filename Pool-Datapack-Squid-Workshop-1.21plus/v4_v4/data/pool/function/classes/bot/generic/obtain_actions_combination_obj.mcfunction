@@ -21,7 +21,40 @@ scoreboard players add objid swPool_objid 1
 
 # if object ball very close to pocket indicator, use pocket center?
 scoreboard players set #usefakecenter swMath_V 0
-execute at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.125] run scoreboard players set #usefakecenter swMath_V 1
+#execute at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.125] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1901..2000 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.200] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1801..1900 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.190] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1701..1800 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.180] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1601..1700 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.170] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1501..1600 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.160] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1401..1500 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.150] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1301..1400 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.140] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1250..1300 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.130] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1201..1250 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.125] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1151..1200 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.120] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1101..1150 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.115] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1051..1100 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.110] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1001..1050 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.105] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 951..1000 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.100] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 901..950 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.095] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 851..900 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.090] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 801..850 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.085] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 751..800 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.080] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 701..750 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.075] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 651..700 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.070] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 601..650 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.065] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 551..600 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.060] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 501..550 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.055] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 451..500 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.050] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 401..450 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.045] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 351..400 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.040] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 301..350 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.035] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 251..300 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.030] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 201..250 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.025] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 151..200 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.020] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 101..150 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.015] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 51..100 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.010] run scoreboard players set #usefakecenter swMath_V 1
+execute if score C_r swPool_C matches 1..50 at @s if entity @e[tag=swPool_aim_obj_new,distance=..0.005] run scoreboard players set #usefakecenter swMath_V 1
 
 execute unless score #usefakecenter swMath_V matches 1 run tp @e[tag=swPool_aim_obj_new,distance=..0.001] ~ ~ ~ facing entity @s
 execute if score #usefakecenter swMath_V matches 1 run tp @e[tag=swPool_aim_obj_new,distance=..0.001] ~ ~ ~ facing entity @e[tag=swPool_cntr,tag=swPool_fake,limit=1,sort=nearest]
@@ -29,7 +62,8 @@ execute if score #usefakecenter swMath_V matches 1 run tp @e[tag=swPool_aim_obj_
 # log rotation
 execute as @e[tag=swPool_aim_obj_new,distance=..0.001] store result score @s swPool_rot run data get entity @s Rotation[0] 10000
 
-execute as @e[tag=swPool_aim_obj_new,distance=..0.001] at @s run tp @s ^ ^ ^-0.25
+#execute as @e[tag=swPool_aim_obj_new,distance=..0.001] at @s run tp @s ^ ^ ^-0.25
+execute as @e[tag=swPool_aim_obj_new,distance=..0.001] at @s run function pool:classes/bot/move_backward_2r
 
 # log cue rotation if facing the aim point
 execute at @e[tag=swPool_cue,tag=swPool_pool] run tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ facing entity @e[tag=swPool_aim_obj_new,limit=1]

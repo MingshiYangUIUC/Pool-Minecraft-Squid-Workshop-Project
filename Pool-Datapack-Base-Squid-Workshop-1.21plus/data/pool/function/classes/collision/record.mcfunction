@@ -11,3 +11,9 @@ tag @s add swPool_col1
 tag @s add swPool_col
 tag @e[tag=swPool_c2,limit=1] add swPool_col2
 tag @e[tag=swPool_c2,limit=1] add swPool_col
+
+scoreboard players reset #colfake swMath_V
+execute if entity @s[tag=swPool_fake] run scoreboard players set #colfake swMath_V 1
+execute if entity @e[tag=swPool_col2,limit=1,tag=swPool_fake] run scoreboard players set #colfake swMath_V 1
+
+scoreboard players set #col swMath_V 1

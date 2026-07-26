@@ -729,6 +729,32 @@ tp @s ~ ~1 ~
 
 
 
+# log the table size to pocket center entities (used by other features)
+execute as @e[tag=swPool_pktcntr_c] run scoreboard players set @s swPool_sizex 0
+execute as @e[tag=swPool_pktcntr_c] run scoreboard players set @s swPool_sizez 0
+
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizex -= TABLE swPool_sizex
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizex += TABLE swPool_sizex
+
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizez -= TABLE swPool_sizez
+execute as @e[tag=swPool_pktcntr_c] at @s as @e[tag=swPool_cloth,tag=swPool_corner,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_c,distance=..0.001,limit=1] swPool_sizez += TABLE swPool_sizez
+
+
+# for side pkt, shift pocket center outward by r 
+execute as @e[tag=swPool_pktcntr_s] run scoreboard players set @s swPool_sizex 0
+execute as @e[tag=swPool_pktcntr_s] run scoreboard players set @s swPool_sizez 0
+
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex -= TABLE swPool_sizex
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex -= C_r swPool_C
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex += TABLE swPool_sizex
+execute if entity @e[tag=swPool_pooltable,tag=swPool_z,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pxside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizex += C_r swPool_C
+
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez -= TABLE swPool_sizez
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_nzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez -= C_r swPool_C
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez += TABLE swPool_sizez
+execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool_pktcntr_s] at @s as @e[tag=swPool_cloth,tag=swPool_side,sort=nearest,limit=1] if entity @s[tag=swPool_pzside] run scoreboard players operation @e[tag=swPool_pktcntr_s,distance=..0.001,limit=1] swPool_sizez += C_r swPool_C
+
+
 
 #end_output
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111110"}}]

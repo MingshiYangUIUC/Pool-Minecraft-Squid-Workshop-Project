@@ -4,6 +4,8 @@
 /function app:settings/pool/bot/action_space_10
 /function app:settings/pool/bot/action_space_5
 /function app:settings/pool/bot/angle_std
+/function app:settings/pool/bot/instant_mode_on
+/function app:settings/pool/bot/instant_mode_off
 /function app:settings/pool/bot/n_aims_eval
 /function app:settings/pool/bot/tick_per_eval
 /function app:settings/pool/breakshot/default_break
@@ -12,10 +14,12 @@
 /function app:settings/pool/cheating/allow
 /function app:settings/pool/cheating/disallow
 /function app:settings/pool/equipment/ball_radius
-/function app:settings/pool/equipment/cloth_color
-/function app:settings/pool/equipment/enforce_1x2
-/function app:settings/pool/equipment/neglect_1x2
+/function app:settings/pool/equipment/table_cloth_color
+/function app:settings/pool/equipment/table_enforce_1x2
+/function app:settings/pool/equipment/table_neglect_1x2
 /function app:settings/pool/equipment/table_rim_type
+/function app:settings/pool/equipment/table_scale_fix
+/function app:settings/pool/equipment/table_scale_unfix
 /function app:settings/pool/friction/clear
 /function app:settings/pool/friction/default
 /function app:settings/pool/friction/impact
@@ -27,6 +31,7 @@
 /function app:settings/pool/reload/cleanongoingsession
 /function app:settings/pool/reload/keepongoingsession
 /function app:settings/pool/restitution/impact
+/function app:settings/pool/rules/_rule_window_sc
 /function app:settings/pool/rules/automatic_judge_off
 /function app:settings/pool/rules/automatic_judge_on
 /function app:settings/pool/rules/foul_reason_feedback
@@ -54,3 +59,5 @@
 /function app:settings/pool/snooker/display/sidebar
 /function pool:classes/table/helpers/chest_check
 /function pool:classes/table/helpers/chest_set_preview
+/function pool:classes/9ball/startsp_helper_botmode
+/function pool:classes/cn8ball/startsp_helper_botmode
