@@ -1,3 +1,4 @@
+scoreboard players reset #muteall swPool_C
 execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
 function pool:classes/bot/generic/__kill_equip
 

@@ -56,3 +56,4 @@ tag @a remove swPool_wait_snooker
 # game state for cn8ball
 tag @e[tag=swPool_pooltable] add swPool_cn8ball_breaking
 tag @e[tag=swPool_pooltable] add swPool_cn8ball_open
+scoreboard players set swPool_gameon swMath_V 1

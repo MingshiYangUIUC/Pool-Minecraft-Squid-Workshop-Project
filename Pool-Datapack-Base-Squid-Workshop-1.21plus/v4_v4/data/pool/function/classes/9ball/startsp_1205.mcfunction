@@ -48,3 +48,4 @@ tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
 
 scoreboard players set #9ball_init swMath_V 1
+scoreboard players set swPool_gameon swMath_V 1

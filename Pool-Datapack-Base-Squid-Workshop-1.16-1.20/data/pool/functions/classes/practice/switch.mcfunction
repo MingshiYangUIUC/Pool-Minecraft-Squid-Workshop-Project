@@ -100,3 +100,4 @@ execute as @e[tag=swPool_pooltable] at @s run function pool:classes/cue/reset
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Switched to Practice Mode."}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"切换至练习模式。"}]
 tag @a[tag=swPool_spec] add swPool_poolplay
+scoreboard players set swPool_gameon swMath_V 1

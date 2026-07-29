@@ -386,9 +386,9 @@ tag @e[tag=swPool_8ball_aibreak,limit=1] remove swPool_8ball_aibreak
 tag @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] remove swPool_08
 
 # does not really matter for cn8ball
-scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
+scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1
 
-# get nearest for uk8ball
+# get nearest for uk8ball (still @a because there is no bot for uk8ball)
 execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_red] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
 execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_yellow] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
 
