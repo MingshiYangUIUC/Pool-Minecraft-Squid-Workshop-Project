@@ -285,6 +285,7 @@ scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 #tag @e[type=armor_stand,tag=swPool_col] remove swPool_col
 tag @e[tag=swPool_9ball_aibreak,limit=1] remove swPool_9ball_aibreak
+scoreboard players set swPool_9ball_aibreak swMath_V 0
 
 # get nearest for 9ball
 execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..,sort=nearest] if entity @s[tag=swPool_01] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1

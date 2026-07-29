@@ -143,3 +143,4 @@ execute if entity @s[tag=swPool_cush,tag=!swPool_nobounce] run function pool:cla
 #tag @s remove swPool_z
 #tag @s remove swPool_x3
 #tag @s remove swPool_z3
+scoreboard players set #execcushion swMath_V 1

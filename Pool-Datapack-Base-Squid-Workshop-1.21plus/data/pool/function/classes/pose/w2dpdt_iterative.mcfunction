@@ -5,7 +5,7 @@ execute store result score pose1 swPool_pose run data get entity @s Pose.Head[1]
 execute store result score pose2 swPool_pose run data get entity @s Pose.Head[2] 10000
 
 
-scoreboard players set maxRdt swMath_V 100000000
+scoreboard players set maxRdt swMath_V 1000000000
 scoreboard players set DT swMath_V 100000
 
 
@@ -31,15 +31,16 @@ scoreboard players operation wy swMath_V /= C_20 swPool_C
 scoreboard players operation wz swMath_V /= C_20 swPool_C
 
 # get magnitude and clamp if needed
+# removed
 # wmag (unit is 0.0001 rad per tick)
-scoreboard players operation #vAi swMath_V = wx swMath_V
-scoreboard players operation #vAj swMath_V = wy swMath_V
-scoreboard players operation #vAk swMath_V = wz swMath_V
-function math:classes/core/vector/magnitude
-scoreboard players operation #wmag swMath_V = #vOut swMath_V
+#scoreboard players operation #vAi swMath_V = wx swMath_V
+#scoreboard players operation #vAj swMath_V = wy swMath_V
+#scoreboard players operation #vAk swMath_V = wz swMath_V
+#function math:classes/core/vector/magnitude
+#scoreboard players operation #wmag swMath_V = #vOut swMath_V
 
 # clamp magnitude for rotation animation
-execute if score #wmag swMath_V matches 30000.. run function pool:classes/pose_quat/clamp_w_magnitude
+#execute if score #wmag swMath_V matches 30000.. run function pool:classes/pose_quat/clamp_w_magnitude
 
 scoreboard players operation ws swMath_V = wy swMath_V
 scoreboard players operation wt swMath_V = wx swMath_V

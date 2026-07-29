@@ -381,6 +381,7 @@ scoreboard players reset COL swPool_vrx
 scoreboard players reset COL swPool_vrz
 #tag @e[type=item_display,tag=swPool_col] remove swPool_col
 tag @e[tag=swPool_8ball_aibreak,limit=1] remove swPool_8ball_aibreak
+scoreboard players set swPool_8ball_aibreak swMath_V 0
 
 # if uk8ball, remove 08 from black
 tag @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] remove swPool_08

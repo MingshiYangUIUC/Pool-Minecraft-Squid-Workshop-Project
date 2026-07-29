@@ -1,0 +1,10 @@
+# C_r = 500..749
+
+execute at @s[scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=0.001..0.26,sort=nearest,limit=10] add swPool_near
+execute at @s[scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=0.26..0.61,sort=nearest,limit=7] add swPool_near
+execute at @s[scores={swPool_v=1..}] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=0.61..1.6,sort=nearest,limit=6] add swPool_near
+execute at @s[scores={swPool_v=50000000..}] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=1.5..2.6,sort=nearest,limit=4] add swPool_near
+execute at @s[scores={swPool_v=80000000..}] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=0.51..2.6,sort=nearest,limit=9] add swPool_near
+
+execute at @s[scores={swPool_v=1..49999999}] run tag @e[type=item_display,tag=swPool_fake,distance=0.001..1.75,sort=nearest,limit=10] add swPool_near
+execute at @s[scores={swPool_v=50000000..}] run tag @e[type=item_display,tag=swPool_fake,distance=0.001..2.25,sort=nearest,limit=10] add swPool_near
