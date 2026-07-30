@@ -11,6 +11,7 @@ scoreboard players set swPool_cn8ballmode swMath_V 0
 scoreboard players set swPool_snookermode swMath_V 0
 scoreboard players set swPool_uk8ballmode swMath_V 0
 scoreboard players set swPool_practicemode swMath_V 0
+scoreboard players set swPool_gameon swMath_V 0
 
 scoreboard players set #shootanim swMath_V 0
 

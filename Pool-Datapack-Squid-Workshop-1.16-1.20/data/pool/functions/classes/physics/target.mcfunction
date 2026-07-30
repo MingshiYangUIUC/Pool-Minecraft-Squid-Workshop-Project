@@ -14,8 +14,8 @@
 scoreboard players operation @s swPool_drot = @s swPool_Rotation
 
 # calculate dr using position
-scoreboard players operation #vIn2 swMath_V = @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_tmpposx
-scoreboard players operation #vIn swMath_V = @e[type=armor_stand,tag=swPool_a2,limit=1] swPool_tmpposz
+scoreboard players operation #vIn2 swMath_V = a2_self swPool_var01
+scoreboard players operation #vIn swMath_V = a2_self swPool_var02
 scoreboard players operation #vIn2 swMath_V -= @s swPool_tmpposx
 scoreboard players operation #vIn swMath_V -= @s swPool_tmpposz
 scoreboard players operation #vIn2 swMath_V *= #C_-1 swMath_C
@@ -37,13 +37,13 @@ execute if entity @s[tag=swPool_aabs] run function pool:classes/physics/relative
 scoreboard players operation @s swPool_drot %= C_3600000 swPool_C
 
 #get distance
-tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_d2
+#tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_d2
 #tag @e[type=area_effect_cloud,tag=swPool_fake,tag=swPool_a2,limit=1] add swPool_d2
-tag @s add swPool_d1
+#tag @s add swPool_d1
 scoreboard players set @s swPool_dist 99999999
-execute if entity @e[type=armor_stand,tag=swPool_d2,distance=..3,limit=1] at @s run function pool:classes/physics/distance1
-tag @e[type=armor_stand,tag=swPool_a2,limit=1] remove swPool_d2
-tag @s remove swPool_d1
+execute if entity @e[type=armor_stand,tag=swPool_a2,distance=..3,limit=1] run function pool:classes/physics/distance1
+#tag @e[type=armor_stand,tag=swPool_a2,limit=1] remove swPool_d2
+#tag @s remove swPool_d1
 
 #tellraw @a [{"text":"variable dist is "},{"score":{"objective":"swPool_dist","name":"@s"}}]
 
@@ -53,7 +53,7 @@ tag @s remove swPool_d1
 # (r1 + r2) * 10000  #ontgt swPool_var01
 scoreboard players operation #ontgt swPool_var01 = C_r swPool_C
 
-execute as @e[tag=swPool_a2,limit=1] run function pool:classes/physics/target_helper
+execute as @e[type=armor_stand,tag=swPool_a2,limit=1] run function pool:classes/physics/target_helper
 
 #execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #ontgt swPool_var01 += C_r swPool_C
 

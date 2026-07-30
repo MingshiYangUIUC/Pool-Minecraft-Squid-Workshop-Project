@@ -6,6 +6,7 @@ execute unless entity @a[tag=swPool_poolplay] run tag @s remove swPool_wait_sp
 execute unless data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] run function pool:classes/cn8ball/startsp
 execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=swPool_poolplay] run function pool:classes/cn8ball/startsp_1205
 
-tag @e[tag=swPool_pooltable] add swPool_8ball_aibreak
+execute if score swPool_gameon swMath_V matches 1 run tag @e[tag=swPool_pooltable] add swPool_8ball_aibreak
+execute if score swPool_gameon swMath_V matches 1 run scoreboard players set swPool_8ball_aibreak swMath_V 1
 
-execute as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
+execute if score swPool_gameon swMath_V matches 1 as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper

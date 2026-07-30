@@ -1,10 +1,7 @@
+scoreboard players add #bih_ntp swMath_V 1
 
-execute at @s run tp @s ^ ^ ^0.005
+execute at @s run tp @s ^ ^ ^0.02
 execute store result score @s swPool_posy run data get entity @s Pos[1] 100
-scoreboard players operation @s swPool_posy -= @p[tag=swPool_ballinhand] swPool_posy
+scoreboard players operation @s swPool_posy -= #table_y swPool_posy
 
-
-execute as @p[tag=swPool_ballinhand] at @s positioned ~-1 ~-2 ~-1 if entity @e[tag=swPool_cloth,dy=1,dx=3,dz=3] run execute as @e[type=area_effect_cloud,tag=swPool_cueplace] unless entity @s[scores={swPool_posy=..5}] at @s run function pool:classes/ballinhand/practice/tp
-execute as @p[tag=swPool_ballinhand] at @s positioned ~-1 ~-2 ~-1 unless entity @e[tag=swPool_cloth,dy=1,dx=3,dz=3] run execute as @e[type=area_effect_cloud,tag=swPool_cueplace] unless entity @s[scores={swPool_posy=..105}] at @s run function pool:classes/ballinhand/practice/tp
-
-#execute unless entity @s[scores={swPool_posy=..105}] at @s run function pool:classes/ballinhand/uk8ball/tp
+execute unless score @s swPool_posy matches ..5 if score #bih_ntp swMath_V matches ..499 at @s run function pool:classes/ballinhand/practice/tp

@@ -44,3 +44,4 @@ tag @a remove swPool_wait_snooker
 tag @a[tag=swPool_poolplay] add swPool_spec
 
 scoreboard players set #breakshot swPool_v 0
+scoreboard players set swPool_gameon swMath_V 1

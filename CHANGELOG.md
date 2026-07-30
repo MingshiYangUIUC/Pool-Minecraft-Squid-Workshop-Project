@@ -28,7 +28,7 @@
 
 - This update also includes several fixes and performance improvements.
   - Datapack performance has been greatly improved to make bot simulations practical.
-  - Added cushion restitution, improved rack placement, fixed game rule behavior, and made other gameplay refinements.
+  - Added cushion restitution, improved rack placement, improved ball-in-hand placement, fixed game rule behavior, and made other gameplay refinements.
 
 - After updating, it is recommended to completely remove existing tables and place them again.
 

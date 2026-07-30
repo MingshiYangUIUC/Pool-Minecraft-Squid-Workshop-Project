@@ -52,3 +52,4 @@ tag @a remove swPool_wait_9ball
 tag @a remove swPool_wait_cn8ball
 tag @a remove swPool_wait_uk8ball
 tag @a remove swPool_wait_snooker
+scoreboard players set swPool_gameon swMath_V 1

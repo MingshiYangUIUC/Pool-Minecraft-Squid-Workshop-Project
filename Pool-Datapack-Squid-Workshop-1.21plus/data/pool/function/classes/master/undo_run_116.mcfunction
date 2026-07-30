@@ -65,6 +65,9 @@ scoreboard players operation #breakshot swPool_v = #breakshot swPool_hidScore
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] add swPool_8ball_aibreak
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode] add swPool_9ball_aibreak
+execute if score #breakshot swPool_v matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] run scoreboard players set swPool_8ball_aibreak swMath_V 1
+execute if score #breakshot swPool_v matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] run scoreboard players set swPool_8ball_aibreak swMath_V 1
+execute if score #breakshot swPool_v matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_9ballmode] run scoreboard players set swPool_8ball_aibreak swMath_V 1
 
 scoreboard players operation Pocketed_Total swPool_hidScore = Pocketed_T_rec swPool_hidScore
 scoreboard players operation Pocketed_Turn swPool_hidScore = Pocketed_Turn_rec swPool_hidScore
