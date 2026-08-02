@@ -16,7 +16,7 @@ tag @e[tag=swPool_long_temppin] remove swPool_pool
 execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_lhidScore = @s swPool_Score
 scoreboard players operation Opponent swPool_lhidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_lhidScore = Stroke swPool_lhidScore
-scoreboard players operation FirstHit swPool_lhidScore = @e[tag=swPool_pooltable,limit=1] swPool_firsthit
+scoreboard players operation FirstHit swPool_lhidScore = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
 
 scoreboard players operation #breakshot swPool_lhidScore = #breakshot swPool_v
 
@@ -27,8 +27,8 @@ tag @a remove swPool_long_redrec
 tag @a remove swPool_long_ylwrec
 tag @a remove swPool_long_blkrec
 tag @a remove swPool_long_stkrec
-tag @e[tag=swPool_pooltable] remove swPool_long_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_long_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_long_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_long_edawdrec
 
 tag @a[tag=swPool_aimred] add swPool_long_redrec
 tag @a[tag=swPool_aimylw] add swPool_long_ylwrec
@@ -46,7 +46,7 @@ tag @a[tag=swPool_aimsolid] add swPool_long_solidrec
 tag @a[tag=swPool_aimstripe] add swPool_long_striperec
 tag @a[tag=swPool_aim08] add swPool_long_08rec
 
-tag @e[tag=swPool_pooltable] remove swPool_long_cn8ball_breakingrec
-tag @e[tag=swPool_pooltable] remove swPool_long_cn8ball_openrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_long_cn8ball_breakingrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_long_cn8ball_openrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breaking] add swPool_long_cn8ball_breakingrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_open] add swPool_long_cn8ball_openrec

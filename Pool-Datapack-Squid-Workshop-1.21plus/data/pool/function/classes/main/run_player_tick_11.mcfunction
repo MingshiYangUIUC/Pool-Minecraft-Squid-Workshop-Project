@@ -41,4 +41,4 @@ execute if score swPool_practicemode swMath_V matches 1 if entity @s[tag=swPool_
 execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_ballinhand_obj,nbt={SelectedItem:{tag:{swPool_obj:1b},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingobj swMath_V 1
 execute if score #holdingobj swMath_V matches 1 store result score #rot1 swMath_V run data get entity @s Rotation[1] 100
 execute if score #holdingobj swMath_V matches 1 if score #rot1 swMath_V matches ..999 run scoreboard players set #holdingobj swMath_V 0
-execute if score #holdingobj swMath_V matches 1 unless score @e[tag=swPool_pooltable,limit=1] swPool_lifetime matches 1 at @s run function pool:classes/ballinhand/practice/main_obj
+execute if score #holdingobj swMath_V matches 1 unless score 000c2be1-0001-414d-0000-000000000000 swPool_lifetime matches 1 at @s run function pool:classes/ballinhand/practice/main_obj

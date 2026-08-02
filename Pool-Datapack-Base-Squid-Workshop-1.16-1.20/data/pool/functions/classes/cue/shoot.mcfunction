@@ -70,7 +70,7 @@ execute if score @e[tag=swPool_cue,tag=swPool_pool,limit=1] swPool_v matches 1..
 scoreboard players reset @s swPool_shoot
 tag @s add swPool_hitcue
 tag @s remove swPool_shooting
-#tag @e[tag=swPool_pooltable] remove swPool_resetcue
+#tag 000c2be1-0001-414d-0000-000000000000 remove swPool_resetcue
 
 scoreboard players set @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest] swPool_T 0 
 

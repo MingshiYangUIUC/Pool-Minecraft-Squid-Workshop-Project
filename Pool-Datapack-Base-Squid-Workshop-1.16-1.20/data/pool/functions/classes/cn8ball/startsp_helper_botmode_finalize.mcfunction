@@ -1,7 +1,7 @@
 # additional bot settings
 # make the pool table a fake opponent
-execute if entity @a[tag=swPool_poolplay,tag=swPool_CN] at @e[tag=swPool_pooltable] run summon armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"电脑玩家"'}
-execute if entity @a[tag=swPool_poolplay,tag=swPool_EN,tag=!swPool_CN] at @e[tag=swPool_pooltable] run summon armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"Bot Player"'}
+execute if entity @a[tag=swPool_poolplay,tag=swPool_CN] at 000c2be1-0001-414d-0000-000000000000 run summon armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"电脑玩家"'}
+execute if entity @a[tag=swPool_poolplay,tag=swPool_EN,tag=!swPool_CN] at 000c2be1-0001-414d-0000-000000000000 run summon armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"Bot Player"'}
 
 execute as @a[tag=swPool_poolplay] at @s if entity @a[distance=0.001..,limit=1] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"red"},{"text":"您可能处在多人游戏中，电脑玩家可能造成卡顿！"}]
 execute as @a[tag=swPool_poolplay] at @s if entity @a[distance=0.001..,limit=1] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"red"},{"text":"It seems like you are in a multiplayer game. The bot player may cause lag!"}]

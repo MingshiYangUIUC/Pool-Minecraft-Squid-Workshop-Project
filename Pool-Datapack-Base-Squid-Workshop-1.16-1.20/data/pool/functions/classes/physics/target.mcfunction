@@ -29,7 +29,7 @@ function math:classes/core/util/rad2deg
 scoreboard players operation @s swPool_drot -= #vOut swMath_V
 
 #test if need relative
-execute unless entity @s[scores={swPool_v=..0}] unless entity @e[tag=swPool_a2,limit=1,scores={swPool_v=..0}] run tag @s add swPool_aabs
+execute unless entity @s[scores={swPool_v=..0}] unless entity @e[type=armor_stand,tag=swPool_a2,limit=1,scores={swPool_v=..0},distance=..3] run tag @s add swPool_aabs
 
 execute if entity @s[tag=swPool_aabs] run function pool:classes/physics/relativevelocity
 
@@ -53,7 +53,7 @@ execute if entity @e[type=armor_stand,tag=swPool_a2,distance=..3,limit=1] run fu
 # (r1 + r2) * 10000  #ontgt swPool_var01
 scoreboard players operation #ontgt swPool_var01 = C_r swPool_C
 
-execute as @e[type=armor_stand,tag=swPool_a2,limit=1] run function pool:classes/physics/target_helper
+execute as @e[type=armor_stand,tag=swPool_a2,limit=1,distance=..3] run function pool:classes/physics/target_helper
 
 #execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #ontgt swPool_var01 += C_r swPool_C
 
@@ -92,8 +92,8 @@ execute unless entity @s[scores={swPool_ontgt=1..}] run scoreboard players set @
 #begin collision
 #link to collision function
 execute if entity @s[scores={swPool_drel=0..20000}] run tag @s add swPool_c1
-execute if entity @s[scores={swPool_drel=0..20000}] run tag @e[type=armor_stand,tag=swPool_a2,limit=1] add swPool_c2
+execute if entity @s[scores={swPool_drel=0..20000}] run tag @e[type=armor_stand,tag=swPool_a2,limit=1,distance=..3] add swPool_c2
 execute if entity @s[tag=swPool_c1] at @s run function pool:classes/collision/main
 
 #remove a1, a2 later
-
+tag @s remove swPool_tgt

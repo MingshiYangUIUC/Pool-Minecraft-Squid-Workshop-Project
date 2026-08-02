@@ -5,9 +5,9 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请稍候...
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
-scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
+summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]},UUID:[I;797665,82253,0,0]}
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_sizex = @s swPool_sizex
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_sizez = @s swPool_sizez
 
 # find the scale by s #clothscale
 scoreboard players set old_r swMath_V 1250
@@ -44,35 +44,35 @@ scoreboard players operation @s swPool_var01 -= @s swPool_sizex
 scoreboard players operation @s swPool_var02 -= @s swPool_sizez
 
 
-scoreboard players set @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var05 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posx /= @s swPool_var05
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posz /= @s swPool_var05
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
+scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_var05 10000
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 run scoreboard players operation @s swPool_posx /= @s swPool_var05
+execute as 000c2be1-0001-414d-0000-000000000000 run scoreboard players operation @s swPool_posz /= @s swPool_var05
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
 
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var01 = @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 -= @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var02 = @s swPool_var02
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 -= @s swPool_var02
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var01 = @s swPool_var01
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var03 -= @s swPool_var01
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var02 = @s swPool_var02
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var04 -= @s swPool_var02
 
 scoreboard players reset @s swPool_posx
 scoreboard players reset @s swPool_posz
 scoreboard players reset @s swPool_var05
 
 scoreboard players set #tablexlong swMath_V 0
-execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var03 >= @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var04 run scoreboard players set #tablexlong swMath_V 1
+execute if score 000c2be1-0001-414d-0000-000000000000 swPool_var03 >= 000c2be1-0001-414d-0000-000000000000 swPool_var04 run scoreboard players set #tablexlong swMath_V 1
 execute if score #tablexlong swMath_V matches 1 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_x
 execute unless score #tablexlong swMath_V matches 1 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_z
 
 summon area_effect_cloud ~ ~ ~ {Tags:["swPool_placer"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s run function pool:classes/table/loop_item_display
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/table/loop_item_display
 
 # if there is no side rim, SUMMON at pool table's -1 -1 to 1 1
 scoreboard players set #nosidecushion swMath_V 1
-execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizex matches 13750.. if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizez matches 13750.. run scoreboard players set #nosidecushion swMath_V 0
+execute if score 000c2be1-0001-414d-0000-000000000000 swPool_sizex matches 13750.. if score 000c2be1-0001-414d-0000-000000000000 swPool_sizez matches 13750.. run scoreboard players set #nosidecushion swMath_V 0
 #execute if score #nosidecushion swMath_V matches 1 run say adding
 execute if score #nosidecushion swMath_V matches 1 as @e[tag=swPool_pooltable,tag=swPool_z] at @s run summon item_display ~-0.5 ~-0.4 ~-1 {Tags:["swPool_new","swPool_cloth","swPool_nxside"]}
 execute if score #nosidecushion swMath_V matches 1 as @e[tag=swPool_pooltable,tag=swPool_z] at @s run summon item_display ~0.5 ~-0.4 ~-1 {Tags:["swPool_new","swPool_cloth","swPool_pxside"]}
@@ -160,8 +160,8 @@ execute if score C_tcc swPool_C matches 6 as @e[tag=swPool_corner] run data merg
 
 
 # Adjust table dims
-scoreboard players operation TABLE swPool_sizex = @e[tag=swPool_pooltable,limit=1] swPool_sizex
-scoreboard players operation TABLE swPool_sizez = @e[tag=swPool_pooltable,limit=1] swPool_sizez
+scoreboard players operation TABLE swPool_sizex = 000c2be1-0001-414d-0000-000000000000 swPool_sizex
+scoreboard players operation TABLE swPool_sizez = 000c2be1-0001-414d-0000-000000000000 swPool_sizez
 
 scoreboard players operation TABLE_1250 swPool_sizex = TABLE swPool_sizex
 scoreboard players operation TABLE_1250 swPool_sizez = TABLE swPool_sizez
@@ -188,8 +188,8 @@ scoreboard players operation TABLE swPool_sizez -= #clothscale_table swMath_V
 # - r
 scoreboard players operation TABLE swPool_sizez -= C_r swPool_C
 
-execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
-execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
 
 # adjust table dims to 2:1 if needed
 #tellraw @a [{"text":"X, "},{"score":{"objective":"swPool_sizex","name":"TABLE"}}]
@@ -219,7 +219,8 @@ execute as @e[tag=swPool_cloth] run data merge entity @s {transformation:{transl
 scoreboard players set #clothscale_amp swMath_V 15000
 # if small table: 2 - 2 s
 execute if score #nosidecushion swMath_V matches 1 run scoreboard players set #clothscale_amp swMath_V 10000
-scoreboard players operation #clothscale_amp swMath_V -= #clothscale swMath_V
+execute unless score C_r swPool_C matches 1251.. run scoreboard players operation #clothscale_amp swMath_V -= #clothscale swMath_V
+execute if score C_r swPool_C matches 1251.. run scoreboard players remove #clothscale_amp swMath_V 10000
 scoreboard players operation #clothscale_amp swMath_V *= #C_2 swMath_C
 
 
@@ -227,7 +228,8 @@ scoreboard players operation #clothscale_amp swMath_V *= #C_2 swMath_C
 scoreboard players set #clothscale_amp2x1 swMath_V 15000
 # # if small table: 2 - 2 s +l
 execute if score #nosidecushion swMath_V matches 1 run scoreboard players set #clothscale_amp2x1 swMath_V 10000
-scoreboard players operation #clothscale_amp2x1 swMath_V -= #clothscale swMath_V
+execute unless score C_r swPool_C matches 1251.. run scoreboard players operation #clothscale_amp2x1 swMath_V -= #clothscale swMath_V
+execute if score C_r swPool_C matches 1251.. run scoreboard players remove #clothscale_amp2x1 swMath_V 10000
 scoreboard players operation #clothscale_amp2x1 swMath_V *= #C_2 swMath_C
 scoreboard players operation #clothscale_amp2x1 swMath_V -= TABLE_diff_l swMath_V
 # also l/2
@@ -717,16 +719,38 @@ execute if score #nosidecushion swMath_V matches 0 if score C_trt swPool_C match
 execute if data storage minecraft:swpool {version:[1200]} at @s run function pool:classes/table/set_1200
 execute if data storage minecraft:swpool {version:[1205]} at @s run function pool:classes/table/set_1200
 
-execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp2","swPool_thp"],Duration:99999999,Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_rhp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp1"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_rhp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp2"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_rhp3] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp3"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
-execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_vcomb"],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air",Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999,UUID:[I;797665,435737,0,1],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999,UUID:[I;797665,435737,0,2],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp2","swPool_thp"],Duration:99999999,UUID:[I;797665,435737,0,3],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity 000c2be1-0006-a619-0000-000000000004 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp1"],UUID:[I;797665,435737,0,4],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity 000c2be1-0006-a619-0000-000000000005 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp2"],UUID:[I;797665,435737,0,5],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity 000c2be1-0006-a619-0000-000000000006 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp3"],UUID:[I;797665,435737,0,6],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
+execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_vcomb"],UUID:[I;797665,435737,0,7],Radius:0.0f,Potion:"minecraft:strong_harming",Particle:"block air"}
 
 tp @s ~ ~1 ~
 
+
+# final shift for large r
+# if r > 1250, move nearest non-self side away by ?? = (r-1250)/1250*10000
+execute if score C_r swPool_C matches 1251.. run scoreboard players operation #mvaway swMath_V = C_r swPool_C
+execute if score C_r swPool_C matches 1251.. run scoreboard players remove #mvaway swMath_V 1250
+execute if score C_r swPool_C matches 1251.. run scoreboard players operation #mvaway swMath_V *= #C_10000 swMath_C
+execute if score C_r swPool_C matches 1251.. run scoreboard players operation #mvaway swMath_V /= C_r0 swPool_C
+
+# move nz and pz near px -x, move nz and pz near nx +x, move px and nx near nz +z, move px and nx near pz -z 
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] run scoreboard players operation @s swPool_posx -= #mvaway swMath_V
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] store result entity @s Pos[0] double 0.0001 run scoreboard players get @s swPool_posx
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] run scoreboard players operation @s swPool_posx += #mvaway swMath_V
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nxside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nxside,tag=!swPool_pxside,sort=nearest,limit=1] store result entity @s Pos[0] double 0.0001 run scoreboard players get @s swPool_posx
+
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] run scoreboard players operation @s swPool_posz -= #mvaway swMath_V
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_pzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] store result entity @s Pos[2] double 0.0001 run scoreboard players get @s swPool_posz
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] run scoreboard players operation @s swPool_posz += #mvaway swMath_V
+execute if score C_r swPool_C matches 1251.. run execute as @e[tag=swPool_cloth,tag=swPool_corner,tag=swPool_nzside] at @s as @e[distance=0.001..,tag=swPool_cloth,tag=!swPool_nzside,tag=!swPool_pzside,sort=nearest,limit=1] store result entity @s Pos[2] double 0.0001 run scoreboard players get @s swPool_posz
 
 
 # log the table size to pocket center entities (used by other features)
@@ -761,10 +785,10 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"w
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","click_event":{"action":"run_command","command":"/function pool:classes/lobby/call"}}]
 
 
-tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_1st_render
 
 execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run scoreboard players get @s swPool_rot
-#execute as @e[tag=swPool_pooltable,limit=1] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+#execute as 000c2be1-0001-414d-0000-000000000000 at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.71f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000
 
 kill @e[tag=swPool_placer,type=area_effect_cloud]

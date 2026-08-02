@@ -49,11 +49,11 @@ scoreboard players operation #whalf swMath_V /= #C_10000 swMath_C
 
 # sin of half
 scoreboard players operation #vIn swMath_V = #whalf swMath_V
-function math:classes/core/trig/sin_rad
+function pool:classes/math/sin_rad_fast
 scoreboard players operation #wms swMath_V = #vOut swMath_V
 # cos of half
 scoreboard players operation #vIn swMath_V = #whalf swMath_V
-function math:classes/core/trig/cos_rad
+function pool:classes/math/cos_rad_fast
 scoreboard players operation #wmc swMath_V = #vOut swMath_V
 
 # qdelta, element/wmag * 100 * s / 100 (s has unit 0.0001)
@@ -71,12 +71,17 @@ scoreboard players operation #dQ4 swMath_V = #wmc swMath_V
 
 # get current Q information
 # then send to loop to update Q and normalize Q
-execute store result score #Q1 swMath_V run data get entity @s transformation.right_rotation[0] 10000
-execute store result score #Q2 swMath_V run data get entity @s transformation.right_rotation[1] 10000
-execute store result score #Q3 swMath_V run data get entity @s transformation.right_rotation[2] 10000
-execute store result score #Q4 swMath_V run data get entity @s transformation.right_rotation[3] 10000
+#execute store result score #Q1 swMath_V run data get entity @s transformation.right_rotation[0] 10000
+#execute store result score #Q2 swMath_V run data get entity @s transformation.right_rotation[1] 10000
+#execute store result score #Q3 swMath_V run data get entity @s transformation.right_rotation[2] 10000
+#execute store result score #Q4 swMath_V run data get entity @s transformation.right_rotation[3] 10000
 
-execute if score maxRdt swMath_V matches 1.. run function pool:classes/pose_quat/rotate_loop
+scoreboard players operation #Q1 swMath_V = @s swPool_Q1
+scoreboard players operation #Q2 swMath_V = @s swPool_Q2
+scoreboard players operation #Q3 swMath_V = @s swPool_Q3
+scoreboard players operation #Q4 swMath_V = @s swPool_Q4
+
+execute if score maxRdt swMath_V matches 1.. run function pool:classes/pose_quat/rotate_once
 # in this loop: scoreboard players operation maxRdt swMath_V -= DT swMath_V
 
 # loop should finish...
@@ -85,3 +90,9 @@ execute store result entity @s transformation.right_rotation[0] float 0.0001 run
 execute store result entity @s transformation.right_rotation[1] float 0.0001 run scoreboard players get #Q2 swMath_V
 execute store result entity @s transformation.right_rotation[2] float 0.0001 run scoreboard players get #Q3 swMath_V
 execute store result entity @s transformation.right_rotation[3] float 0.0001 run scoreboard players get #Q4 swMath_V
+
+# update self q values
+scoreboard players operation @s swPool_Q1 = #Q1 swMath_V
+scoreboard players operation @s swPool_Q2 = #Q2 swMath_V
+scoreboard players operation @s swPool_Q3 = #Q3 swMath_V
+scoreboard players operation @s swPool_Q4 = #Q4 swMath_V

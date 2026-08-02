@@ -59,7 +59,7 @@ scoreboard players operation Opponent swPool_Score = Opponent swPool_hidScore
 
 scoreboard players operation Stroke swPool_hidScore = StrokeRec swPool_hidScore
 
-scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = FirstHit swPool_hidScore
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_firsthit = FirstHit swPool_hidScore
 
 scoreboard players operation #breakshot swPool_v = #breakshot swPool_hidScore
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
@@ -80,8 +80,8 @@ tag @a remove swPool_aimsolid
 tag @a remove swPool_aimstripe
 tag @a remove swPool_aim08
 tag @a remove swPool_streak
-tag @e[tag=swPool_pooltable] remove swPool_awarded
-tag @e[tag=swPool_pooltable] remove swPool_endaward
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awarded
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endaward
 
 tag @a[tag=swPool_redrec] add swPool_aimred
 tag @a[tag=swPool_ylwrec] add swPool_aimylw
@@ -101,15 +101,15 @@ tag @a remove swPool_solidrec
 tag @a remove swPool_striperec
 tag @a remove swPool_08rec
 tag @a remove swPool_stkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_edawdrec
 
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breaking
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_open
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breaking
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_open
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breakingrec] add swPool_cn8ball_breaking
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_openrec] add swPool_cn8ball_open
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breakingrec
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_openrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
 
 scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_nred 0
 scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_ncolor 0
@@ -136,17 +136,17 @@ execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ba
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball"]
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean"]
 
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_endgame
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_rerack
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endgame
 
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktcue
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktsolid
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktstripe
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktcue
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktsolid
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktstripe
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pkt08
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktred
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktylw
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk
 
 execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r
 

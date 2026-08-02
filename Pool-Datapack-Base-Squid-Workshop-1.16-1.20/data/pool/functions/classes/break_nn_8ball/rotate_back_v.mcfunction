@@ -4,11 +4,11 @@ execute if score #tipregion swMath_V matches -1 run scoreboard players set #TTin
 
 # precompute and cache sin and cos
 scoreboard players operation #vIn swMath_V = #TTin swMath_V
-function math:classes/core/trig/sin_rad
+function pool:classes/math/sin_rad_fast
 scoreboard players operation #sint swMath_V = #vOut swMath_V
 
 scoreboard players operation #vIn swMath_V = #TTin swMath_V
-function math:classes/core/trig/cos_rad
+function pool:classes/math/cos_rad_fast
 scoreboard players operation #cost swMath_V = #vOut swMath_V
 
 # --- rotate vector for cue ---

@@ -8,10 +8,10 @@ execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltabl
 
 
 # detect number of players (only need to care about singleplayer)
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_multiplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_singleplayer
 
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
 # clean up tags
 tag @s remove swPool_foul

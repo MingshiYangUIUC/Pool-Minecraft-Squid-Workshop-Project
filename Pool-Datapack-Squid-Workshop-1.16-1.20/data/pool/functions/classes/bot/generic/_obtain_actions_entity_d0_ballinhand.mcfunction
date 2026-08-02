@@ -6,15 +6,15 @@ kill @e[tag=swPool_cue]
 scoreboard players set #nt swMath_V 0
 function pool:classes/bot/generic/_rand_place
 
-execute at @e[tag=swPool_rhp1,limit=1] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
-#execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set @e[tag=swPool_pooltable] swPool_lifetime 0
+execute at 000c2be1-0006-a619-0000-000000000004 run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_free","swPool_cue"],NoGravity:1,Small:1,Invisible:1}
+#execute if entity @e[tag=swPool_cue,tag=swPool_free] run scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_lifetime 0
 execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var00 run data get entity @s Pos[0] 10000
 execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var01 run data get entity @s Pos[2] 10000
-execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02 run data get entity @e[tag=swPool_pooltable,limit=1] Pos[1] 10000
+execute as @e[tag=swPool_free,tag=swPool_cue] store result score @s swPool_var02 run data get entity 000c2be1-0001-414d-0000-000000000000 Pos[1] 10000
 
-execute if entity @e[tag=swPool_cue,tag=swPool_pool] as @e[tag=swPool_pooltable,limit=1] run function pool:classes/cue/reset
+execute if entity @e[tag=swPool_cue,tag=swPool_pool] as 000c2be1-0001-414d-0000-000000000000 run function pool:classes/cue/reset
 
-#execute at @e[tag=swPool_rhp1,limit=1] run particle minecraft:campfire_signal_smoke ~ ~1 ~ 0 0 0 0 1 force
+#execute at 000c2be1-0006-a619-0000-000000000004 run particle minecraft:campfire_signal_smoke ~ ~1 ~ 0 0 0 0 1 force
 #execute if entity @e[tag=swPool_cue,tag=swPool_pool] run  sayplaced!!!
 
 tag @a[tag=swPool_spec] add swPool_spec_tmp

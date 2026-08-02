@@ -1,10 +1,10 @@
-execute if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__kill_equip
-execute if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__cleanup
+execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__kill_equip
+execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__cleanup
 
 # if no rule, by pass replace and progression but use progression_norule
 
-tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ --------","color":"white"}]
-tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ --------","color":"white"}]
+execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ --------","color":"white"}]
+execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ --------","color":"white"}]
 
 # give new arrow if in survival mode
 execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_hitcue,tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
@@ -44,5 +44,5 @@ tag @s add swPool_progressed
 scoreboard players reset @e[tag=swPool_fake] swPool_v
 
 # reset out of table bug undo scheduler
-execute as @e[tag=swPool_pool,tag=swPool_placed] run function pool:classes/cushion/detect_out_of_table
+execute unless score #muteall swPool_C matches 1 as @e[tag=swPool_pool,tag=swPool_placed] run function pool:classes/cushion/detect_out_of_table
 scoreboard players set #outoftable_scheduled swPool_var00 0

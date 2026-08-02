@@ -11,21 +11,21 @@ execute if data storage minecraft:swpool {version:[116]} at @e[tag=swPool_tmp_le
 execute unless data storage minecraft:swpool {version:[116]} at @e[tag=swPool_tmp_legal,limit=1,sort=random] run function pool:classes/bot/117/summon_aim_obj_blocked
 
 # tp helper to cue ball
-execute as @e[tag=swPool_cue,tag=swPool_pool] at @s run tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ ~ ~
+execute as @e[tag=swPool_cue,tag=swPool_pool] at @s run tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~ ~ ~
 # get random number 0 to 60
 function math:classes/core/random/randint_base
 scoreboard players operation #vOut swMath_V %= C_60 swPool_C
 scoreboard players operation #vOut swMath_V *= C_10000 swPool_C
 # get rhp1's Rotation[0], scaled by 10000
-execute store result score #rot swMath_V run data get entity @e[tag=swPool_rhp1,limit=1] Rotation[0] 10000
+execute store result score #rot swMath_V run data get entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] 10000
 # add random yaw offset
 scoreboard players operation #rot swMath_V += #vOut swMath_V
 # store back to Rotation[0]
-execute store result entity @e[tag=swPool_rhp1,limit=1] Rotation[0] float 0.0001 run scoreboard players get #rot swMath_V
+execute store result entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] float 0.0001 run scoreboard players get #rot swMath_V
 
 # summon at N directions
 scoreboard players set #topk swMath_V 1
-execute as @e[tag=swPool_rhp1,limit=1] at @s run function pool:classes/bot/generic/summon_radial_marker
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/bot/generic/summon_radial_marker
 
 # try out actions
 #execute as @e[tag=swPool_aim_obj_blocked] at @s run particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force

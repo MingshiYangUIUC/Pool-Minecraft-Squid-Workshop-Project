@@ -1,9 +1,9 @@
 function pool:classes/lobby/terminate_helper
 
-execute as @e[tag=swPool_pooltable] at @s run function pool:classes/practice/boundary
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/practice/boundary
 
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
+execute unless entity 000c2be1-0001-414d-0000-000000000000 run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
+execute unless entity 000c2be1-0001-414d-0000-000000000000 run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
 kill @e[tag=swPool_pool]
 kill @e[tag=swPool_pin]
@@ -40,21 +40,21 @@ clear @a carrot_on_a_stick[minecraft:item_model="swpool:object_ball_15"]
 
 scoreboard players set @a swPool_Score 0
 
-tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
-tag @e[tag=swPool_pooltable] remove swPool_snookermode
-tag @e[tag=swPool_pooltable] add swPool_practicemode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_uk8ballmode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_snookermode
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_practicemode
 scoreboard players set swPool_practicemode swMath_V 1
 
 # prescribed ball choice
-execute if entity @e[tag=swPool_pooltable,tag=swPool_snake] if score #nsnake swMath_V matches 1.. run execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/practice/balls/snake
-execute if entity @e[tag=swPool_pooltable,tag=swPool_vsnake] if score #nsnake swMath_V matches 1.. run execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/practice/balls/vsnake
+execute if entity @e[tag=swPool_pooltable,tag=swPool_snake] if score #nsnake swMath_V matches 1.. run execute as 000c2be1-0001-414d-0000-000000000000 at @s positioned ~ ~ ~ run function pool:classes/practice/balls/snake
+execute if entity @e[tag=swPool_pooltable,tag=swPool_vsnake] if score #nsnake swMath_V matches 1.. run execute as 000c2be1-0001-414d-0000-000000000000 at @s positioned ~ ~ ~ run function pool:classes/practice/balls/vsnake
 
 scoreboard players reset #nsnake swMath_V
 tag @e[tag=swPool_pooltable,tag=swPool_snake] remove swPool_snake
 tag @e[tag=swPool_pooltable,tag=swPool_vsnake] remove swPool_vsnake
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand
-execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_ballinhand_obj
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand_obj
 execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cue Ball\""]
 execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cue Ball\""]
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:item_model="swpool:object_red",minecraft:custom_name="\"Red\""]
@@ -82,14 +82,14 @@ execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick[custom_data={"swPool_obj":1b},minecraft:item_model="swpool:object_ball_15",minecraft:custom_name="\"15\""]
 
 
-tag @e[tag=swPool_pooltable] add swPool_start
-tag @e[tag=swPool_pooltable] remove swPool_fouled
-tag @e[tag=swPool_pooltable] remove swPool_pocketing
-tag @e[tag=swPool_pooltable] remove swPool_foulcolor
-tag @e[tag=swPool_pooltable] remove swPool_foulred
-tag @e[tag=swPool_pooltable] remove swPool_awarded
-tag @e[tag=swPool_pooltable] remove swPool_endaward
-tag @e[tag=swPool_pooltable] remove swPool_endgame
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_start
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_fouled
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pocketing
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_foulcolor
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_foulred
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awarded
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endaward
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endgame
 tag @a remove swPool_hitcue
 tag @a remove swPool_aimred
 tag @a remove swPool_aimylw
@@ -97,12 +97,12 @@ tag @a remove swPool_aimblk
 tag @a remove swPool_redrec
 tag @a remove swPool_ylwrec
 tag @a remove swPool_blkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_edawdrec
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[distance=..20] add swPool_poolplay
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_poolplay
 tag @s add swPool_spec
-execute as @e[tag=swPool_pooltable] at @s run function pool:classes/cue/reset
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/cue/reset
 tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Practice mode is on! No rules, just have fun."}]
 tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"练习模式开启。没有规则，请随意摆球击打。"}]
 scoreboard players set swPool_gameon swMath_V 1

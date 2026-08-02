@@ -26,8 +26,8 @@ execute if score #pktface swMath_V matches 1350000 run scoreboard players set #c
 #execute if entity @e[tag=swPool_aim_obj_new,limit=1] run tellraw @a[tag=swPool_debug] [{"text":"pktface, "},{"score":{"objective":"swMath_V","name":"#pktface"}}]
 
 # since @s is pocket location execute location is at object ball, tp helper entity to object ball facing @s and read Rotation + 180 deg
-tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ facing entity @s
-execute store result score #objface swMath_V run data get entity @e[tag=swPool_rhp1,limit=1] Rotation[0] 10000
+tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~ facing entity @s
+execute store result score #objface swMath_V run data get entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] 10000
 scoreboard players add #objface swMath_V 1800000
 
 # compute smallest absolute angle difference between #pktface swMath_V and #objface swMath_V

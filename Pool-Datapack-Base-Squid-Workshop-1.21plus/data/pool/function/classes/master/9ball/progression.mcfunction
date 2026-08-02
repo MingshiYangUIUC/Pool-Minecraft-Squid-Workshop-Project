@@ -8,11 +8,11 @@ execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltabl
 
 
 # detect number of players
-tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_multiplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_singleplayer
 
-execute as @e[tag=swPool_poolplay,limit=1] at @s if entity @e[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @e[tag=swPool_poolplay,limit=1] at @s if entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_multiplayer
+execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
 
 # clean up tags

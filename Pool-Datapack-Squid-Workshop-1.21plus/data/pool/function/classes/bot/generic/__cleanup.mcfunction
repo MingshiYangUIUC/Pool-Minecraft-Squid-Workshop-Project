@@ -13,4 +13,4 @@ tag @e[tag=swPool_tmp_legal] remove swPool_tmp_legal
 scoreboard players reset #muteall swPool_C
 scoreboard players reset #botthinking swPool_C
 
-tellraw @a[tag=swPool_debug] [{"text":"DBG ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 4111312"}}]
+tellraw @a[tag=swPool_debug] [{"text":"DBG ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 4111212"}}]

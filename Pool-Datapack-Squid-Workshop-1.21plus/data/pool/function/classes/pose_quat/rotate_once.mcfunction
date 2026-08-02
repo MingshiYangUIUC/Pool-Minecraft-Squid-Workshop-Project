@@ -129,18 +129,21 @@ scoreboard players operation #nQ2 swMath_V /= #C_10000 swMath_C
 scoreboard players operation #nQ3 swMath_V /= #C_10000 swMath_C
 scoreboard players operation #nQ4 swMath_V /= #C_10000 swMath_C
 
-# normalize
-scoreboard players operation #vAi swMath_V = #nQ1 swMath_V
-scoreboard players operation #vAj swMath_V = #nQ2 swMath_V
-scoreboard players operation #vAk swMath_V = #nQ3 swMath_V
-scoreboard players operation #vAl swMath_V = #nQ4 swMath_V
+# normalize?
+scoreboard players operation #norm swMath_V = 000c2be1-0001-414d-0000-000000000000 swPool_lifetime
+scoreboard players operation #norm swMath_V %= #C_10 swMath_C
 
-function pool:classes/pose_quat/q_normalize
+execute if score #norm swMath_V matches 1 run scoreboard players operation #vAi swMath_V = #nQ1 swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #vAj swMath_V = #nQ2 swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #vAk swMath_V = #nQ3 swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #vAl swMath_V = #nQ4 swMath_V
 
-scoreboard players operation #nQ1 swMath_V = #vOi swMath_V
-scoreboard players operation #nQ2 swMath_V = #vOj swMath_V
-scoreboard players operation #nQ3 swMath_V = #vOk swMath_V
-scoreboard players operation #nQ4 swMath_V = #vOl swMath_V
+execute if score #norm swMath_V matches 1 run function pool:classes/pose_quat/q_normalize
+
+execute if score #norm swMath_V matches 1 run scoreboard players operation #nQ1 swMath_V = #vOi swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #nQ2 swMath_V = #vOj swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #nQ3 swMath_V = #vOk swMath_V
+execute if score #norm swMath_V matches 1 run scoreboard players operation #nQ4 swMath_V = #vOl swMath_V
 
 # update values
 scoreboard players operation #Q1 swMath_V = #nQ1 swMath_V
@@ -151,5 +154,5 @@ scoreboard players operation #Q4 swMath_V = #nQ4 swMath_V
 # decrease remaining time
 scoreboard players operation maxRdt swMath_V -= DT swMath_V
 # enter loop again if needed
-execute if score maxRdt swMath_V matches 1.. run function pool:classes/pose_quat/rotate_loop
+# execute if score maxRdt swMath_V matches 1.. run function pool:classes/pose_quat/rotate_loop
 # if time is finished, return to rotate_init...

@@ -112,6 +112,11 @@ scoreboard objectives remove swPool_Rotation
 scoreboard objectives remove swPool_true_rot0
 scoreboard objectives remove swPool_true_rot1
 
+scoreboard objectives remove swPool_Q1
+scoreboard objectives remove swPool_Q2
+scoreboard objectives remove swPool_Q3
+scoreboard objectives remove swPool_Q4
+
 scoreboard objectives remove swPool_stkt
 scoreboard objectives remove swPool_cbld
 scoreboard objectives remove swPool_brkp

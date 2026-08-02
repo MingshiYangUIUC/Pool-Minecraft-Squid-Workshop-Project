@@ -169,6 +169,12 @@ scoreboard objectives add swPool_pose dummy
 scoreboard objectives add swPool_true_rot0 dummy
 scoreboard objectives add swPool_true_rot1 dummy
 
+# quat
+scoreboard objectives add swPool_Q1 dummy
+scoreboard objectives add swPool_Q2 dummy
+scoreboard objectives add swPool_Q3 dummy
+scoreboard objectives add swPool_Q4 dummy
+
 # user score
 scoreboard objectives add swPool_stkt dummy
 
@@ -205,6 +211,8 @@ scoreboard objectives modify swPool_v displayname "*"
 scoreboard players set C_100000000 swPool_C 100000000
 scoreboard players set C_3600000 swPool_C 3600000
 scoreboard players set C_1800000 swPool_C 1800000
+scoreboard players set C_98696 swPool_C 98696
+scoreboard players set C_62832 swPool_C 62832
 scoreboard players set C_10000 swPool_C 10000
 scoreboard players set C_7143 swPool_C 7143
 scoreboard players set C_5000 swPool_C 5000
@@ -224,6 +232,7 @@ scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10
 scoreboard players set C_7 swPool_C 7
 scoreboard players set C_5 swPool_C 5
+scoreboard players set C_4 swPool_C 4
 scoreboard players set C_2 swPool_C 2
 scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
@@ -340,8 +349,8 @@ execute unless data storage minecraft:swpool disallowspin unless data storage mi
 
 function pool:classes/cue/reset
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.3 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.3 - 鱿鱼MC工作室已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.4 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.4 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]

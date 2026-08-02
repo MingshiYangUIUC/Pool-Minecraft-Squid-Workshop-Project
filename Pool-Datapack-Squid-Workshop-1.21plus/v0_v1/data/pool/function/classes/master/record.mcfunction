@@ -19,7 +19,7 @@ scoreboard players reset @e[tag=swPool_pool] swPool_original
 execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
 scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_hidScore = Stroke swPool_hidScore
-scoreboard players operation FirstHit swPool_hidScore = @e[tag=swPool_pooltable,limit=1] swPool_firsthit
+scoreboard players operation FirstHit swPool_hidScore = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
 
 scoreboard players operation #breakshot swPool_hidScore = #breakshot swPool_v
 
@@ -30,8 +30,8 @@ tag @a remove swPool_redrec
 tag @a remove swPool_ylwrec
 tag @a remove swPool_blkrec
 tag @a remove swPool_stkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_edawdrec
 
 tag @a[tag=swPool_aimred] add swPool_redrec
 tag @a[tag=swPool_aimylw] add swPool_ylwrec
@@ -49,7 +49,7 @@ tag @a[tag=swPool_aimsolid] add swPool_solidrec
 tag @a[tag=swPool_aimstripe] add swPool_striperec
 tag @a[tag=swPool_aim08] add swPool_08rec
 
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breakingrec
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_openrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breaking] add swPool_cn8ball_breakingrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_open] add swPool_cn8ball_openrec

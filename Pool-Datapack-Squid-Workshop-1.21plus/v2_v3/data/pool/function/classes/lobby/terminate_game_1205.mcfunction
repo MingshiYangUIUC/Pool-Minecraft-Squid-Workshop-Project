@@ -1,10 +1,10 @@
-tag @e[tag=swPool_pooltable] remove swPool_snookermode
-tag @e[tag=swPool_pooltable] remove swPool_practicemode
-tag @e[tag=swPool_pooltable] remove swPool_uk8ballmode
-tag @e[tag=swPool_pooltable] remove swPool_cn8ballmode
-tag @e[tag=swPool_pooltable] remove swPool_9ballmode
-tag @e[tag=swPool_pooltable] remove swPool_8ball_aibreak
-tag @e[tag=swPool_pooltable] remove swPool_9ball_aibreak
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_snookermode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_practicemode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_uk8ballmode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ballmode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_9ballmode
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_8ball_aibreak
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_9ball_aibreak
 
 scoreboard players set swPool_9ballmode swMath_V 0
 scoreboard players set swPool_cn8ballmode swMath_V 0
@@ -59,14 +59,14 @@ clear @a carrot_on_a_stick[minecraft:custom_model_data=133]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=134]
 clear @a carrot_on_a_stick[minecraft:custom_model_data=135]
 
-tag @e[tag=swPool_pooltable] remove swPool_fouled
-tag @e[tag=swPool_pooltable] remove swPool_pocketing
-tag @e[tag=swPool_pooltable] remove swPool_foulcolor
-tag @e[tag=swPool_pooltable] remove swPool_foulred
-tag @e[tag=swPool_pooltable] remove swPool_hitrail
-tag @e[tag=swPool_pooltable] remove swPool_awarded
-tag @e[tag=swPool_pooltable] remove swPool_endaward
-tag @e[tag=swPool_pooltable] remove swPool_endgame
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_fouled
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pocketing
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_foulcolor
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_foulred
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_hitrail
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awarded
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endaward
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endgame
 tag @a remove swPool_hitcue
 tag @a remove swPool_aimred
 tag @a remove swPool_aimylw
@@ -74,8 +74,8 @@ tag @a remove swPool_aimblk
 tag @a remove swPool_redrec
 tag @a remove swPool_ylwrec
 tag @a remove swPool_blkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_edawdrec
 
 tag @a remove swPool_aimsolid
 tag @a remove swPool_aimstripe
@@ -86,17 +86,17 @@ tag @a remove swPool_08rec
 
 tag @a remove swPool_placingcue
 
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breaking
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_open
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breakingrec
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_openrec
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktcue
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktsolid
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktstripe
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breaking
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_open
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktcue
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktsolid
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktstripe
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pkt08
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktred
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktylw
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk
 
 scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
 scoreboard players reset @a swPool_Score

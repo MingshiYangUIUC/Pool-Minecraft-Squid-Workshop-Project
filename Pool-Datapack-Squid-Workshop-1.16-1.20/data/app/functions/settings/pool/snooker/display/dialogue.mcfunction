@@ -1,8 +1,8 @@
 #show score in dialogue of poolplay players
 #also modify the tag of pooltable, and reload the display
 data merge storage minecraft:swpool {displayscore:'dialogue'}
-tag @e[tag=swPool_pooltable] remove swPool_sidebar
-tag @e[tag=swPool_pooltable] add swPool_dialogue
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_sidebar
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_dialogue
 
 scoreboard objectives setdisplay sidebar
 

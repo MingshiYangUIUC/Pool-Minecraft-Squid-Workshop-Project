@@ -16,7 +16,7 @@ execute if data storage minecraft:swpool keep_sp_role run tellraw @s[tag=swPool_
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"║ "},{"underlined":true,"text":"<HELP>","color":"aqua","clickEvent":{"action":"run_command","value":"/function app:help/pool/about/rules"}},{"underlined":true,"text":"<Refresh>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/rulewindow"}},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
-execute if entity @e[type=item_display,tag=swPool_pooltable] if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please do not modify during an active game. Unexpected behavior may occur.","color":"dark_red"}]
+execute if entity 000c2be1-0001-414d-0000-000000000000 if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please do not modify during an active game. Unexpected behavior may occur.","color":"dark_red"}]
 
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╔══════════════════════════════╗"}]
@@ -35,4 +35,4 @@ execute if data storage minecraft:swpool keep_sp_role run tellraw @s[tag=swPool_
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"║ "},{"underlined":true,"text":"<帮助>","color":"aqua","clickEvent":{"action":"run_command","value":"/function app:help/pool/about/rules"}},{"underlined":true,"text":"<刷新>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/rulewindow"}},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"╚══════════════════════════════╝"}]
-execute if entity @e[type=item_display,tag=swPool_pooltable] if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请勿在游戏进行中更改这些设置，可能出现意外现象。","color":"dark_red"}]
+execute if entity 000c2be1-0001-414d-0000-000000000000 if entity @a[tag=swPool_poolplay] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请勿在游戏进行中更改这些设置，可能出现意外现象。","color":"dark_red"}]

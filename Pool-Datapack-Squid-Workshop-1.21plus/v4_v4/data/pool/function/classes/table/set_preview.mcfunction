@@ -1,12 +1,12 @@
 #function pool:classes/table/clear
 tag @s remove swPool_success
 tag @s add swPool_checking
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Flame particle: table dimensions. White particle: required space around the table."}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"火焰粒子：球桌尺寸。白色粒子：球桌周围需要的空间。"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"White particle: required space around the table."}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"白色粒子：球桌周围需要的空间。"}]
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],UUID:[I;797665,82253,0,0],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 scoreboard players operation #preview swPool_sizex = @s swPool_sizex
 scoreboard players operation #preview swPool_sizez = @s swPool_sizez
@@ -47,7 +47,7 @@ execute if score @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest]
 
 summon area_effect_cloud ~ ~ ~ {Tags:["swPool_placer"]}
 
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s run function pool:classes/table/loop_preview
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/table/loop_preview
 
 kill @e[tag=swPool_placer,type=area_effect_cloud,limit=1,sort=nearest]
 kill @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest]
@@ -94,12 +94,12 @@ execute if score @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest]
 
 summon area_effect_cloud ~ ~ ~ {Tags:["swPool_placer","swPool_inner_rim"]}
 
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s run function pool:classes/table/loop_preview
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/table/loop_preview
 
 kill @e[tag=swPool_placer,type=area_effect_cloud,limit=1,sort=nearest]
 kill @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest]
 
-execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"空间检测成功！ ","color":"green"},{"underlined":true,"text":"<现在放置>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112301"}}]
-execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Empty space detection Passed! ","color":"green"},{"underlined":true,"text":"<Set Now>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112301"}}]
+execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"空间检测成功！ ","color":"green"},{"underlined":true,"text":"<现在放置>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}}]
+execute if entity @s[tag=swPool_checking] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Empty space detection Passed! ","color":"green"},{"underlined":true,"text":"<Set Now>","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112201"}}]
 
 tag @s remove swPool_checking

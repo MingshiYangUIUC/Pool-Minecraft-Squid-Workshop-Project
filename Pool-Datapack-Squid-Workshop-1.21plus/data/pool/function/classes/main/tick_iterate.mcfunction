@@ -1,3 +1,5 @@
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_progressed
+
 # if fixtablescale, change pocket center radius to be larger so pocket size is the same
 # if not fixtablescale, rescale radii of all fake balls
 # no longer shift table dim by R0-R1, these are defined as needed in the table set functions
