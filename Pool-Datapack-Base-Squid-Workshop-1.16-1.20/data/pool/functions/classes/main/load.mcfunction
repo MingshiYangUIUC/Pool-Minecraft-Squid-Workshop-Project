@@ -235,6 +235,9 @@ scoreboard players set C_2 swPool_C 2
 scoreboard players set C_-1 swPool_C -1
 scoreboard players set C_-10000 swPool_C -10000
 
+# an incrementing global accumulator
+scoreboard players set #accumulator swMath_V 0
+
 #radius*10000 #Don't change this! This is somehow hard coded.
 scoreboard players set C_r0 swPool_C 1250
 #scoreboard players set C_r swPool_C 1250

@@ -1,6 +1,8 @@
 # cue commands
-execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] at @s as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
-execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] at @s run function pool:classes/cue/main
+scoreboard players set #holdingstick swMath_V 0
+execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] run scoreboard players set #holdingstick swMath_V 1
+execute if score #holdingstick swMath_V matches 1 at @s as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
+execute if score #holdingstick swMath_V matches 1 at @s run function pool:classes/cue/main
 
 
 # ball-in-hand commands

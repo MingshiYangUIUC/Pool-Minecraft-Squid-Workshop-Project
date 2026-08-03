@@ -13,6 +13,7 @@ execute if score #tick swPool_var00 matches 0 at 000c2be1-0001-414d-0000-0000000
 
 execute if score swPool_gameon swMath_V matches 1 as 000c2be1-0001-414d-0000-000000000000 at @s unless entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] if entity @s[tag=!swPool_start,tag=!swPool_progressed] run function pool:classes/master/idle
 scoreboard players add 000c2be1-0001-414d-0000-000000000000 swPool_lifetime 1
+scoreboard players add #accumulator swMath_V 1
 
 scoreboard players set @a swPool_crtclk 0
 
