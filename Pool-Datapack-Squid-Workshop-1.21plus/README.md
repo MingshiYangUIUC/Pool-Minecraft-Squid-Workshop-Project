@@ -24,6 +24,7 @@ Contact: mingshi3@illinois.edu
 
 - [Installation](#installation)
 - [User Guide and Demo](#user-guide-and-demo)
+- [Performance](#performance)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Notes and Terms of Use](#notes-and-terms-of-use)
 - [More About Squid Workshop](#more-about-squid-workshop)
@@ -317,6 +318,26 @@ The whitelist enable/disable controls require command permission and therefore c
 To grant access: `/tag <player> add swPool_whitelisted`   
 
 To revoke access: `/tag <player> remove swPool_whitelisted`   
+
+---
+# Performance
+
+Ball physics is calculated in real time using vanilla Minecraft commands, so performance mainly depends on CPU single-thread performance and the number of moving balls.
+
+Tested 8-ball break in Minecraft 1.21.8 on a Ryzen 9 5900X in singleplayer, using a 6×10 table, default ball radius, 150% break power, and 1 GB allocated RAM. Each configuration was tested five times.
+
+| CPU setting | Peak MSPT Range | Average MSPT |
+|---|---:|---:|
+| PBO | 22–26 | 5 |
+| 4.4 GHz | 24–27 | 5 |
+| 3.7 GHz | 30–34 | 6 |
+| 2.8 GHz | 37–45 | 8 |
+
+Normal shots typically add around **4 MSPT**, while the test represents one of the most demanding situations. Allocating 8 GB instead of 1 GB produced no meaningful performance improvement.
+
+A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. The highest load usually lasts for only one tick and often drops by roughly half on the following tick, allowing the game to catch up quickly. Busy servers and systems with weaker CPUs may experience brief TPS drops during complex shots, while MSPT persistently above 50 will result in sustained TPS loss.
+
+Disabling spin visualization can reduce the load considerably, in some cases by up to **50%**. 
 
 ---
 # Frequently Asked Questions

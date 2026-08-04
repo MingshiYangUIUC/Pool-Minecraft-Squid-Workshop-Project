@@ -1005,3 +1005,17 @@ init_main_trigger_files(rp_1_out, variable_names)
 convert_function_call_to_triggers_121(rp_1_out)
 
 convert_scoreboard_set_to_triggers_121(rp_1_out,variable_names)
+
+# final sync of readme added here
+print('Synchronize readme files...')
+shutil.copy('README.md',rp_0)
+shutil.copy('README.md',rp_0_out)
+shutil.copy('README.md',rp_1)
+shutil.copy('README.md',rp_1_out)
+
+shutil.copy('使用说明.md',rp_0)
+shutil.copy('使用说明.md',rp_0_out)
+shutil.copy('使用说明.md',rp_1)
+shutil.copy('使用说明.md',rp_1_out)
+
+print('Success.')
