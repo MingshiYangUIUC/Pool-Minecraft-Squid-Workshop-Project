@@ -23,6 +23,7 @@ scoreboard objectives remove swPool_C_r_tr
 scoreboard objectives remove swPool_C_ne_tr
 scoreboard objectives remove swPool_C_te_tr
 scoreboard objectives remove swPool_C_as_tr
+scoreboard objectives remove swPool_C_st_tr
 
 scoreboard objectives remove swPool_Score_tr
 

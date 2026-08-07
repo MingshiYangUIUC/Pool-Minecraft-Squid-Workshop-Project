@@ -1,3 +1,5 @@
+
+function pool:classes/bot/generic/__kill_equip
 # simple, aim at the nearest ball, hit it fully with max power.
 execute if data storage minecraft:swpool {version:[116]} run function pool:classes/bot/116/summon_aim_obj_break
 execute unless data storage minecraft:swpool {version:[116]} run function pool:classes/bot/117/summon_aim_obj_break

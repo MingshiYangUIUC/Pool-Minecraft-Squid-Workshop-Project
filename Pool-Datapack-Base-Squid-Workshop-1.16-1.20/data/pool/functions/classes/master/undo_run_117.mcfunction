@@ -7,31 +7,31 @@ kill @e[tag=swPool_pool]
 tag @e[tag=swPool_temppin] add swPool_pool
 
 
-execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:1}
-execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:36}
-item replace entity @e[tag=swPool_red,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:2}
-item replace entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:3}
-item replace entity @e[tag=swPool_green,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:4}
-item replace entity @e[tag=swPool_brown,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:5}
-item replace entity @e[tag=swPool_blue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:6}
-item replace entity @e[tag=swPool_pink,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:7}
-item replace entity @e[tag=swPool_black,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:8}
+execute unless score #muteall swPool_C matches 1 run execute if data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:1}
+execute unless score #muteall swPool_C matches 1 run execute unless data storage minecraft:swpool cueballreddot run item replace entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:36}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_red,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:2}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:3}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_green,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:4}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_brown,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:5}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_blue,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:6}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_pink,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:7}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_black,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:8}
 
-item replace entity @e[tag=swPool_01,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:21}
-item replace entity @e[tag=swPool_02,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:22}
-item replace entity @e[tag=swPool_03,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:23}
-item replace entity @e[tag=swPool_04,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:24}
-item replace entity @e[tag=swPool_05,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:25}
-item replace entity @e[tag=swPool_06,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:26}
-item replace entity @e[tag=swPool_07,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:27}
-item replace entity @e[tag=swPool_08,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:28}
-item replace entity @e[tag=swPool_09,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:29}
-item replace entity @e[tag=swPool_10,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:30}
-item replace entity @e[tag=swPool_11,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:31}
-item replace entity @e[tag=swPool_12,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:32}
-item replace entity @e[tag=swPool_13,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:33}
-item replace entity @e[tag=swPool_14,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:34}
-item replace entity @e[tag=swPool_15,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:35}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_01,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:21}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_02,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:22}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_03,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:23}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_04,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:24}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_05,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:25}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_06,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:26}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_07,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:27}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_08,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:28}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_09,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:29}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_10,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:30}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_11,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:31}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_12,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:32}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_13,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:33}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_14,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:34}
+execute unless score #muteall swPool_C matches 1 run item replace entity @e[tag=swPool_15,tag=swPool_temppin] armor.head with minecraft:acacia_button{CustomModelData:35}
 
 scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank 2
 scoreboard players set @e[tag=swPool_green,tag=swPool_temppin] swPool_rank 3

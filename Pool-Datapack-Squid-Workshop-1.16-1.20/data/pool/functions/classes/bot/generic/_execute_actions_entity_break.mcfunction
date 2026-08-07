@@ -1,5 +1,7 @@
 # executor is the aim point
 
+scoreboard players reset #fastfwd_bot swMath_V
+
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.
 # execute the shot
 

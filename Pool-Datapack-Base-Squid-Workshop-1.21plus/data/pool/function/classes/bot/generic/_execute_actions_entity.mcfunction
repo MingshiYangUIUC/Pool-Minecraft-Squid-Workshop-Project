@@ -1,5 +1,7 @@
 # executor is the aim point
 
+scoreboard players reset #fastfwd_bot swMath_V
+
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.
 # execute the shot
 execute at @e[tag=swPool_cue,tag=swPool_pool,limit=1] run function pool:classes/bot/generic/_configure_shooter_anim

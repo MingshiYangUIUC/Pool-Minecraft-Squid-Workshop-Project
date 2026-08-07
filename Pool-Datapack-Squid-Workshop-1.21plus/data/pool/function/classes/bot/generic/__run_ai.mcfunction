@@ -21,6 +21,7 @@ execute unless entity @e[tag=swPool_pool,tag=swPool_cue] run function pool:class
 # helper function for rendering
 function pool:classes/bot/generic/__copy_unequip
 
+scoreboard players reset #tryoutloopmax swMath_V
 # main function while cue ball is on table
 execute if entity @e[tag=swPool_pool,tag=swPool_cue] if score Stroke swPool_hidScore matches 0 unless entity @e[type=item_display,tag=swPool_snookermode,limit=1] run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_break 10t
 execute if entity @e[tag=swPool_pool,tag=swPool_cue] unless score Stroke swPool_hidScore matches 0 unless entity @e[type=item_display,tag=swPool_snookermode,limit=1] run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_main 2t

@@ -70,6 +70,8 @@ scoreboard objectives add swPool_C_te_tr trigger
 #scoreboard players enable @a swPool_C_te_tr
 scoreboard objectives add swPool_C_as_tr trigger
 #scoreboard players enable @a swPool_C_as_tr
+scoreboard objectives add swPool_C_st_tr trigger
+#scoreboard players enable @a swPool_C_st_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
@@ -228,6 +230,8 @@ scoreboard players set C_30 swPool_C 30
 scoreboard players set C_20 swPool_C 20
 scoreboard players set C_16 swPool_C 16
 scoreboard players set C_10 swPool_C 10
+scoreboard players set C_9 swPool_C 9
+scoreboard players set C_8 swPool_C 8
 scoreboard players set C_7 swPool_C 7
 scoreboard players set C_5 swPool_C 5
 scoreboard players set C_4 swPool_C 4
@@ -325,6 +329,7 @@ execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tc
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
 execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 4
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
+execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 10
 execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
 
 # allow cheat by default, needed by default if trying to play without auto judge

@@ -1,3 +1,5 @@
+scoreboard players reset #botloopschedule swMath_V
+function pool:classes/bot/generic/__kill_equip
 # get best overall score!
 scoreboard players set #maxshotscore swMath_V -50000
 execute as @e[tag=swPool_aim_obj,tag=swPool_aim_obj_used] run function pool:classes/bot/generic/rank_shotscore

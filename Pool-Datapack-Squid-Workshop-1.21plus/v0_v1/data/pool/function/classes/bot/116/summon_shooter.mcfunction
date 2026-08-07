@@ -1,0 +1,1 @@
+summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_shooter"],Duration:1200}

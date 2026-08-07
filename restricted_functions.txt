@@ -7,6 +7,9 @@
 /function app:settings/pool/bot/instant_mode_on
 /function app:settings/pool/bot/instant_mode_off
 /function app:settings/pool/bot/n_aims_eval
+/function app:settings/pool/bot/simulation_asap_off
+/function app:settings/pool/bot/simulation_asap_on
+/function app:settings/pool/bot/simulation_steps_per_tick
 /function app:settings/pool/bot/tick_per_eval
 /function app:settings/pool/breakshot/default_break
 /function app:settings/pool/breakshot/nn_break

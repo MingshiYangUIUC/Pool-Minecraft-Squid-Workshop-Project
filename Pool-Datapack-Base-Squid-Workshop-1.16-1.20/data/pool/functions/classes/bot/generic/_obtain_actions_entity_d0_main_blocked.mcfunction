@@ -1,3 +1,4 @@
+scoreboard players reset #botloopschedule swMath_V
 # try several directions by summon fake aim point radially outward. like 60deg spacing for 6 actions after random perturb.
 # use low tryout, eval more actions
 
@@ -38,7 +39,8 @@ tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_used
 tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_selected
 
 # if not instant mode: run simulation
-execute unless data storage minecraft:swpool bot_instant_mode run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked
+execute unless data storage minecraft:swpool bot_instant_mode if data storage minecraft:swpool bot_simulate_asap run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked
+execute unless data storage minecraft:swpool bot_instant_mode unless data storage minecraft:swpool bot_simulate_asap run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked_loop
 # if instant mode: directly give shotscore based on calcscore and random perturb then directly run
 execute if data storage minecraft:swpool bot_instant_mode run scoreboard players set @e[tag=swPool_aim_obj] swPool_calcScore 0
 execute if data storage minecraft:swpool bot_instant_mode as @e[tag=swPool_aim_obj] run function pool:classes/bot/generic/_rand_shotscore

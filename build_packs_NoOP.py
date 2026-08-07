@@ -950,6 +950,7 @@ variable_names = [
      "swPool_C_ne",
      "swPool_C_te",
      "swPool_C_as",
+     "swPool_C_st",
 
      # snooker score
      'swPool_Score'
@@ -972,6 +973,7 @@ restricted_variable_names = [
      "swPool_C_ne",
      "swPool_C_te",
      "swPool_C_as",
+     "swPool_C_st",
 ]
 
 #variable_names_mapper = {variable_names[i]:variable_short_names[i] for i in range(len(variable_names))}
