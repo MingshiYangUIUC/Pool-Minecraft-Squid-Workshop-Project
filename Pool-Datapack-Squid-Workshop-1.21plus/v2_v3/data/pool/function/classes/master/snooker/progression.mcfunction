@@ -129,10 +129,10 @@ scoreboard players set #freeball_target swMath_V 0
 execute if entity @s[tag=swPool_freeball_turn] run scoreboard players operation #freeball_target swMath_V = @s swPool_firsthit
 
 execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" is awarded free ball."}]
-execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获得自由球。"}]
+execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获得手中球。"}]
 
 execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" is awarded free ball."}]
-execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"获得自由球。"}]
+execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"获得手中球。"}]
 
 
 #scoreboard players reset @e[tag=swPool_pool,tag=!swPool_red] swPool_rank

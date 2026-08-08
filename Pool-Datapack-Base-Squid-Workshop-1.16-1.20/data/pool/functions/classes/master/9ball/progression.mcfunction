@@ -75,7 +75,7 @@ tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul4] remove swPool_foul4
 
 # foul: if behind headstring, cue ball does not move downward (actually it is not applicable)
 execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @e[tag=swPool_hitcue,limit=1] add swPool_foul5
-execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：线后自由球未向开球区外击打。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：线后手中球未向开球区外击打。"}]
 #execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run say f5
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: ball in hand behind the headstring did not aim towards outside of kitchen."}]
 tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] add swPool_foul
@@ -128,7 +128,7 @@ execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=s
 execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] as @e[tag=swPool_poolplay,tag=swPool_nextturn] run function app:get/pool/cueball_helper
 
 # ball in hand message
-execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得自由球。"}]
+execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得手中球。"}]
 execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" gets ball in hand."}]
 
 # object ball assignment

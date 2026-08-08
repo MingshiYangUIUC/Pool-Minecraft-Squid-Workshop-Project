@@ -9,6 +9,7 @@
   - Automatic judging must be enabled when playing with the bot.
   - Bot simulations are computationally intensive, so single-player worlds and a safe environment are still recommended.
   - v1.3.2 adds a lightweight **instant mode**. In this mode, the bot does not run shot simulations, greatly reducing calculation load, although its performance may be significantly worse.
+  - Starting from v1.3.4, the bot player distributes simulation calculations across multiple game ticks by default, and the number of simulation steps per tick can be adjusted in the settings. Adjust this value according to the actual performance and load of the client or server; if lowering it makes the thinking time too long, consider using instant mode instead.
   - When setting up a bot game in multiplayer, the datapack now displays a performance warning and provides a clickable option to enable instant mode.
   - The bot now has experimental support for dynamic ball radii. Extreme radii may have a higher likelihood of numerical errors.
 
