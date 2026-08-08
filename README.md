@@ -24,6 +24,7 @@ Contact: mingshi3@illinois.edu
 
 - [Installation](#installation)
 - [User Guide and Demo](#user-guide-and-demo)
+- [Performance](#performance)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Notes and Terms of Use](#notes-and-terms-of-use)
 - [More About Squid Workshop](#more-about-squid-workshop)
@@ -168,7 +169,8 @@ The datapack supports computer-controlled opponents in **8-Ball and 9-Ball**.
 The bot's strength and performance can be configured through the bot settings in the menu.
 
 > Automatic judge must be enabled when playing against the bot.   
-> Unless instant mode is turned on, avoid using the bot on multiplayer servers or during combat and other time-sensitive gameplay. Bot calculations can temporarily reduce the game tick rate. In instant mode, the bot is much lighter to run, but its performance may be significantly weaker.
+> By default since v1.3.4, the bot player distributes its simulation calculations across multiple game ticks to reduce short lag spikes. Avoid setting the number of simulations per tick (Simulation Steps per Tick in the settings) too high, and adjust it according to the current performance and load of the client or server.
+> If noticeable lag occurs, try lowering the number of simulations per tick first. If this makes the bot player's thinking time too long, or if it is still unsuitable for the current game environment, use instant mode, which performs no simulation calculations. Instant mode has the lowest computational load and responds the fastest, but the bot player's performance may be noticeably weaker.
 
 ### 9. Start a Multiplayer Game
 <video src="Gallery/Videos/user_guides_EN/09_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>
@@ -317,6 +319,26 @@ The whitelist enable/disable controls require command permission and therefore c
 To grant access: `/tag <player> add swPool_whitelisted`   
 
 To revoke access: `/tag <player> remove swPool_whitelisted`   
+
+---
+# Performance
+
+Ball physics is calculated in real time using vanilla Minecraft commands, so performance mainly depends on CPU single-thread performance and the number of moving balls.
+
+Tested 8-ball break in Minecraft 1.21.8 on a Ryzen 9 5900X in singleplayer, using a 6×10 table, default ball radius, 150% break power, and 1 GB allocated RAM. Each configuration was tested five times.
+
+| CPU setting | Peak MSPT Range | Average MSPT |
+|---|---:|---:|
+| PBO | 22–26 | 5 |
+| 4.4 GHz | 24–27 | 5 |
+| 3.7 GHz | 30–34 | 6 |
+| 2.8 GHz | 37–45 | 8 |
+
+Normal shots typically add around **4 MSPT**, while the test represents one of the most demanding situations. Allocating 8 GB instead of 1 GB produced no meaningful performance improvement.
+
+A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. The highest load usually lasts for only one tick and often drops by roughly half on the following tick, allowing the game to catch up quickly. Busy servers and systems with weaker CPUs may experience brief TPS drops during complex shots, while MSPT persistently above 50 will result in sustained TPS loss.
+
+Disabling spin visualization can reduce the load considerably, in some cases by up to **50%**. 
 
 ---
 # Frequently Asked Questions

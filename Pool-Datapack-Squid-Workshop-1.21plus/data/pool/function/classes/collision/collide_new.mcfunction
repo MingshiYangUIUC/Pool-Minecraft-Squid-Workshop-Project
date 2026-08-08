@@ -25,81 +25,81 @@ tag @e[tag=swPool_c] remove swPool_c
 
 
 #record parameters
-tag @e[tag=swPool_rhp1] add swPool_t1
-execute at @s run tp @e[tag=swPool_t1,limit=1] ~ ~ ~
-tag @e[tag=swPool_rhp2] add swPool_t2
-execute at @e[tag=swPool_col2,limit=1] run tp @e[tag=swPool_t2,limit=1] ~ ~ ~
-tag @e[tag=swPool_rhp3] add swPool_facerc
-execute at @s run tp @e[tag=swPool_facerc,limit=1] ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000004 add swPool_t1
+execute at @s run tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000005 add swPool_t2
+execute at @e[tag=swPool_col2,limit=1] run tp 000c2be1-0006-a619-0000-000000000005 ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000006 add swPool_facerc
+execute at @s run tp 000c2be1-0006-a619-0000-000000000006 ~ ~ ~
 
 
 scoreboard players operation @s swPool_vrx = COL swPool_vrx
 scoreboard players operation @s swPool_vrz = COL swPool_vrz
 
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vx = @s swPool_vrx
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vz = @s swPool_vrz
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/physics/vcombine_ultimate
 
 
 
 #get angle (can be positive or negative) which is swPool_drot score of t1
 
-execute as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_t2,limit=1]
-execute as @e[tag=swPool_t1,limit=1] run scoreboard players operation @s swPool_drot = @s swPool_Rotation
-execute as @e[tag=swPool_facerc,limit=1] store result score @s swPool_rot run data get entity @s Rotation[0] 10000
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_drot -= @e[tag=swPool_facerc,limit=1] swPool_rot
+execute as 000c2be1-0006-a619-0000-000000000006 at @s run tp @s ~ ~ ~ facing entity 000c2be1-0006-a619-0000-000000000005
+execute as 000c2be1-0006-a619-0000-000000000004 run scoreboard players operation @s swPool_drot = @s swPool_Rotation
+execute as 000c2be1-0006-a619-0000-000000000006 store result score @s swPool_rot run data get entity @s Rotation[0] 10000
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_drot -= 000c2be1-0006-a619-0000-000000000006 swPool_rot
 
 #swPool_v of t2 is vi*cos(dr) and direction is along the line between the two
 #scoreboard players set @s swPool_var04 10000
-scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1] swPool_drot
+scoreboard players operation @s swPool_var00 = 000c2be1-0006-a619-0000-000000000004 swPool_drot
 execute at @s run function pool:classes/math/cosdeg
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v /= C_10000 swPool_C
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_v *= @s swPool_var00
-data modify entity @e[tag=swPool_t2,limit=1] Rotation set from entity @e[tag=swPool_facerc,limit=1] Rotation
+scoreboard players operation 000c2be1-0006-a619-0000-000000000005 swPool_v = 000c2be1-0006-a619-0000-000000000004 swPool_v
+scoreboard players operation 000c2be1-0006-a619-0000-000000000005 swPool_v /= C_10000 swPool_C
+scoreboard players operation 000c2be1-0006-a619-0000-000000000005 swPool_v *= @s swPool_var00
+data modify entity 000c2be1-0006-a619-0000-000000000005 Rotation set from entity 000c2be1-0006-a619-0000-000000000006 Rotation
 
 
 #rotate facerc back by 90 so that it faces towards final direction of t1, and swPool_v of t1 is vi*sin(dr)
-execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=..0}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
-execute if entity @e[tag=swPool_t1,limit=1,scores={swPool_drot=1..}] as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ ~90 ~
-scoreboard players operation @s swPool_var00 = @e[tag=swPool_t1,limit=1] swPool_drot
+execute if score 000c2be1-0006-a619-0000-000000000004 swPool_drot matches ..0 as 000c2be1-0006-a619-0000-000000000006 at @s run tp @s ~ ~ ~ ~90 ~
+execute if score 000c2be1-0006-a619-0000-000000000004 swPool_drot matches 1.. as 000c2be1-0006-a619-0000-000000000006 at @s run tp @s ~ ~ ~ ~90 ~
+scoreboard players operation @s swPool_var00 = 000c2be1-0006-a619-0000-000000000004 swPool_drot
 execute at @s run function pool:classes/math/sindeg
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v /= C_10000 swPool_C
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_v *= @s swPool_var00
-data modify entity @e[tag=swPool_t1,limit=1] Rotation set from entity @e[tag=swPool_facerc,limit=1] Rotation
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_v = 000c2be1-0006-a619-0000-000000000004 swPool_v
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_v /= C_10000 swPool_C
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_v *= @s swPool_var00
+data modify entity 000c2be1-0006-a619-0000-000000000004 Rotation set from entity 000c2be1-0006-a619-0000-000000000006 Rotation
 
-execute store result score @e[tag=swPool_t1,limit=1] swPool_Rotation run data get entity @e[tag=swPool_t1,limit=1] Rotation[0] 10000
-execute store result score @e[tag=swPool_t2,limit=1] swPool_Rotation run data get entity @e[tag=swPool_t2,limit=1] Rotation[0] 10000
+execute store result score 000c2be1-0006-a619-0000-000000000004 swPool_Rotation run data get entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] 10000
+execute store result score 000c2be1-0006-a619-0000-000000000005 swPool_Rotation run data get entity 000c2be1-0006-a619-0000-000000000005 Rotation[0] 10000
 
 
 #separate the x,z component, add back the x,z component of c2, then combine back
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vseparate
-execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vseparate
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
-scoreboard players operation @e[tag=swPool_t2,limit=1] swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
-execute as @e[tag=swPool_t2,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/physics/vseparate
+execute as 000c2be1-0006-a619-0000-000000000005 at @s run function pool:classes/physics/vseparate
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
+scoreboard players operation 000c2be1-0006-a619-0000-000000000005 swPool_vx += @e[tag=swPool_col2,limit=1] swPool_vx
+scoreboard players operation 000c2be1-0006-a619-0000-000000000005 swPool_vz += @e[tag=swPool_col2,limit=1] swPool_vz
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/physics/vcombine_ultimate
+execute as 000c2be1-0006-a619-0000-000000000005 at @s run function pool:classes/physics/vcombine_ultimate
 
 #merge stuff back to c1, c2
-scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
-scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = @e[tag=swPool_t2,limit=1] swPool_v
+scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_v = 000c2be1-0006-a619-0000-000000000004 swPool_v
+scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_v = 000c2be1-0006-a619-0000-000000000005 swPool_v
 
-scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_Rotation = @e[tag=swPool_t1,limit=1] swPool_Rotation
-scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_Rotation = @e[tag=swPool_t2,limit=1] swPool_Rotation
+scoreboard players operation @e[tag=swPool_col1,limit=1] swPool_Rotation = 000c2be1-0006-a619-0000-000000000004 swPool_Rotation
+scoreboard players operation @e[tag=swPool_col2,limit=1] swPool_Rotation = 000c2be1-0006-a619-0000-000000000005 swPool_Rotation
 
-#execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t1,limit=1] swPool_Rotation
-#execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get @e[tag=swPool_t2,limit=1] swPool_Rotation
+#execute store result entity @e[tag=swPool_col1,limit=1] Rotation[0] float 0.0001 run scoreboard players get 000c2be1-0006-a619-0000-000000000004 swPool_Rotation
+#execute store result entity @e[tag=swPool_col2,limit=1] Rotation[0] float 0.0001 run scoreboard players get 000c2be1-0006-a619-0000-000000000005 swPool_Rotation
 
 # record sound
-scoreboard players operation pitch swMath_V = @e[tag=swPool_t2,limit=1] swPool_v
+scoreboard players operation pitch swMath_V = 000c2be1-0006-a619-0000-000000000005 swPool_v
 
 #reset t1,t2,facerc
-tag @e[tag=swPool_rhp1] remove swPool_t1
-tag @e[tag=swPool_rhp2] remove swPool_t2
-tag @e[tag=swPool_rhp3] remove swPool_facerc
+tag 000c2be1-0006-a619-0000-000000000004 remove swPool_t1
+tag 000c2be1-0006-a619-0000-000000000005 remove swPool_t2
+tag 000c2be1-0006-a619-0000-000000000006 remove swPool_facerc
 #
 
 

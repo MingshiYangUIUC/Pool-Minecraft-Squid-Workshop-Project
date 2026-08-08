@@ -69,8 +69,13 @@ scoreboard players set #n_pkt_valid_aim swMath_V 0
 scoreboard players set #n_pkt_blocked_aim swMath_V 0
 scoreboard players set #n_pkt_blocked_cue swMath_V 0
 
+# slightly penalize too straight shot
+scoreboard players set #penalize_straight swMath_V 1
+
 # combine each pocket with target ball and these entities to log S. # #n_pkt_blocked_cue counted inside
 execute as @e[tag=swPool_aim_pkt] at @s run function pool:classes/bot/generic/obtain_actions_combination_pkt
+
+scoreboard players set #penalize_straight swMath_V 0
 
 # this debug line print new score of each new action
 #execute as @e[tag=swPool_aim_obj,tag=!swPool_pkt_blocked] run tellraw @a[tag=swPool_debug] [{"text":"S_calc, "},{"score":{"objective":"swPool_calcScore","name":"@s"}}]

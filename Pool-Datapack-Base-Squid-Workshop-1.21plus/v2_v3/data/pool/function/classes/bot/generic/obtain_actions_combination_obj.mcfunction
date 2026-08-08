@@ -66,9 +66,9 @@ execute as @e[tag=swPool_aim_obj_new,distance=..0.001] store result score @s swP
 execute as @e[tag=swPool_aim_obj_new,distance=..0.001] at @s run function pool:classes/bot/move_backward_2r
 
 # log cue rotation if facing the aim point
-execute at @e[tag=swPool_cue,tag=swPool_pool] run tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ facing entity @e[tag=swPool_aim_obj_new,limit=1]
+execute at @e[tag=swPool_cue,tag=swPool_pool] run tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~ facing entity @e[tag=swPool_aim_obj_new,limit=1]
 
-execute store result score cue swPool_rot run data get entity @e[tag=swPool_rhp1,limit=1] Rotation[0] 10000
+execute store result score cue swPool_rot run data get entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] 10000
 
 #tellraw @a[tag=swPool_debug] [{"text":"r1, "},{"score":{"objective":"swPool_rot","name":"cue"}}]
 #tellraw @a[tag=swPool_debug] [{"text":"r2, "},{"score":{"objective":"swPool_rot","name":"@e[tag=swPool_aim_obj_new,limit=1]"}}]

@@ -119,6 +119,13 @@ scoreboard players operation #vIn swMath_V += #tmp swMath_V
 # sigmoid and record score
 function pool:classes/bot/sigmoid
 scoreboard players operation #S swMath_V = #vOut swMath_V
+
+# penalize too straight shot (#acut (0.001deg) too low) (*0.9 and *0.7)
+execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches 50000..99999 run scoreboard players operation #S swMath_V *= C_9 swPool_C
+execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches 50000..99999 run scoreboard players operation #S swMath_V /= C_10 swPool_C
+execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches ..49999 run scoreboard players operation #S swMath_V *= C_7 swPool_C
+execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches ..49999 run scoreboard players operation #S swMath_V /= C_10 swPool_C
+
 execute if score #pkt_blocked swMath_V matches 1 run scoreboard players set #S swMath_V 0
 
 # add small randomness

@@ -2,8 +2,8 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_endgame] run tellraw @s[tag
 execute if entity @e[tag=swPool_pooltable,tag=swPool_endgame] run tellraw @s[tag=swPool_CN] [{"text":"最终结果不可改变。","color":"red"}]
 #scoreboard players set RedoTime swPool_hidScore 2
 
-execute if data storage minecraft:swpool allowcheats unless entity @e[tag=swPool_pooltable,tag=swPool_endgame] run function pool:classes/master/undo_run
-execute if data storage minecraft:swpool allowonecheat unless entity @e[tag=swPool_pooltable,tag=swPool_endgame] run function pool:classes/master/undo_run
+execute if data storage minecraft:swpool allowcheats as 000c2be1-0001-414d-0000-000000000000 at @s unless entity @s[tag=swPool_pooltable,tag=swPool_endgame] run function pool:classes/master/undo_run
+execute if data storage minecraft:swpool allowonecheat as 000c2be1-0001-414d-0000-000000000000 at @s unless entity @s[tag=swPool_pooltable,tag=swPool_endgame] run function pool:classes/master/undo_run
 
 
 #execute if data storage minecraft:swpool allowcheats unless entity @e[tag=swPool_pooltable,tag=swPool_endgame] run schedule function pool:classes/master/undo_run 2t

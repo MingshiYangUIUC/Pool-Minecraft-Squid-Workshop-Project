@@ -1,3 +1,4 @@
+scoreboard players reset #botloopschedule swMath_V
 # try several directions by summon fake aim point radially outward. like 60deg spacing for 6 actions after random perturb.
 # use low tryout, eval more actions
 
@@ -11,21 +12,21 @@ execute if data storage minecraft:swpool {version:[116]} at @e[tag=swPool_tmp_le
 execute unless data storage minecraft:swpool {version:[116]} at @e[tag=swPool_tmp_legal,limit=1,sort=random] run function pool:classes/bot/117/summon_aim_obj_blocked
 
 # tp helper to cue ball
-execute as @e[tag=swPool_cue,tag=swPool_pool] at @s run tp @e[tag=swPool_rhp1,limit=1] ~ ~ ~ ~ ~
+execute as @e[tag=swPool_cue,tag=swPool_pool] at @s run tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~ ~ ~
 # get random number 0 to 60
 function math:classes/core/random/randint_base
 scoreboard players operation #vOut swMath_V %= C_60 swPool_C
 scoreboard players operation #vOut swMath_V *= C_10000 swPool_C
 # get rhp1's Rotation[0], scaled by 10000
-execute store result score #rot swMath_V run data get entity @e[tag=swPool_rhp1,limit=1] Rotation[0] 10000
+execute store result score #rot swMath_V run data get entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] 10000
 # add random yaw offset
 scoreboard players operation #rot swMath_V += #vOut swMath_V
 # store back to Rotation[0]
-execute store result entity @e[tag=swPool_rhp1,limit=1] Rotation[0] float 0.0001 run scoreboard players get #rot swMath_V
+execute store result entity 000c2be1-0006-a619-0000-000000000004 Rotation[0] float 0.0001 run scoreboard players get #rot swMath_V
 
 # summon at N directions
 scoreboard players set #topk swMath_V 1
-execute as @e[tag=swPool_rhp1,limit=1] at @s run function pool:classes/bot/generic/summon_radial_marker
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/bot/generic/summon_radial_marker
 
 # try out actions
 #execute as @e[tag=swPool_aim_obj_blocked] at @s run particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force
@@ -38,7 +39,8 @@ tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_used
 tag @e[tag=swPool_aim_obj] remove swPool_aim_obj_selected
 
 # if not instant mode: run simulation
-execute unless data storage minecraft:swpool bot_instant_mode run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked
+execute unless data storage minecraft:swpool bot_instant_mode if data storage minecraft:swpool bot_simulate_asap run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked
+execute unless data storage minecraft:swpool bot_instant_mode unless data storage minecraft:swpool bot_simulate_asap run function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked_loop
 # if instant mode: directly give shotscore based on calcscore and random perturb then directly run
 execute if data storage minecraft:swpool bot_instant_mode run scoreboard players set @e[tag=swPool_aim_obj] swPool_calcScore 0
 execute if data storage minecraft:swpool bot_instant_mode as @e[tag=swPool_aim_obj] run function pool:classes/bot/generic/_rand_shotscore

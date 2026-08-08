@@ -17,7 +17,7 @@ scoreboard players operation POSZ swPool_posz = @s swPool_posz
 scoreboard players operation @s swPool_posx -= TABLE swPool_posx
 scoreboard players operation @s swPool_posz -= TABLE swPool_posz
 
-function pool:classes/cushion/detect_out_of_table
+execute unless score #muteall swPool_C matches 1 run function pool:classes/cushion/detect_out_of_table
 
 #add velocity for new distance in components
 execute at @s run function pool:classes/physics/vseparate

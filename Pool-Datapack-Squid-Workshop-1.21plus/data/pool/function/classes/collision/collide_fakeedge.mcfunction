@@ -20,39 +20,39 @@ execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run t
 execute if score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1.. run tag @e[tag=swPool_pooltable,tag=swPool_9ballmode,limit=1] add swPool_hitrail
 
 #record parameters
-tag @e[tag=swPool_rhp1] add swPool_t1
-execute at @s run tp @e[tag=swPool_t1,limit=1] ~ ~ ~
-tag @e[tag=swPool_rhp2] add swPool_t2
-execute at @e[tag=swPool_col2,limit=1] run tp @e[tag=swPool_t2,limit=1] ~ ~ ~
-tag @e[tag=swPool_rhp3] add swPool_facerc
-execute at @s run tp @e[tag=swPool_facerc,limit=1] ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000004 add swPool_t1
+execute at @s run tp 000c2be1-0006-a619-0000-000000000004 ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000005 add swPool_t2
+execute at @e[tag=swPool_col2,limit=1] run tp 000c2be1-0006-a619-0000-000000000005 ~ ~ ~
+tag 000c2be1-0006-a619-0000-000000000006 add swPool_facerc
+execute at @s run tp 000c2be1-0006-a619-0000-000000000006 ~ ~ ~
 
 
 
 scoreboard players operation @s swPool_vrx = COL swPool_vrx
 scoreboard players operation @s swPool_vrz = COL swPool_vrz
 
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vx = @s swPool_vrx
-scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_vz = @s swPool_vrz
-execute as @e[tag=swPool_t1,limit=1] at @s run function pool:classes/physics/vcombine_ultimate
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vx = @s swPool_vrx
+scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_vz = @s swPool_vrz
+execute as 000c2be1-0006-a619-0000-000000000004 at @s run function pool:classes/physics/vcombine_ultimate
 
 
 
 #get angle (can be positive or negative) which is swPool_drot score of t1
 
-execute as @e[tag=swPool_facerc,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_t2,limit=1]
-execute as @e[tag=swPool_t1,limit=1] run scoreboard players operation @s swPool_drot = @s swPool_Rotation
-execute as @e[tag=swPool_facerc,limit=1] store result score @s swPool_rot run data get entity @s Rotation[0] 10000
+execute as 000c2be1-0006-a619-0000-000000000006 at @s run tp @s ~ ~ ~ facing entity 000c2be1-0006-a619-0000-000000000005
+execute as 000c2be1-0006-a619-0000-000000000004 run scoreboard players operation @s swPool_drot = @s swPool_Rotation
+execute as 000c2be1-0006-a619-0000-000000000006 store result score @s swPool_rot run data get entity @s Rotation[0] 10000
 
-#tellraw @a [{"text":"name. "},{"text":"rot old, "},{"score":{"objective":"swPool_rot","name":"@e[tag=swPool_t1,limit=1]"}}]
+#tellraw @a [{"text":"name. "},{"text":"rot old, "},{"score":{"objective":"swPool_rot","name":"000c2be1-0006-a619-0000-000000000004"}}]
 
-execute if score @e[tag=swPool_t1,limit=1] swPool_rot matches 3600001.. run scoreboard players remove @e[tag=swPool_t1,limit=1] swPool_rot 3600000
-execute if score @e[tag=swPool_t1,limit=1] swPool_rot matches ..-1 run scoreboard players add @e[tag=swPool_t1,limit=1] swPool_rot 3600000
+execute if score 000c2be1-0006-a619-0000-000000000004 swPool_rot matches 3600001.. run scoreboard players remove 000c2be1-0006-a619-0000-000000000004 swPool_rot 3600000
+execute if score 000c2be1-0006-a619-0000-000000000004 swPool_rot matches ..-1 run scoreboard players add 000c2be1-0006-a619-0000-000000000004 swPool_rot 3600000
 
 scoreboard players set newrot swPool_rot -1800000
-scoreboard players operation newrot swPool_rot -= @e[tag=swPool_t1,limit=1] swPool_drot
-scoreboard players operation newrot swPool_rot += @e[tag=swPool_facerc,limit=1] swPool_rot
-scoreboard players operation newrot swPool_rot += @e[tag=swPool_facerc,limit=1] swPool_rot
+scoreboard players operation newrot swPool_rot -= 000c2be1-0006-a619-0000-000000000004 swPool_drot
+scoreboard players operation newrot swPool_rot += 000c2be1-0006-a619-0000-000000000006 swPool_rot
+scoreboard players operation newrot swPool_rot += 000c2be1-0006-a619-0000-000000000006 swPool_rot
 
 execute if score newrot swPool_rot matches 3600001.. run scoreboard players remove newrot swPool_rot 3600000
 execute if score newrot swPool_rot matches 3600001.. run scoreboard players remove newrot swPool_rot 3600000
@@ -63,12 +63,12 @@ execute if score newrot swPool_rot matches ..-1 run scoreboard players add newro
 execute if score newrot swPool_rot matches ..-1 run scoreboard players add newrot swPool_rot 3600000
 
 #scoreboard players set t1rot swPool_rot 1800000
-#scoreboard players operation t1rot swPool_rot += @e[tag=swPool_t1,limit=1] swPool_drot
+#scoreboard players operation t1rot swPool_rot += 000c2be1-0006-a619-0000-000000000004 swPool_drot
 #execute if score t1rot swPool_rot matches 3600001.. run scoreboard players remove t1rot swPool_rot 3600000
 
-#tellraw @a [{"text":"name. "},{"text":"rot1, "},{"score":{"objective":"swPool_drot","name":"@e[tag=swPool_t1,limit=1]"}}]
+#tellraw @a [{"text":"name. "},{"text":"rot1, "},{"score":{"objective":"swPool_drot","name":"000c2be1-0006-a619-0000-000000000004"}}]
 
-#scoreboard players operation @e[tag=swPool_t1,limit=1] swPool_drot -= @e[tag=swPool_facerc,limit=1] swPool_rot
+#scoreboard players operation 000c2be1-0006-a619-0000-000000000004 swPool_drot -= 000c2be1-0006-a619-0000-000000000006 swPool_rot
 
 #swPool_v of t2 is vi*cos(dr) and direction is along the line between the two
 #Now all is 0
@@ -76,8 +76,8 @@ execute if score newrot swPool_rot matches ..-1 run scoreboard players add newro
 #rotate facerc back by 90 so that it faces towards final direction of t1, and swPool_v of t1 is vi*sin(dr)
 #new direction is -1* rotation of t1 + 2*drot, and v is unchanged
 
-#scoreboard players operation t1rot swPool_rot -= @e[tag=swPool_t1,limit=1] swPool_drot
-#scoreboard players operation t1rot swPool_rot -= @e[tag=swPool_t1,limit=1] swPool_drot
+#scoreboard players operation t1rot swPool_rot -= 000c2be1-0006-a619-0000-000000000004 swPool_drot
+#scoreboard players operation t1rot swPool_rot -= 000c2be1-0006-a619-0000-000000000004 swPool_drot
 
 #tellraw @a [{"text":"name. "},{"text":"rot2, "},{"score":{"objective":"swPool_rot","name":"t1rot"}}]
 
@@ -89,16 +89,16 @@ execute if score newrot swPool_rot matches ..-1 run scoreboard players add newro
 scoreboard players operation @s swPool_Rotation = newrot swPool_rot
 
 #merge stuff back to c1, c2
-scoreboard players operation @s swPool_v = @e[tag=swPool_t1,limit=1] swPool_v
+scoreboard players operation @s swPool_v = 000c2be1-0006-a619-0000-000000000004 swPool_v
 
 # restitution
 scoreboard players operation @s swPool_v /= #C_10000 swMath_C
 scoreboard players operation @s swPool_v *= C_rei swPool_C
 
 #reset t1,t2,facerc
-tag @e[tag=swPool_rhp1] remove swPool_t1
-tag @e[tag=swPool_rhp2] remove swPool_t2
-tag @e[tag=swPool_rhp3] remove swPool_facerc
+tag 000c2be1-0006-a619-0000-000000000004 remove swPool_t1
+tag 000c2be1-0006-a619-0000-000000000005 remove swPool_t2
+tag 000c2be1-0006-a619-0000-000000000006 remove swPool_facerc
 #
 
 

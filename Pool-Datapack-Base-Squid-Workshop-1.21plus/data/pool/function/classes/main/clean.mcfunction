@@ -23,6 +23,7 @@ scoreboard objectives remove swPool_C_r_tr
 scoreboard objectives remove swPool_C_ne_tr
 scoreboard objectives remove swPool_C_te_tr
 scoreboard objectives remove swPool_C_as_tr
+scoreboard objectives remove swPool_C_st_tr
 
 scoreboard objectives remove swPool_Score_tr
 
@@ -111,6 +112,11 @@ scoreboard objectives remove swPool_pose
 scoreboard objectives remove swPool_Rotation
 scoreboard objectives remove swPool_true_rot0
 scoreboard objectives remove swPool_true_rot1
+
+scoreboard objectives remove swPool_Q1
+scoreboard objectives remove swPool_Q2
+scoreboard objectives remove swPool_Q3
+scoreboard objectives remove swPool_Q4
 
 scoreboard objectives remove swPool_stkt
 scoreboard objectives remove swPool_cbld

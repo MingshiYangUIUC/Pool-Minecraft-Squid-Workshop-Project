@@ -28,3 +28,8 @@ execute store result entity @s transformation.right_rotation[0] float 0.0001 run
 execute store result entity @s transformation.right_rotation[1] float 0.0001 run scoreboard players get #vOj swMath_V
 execute store result entity @s transformation.right_rotation[2] float 0.0001 run scoreboard players get #vOk swMath_V
 execute store result entity @s transformation.right_rotation[3] float 0.0001 run scoreboard players get #vOl swMath_V
+
+scoreboard players operation @s swPool_Q1 = #vOi swMath_V
+scoreboard players operation @s swPool_Q2 = #vOj swMath_V
+scoreboard players operation @s swPool_Q3 = #vOk swMath_V
+scoreboard players operation @s swPool_Q4 = #vOl swMath_V

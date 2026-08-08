@@ -5,9 +5,9 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请稍候...
 
 #rotation: +x: 0, +z: 2, -x: 4, -z: 6.
 
-summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
-scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizex = @s swPool_sizex
-scoreboard players operation @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_sizez = @s swPool_sizez
+summon item_display ~ ~0.4 ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_pooltable"],UUID:[I;797665,82253,0,0],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_sizex = @s swPool_sizex
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_sizez = @s swPool_sizez
 
 scoreboard players set @s swPool_var05 10000
 scoreboard players operation @s swPool_sizex /= @s swPool_var05
@@ -20,29 +20,29 @@ scoreboard players operation @s swPool_var01 -= @s swPool_sizex
 scoreboard players operation @s swPool_var02 -= @s swPool_sizez
 
 
-scoreboard players set @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var05 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posx /= @s swPool_var05
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] run scoreboard players operation @s swPool_posz /= @s swPool_var05
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
+scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_var05 10000
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result score @s swPool_posx run data get entity @s Pos[0] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result score @s swPool_posz run data get entity @s Pos[2] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 run scoreboard players operation @s swPool_posx /= @s swPool_var05
+execute as 000c2be1-0001-414d-0000-000000000000 run scoreboard players operation @s swPool_posz /= @s swPool_var05
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result entity @s Pos[0] double 1 run scoreboard players get @s swPool_posx
+execute as 000c2be1-0001-414d-0000-000000000000 at @s store result entity @s Pos[2] double 1 run scoreboard players get @s swPool_posz
 
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var01 = @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var03 -= @s swPool_var01
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var02 = @s swPool_var02
-scoreboard players operation @e[tag=swPool_pooltable,tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] swPool_var04 -= @s swPool_var02
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var01 = @s swPool_var01
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var03 -= @s swPool_var01
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var02 = @s swPool_var02
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_var04 -= @s swPool_var02
 
 scoreboard players reset @s swPool_posx
 scoreboard players reset @s swPool_posz
 scoreboard players reset @s swPool_var05
 
-execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var03 >= @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_x
-execute if score @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var03 < @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_z
+execute if score 000c2be1-0001-414d-0000-000000000000 swPool_var03 >= 000c2be1-0001-414d-0000-000000000000 swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_x
+execute if score 000c2be1-0001-414d-0000-000000000000 swPool_var03 < 000c2be1-0001-414d-0000-000000000000 swPool_var04 run tag @e[tag=swPool_pooltable,type=item_display,limit=1,sort=nearest] add swPool_z
 
 summon area_effect_cloud ~ ~ ~ {Tags:["swPool_placer"]}
 
-execute as @e[type=item_display,tag=swPool_pooltable,limit=1,sort=nearest] at @s run function pool:classes/table/loop
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run function pool:classes/table/loop
 
 
 
@@ -250,18 +250,18 @@ execute if score C_trt swPool_C matches 7 as @e[tag=swPool_nzside,tag=!swPool_ri
 execute if data storage minecraft:swpool {version:[1200]} at @s run function pool:classes/table/set_1200
 execute if data storage minecraft:swpool {version:[1205]} at @s run function pool:classes/table/set_1200
 
-execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999}
-execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999}
-execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp2","swPool_thp"],Duration:99999999}
-execute unless entity @e[tag=swPool_rhp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp1"]}
-execute unless entity @e[tag=swPool_rhp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp2"]}
-execute unless entity @e[tag=swPool_rhp3] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp3"]}
-execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_vcomb"]}
+execute unless entity @e[tag=swPool_sqh] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_sqh"],Duration:99999999,UUID:[I;797665,435737,0,1]}
+execute unless entity @e[tag=swPool_thp1] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp1","swPool_thp"],Duration:99999999,UUID:[I;797665,435737,0,2]}
+execute unless entity @e[tag=swPool_thp2] run summon minecraft:area_effect_cloud ~ ~ ~ {Tags:["swPool_helper","swPool_thp2","swPool_thp"],Duration:99999999,UUID:[I;797665,435737,0,3]}
+execute unless entity 000c2be1-0006-a619-0000-000000000004 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp1"],UUID:[I;797665,435737,0,4]}
+execute unless entity 000c2be1-0006-a619-0000-000000000005 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp2"],UUID:[I;797665,435737,0,5]}
+execute unless entity 000c2be1-0006-a619-0000-000000000006 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_rhp3"],UUID:[I;797665,435737,0,6]}
+execute unless entity @e[tag=swPool_vcomb] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:99999999,Tags:["swPool_helper","swPool_rhp","swPool_vcomb"],UUID:[I;797665,435737,0,7]}
 
 tp @s ~ ~1 ~
 
-scoreboard players operation TABLE swPool_sizex = @e[tag=swPool_pooltable,limit=1] swPool_sizex
-scoreboard players operation TABLE swPool_sizez = @e[tag=swPool_pooltable,limit=1] swPool_sizez
+scoreboard players operation TABLE swPool_sizex = 000c2be1-0001-414d-0000-000000000000 swPool_sizex
+scoreboard players operation TABLE swPool_sizez = 000c2be1-0001-414d-0000-000000000000 swPool_sizez
 
 scoreboard players operation TABLE_1250 swPool_sizex = TABLE swPool_sizex
 scoreboard players operation TABLE_1250 swPool_sizez = TABLE swPool_sizez
@@ -272,8 +272,8 @@ scoreboard players operation TABLE swPool_sizex -= C_r swPool_C
 scoreboard players add TABLE swPool_sizez 1250
 scoreboard players operation TABLE swPool_sizez -= C_r swPool_C
 
-execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
-execute as @e[tag=swPool_pooltable] store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 store result score TABLE swPool_posx run data get entity @s Pos[0] 10000
+execute as 000c2be1-0001-414d-0000-000000000000 store result score TABLE swPool_posz run data get entity @s Pos[2] 10000
 
 
 # log the table size to pocket center entities (used by other features)
@@ -303,20 +303,20 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_x,limit=1] as @e[tag=swPool
 
 
 #end_output
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112007"}}]
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112106"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112109"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112406"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112409"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Practice>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111907"}}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<DUO Snooker>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP Snooker>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<DUO UK 8 Ball>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<SP UK 8 Ball>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112309"}}]
 
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112007"}}]
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112106"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112109"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112406"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112409"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<练习模式>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111907"}}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<双人斯诺克>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112006"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人斯诺克>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112009"}},{"text":" ","underlined":false},{"underlined":true,"text":"<双人英式八球>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112306"}},{"text":" ","underlined":false},{"underlined":true,"text":"<单人英式八球>","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4112309"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111110"}}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111110"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<View Lobby>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111010"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"","color":"white"},{"underlined":true,"text":"<打开游戏大厅>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111010"}}]
 
 
-tag @e[tag=swPool_pooltable,limit=1,sort=nearest] add swPool_1st_render
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_1st_render
 
 execute as @e[tag=swPool_cloth] store result entity @s ItemRotation int 1 run scoreboard players get @s swPool_rot
-#execute as @e[tag=swPool_pooltable,limit=1] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+#execute as 000c2be1-0001-414d-0000-000000000000 at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_cue","swPool_pool"],interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 #scoreboard players set @e[tag=swPool_cue] swPool_v 100000
 
 kill @e[tag=swPool_placer,type=area_effect_cloud]

@@ -11,7 +11,7 @@ execute if data storage minecraft:swpool {version:[1205]} unless entity @a[tag=s
 
 tag @s remove swPool_startmp9ball
 
-tag @e[tag=swPool_pooltable] add swPool_9ball_aibreak
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_9ball_aibreak
 scoreboard players set swPool_9ball_aibreak swMath_V 1
 
 execute as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper

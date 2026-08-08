@@ -8,11 +8,11 @@ execute if score Stroke swPool_hidScore matches 1 run tag @s[tag=swPool_pooltabl
 
 
 # detect number of players
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_multiplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_singleplayer
 
-execute as @e[tag=swPool_poolplay,limit=1] at @s if entity @e[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poolplay,distance=0.1..] run tag @e[type=armor_stand,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @e[tag=swPool_poolplay,limit=1] at @s if entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_multiplayer
+execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
 
 # clean up tags
@@ -20,16 +20,16 @@ tag @s remove swPool_foul
 tag @e[tag=swPool_poolplay] remove swPool_foul
 # @s is pooltable
 
-# detect smallest not pocketed ball
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_09,limit=1] run scoreboard players set #least_survival swPool_var00 9
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_08,limit=1] run scoreboard players set #least_survival swPool_var00 8
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_07,limit=1] run scoreboard players set #least_survival swPool_var00 7
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_06,limit=1] run scoreboard players set #least_survival swPool_var00 6
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_05,limit=1] run scoreboard players set #least_survival swPool_var00 5
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_04,limit=1] run scoreboard players set #least_survival swPool_var00 4
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_03,limit=1] run scoreboard players set #least_survival swPool_var00 3
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_02,limit=1] run scoreboard players set #least_survival swPool_var00 2
-execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_01,limit=1] run scoreboard players set #least_survival swPool_var00 1
+# detect smallest not pocketed ball (moved to firsthit function)
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_09,limit=1] run scoreboard players set #least_survival swPool_var00 9
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_08,limit=1] run scoreboard players set #least_survival swPool_var00 8
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_07,limit=1] run scoreboard players set #least_survival swPool_var00 7
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_06,limit=1] run scoreboard players set #least_survival swPool_var00 6
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_05,limit=1] run scoreboard players set #least_survival swPool_var00 5
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_04,limit=1] run scoreboard players set #least_survival swPool_var00 4
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_03,limit=1] run scoreboard players set #least_survival swPool_var00 3
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_02,limit=1] run scoreboard players set #least_survival swPool_var00 2
+#execute if entity @e[type=armor_stand,tag=swPool_pool,tag=swPool_01,limit=1] run scoreboard players set #least_survival swPool_var00 1
 
 # foul: no valid first hit
 execute unless score @e[tag=swPool_hitcue,limit=1] swPool_firsthit matches 1..9 run tag @e[tag=swPool_hitcue,limit=1] add swPool_foul1
@@ -75,7 +75,7 @@ tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul4] remove swPool_foul4
 
 # foul: if behind headstring, cue ball does not move downward (actually it is not applicable)
 execute if score #headstring swPool_var00 matches 1 unless entity @e[tag=swPool_cue,tag=swPool_pool,limit=1,sort=nearest,tag=swPool_downward] run tag @e[tag=swPool_hitcue,limit=1] add swPool_foul5
-execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：线后自由球未向开球区外击打。"}]
+execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：线后手中球未向开球区外击打。"}]
 #execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run say f5
 execute if data storage minecraft:swpool feedback_foul if entity @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: ball in hand behind the headstring did not aim towards outside of kitchen."}]
 tag @e[tag=swPool_hitcue,limit=1,tag=swPool_foul5] add swPool_foul
@@ -128,13 +128,16 @@ execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=s
 execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] as @e[tag=swPool_poolplay,tag=swPool_nextturn] run function app:get/pool/cueball_helper
 
 # ball in hand message
-execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得自由球。"}]
+execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":"犯规，"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"获得手中球。"}]
 execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=swPool_foul] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_foul]"},{"text":" Foul. "},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":" gets ball in hand."}]
 
 # object ball assignment
 
 # assign smallest ball if not endgame
 execute if entity @s[tag=swPool_endgame] run scoreboard players reset #least_survival swPool_var00
+# recompute smallest ball for message
+function pool:classes/master/9ball/compute_smallest_ball
+
 # Chinese
 execute if score #least_survival swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"请击球。"},{"text":"目标球为"},{"text":"➀","color":"yellow"},{"text":"号球"}]
 execute if score #least_survival swPool_var00 matches 2 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"请击球。"},{"text":"目标球为"},{"text":"➁","color":"blue"},{"text":"号球"}]
@@ -179,8 +182,8 @@ scoreboard players reset #least_survival swPool_var00
 
 
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111312"}}]
-execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110906"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
+execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111312"}}]
-execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110906"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
+execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]

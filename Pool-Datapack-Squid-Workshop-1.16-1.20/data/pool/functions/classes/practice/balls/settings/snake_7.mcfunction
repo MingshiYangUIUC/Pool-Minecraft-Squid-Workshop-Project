@@ -1,3 +1,3 @@
 scoreboard players set #nsnake swMath_V 7
-tag @e[tag=swPool_pooltable] add swPool_snake
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_snake
 function pool:classes/practice/start_helper

@@ -5,7 +5,7 @@
 scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
-function math:classes/core/trig/cos_rad
+function pool:classes/math/cos_rad_fast
 scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 
 
@@ -46,25 +46,25 @@ scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
-function math:classes/core/trig/sin_rad
+function pool:classes/math/sin_rad_fast
 scoreboard players operation sinp1 swMath_V = #vOut swMath_V
 
 scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
-function math:classes/core/trig/sin_rad
+function pool:classes/math/sin_rad_fast
 scoreboard players operation sinp2 swMath_V = #vOut swMath_V
 
 scoreboard players operation #vIn swMath_V = pose1 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
-function math:classes/core/trig/cos_rad
+function pool:classes/math/cos_rad_fast
 scoreboard players operation cosp1 swMath_V = #vOut swMath_V
 
 scoreboard players operation #vIn swMath_V = pose2 swPool_pose
 function math:classes/core/util/deg2rad
 function math:classes/core/util/swap
-function math:classes/core/trig/cos_rad
+function pool:classes/math/cos_rad_fast
 scoreboard players operation cosp2 swMath_V = #vOut swMath_V
 
 

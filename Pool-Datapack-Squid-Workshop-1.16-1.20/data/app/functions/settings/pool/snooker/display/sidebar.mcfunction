@@ -1,8 +1,8 @@
 # show score in sidebar of all players
 #also modify the tag of pooltable, and reload the display
 data merge storage minecraft:swpool {displayscore:'sidebar'}
-tag @e[tag=swPool_pooltable] remove swPool_dialogue
-tag @e[tag=swPool_pooltable] add swPool_sidebar
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_dialogue
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_sidebar
 
 execute if entity @e[tag=swPool_pooltable,tag=swPool_snookermode] run scoreboard objectives setdisplay sidebar swPool_Score
 

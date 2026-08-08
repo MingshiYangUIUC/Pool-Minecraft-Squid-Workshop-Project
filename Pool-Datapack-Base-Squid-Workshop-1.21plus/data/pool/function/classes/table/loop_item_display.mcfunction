@@ -3,8 +3,8 @@ execute store result score @s swPool_posz run data get entity @s Pos[2] 1
 scoreboard players operation @s swPool_posx += @s swPool_var01
 scoreboard players operation @s swPool_posz += @s swPool_var02
 
-execute as @e[tag=swPool_placer,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get @e[tag=swPool_pooltable,limit=1,sort=nearest] swPool_posx
-execute as @e[tag=swPool_placer,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get @e[tag=swPool_pooltable,limit=1,sort=nearest] swPool_posz
+execute as @e[tag=swPool_placer,limit=1,sort=nearest] at @s store result entity @s Pos[0] double 1 run scoreboard players get 000c2be1-0001-414d-0000-000000000000 swPool_posx
+execute as @e[tag=swPool_placer,limit=1,sort=nearest] at @s store result entity @s Pos[2] double 1 run scoreboard players get 000c2be1-0001-414d-0000-000000000000 swPool_posz
 
 execute if entity @s[scores={swPool_var01=1..}] as @e[tag=swPool_placer] at @s run tp @s ~-0.5 ~ ~
 execute if entity @s[scores={swPool_var01=..-1}] as @e[tag=swPool_placer] at @s run tp @s ~0.5 ~ ~

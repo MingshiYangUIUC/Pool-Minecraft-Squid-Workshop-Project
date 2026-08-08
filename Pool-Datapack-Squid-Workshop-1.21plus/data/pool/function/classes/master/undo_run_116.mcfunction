@@ -7,45 +7,45 @@ kill @e[tag=swPool_pool]
 tag @e[tag=swPool_temppin] add swPool_pool
 
 
-execute if data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:1}
-execute unless data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:36}
-replaceitem entity @e[tag=swPool_red,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:2}
-replaceitem entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:3}
-replaceitem entity @e[tag=swPool_green,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:4}
-replaceitem entity @e[tag=swPool_brown,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:5}
-replaceitem entity @e[tag=swPool_blue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:6}
-replaceitem entity @e[tag=swPool_pink,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:7}
-replaceitem entity @e[tag=swPool_black,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:8}
+execute unless score #muteall swPool_C matches 1 run execute if data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:1}
+execute unless score #muteall swPool_C matches 1 run execute unless data storage minecraft:swpool cueballreddot run replaceitem entity @e[tag=swPool_cue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:36}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_red,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:2}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_yellow,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:3}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_green,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:4}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_brown,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:5}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_blue,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:6}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_pink,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:7}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_black,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:8}
 
-replaceitem entity @e[tag=swPool_01,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:21}
-replaceitem entity @e[tag=swPool_02,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:22}
-replaceitem entity @e[tag=swPool_03,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:23}
-replaceitem entity @e[tag=swPool_04,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:24}
-replaceitem entity @e[tag=swPool_05,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:25}
-replaceitem entity @e[tag=swPool_06,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:26}
-replaceitem entity @e[tag=swPool_07,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:27}
-replaceitem entity @e[tag=swPool_08,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:28}
-replaceitem entity @e[tag=swPool_09,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:29}
-replaceitem entity @e[tag=swPool_10,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:30}
-replaceitem entity @e[tag=swPool_11,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:31}
-replaceitem entity @e[tag=swPool_12,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:32}
-replaceitem entity @e[tag=swPool_13,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:33}
-replaceitem entity @e[tag=swPool_14,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:34}
-replaceitem entity @e[tag=swPool_15,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:35}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_01,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:21}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_02,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:22}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_03,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:23}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_04,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:24}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_05,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:25}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_06,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:26}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_07,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:27}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_08,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:28}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_09,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:29}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_10,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:30}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_11,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:31}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_12,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:32}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_13,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:33}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_14,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:34}
+execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_15,tag=swPool_temppin] armor.head minecraft:acacia_button{CustomModelData:35}
 
-scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank 2
-scoreboard players set @e[tag=swPool_green,tag=swPool_temppin] swPool_rank 3
-scoreboard players set @e[tag=swPool_brown,tag=swPool_temppin] swPool_rank 4
-scoreboard players set @e[tag=swPool_blue,tag=swPool_temppin] swPool_rank 5
-scoreboard players set @e[tag=swPool_pink,tag=swPool_temppin] swPool_rank 6
-scoreboard players set @e[tag=swPool_black,tag=swPool_temppin] swPool_rank 7
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank 2
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_green,tag=swPool_temppin] swPool_rank 3
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_brown,tag=swPool_temppin] swPool_rank 4
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_blue,tag=swPool_temppin] swPool_rank 5
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_pink,tag=swPool_temppin] swPool_rank 6
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_black,tag=swPool_temppin] swPool_rank 7
 
-execute as @e[scores={swPool_rank=2}] run data merge entity @s {CustomName:"\"2 Pts\""}
-execute as @e[scores={swPool_rank=3}] run data merge entity @s {CustomName:"\"3 Pts\""}
-execute as @e[scores={swPool_rank=4}] run data merge entity @s {CustomName:"\"4 Pts\""}
-execute as @e[scores={swPool_rank=5}] run data merge entity @s {CustomName:"\"5 Pts\""}
-execute as @e[scores={swPool_rank=6}] run data merge entity @s {CustomName:"\"6 Pts\""}
-execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=2}] run data merge entity @s {CustomName:"\"2 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=3}] run data merge entity @s {CustomName:"\"3 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=4}] run data merge entity @s {CustomName:"\"4 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=5}] run data merge entity @s {CustomName:"\"5 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=6}] run data merge entity @s {CustomName:"\"6 Pts\""}
+execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 Pts\""}
 
 scoreboard players set @e[tag=swPool_pool] swPool_D100 100000
 scoreboard players set @e[tag=swPool_pool] swPool_DXX 99000
@@ -59,7 +59,9 @@ scoreboard players operation Opponent swPool_Score = Opponent swPool_hidScore
 
 scoreboard players operation Stroke swPool_hidScore = StrokeRec swPool_hidScore
 
-scoreboard players operation @e[tag=swPool_pooltable,limit=1] swPool_firsthit = FirstHit swPool_hidScore
+scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_firsthit = FirstHit swPool_hidScore
+
+scoreboard players operation #freeball_target swMath_V = #freeball_target swPool_hidScore
 
 scoreboard players operation #breakshot swPool_v = #breakshot swPool_hidScore
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
@@ -80,8 +82,8 @@ tag @a remove swPool_aimsolid
 tag @a remove swPool_aimstripe
 tag @a remove swPool_aim08
 tag @a remove swPool_streak
-tag @e[tag=swPool_pooltable] remove swPool_awarded
-tag @e[tag=swPool_pooltable] remove swPool_endaward
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awarded
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endaward
 
 tag @a[tag=swPool_redrec] add swPool_aimred
 tag @a[tag=swPool_ylwrec] add swPool_aimylw
@@ -101,20 +103,23 @@ tag @a remove swPool_solidrec
 tag @a remove swPool_striperec
 tag @a remove swPool_08rec
 tag @a remove swPool_stkrec
-tag @e[tag=swPool_pooltable] remove swPool_awdrec
-tag @e[tag=swPool_pooltable] remove swPool_edawdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_awdrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_edawdrec
 
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breaking
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_open
-tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breakingrec] add swPool_cn8ball_breaking
-tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_openrec] add swPool_cn8ball_open
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_breakingrec
-tag @e[tag=swPool_pooltable] remove swPool_cn8ball_openrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breaking
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_open
+execute as 000c2be1-0001-414d-0000-000000000000 run tag @s[tag=swPool_cn8ball_breakingrec] add swPool_cn8ball_breaking
+execute as 000c2be1-0001-414d-0000-000000000000 run tag @s[tag=swPool_cn8ball_openrec] add swPool_cn8ball_open
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
 
-scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_nred 0
-scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_ncolor 0
+tag @e[tag=swPool_pooltable,tag=swPool_freeball_turnrec] add swPool_freeball_turn
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
+
+scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_nred 0
+scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_ncolor 0
 #score counter var05
-scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_var05 0
+scoreboard players set 000c2be1-0001-414d-0000-000000000000 swPool_var05 0
 tag @a[tag=swPool_poolplay] remove swPool_fouled
 scoreboard players set @a[tag=swPool_poolplay] swPool_foul 0
 scoreboard players reset @a[tag=swPool_hitcue] swPool_firsthit
@@ -134,15 +139,15 @@ execute if entity @e[tag=swPool_cue,tag=swPool_pool] run tag @a remove swPool_ba
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick{CustomModelData:99}
 execute if entity @e[tag=swPool_cue,tag=swPool_pool] if entity @e[tag=!swPool_practicemode,tag=swPool_pooltable] run clear @a carrot_on_a_stick{CustomModelData:100}
 
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_rerack
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_endgame
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pkt08
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_rerack
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_endgame
 
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktcue
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktsolid
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktstripe
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pkt08
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktred
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktylw
-tag @e[tag=swPool_pooltable,limit=1] remove swPool_pktblk
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktcue
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktsolid
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktstripe
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pkt08
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktred
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktylw
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk

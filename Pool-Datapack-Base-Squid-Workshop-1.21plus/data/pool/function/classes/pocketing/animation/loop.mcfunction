@@ -1,4 +1,4 @@
-function pool:classes/pose_quat/rotate_init
+execute if data storage minecraft:swpool {allowspin:1} run function pool:classes/pose_quat/rotate_init
 scoreboard players remove @s swPool_T 1
 
 scoreboard players operation #self swPool_vx = @s swPool_vex

@@ -1,3 +1,5 @@
+function pool:classes/master/9ball/compute_smallest_ball
+
 execute if entity @e[tag=swPool_c,tag=swPool_01,limit=1] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1
 execute if entity @e[tag=swPool_c,tag=swPool_02,limit=1] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 2
 execute if entity @e[tag=swPool_c,tag=swPool_03,limit=1] run scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 3

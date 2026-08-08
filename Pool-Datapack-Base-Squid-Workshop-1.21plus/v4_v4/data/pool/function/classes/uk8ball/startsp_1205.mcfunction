@@ -3,21 +3,21 @@ function pool:classes/lobby/terminate_helper
 tag @a[distance=0.001..] remove swPool_wait
 tag @a[distance=0.001..] remove swPool_wait_uk8ball
 
-tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_multiplayer
-tag @e[type=item_display,tag=swPool_pooltable,limit=1] remove swPool_singleplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_multiplayer
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_singleplayer
 
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
-execute unless entity @e[tag=swPool_pooltable] run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
+execute unless entity 000c2be1-0001-414d-0000-000000000000 run tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Please place a table first.","color":"red"}]
+execute unless entity 000c2be1-0001-414d-0000-000000000000 run tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请先放置球桌。","color":"red"}]
 
-execute as @e[tag=swPool_pooltable] at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
+execute as 000c2be1-0001-414d-0000-000000000000 at @s positioned ~ ~ ~ run function pool:classes/uk8ball/balls
 
-execute as @e[tag=swPool_pooltable] at @s run tag @a[tag=swPool_wait_uk8ball,limit=1] add swPool_poolplay
+execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[tag=swPool_wait_uk8ball,limit=1] add swPool_poolplay
 tag @a[tag=swPool_poolplay,limit=1] add swPool_ballinhand
 
 execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball",minecraft:custom_name="\"Cue Ball\""]
 execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s minecraft:carrot_on_a_stick[minecraft:item_model="swpool:object_cueball_clean",minecraft:custom_name="\"Cue Ball\""]
 
-tag @e[tag=swPool_pooltable] add swPool_start
+tag 000c2be1-0001-414d-0000-000000000000 add swPool_start
 
 scoreboard players set #breakshot swPool_v 1
 scoreboard players set Stroke swPool_hidScore 0
@@ -25,8 +25,8 @@ scoreboard players set Stroke swPool_hidScore 0
 scoreboard players set Pocketed_Total swPool_hidScore 0
 scoreboard players set Pocketed_Turn swPool_hidScore 0
 
-execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_multiplayer
-execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag @e[type=item_display,tag=swPool_pooltable,limit=1] add swPool_singleplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_multiplayer
+execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
 tag @a remove swPool_wait
 tag @a remove swPool_wait_9ball
