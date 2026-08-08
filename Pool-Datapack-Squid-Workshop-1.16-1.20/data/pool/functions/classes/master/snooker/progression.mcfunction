@@ -129,10 +129,10 @@ scoreboard players set #freeball_target swMath_V 0
 execute if entity @s[tag=swPool_freeball_turn] run scoreboard players operation #freeball_target swMath_V = @s swPool_firsthit
 
 execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" is awarded free ball."}]
-execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获得手中球。"}]
+execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获得自由球。"}]
 
 execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" is awarded free ball."}]
-execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"获得手中球。"}]
+execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"获得自由球。"}]
 
 
 #scoreboard players reset @e[tag=swPool_pool,tag=!swPool_red] swPool_rank
@@ -154,8 +154,8 @@ tag @a[tag=swPool_spectemp] add swPool_spec
 tag @a[tag=swPool_spectemp] remove swPool_spectemp
 #end messages
 
-execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]
+execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
 execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
 
-execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]
+execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
 execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
