@@ -61,6 +61,8 @@ scoreboard players operation Stroke swPool_hidScore = StrokeRec swPool_hidScore
 
 scoreboard players operation 000c2be1-0001-414d-0000-000000000000 swPool_firsthit = FirstHit swPool_hidScore
 
+scoreboard players operation #freeball_target swMath_V = #freeball_target swPool_hidScore
+
 scoreboard players operation #breakshot swPool_v = #breakshot swPool_hidScore
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_uk8ballmode] add swPool_8ball_aibreak
 execute if score #breakshot swPool_v matches 1 run tag @e[tag=swPool_pooltable,tag=swPool_cn8ballmode] add swPool_8ball_aibreak
@@ -110,6 +112,9 @@ tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breakingrec] add swPool_cn8ball_b
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_openrec] add swPool_cn8ball_open
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
+
+tag @e[tag=swPool_pooltable,tag=swPool_freeball_turnrec] add swPool_freeball_turn
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
 
 scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_nred 0
 scoreboard players set @e[limit=1,tag=swPool_pooltable] swPool_ncolor 0

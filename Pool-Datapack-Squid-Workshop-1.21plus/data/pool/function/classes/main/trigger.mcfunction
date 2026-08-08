@@ -320,12 +320,6 @@ execute if score @s swPool__trigger matches 41112187 run function pool:classes/m
 
 execute if score @s swPool__trigger matches 41112211 run function pool:classes/master/practice/ballinhand
 
-execute if score @s swPool__trigger matches 41112226 run function pool:classes/master/snooker/progression_norule_control
-
-execute if score @s swPool__trigger matches 41112227 run function pool:classes/master/snooker/progression_norule_control_1205
-
-execute if score @s swPool__trigger matches 41112228 run function pool:classes/master/snooker/progression_norule_refresh_score
-
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41122151 run function pool:classes/table/helpers/chest_check
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 41122151 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/helpers/chest_check
 
@@ -527,6 +521,12 @@ execute if score @s swPool__trigger matches 411081120 run function pool:classes/
 execute if score @s swPool__trigger matches 411081121 run function pool:classes/cue/speed/ps_008
 
 execute if score @s swPool__trigger matches 411081122 run function pool:classes/cue/speed/ps_009
+
+execute if score @s swPool__trigger matches 411122211 run function pool:classes/master/snooker/progression_norule_control
+
+execute if score @s swPool__trigger matches 411122212 run function pool:classes/master/snooker/progression_norule_control_1205
+
+execute if score @s swPool__trigger matches 411122213 run function pool:classes/master/snooker/progression_norule_refresh_score
 
 execute if score @s swPool__trigger matches 411191351 run function pool:classes/practice/balls/settings/snake_15
 

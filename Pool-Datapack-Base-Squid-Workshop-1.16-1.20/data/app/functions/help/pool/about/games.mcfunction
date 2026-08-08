@@ -12,7 +12,7 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ In single-player snooker, you play as on
 
 tellraw @s[tag=swPool_CN] [{"text":"➇　本数据包包含以下游戏玩法：","color":"gold"}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇　　斯诺克：","color":"gold"},{"text":"通过交替击打红球和彩球得分。彩球在红球未打完前会被复位；红球打完后，需按分值从低到高依次击打彩球。犯规会给对手加分。所有球打完后，得分高者获胜。规则因地区有所不同，数据包为简化玩法。","color":"white"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇　　斯诺克：","color":"gold"},{"text":"通过交替击打红球和彩球得分。彩球在红球未打完前会被复位；红球打完后，需按分值从低到高依次击打彩球。犯规会给对手加分；犯规后若对手处于斯诺克状态，还可能获得“自由球”，即可以选择其他球作为当前目标球击打，而不是像八球或九球中的自由球（手中球）那样重新摆放母球。所有球打完后，得分高者获胜。规则因地区有所不同，数据包为简化玩法。","color":"white"}]
 
 tellraw @s[tag=swPool_CN] [{"text":"➇　　英式八球：","color":"gold"},{"text":"选择红球或黄球，将本方球全部打进后再击打黑球获胜。犯规给予对手两次击球机会，若母球入袋则对手获得开球区内自由球。规则因地区有所不同，数据包为常见玩法之一。","color":"white"}]
 

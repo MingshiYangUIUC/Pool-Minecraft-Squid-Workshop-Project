@@ -20,6 +20,7 @@ execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_hi
 scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_hidScore = Stroke swPool_hidScore
 scoreboard players operation FirstHit swPool_hidScore = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
+scoreboard players operation #freeball_target swPool_hidScore = #freeball_target swMath_V
 
 scoreboard players operation #breakshot swPool_hidScore = #breakshot swPool_v
 
@@ -53,3 +54,6 @@ tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_breaking] add swPool_cn8ball_breakingrec
 tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_open] add swPool_cn8ball_openrec
+
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
+tag @e[tag=swPool_pooltable,tag=swPool_freeball_turn] add swPool_freeball_turnrec

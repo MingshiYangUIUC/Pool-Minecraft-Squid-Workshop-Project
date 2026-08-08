@@ -2,6 +2,7 @@
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] run tag @s add swPool_foulcue
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_ballinhand
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_ballinhand
+tag @a[tag=swPool_ballinhand] remove swPool_given
 execute if data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
 execute unless data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
 tag @a[tag=swPool_ballinhand,tag=!swPool_given] add swPool_given
@@ -18,26 +19,37 @@ scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
 scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
 scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
 
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run tag @s add swPool_foulcolor
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run scoreboard players set @s[scores={swPool_foul=..6}] swPool_foul 7
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_pink,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..5}] run tag @s add swPool_foulcolor
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_pink,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..5}] run scoreboard players set @s[scores={swPool_foul=..5}] swPool_foul 6
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_blue,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..4}] run tag @s add swPool_foulcolor
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_blue,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..4}] run scoreboard players set @s[scores={swPool_foul=..4}] swPool_foul 5
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_brown,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..3}] run tag @s add swPool_foulcolor
-execute unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_green,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..2}] run tag @s add swPool_foulcolor
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run tag @s add swPool_foulcolor
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run scoreboard players set @s[scores={swPool_foul=..6}] swPool_foul 7
+
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_pink,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..5}] run tag @s add swPool_foulcolor
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_pink,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..5}] run scoreboard players set @s[scores={swPool_foul=..5}] swPool_foul 6
+
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_blue,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..4}] run tag @s add swPool_foulcolor
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_blue,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..4}] run scoreboard players set @s[scores={swPool_foul=..4}] swPool_foul 5
+
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_brown,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..3}] run tag @s add swPool_foulcolor
+
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_green,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..2}] run tag @s add swPool_foulcolor
 #scoreboard players set @s[tag=swPool_foulcolor,scores={swPool_foul=..3}] swPool_foul 4
 
 
 #when red is present and foulcolor:
 #new tag foulred is used
-execute if entity @e[tag=swPool_pool,tag=swPool_black] if entity @e[tag=swPool_pool,tag=swPool_pink] if entity @e[tag=swPool_pool,tag=swPool_blue] if entity @e[tag=swPool_pool,tag=swPool_brown] if entity @e[tag=swPool_pool,tag=swPool_green] if entity @e[tag=swPool_pool,tag=swPool_yellow] if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1}] run tag @s add swPool_nfred
-execute if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1}] run tag @s[tag=!swPool_nfred] add swPool_foulred
+
+# normal turn
+execute unless entity @s[tag=swPool_freeball_turn] if entity @e[tag=swPool_pool,tag=swPool_black] if entity @e[tag=swPool_pool,tag=swPool_pink] if entity @e[tag=swPool_pool,tag=swPool_blue] if entity @e[tag=swPool_pool,tag=swPool_brown] if entity @e[tag=swPool_pool,tag=swPool_green] if entity @e[tag=swPool_pool,tag=swPool_yellow] if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1}] run tag @s add swPool_nfred
+execute unless entity @s[tag=swPool_freeball_turn] if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1}] run tag @s[tag=!swPool_nfred] add swPool_foulred
+
+# free-ball turn: nominated colour has already been counted as red,
+# so only a remaining swPool_ncolor means an actually wrong colour was potted
+execute if entity @s[tag=swPool_freeball_turn] if entity @a[tag=swPool_hitcue,scores={swPool_firsthit=1}] if entity @s[scores={swPool_ncolor=1..}] run tag @s add swPool_foulred
+
 tag @s remove swPool_nfred
 
 
 #if another color ball is pocketed if aiming to hit one, test if swPool_rank = swPool_firsthit, swPool_foul if yes
-execute as @e[tag=swPool_pool,scores={swPool_rank=2..7}] if score @s swPool_rank = @a[tag=swPool_hitcue,limit=1] swPool_firsthit run tag 000c2be1-0001-414d-0000-000000000000 add swPool_foulred
+execute unless entity @e[tag=swPool_pooltable,tag=swPool_freeball_potted] as @e[tag=swPool_pool,scores={swPool_rank=2..7}] if score @s swPool_rank = @a[tag=swPool_hitcue,limit=1] swPool_firsthit run tag 000c2be1-0001-414d-0000-000000000000 add swPool_foulred
 
 execute if entity @s[tag=swPool_foulred] unless entity @e[scores={swPool_rank=5},tag=swPool_pool] run scoreboard players set @s[scores={swPool_foul=..4}] swPool_foul 5
 execute if entity @s[tag=swPool_foulred] unless entity @e[scores={swPool_rank=6},tag=swPool_pool] run scoreboard players set @s[scores={swPool_foul=..5}] swPool_foul 6
@@ -80,7 +92,7 @@ execute unless entity @e[tag=swPool_pool,tag=swPool_brown] at @e[tag=swPool_pin,
 execute unless entity @e[tag=swPool_pool,tag=swPool_green] at @e[tag=swPool_pin,tag=swPool_green] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_green"],NoGravity:1,Small:1,Invisible:1}
 execute unless entity @e[tag=swPool_pool,tag=swPool_yellow] at @e[tag=swPool_pin,tag=swPool_yellow] unless entity @e[tag=swPool_new] run summon armor_stand ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_new","swPool_yellow"],NoGravity:1,Small:1,Invisible:1}
 
-execute unless entity @e[tag=swPool_pool,tag=swPool_red] unless entity @s[tag=swPool_foulcolor] unless entity @s[tag=swPool_firstcolor] unless entity @s[tag=swPool_foulcue] run tag @s add swPool_kill
+execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_pool,tag=swPool_red] unless entity @s[tag=swPool_foulcolor] unless entity @s[tag=swPool_firstcolor] unless entity @s[tag=swPool_foulcue] run tag @s add swPool_kill
 execute if entity @s[tag=swPool_foulcue] unless entity @e[tag=swPool_foulcolor] run tag @s[scores={swPool_ncolor=0}] add swPool_kill
 
 execute if entity @s[tag=swPool_kill] run kill @e[tag=swPool_new,limit=1]

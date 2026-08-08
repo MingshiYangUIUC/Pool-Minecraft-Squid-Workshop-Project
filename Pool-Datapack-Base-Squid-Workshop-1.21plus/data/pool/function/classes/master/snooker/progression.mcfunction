@@ -1,3 +1,6 @@
+tellraw @a[tag=swPool_debug] [{"text":"nred, "},{"score":{"objective":"swPool_nred","name":"@s"}}]
+tellraw @a[tag=swPool_debug] [{"text":"ncolor, "},{"score":{"objective":"swPool_ncolor","name":"@s"}}]
+
 execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_multiplayer
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
@@ -32,7 +35,7 @@ execute unless entity @e[tag=swPool_pool,scores={swPool_rank=1..5}] if entity @e
 execute unless entity @e[tag=swPool_pool,scores={swPool_rank=1..6}] if entity @e[tag=swPool_pool,scores={swPool_rank=7}] run scoreboard players set @s swPool_firsthit 7
 execute unless entity @e[tag=swPool_pool,scores={swPool_rank=1..7}] run scoreboard players set @s swPool_firsthit -1
 
-execute if entity @s[tag=swPool_firstcolor] unless entity @s[tag=swPool_fauled] run scoreboard players set @s[scores={swPool_firsthit=8}] swPool_firsthit 2
+execute if entity @s[tag=swPool_firstcolor] unless entity @s[tag=swPool_fouled] run scoreboard players set @s[scores={swPool_firsthit=8}] swPool_firsthit 2
 
 execute unless entity @e[tag=swPool_red,tag=swPool_pool] run scoreboard players set @s[tag=!swPool_fouled,tag=swPool_lastred,scores={swPool_firsthit=1..2}] swPool_firsthit 8
 execute if entity @e[tag=swPool_red,tag=swPool_pool] run scoreboard players set @s[tag=!swPool_fouled,scores={swPool_firsthit=8}] swPool_firsthit 1
@@ -116,6 +119,22 @@ execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_fouled] run
 execute if entity @s[tag=swPool_multiplayer] unless entity @s[tag=swPool_fouled] if entity @s[scores={swPool_var05=0}] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"请击球。"}]
 execute if entity @s[tag=swPool_multiplayer] unless entity @s[tag=swPool_fouled] if entity @s[scores={swPool_var05=1..}] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"请击球。"}]
 
+# NEW check free ball if fouled before
+tag @s remove swPool_freeball_turn
+# no free ball given for ball in hand because it is just unlikely to get totally stuck.
+execute if entity @s[tag=swPool_fouled] if entity @e[tag=swPool_cue,tag=swPool_pool] run function pool:classes/master/snooker/freeball_main
+# give swPool_freeball_turn to pooltable if freeball, and next turn it will adjust
+# record actual ball on for this free-ball turn
+scoreboard players set #freeball_target swMath_V 0
+execute if entity @s[tag=swPool_freeball_turn] run scoreboard players operation #freeball_target swMath_V = @s swPool_firsthit
+
+execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":" is awarded free ball."}]
+execute if entity @s[tag=swPool_singleplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_hitcue]"},{"text":"获得自由球。"}]
+
+execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":" is awarded free ball."}]
+execute if entity @s[tag=swPool_multiplayer] if entity @s[tag=swPool_freeball_turn] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=!swPool_hitcue]"},{"text":"获得自由球。"}]
+
+
 #scoreboard players reset @e[tag=swPool_pool,tag=!swPool_red] swPool_rank
 scoreboard players reset @e[tag=swPool_pool] swPool_player
 tag @a remove swPool_hitcue
@@ -128,6 +147,8 @@ scoreboard players set @s swPool_nred 0
 scoreboard players set @s swPool_ncolor 0
 scoreboard players reset @s swPool_var05
 scoreboard players add Stroke swPool_hidScore 1
+tag @s remove swPool_freeball_potted
+scoreboard players set #freeball_nom swMath_V 0
 
 tag @a[tag=swPool_spectemp] add swPool_spec
 tag @a[tag=swPool_spectemp] remove swPool_spectemp
