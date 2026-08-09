@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Minecraft 台球数据包 | 鱿鱼MC工作室</title>
+
+  <meta
+    id="meta-description"
+    name="description"
+    content="Minecraft Java 版台球数据包：斯诺克、八球、九球、真实球体物理、旋转、自动裁判、电脑玩家与多人 PvP。"
+  >
+
+  <meta id="og-title" property="og:title" content="Minecraft 台球数据包">
+  <meta
+    id="og-description"
+    property="og:description"
+    content="斯诺克、八球、九球、真实球体物理、人机对战与多人 PvP。"
+  >
+  <meta
+    property="og:image"
+    content="Gallery/Images/bot_shooting.webp"
+  >
+
+  <link rel="stylesheet" href="website.css">
+</head>
+
+<body>
+
+  <button
+    id="language-toggle"
+    class="language-toggle"
+    type="button"
+    aria-label="Switch to English"
+  >
+    EN
+  </button>
+
+  <main class="page">
+
+    <section class="hero">
+      <img
+        class="hero-image"
+        src="Gallery/Images/bot_shooting.webp"
+        alt="Minecraft 台球桌"
+        data-i18n-alt="heroAlt"
+      >
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Minecraft Java Edition · Vanilla Datapack</p>
+
+        <h1 data-i18n="title">MC 原版台球游戏</h1>
+
+        <p class="hero-copy" data-i18n-html="heroCopy">
+          在 Minecraft 中体验真实的台球运动。<br>
+          斯诺克、八球、九球，支持单人练习、人机对战和双人 PvP。
+        </p>
+
+        <div class="hero-tags">
+          <span>Realistic Physics</span>
+          <span>Spin</span>
+          <span>AI Opponent</span>
+          <span>Multiplayer</span>
+          <span>Vanilla Commands</span>
+        </div>
+
+        <div class="actions">
+          <a
+            class="button primary"
+            href="https://modrinth.com/datapack/pool-and-billiards"
+            target="_blank"
+            rel="noopener"
+            data-i18n="modrinthDownload"
+          >
+            Modrinth 下载
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/README.md"
+            target="_blank"
+            rel="noopener"
+          >
+            README
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md"
+            target="_blank"
+            rel="noopener"
+            data-i18n="chineseReadme"
+          >
+            中文说明
+          </a>
+        </div>
+        <p class="resourcepack-note">
+          <a
+            href="https://modrinth.com/resourcepack/pool-and-billiards-resourcepack"
+            target="_blank"
+            rel="noopener"
+            data-i18n="resourcepackNote"
+          >
+            通过 Modrinth 安装时会自动获取资源包，进入游戏后别忘了启用。
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="showcase">
+
+      <a
+        class="card large"
+        href="https://www.bilibili.com/video/BV11b7q6fEt1/"
+        target="_blank"
+        rel="noopener"
+      >
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="Gallery/HTML/ai.mp4" type="video/mp4">
+        </video>
+
+        <div class="card-shade"></div>
+
+        <div class="card-copy">
+          <span class="label">FEATURED</span>
+          <h2 data-i18n="botTitle">与电脑玩家对战</h2>
+          <p data-i18n="botCopy">八球和九球支持可调整难度的电脑玩家。</p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="https://www.bilibili.com/video/BV1EFFzzdEsp/"
+        target="_blank"
+        rel="noopener"
+      >
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="Gallery/HTML/phyx_spin.mp4" type="video/mp4">
+        </video>
+
+        <div class="card-shade"></div>
+
+        <div class="card-copy">
+          <span class="label">PHYSICS</span>
+          <h2 data-i18n="physicsTitle">真实的杆法效果</h2>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="https://www.bilibili.com/video/BV14gVs6SEjC/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          src="Gallery/HTML/snooker.jpg"
+          alt="Minecraft 斯诺克"
+          data-i18n-alt="snookerAlt"
+        >
+
+        <div class="card-shade"></div>
+
+        <div class="card-copy">
+          <span class="label">SNOOKER</span>
+          <h2 data-i18n="snookerTitle">斯诺克</h2>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="https://www.bilibili.com/video/BV18BAmzCEV1/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          src="Gallery/HTML/nineball.jpg"
+          alt="Minecraft 八球与九球"
+          data-i18n-alt="poolAlt"
+        >
+
+        <div class="card-shade"></div>
+
+        <div class="card-copy">
+          <span class="label">POOL</span>
+          <h2 data-i18n="poolTitle">八球 · 九球</h2>
+        </div>
+      </a>
+
+      <div class="card static-card">
+        <img
+          src="Gallery/HTML/practice.jpg"
+          alt="Minecraft 台球练习模式"
+          data-i18n-alt="practiceAlt"
+        >
+
+        <div class="card-shade"></div>
+
+        <div class="card-copy">
+          <span class="label">PRACTICE</span>
+          <h2 data-i18n="practiceTitle">练习模式</h2>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <div>
+        <strong>YMS2001 · 鱿鱼MC工作室</strong>
+        <span>Minecraft Pool & Billiards Datapack</span>
+      </div>
+
+      <div class="footer-links">
+        <a
+          href="更新日志.md"
+          data-href-zh="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md"
+          data-href-en="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/blob/main/CHANGELOG.md"
+          data-i18n="changelog"
+        >
+          近期更新
+        </a>
+
+        <a
+          href="https://github.com/MingshiYangUIUC/Pool-Minecraft-Squid-Workshop-Project/releases"
+          target="_blank"
+          rel="noopener"
+          data-i18n="releaseNotes"
+        >
+          发布版本
+        </a>
+
+        <a
+          href="https://github.com/Squid-Workshop"
+          target="_blank"
+          rel="noopener"
+        >
+          Squid Workshop
+        </a>
+
+        <a
+          href="https://space.bilibili.com/649645265"
+          target="_blank"
+          rel="noopener"
+        >
+          Bilibili
+        </a>
+
+        <a
+          href="https://www.youtube.com/@YMS2001-m8l"
+          target="_blank"
+          rel="noopener"
+        >
+          YouTube
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="website.js"></script>
+</body>
+</html>
