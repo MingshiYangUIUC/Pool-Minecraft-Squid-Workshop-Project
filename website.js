@@ -146,12 +146,23 @@ function applyLanguage(lang) {
 
 
 function detectInitialLanguage() {
+  // 1. URL parameter has highest priority:
+  //    ?lang=zh or ?lang=en
+  const params = new URLSearchParams(window.location.search);
+  const urlLang = params.get("lang");
+
+  if (urlLang === "zh" || urlLang === "en") {
+    return urlLang;
+  }
+
+  // 2. Otherwise use the visitor's previous choice
   const saved = localStorage.getItem("pool-site-language");
 
   if (saved === "zh" || saved === "en") {
     return saved;
   }
 
+  // 3. Otherwise detect browser language
   const browserLanguage =
     navigator.language ||
     (navigator.languages && navigator.languages[0]) ||
