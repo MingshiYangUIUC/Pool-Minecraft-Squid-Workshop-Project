@@ -11,11 +11,12 @@ scoreboard players operation wy swMath_V /= C_20 swPool_C
 scoreboard players operation wz swMath_V /= C_20 swPool_C
 
 # wmag (unit is 0.0001 rad per tick)
-scoreboard players operation #vAi swMath_V = wx swMath_V
-scoreboard players operation #vAj swMath_V = wy swMath_V
-scoreboard players operation #vAk swMath_V = wz swMath_V
-function math:classes/core/vector/magnitude
-scoreboard players operation #wmag swMath_V = #vOut swMath_V
+scoreboard players operation A swPool_Vi = wx swMath_V
+scoreboard players operation A swPool_Vj = wy swMath_V
+scoreboard players operation A swPool_Vk = wz swMath_V
+#function math:classes/core/vector/magnitude
+function pool:classes/physics/vamagnitude
+scoreboard players operation #wmag swMath_V = O swPool_Vmag
 
 #tellraw @a[tag=swPool_debug] [{"text":"wmag: "},{"score":{"name": "#wmag","objective": "swMath_V"}}]
 

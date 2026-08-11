@@ -14,11 +14,11 @@ scoreboard players operation @s swPool_posz -= TABLE swPool_posz
 #add velocity for new distance in components
 #execute at @s run function pool:classes/physics/vseparate
 #scoreboard players set @s swPool_var04 10000
-scoreboard players operation @s swPool_var00 = @s swPool_vx
-scoreboard players operation @s swPool_var00 /= C_10000 swPool_C
+scoreboard players operation @s swPool_var00 = @s swPool_vex
+scoreboard players operation @s swPool_var00 /= C_20 swPool_C
 scoreboard players operation @s swPool_posx += @s swPool_var00
-scoreboard players operation @s swPool_var01 = @s swPool_vz
-scoreboard players operation @s swPool_var01 /= C_10000 swPool_C
+scoreboard players operation @s swPool_var01 = @s swPool_vez
+scoreboard players operation @s swPool_var01 /= C_20 swPool_C
 scoreboard players operation @s swPool_posz += @s swPool_var01
 
 #test

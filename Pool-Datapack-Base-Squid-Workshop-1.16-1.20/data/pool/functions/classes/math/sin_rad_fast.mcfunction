@@ -1,7 +1,7 @@
 scoreboard players operation #x swMath_V = #vIn swMath_V
 scoreboard players add #x swMath_V 31416
 scoreboard players operation #x swMath_V %= C_62832 swPool_C
-execute if score #x swMath_V matches ..-1 run scoreboard players add #x swMath_V 62832
+#execute if score #x swMath_V matches ..-1 run scoreboard players add #x swMath_V 62832
 scoreboard players remove #x swMath_V 31416
 
 scoreboard players set #n swMath_V 1

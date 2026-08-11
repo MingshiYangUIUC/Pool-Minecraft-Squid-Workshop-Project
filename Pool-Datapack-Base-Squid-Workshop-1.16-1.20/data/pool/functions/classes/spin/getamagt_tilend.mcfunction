@@ -15,3 +15,5 @@ scoreboard players operation @s swPool_T_end /= @s swPool_amag
 scoreboard players operation @s swPool_T_end += @s swPool_T_roll
 
 #tellraw @a [{"text":" amag, "},{"score":{"objective":"swPool_amag","name":"@s"}},{"text":" v "},{"score":{"objective":"swPool_v","name":"@s"}},{"text":" T "},{"score":{"objective":"swPool_T_end","name":"@s"}}]
+
+function pool:classes/spin/store_v_component_rolling

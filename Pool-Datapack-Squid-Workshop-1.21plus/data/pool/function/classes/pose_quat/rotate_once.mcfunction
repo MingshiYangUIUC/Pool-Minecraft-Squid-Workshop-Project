@@ -130,7 +130,7 @@ scoreboard players operation #nQ3 swMath_V /= #C_10000 swMath_C
 scoreboard players operation #nQ4 swMath_V /= #C_10000 swMath_C
 
 # normalize?
-scoreboard players operation #norm swMath_V = 000c2be1-0001-414d-0000-000000000000 swPool_lifetime
+scoreboard players operation #norm swMath_V = #accumulator swMath_V
 scoreboard players operation #norm swMath_V %= #C_10 swMath_C
 
 execute if score #norm swMath_V matches 1 run scoreboard players operation #vAi swMath_V = #nQ1 swMath_V

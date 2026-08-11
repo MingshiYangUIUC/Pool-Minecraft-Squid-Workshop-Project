@@ -9,29 +9,44 @@
 
 
 
-#absolute angle
+# relative position vector
+scoreboard players operation #pos2 swMath_V = a2_self swPool_var01
+scoreboard players operation #pos swMath_V = a2_self swPool_var02
+scoreboard players operation #pos2 swMath_V -= @s swPool_tmpposx
+scoreboard players operation #pos swMath_V -= @s swPool_tmpposz
+scoreboard players operation #pos2 swMath_V *= #C_-1 swMath_C
 
-scoreboard players operation @s swPool_drot = @s swPool_Rotation
+# relative velocity vector
+scoreboard players operation #vel2 swMath_V = a2_selfv swPool_var01
+scoreboard players operation #vel swMath_V = @s swPool_vez
+scoreboard players operation #vel2 swMath_V -= @s swPool_vex
+scoreboard players operation #vel swMath_V -= a2_selfv swPool_var02
 
-# calculate dr using position
-scoreboard players operation #vIn2 swMath_V = a2_self swPool_var01
-scoreboard players operation #vIn swMath_V = a2_self swPool_var02
-scoreboard players operation #vIn2 swMath_V -= @s swPool_tmpposx
-scoreboard players operation #vIn swMath_V -= @s swPool_tmpposz
-scoreboard players operation #vIn2 swMath_V *= #C_-1 swMath_C
+# downscale
+scoreboard players operation #pos swMath_V /= #C_10 swMath_C
+scoreboard players operation #pos2 swMath_V /= #C_10 swMath_C
+scoreboard players operation #vel swMath_V /= #C_10 swMath_C
+scoreboard players operation #vel2 swMath_V /= #C_10 swMath_C
 
-#tellraw @a [{"text":"variable -dx is "},{"score":{"name": "#vIn2","objective": "swMath_V"}}]
-#tellraw @a [{"text":"variable dz is "},{"score":{"name": "#vIn","objective": "swMath_V"}}]
+# drot = velocity_angle - position_angle
+scoreboard players operation #vIn2 swMath_V = #vel2 swMath_V
+scoreboard players operation #vIn2 swMath_V *= #pos swMath_V
+
+scoreboard players operation #tmp swMath_V = #vel swMath_V
+scoreboard players operation #tmp swMath_V *= #pos2 swMath_V
+scoreboard players operation #vIn2 swMath_V -= #tmp swMath_V
+
+scoreboard players operation #vIn swMath_V = #vel swMath_V
+scoreboard players operation #vIn swMath_V *= #pos swMath_V
+
+scoreboard players operation #tmp swMath_V = #vel2 swMath_V
+scoreboard players operation #tmp swMath_V *= #pos2 swMath_V
+scoreboard players operation #vIn swMath_V += #tmp swMath_V
+# atan2(avel-apos)
 function pool:classes/math/arctan2_rad
 function math:classes/core/util/swap
 function math:classes/core/util/rad2deg
-#tellraw @a [{"text":"variable vOut is "},{"score":{"name": "#vOut","objective": "swMath_V"}}]
-scoreboard players operation @s swPool_drot -= #vOut swMath_V
-
-#test if need relative
-execute unless entity @s[scores={swPool_v=..0}] unless entity @e[type=item_display,tag=swPool_a2,limit=1,scores={swPool_v=..0},distance=..3] run tag @s add swPool_aabs
-
-execute if entity @s[tag=swPool_aabs] run function pool:classes/physics/relativevelocity
+scoreboard players operation @s swPool_drot = #vOut swMath_V
 
 #unify dr value
 scoreboard players operation @s swPool_drot %= C_3600000 swPool_C
@@ -41,7 +56,7 @@ scoreboard players operation @s swPool_drot %= C_3600000 swPool_C
 #tag @e[type=area_effect_cloud,tag=swPool_fake,tag=swPool_a2,limit=1] add swPool_d2
 #tag @s add swPool_d1
 scoreboard players set @s swPool_dist 99999999
-execute if entity @e[type=item_display,tag=swPool_a2,distance=..3,limit=1] run function pool:classes/physics/distance1
+function pool:classes/physics/distance1
 #tag @e[type=item_display,tag=swPool_a2,limit=1] remove swPool_d2
 #tag @s remove swPool_d1
 
@@ -53,7 +68,8 @@ execute if entity @e[type=item_display,tag=swPool_a2,distance=..3,limit=1] run f
 # (r1 + r2) * 10000  #ontgt swPool_var01
 scoreboard players operation #ontgt swPool_var01 = C_r swPool_C
 
-execute as @e[type=item_display,tag=swPool_a2,limit=1,distance=..3] run function pool:classes/physics/target_helper
+#execute as @e[type=item_display,tag=swPool_a2,limit=1,distance=..3] run function pool:classes/physics/target_helper
+scoreboard players operation #ontgt swPool_var01 += #ontgt_add swPool_var01
 
 #execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #ontgt swPool_var01 += C_r swPool_C
 
