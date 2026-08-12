@@ -14,7 +14,7 @@ tag @s add swPool_a1
 scoreboard players set MinTime swPool_hittime 10000
 execute at @s[scores={swPool_T=0}] run function pool:classes/spin/change_of_state
 
-execute unless score #fastfwd swMath_V matches 1 positioned ~-3 ~-2 ~-3 run tag @e[dx=6,dy=4,dz=6,type=item_display,tag=swPool_fake] add swPool_pool
+#execute unless score #fastfwd swMath_V matches 1 positioned ~-3 ~-2 ~-3 run tag @e[dx=6,dy=4,dz=6,type=item_display,tag=swPool_fake] add swPool_pool
 
 # pre_select
 # slower and more aggressive when breaking
@@ -73,7 +73,7 @@ execute at @s[tag=swPool_bounce] run function pool:classes/cushion/bounce_end
 execute if score #col swMath_V matches 1 as @e[type=item_display,tag=swPool_col] run function pool:classes/master/_helpers/clean_col_tags
 scoreboard players reset #col swMath_V
 #tag @e[type=item_display,tag=swPool_near] remove swPool_near
-execute unless score #fastfwd swMath_V matches 1 positioned ~-3 ~-2 ~-3 run tag @e[dx=6,dy=4,dz=6,type=item_display,tag=swPool_fake] remove swPool_pool
+#execute unless score #fastfwd swMath_V matches 1 positioned ~-3 ~-2 ~-3 run tag @e[dx=6,dy=4,dz=6,type=item_display,tag=swPool_fake] remove swPool_pool
 #execute at @s run function pool:classes/cushion/main
 tag @s remove swPool_a1
 

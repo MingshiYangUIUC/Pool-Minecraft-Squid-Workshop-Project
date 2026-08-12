@@ -1,3 +1,4 @@
+# place the balls according to different rules
 execute if entity @s[tag=swPool_9ballmode] at @s run function pool:classes/9ball/place
 execute if entity @s[tag=swPool_cn8ballmode] at @s run function pool:classes/cn8ball/place
 execute if entity @s[tag=swPool_snookermode] at @s run function pool:classes/snooker/place

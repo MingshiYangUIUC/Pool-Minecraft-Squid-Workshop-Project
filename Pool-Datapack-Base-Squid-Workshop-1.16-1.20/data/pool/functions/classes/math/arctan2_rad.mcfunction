@@ -10,7 +10,7 @@ execute if score #vIn swMath_V matches ..-1 if score #vIn2 swMath_V matches 0.. 
 execute if score #vIn swMath_V matches ..-1 if score #vIn2 swMath_V matches ..-1 run scoreboard players set #Quad swMath_V 3
 
 # Division with flexible precision
-function math:classes/core/operations/division_4d
+function pool:classes/math/division_4d
 
 # Preparation
 scoreboard players operation #vIn swMath_V = #vOut swMath_V

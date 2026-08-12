@@ -1,7 +1,7 @@
 #every tick after motion
 
 scoreboard players operation @s swPool_vex += @s swPool_ax
-scoreboard players operation @s swPool_vey += @s swPool_ay
+#scoreboard players operation @s swPool_vey += @s swPool_ay
 scoreboard players operation @s swPool_vez += @s swPool_az
 
 scoreboard players operation @s swPool_wx += @s swPool_alx
@@ -31,16 +31,4 @@ execute if score @s swPool_T > @s swPool_T_roll if score @s swPool_T <= @s swPoo
 
 function pool:classes/spin/drag
 
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_v 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_vx 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_vz 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_vex 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_vez 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_ax 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_az 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_wx 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_wy 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_wz 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_alx 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players set @s swPool_alz 0
-execute if score @s swPool_T >= @s swPool_T_end run scoreboard players reset @s swPool_T_end
+execute if score @s swPool_T >= @s swPool_T_end run function pool:classes/spin/reset
