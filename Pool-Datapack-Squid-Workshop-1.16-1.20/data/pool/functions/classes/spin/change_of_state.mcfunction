@@ -1,5 +1,7 @@
 #when interrupted... stroke, collide, cushion
 #say 1
+
+# get velocity in unit of m/s (m/tick *20 / 10000)
 function pool:classes/physics/vseparate_1
 
 scoreboard players operation @s swPool_vex /= C_500 swPool_C

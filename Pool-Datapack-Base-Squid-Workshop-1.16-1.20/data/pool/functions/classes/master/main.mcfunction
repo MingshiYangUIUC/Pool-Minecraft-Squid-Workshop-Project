@@ -31,23 +31,16 @@ execute if score swPool_uk8ballmode swMath_V matches 1 if score Stroke swPool_hi
 execute if score swPool_9ballmode swMath_V matches 1 if score Stroke swPool_hidScore matches 0 if data storage minecraft:swpool nn_break if score swPool_9ball_aibreak swMath_V matches 1 run scoreboard players set #breakmode swMath_V 1
 
 #quicksort exclude some swPool_near
-tag @s add swPool_origin
-tag @s add swPool_d2
 # store self score once
 scoreboard players operation qs_self swPool_v = @s swPool_v
-scoreboard players operation D2_self swPool_var01 = @s swPool_tmpposx
-scoreboard players operation D2_self swPool_var02 = @s swPool_tmpposz
+scoreboard players operation D2x_self swMath_V = @s swPool_tmpposx
+scoreboard players operation D2z_self swMath_V = @s swPool_tmpposz
+scoreboard players operation V2x_self swMath_V = @s swPool_vex
+scoreboard players operation V2z_self swMath_V = @s swPool_vez
 # run function
-#execute as @e[type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/quicksort
-execute positioned ~-3 ~-2 ~-3 as @e[dx=6,dy=4,dz=6,type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/quicksort
+execute positioned ~-3 ~-2 ~-3 as @e[dx=6,dy=4,dz=6,type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/filter_run
 
-# reset
-tag @s remove swPool_origin
-tag @s remove swPool_d2
-
-#execute at @s as @e[type=armor_stand,tag=swPool_near,sort=random] at @s run function pool:classes/master/select
-execute at @s positioned ~-3 ~-2 ~-3 as @e[dx=6,dy=4,dz=6,type=armor_stand,tag=swPool_near] at @s run function pool:classes/master/select
-
+# run cushion only for still moving balls
 execute unless score @s swPool_v matches 0 at @s run function pool:classes/cushion/main
 
 #scoreboard players operation @e[type=armor_stand,tag=swPool_col,limit=2] swPool_hittime = MinTime swPool_hittime

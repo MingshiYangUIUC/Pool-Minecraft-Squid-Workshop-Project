@@ -29,28 +29,15 @@ scoreboard players operation @s swPool_vez = #vIn swPool_Vk
 #tellraw @a [{"text":"Vez "},{"score":{"objective":"swPool_vez","name":"@s"}}]
 #tellraw @a [{"text":"Vez2 "},{"score":{"objective":"swPool_Vk","name":"#vIn"}}]
 
-scoreboard players set A swPool_Vi 0
-scoreboard players set A swPool_Vj 1
-scoreboard players set A swPool_Vk 0
+scoreboard players operation #vIn swPool_Vk *= C_100 swPool_C
+scoreboard players operation #vIn swPool_Vi *= C_100 swPool_C
 
-scoreboard players operation B swPool_Vi = #vIn swPool_Vi
-scoreboard players set B swPool_Vj 0
-scoreboard players operation B swPool_Vk = #vIn swPool_Vk
+scoreboard players operation #vIn swPool_Vk /= C_r swPool_C
+scoreboard players operation #vIn swPool_Vi /= C_r swPool_C
 
-function pool:classes/physics/vacrossvb
+scoreboard players operation #vIn swPool_Vk *= C_100 swPool_C
+scoreboard players operation #vIn swPool_Vi *= C_100 swPool_C
+scoreboard players operation #vIn swPool_Vi *= C_-1 swPool_C
 
-scoreboard players operation @s swPool_wx = O swPool_Vi
-#scoreboard players operation @s swPool_wy = O swPool_Vj
-scoreboard players operation @s swPool_wz = O swPool_Vk
-
-scoreboard players operation @s swPool_wx *= C_100 swPool_C
-#scoreboard players operation @s swPool_wy *= C_100 swPool_C
-scoreboard players operation @s swPool_wz *= C_100 swPool_C
-
-scoreboard players operation @s swPool_wx /= C_r swPool_C
-#scoreboard players operation @s swPool_wy /= C_r swPool_C
-scoreboard players operation @s swPool_wz /= C_r swPool_C
-
-scoreboard players operation @s swPool_wx *= C_100 swPool_C
-#scoreboard players operation @s swPool_wy *= C_100 swPool_C
-scoreboard players operation @s swPool_wz *= C_100 swPool_C
+scoreboard players operation @s swPool_wx = #vIn swPool_Vk
+scoreboard players operation @s swPool_wz = #vIn swPool_Vi
