@@ -30,8 +30,7 @@ execute as @a[tag=swPool_poolplay,limit=1] at @s if entity @a[tag=swPool_poolpla
 execute as @a[tag=swPool_poolplay,limit=1] at @s unless entity @a[tag=swPool_poolplay,distance=0.01..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer
 
 tag @a[tag=swPool_poolplay,limit=1,sort=random] add swPool_ballinhand
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
+execute as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
 
 execute as 000c2be1-0001-414d-0000-000000000000 at @s positioned ~ ~ ~ run function pool:classes/snooker/balls
 

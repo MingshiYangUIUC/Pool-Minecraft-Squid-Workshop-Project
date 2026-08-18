@@ -7,8 +7,8 @@ execute if score #holdingstick swMath_V matches 1 at @s run function pool:classe
 
 # ball-in-hand commands
 scoreboard players set #holdingcue swMath_V 0
-execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
-execute if score #holdingcue swMath_V matches 1 if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
+execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:99,swPool_cueball:1b},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
+execute if score #holdingcue swMath_V matches 0 if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:100,swPool_cueball:1b},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
 execute if score #holdingcue swMath_V matches 1 store result score #rot1 swMath_V run data get entity @s Rotation[1] 100
 execute if score #holdingcue swMath_V matches 1 if score #rot1 swMath_V matches ..999 run scoreboard players set #holdingcue swMath_V 0
 

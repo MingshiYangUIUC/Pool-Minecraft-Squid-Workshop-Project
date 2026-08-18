@@ -1,12 +1,12 @@
-#when interrupted... stroke, collide, cushion
-#say 1
+# when interrupted... stroke, collide, cushion
+# initialize the evolution of spin and velocity
 
 # get velocity in unit of m/s (m/tick *20 / 10000)
 function pool:classes/physics/vseparate_1
-
 scoreboard players operation @s swPool_vex /= C_500 swPool_C
 scoreboard players operation @s swPool_vez /= C_500 swPool_C
 
+# get temporal change rates of v and omega
 function pool:classes/spin/getcontactv
 function pool:classes/spin/getatalpha_tilroll
 execute if score @s swPool_T = @s swPool_T_roll run function pool:classes/spin/getamagt_tilend

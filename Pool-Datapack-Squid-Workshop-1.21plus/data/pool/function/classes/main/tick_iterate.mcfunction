@@ -25,10 +25,8 @@ execute if data storage minecraft:swpool fixtablescale run scoreboard players op
 execute if data storage minecraft:swpool fixtablescale run scoreboard players operation C_r2_cntr_s swPool_C -= C_r swPool_C
 
 tag @e[type=item_display,tag=swPool_fake] add swPool_pool
-#execute if score #fastfwd swMath_V matches 1 run tag @e[type=item_display,tag=swPool_fake] add swPool_pool
 execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,distance=..50,scores={swPool_v=1..}] at @s run function pool:classes/master/main
 tag @e[type=item_display,tag=swPool_fake] remove swPool_pool
-#execute if score #fastfwd swMath_V matches 1 run tag @e[type=item_display,tag=swPool_fake] remove swPool_pool
 
 scoreboard players add #fastfwd_iter swMath_V 1
 execute if score #fastfwd swMath_V matches 1 run kill @e[tag=swPool_potting,type=item_display]

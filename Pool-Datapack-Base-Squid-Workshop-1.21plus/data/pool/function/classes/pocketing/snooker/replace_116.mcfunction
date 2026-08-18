@@ -3,8 +3,7 @@ execute unless entity @e[tag=swPool_cue,tag=swPool_pool] run tag @s add swPool_f
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] unless entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=swPool_hitcue,limit=1] add swPool_ballinhand
 execute unless entity @e[tag=swPool_cue,tag=swPool_pool] if entity @a[tag=swPool_poolplay,tag=!swPool_hitcue] run tag @a[tag=swPool_poolplay,tag=!swPool_hitcue,limit=1,sort=nearest] add swPool_ballinhand
 tag @a[tag=swPool_ballinhand] remove swPool_given
-execute if data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
-execute unless data storage minecraft:swpool cueballreddot run give @a[tag=swPool_ballinhand,tag=!swPool_given] carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
+execute as @a[tag=swPool_ballinhand,tag=!swPool_given] at @s run function app:get/pool/cueball_helper
 tag @a[tag=swPool_ballinhand,tag=!swPool_given] add swPool_given
 #detect foulcolor
 #swPool_count # of color and red pocketed as swPool_ncolor and swPool_nred score

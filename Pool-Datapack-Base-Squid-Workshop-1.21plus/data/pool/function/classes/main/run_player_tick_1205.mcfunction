@@ -1,14 +1,16 @@
 # cue commands
 scoreboard players set #holdingstick swMath_V 0
-execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}}] run scoreboard players set #holdingstick swMath_V 1
+#execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",components:{"minecraft:custom_data":{swPool_cuestick:1b}}}}] run scoreboard players set #holdingstick swMath_V 1
+execute if items entity @s weapon.mainhand bow[minecraft:custom_data={swPool_cuestick:1b}] run scoreboard players set #holdingstick swMath_V 1
 execute if score #holdingstick swMath_V matches 1 at @s as @e[type=arrow,distance=..5] store result score @s swPool_player run data get entity @s Owner[1]
 execute if score #holdingstick swMath_V matches 1 at @s run function pool:classes/cue/main
 
 
 # ball-in-hand commands
 scoreboard players set #holdingcue swMath_V 0
-execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:item_model":"swpool:object_cueball"}}}] run scoreboard players set #holdingcue swMath_V 1
-execute if score #holdingcue swMath_V matches 0 if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:item_model":"swpool:object_cueball_clean"}}}] run scoreboard players set #holdingcue swMath_V 1
+#execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_model_data":99}}}] run scoreboard players set #holdingcue swMath_V 1
+#execute if score #holdingcue swMath_V matches 0 if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_model_data":100}}}] run scoreboard players set #holdingcue swMath_V 1
+execute if items entity @s[tag=swPool_ballinhand] weapon.mainhand carrot_on_a_stick[minecraft:custom_data={swPool_cueball:1b}] run scoreboard players set #holdingcue swMath_V 1
 execute if score #holdingcue swMath_V matches 1 store result score #rot1 swMath_V run data get entity @s Rotation[1] 100
 execute if score #holdingcue swMath_V matches 1 if score #rot1 swMath_V matches ..999 run scoreboard players set #holdingcue swMath_V 0
 
@@ -40,8 +42,10 @@ execute if score #holdingcue swMath_V matches 1 if score swPool_practicemode swM
 
 # object-ball-in-hand logic
 scoreboard players set #holdingobj swMath_V 0
-execute if score swPool_practicemode swMath_V matches 1 if entity @s[tag=swPool_ballinhand_obj,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{swPool_obj:1b}}}}] run scoreboard players set #holdingobj swMath_V 1
-execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_ballinhand_obj,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{swPool_obj:1b}}}}] run scoreboard players set #holdingobj swMath_V 1
+#execute if score swPool_practicemode swMath_V matches 1 if entity @s[tag=swPool_ballinhand_obj,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{swPool_obj:1b}}}}] run scoreboard players set #holdingobj swMath_V 1
+#execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_ballinhand_obj,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{swPool_obj:1b}}}}] run scoreboard players set #holdingobj swMath_V 1
+execute if score swPool_practicemode swMath_V matches 1 if items entity @s[tag=swPool_ballinhand_obj] weapon.mainhand carrot_on_a_stick[minecraft:custom_data={swPool_obj:1b}] run scoreboard players set #holdingobj swMath_V 1
+execute if score swPool_snookermode swMath_V matches 1 if items entity @s[tag=swPool_ballinhand_obj] weapon.mainhand carrot_on_a_stick[minecraft:custom_data={swPool_obj:1b}] run scoreboard players set #holdingobj swMath_V 1
 execute if score #holdingobj swMath_V matches 1 store result score #rot1 swMath_V run data get entity @s Rotation[1] 100
 execute if score #holdingobj swMath_V matches 1 if score #rot1 swMath_V matches ..999 run scoreboard players set #holdingobj swMath_V 0
 execute if score #holdingobj swMath_V matches 1 unless score 000c2be1-0001-414d-0000-000000000000 swPool_lifetime matches 1 at @s run function pool:classes/ballinhand/practice/main_obj_1205

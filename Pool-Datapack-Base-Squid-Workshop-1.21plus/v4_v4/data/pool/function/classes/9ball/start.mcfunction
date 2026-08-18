@@ -12,9 +12,7 @@ execute as 000c2be1-0001-414d-0000-000000000000 at @s positioned ~ ~ ~ run funct
 function pool:classes/9ball/randomize_number
 
 tag @a[tag=swPool_wait_9ball,limit=1,sort=random] add swPool_ballinhand
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
-
+execute as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
 tag 000c2be1-0001-414d-0000-000000000000 add swPool_start
 
 tag @a[limit=1,sort=random,tag=swPool_wait_9ball] add swPool_poolplay

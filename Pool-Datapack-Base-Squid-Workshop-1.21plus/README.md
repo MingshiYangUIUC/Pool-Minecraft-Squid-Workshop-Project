@@ -2,7 +2,8 @@
 
 > Realistic cue-sport games in **Minecraft Java Edition**, with custom ball physics, spin, automatic rule handling, and computer-controlled opponents.  
 > Supports **Snooker, UK 8-Ball, Generic Solid-Stripe 8-Ball, 9-Ball**, and a custom Practice Mode.  
-> Supports **single-player, player-versus-bot, and two-player PvP games**.
+> Supports **single-player, player-versus-bot, and two-player PvP games**.  
+> Offers extensive customization, including **physics parameters, table size, ball size, rules, and other gameplay settings**.
 
 The default datapack supports survival-mode and non-OP players through clickable trigger-based controls. Minecraft 1.21 and later additionally support configurable ball radius, dynamic table scaling, and improved item-display-based visuals.
 
@@ -323,22 +324,43 @@ To revoke access: `/tag <player> remove swPool_whitelisted`
 ---
 # Performance
 
-Ball physics is calculated in real time using vanilla Minecraft commands, so performance mainly depends on CPU single-thread performance and the number of moving balls.
+Ball physics is calculated in real time using vanilla Minecraft commands, so performance mainly depends on CPU power and the number of moving or interacting balls.
 
-Tested 8-ball break in Minecraft 1.21.8 on a Ryzen 9 5900X in singleplayer, using a 6×10 table, default ball radius, 150% break power, and 1 GB allocated RAM. Each configuration was tested five times.
+## Version Comparison
 
-| CPU setting | Peak MSPT Range | Average MSPT |
+For version-to-version comparison, an 8-ball break was tested in Minecraft 1.21.8 on a Ryzen 9 5900X processor in a clean singleplayer world, using a 6×10 table, default ball radius, 150% break power, 1 GB allocated RAM, PBO enabled, and no resource pack. Each version was tested five times, with load monitored over 10 seconds.
+
+| Version | Peak MSPT Range | Mean MSPT Range |
 |---|---:|---:|
-| PBO | 22–26 | 5 |
-| 4.4 GHz | 24–27 | 5 |
-| 3.7 GHz | 30–34 | 6 |
-| 2.8 GHz | 37–45 | 8 |
+| v1.0.0 | 38–39 | 09–10 |
+| v1.1.0 | 37–38 | 09–10 |
+| v1.2.0 | 51–56 | 10-10 |
+| v1.3.1 | 39–44 | 06-06 |
+| v1.3.2 | 33–38 | 06-06 |
+| v1.3.3 | 28-28 | 06-06 |
+| v1.3.4 | 23–25 | 05-05 |
+| v1.3.5 | 08–11 | 03–04 |
 
-Normal shots typically add around **4 MSPT**, while the test represents one of the most demanding situations. Allocating 8 GB instead of 1 GB produced no meaningful performance improvement.
+Normal shots are substantially lighter than the break-shot benchmark because the number of moving balls are often limited to one or two. They now add as little as around **1 MSPT** in the most recent version. 
 
-A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. The highest load usually lasts for only one tick and often drops by roughly half on the following tick, allowing the game to catch up quickly. Busy servers and systems with weaker CPUs may experience brief TPS drops during complex shots, while MSPT persistently above 50 will result in sustained TPS loss.
+## CPU Frequency Scaling
 
-Disabling spin visualization can reduce the load considerably, in some cases by up to **50%**. 
+CPU frequency also has a substantial effect on performance. The following results are based on the earlier v1.3.4 benchmark using the same Ryzen 9 5900X and 1 GB allocated RAM. Peak-load midpoints are normalized relative to the PBO result.
+
+| CPU Setting |  Relative Peak Load |
+|---|---:|
+| PBO (Up to 4.9 GHZ) | **100%** |
+| FIX 4.4 GHz | **106%** |
+| FIX 3.7 GHz | **133%** |
+| FIX 2.8 GHz | **171%** |
+
+Lower CPU frequency therefore results in progressively higher MSPT, consistent with the datapack being primarily limited by CPU performance. These percentages are intended to show approximate frequency scaling rather than predict exact performance on other CPUs.
+
+Allocating 8 GB instead of 1 GB produced no meaningful performance improvement in other testing, suggesting that additional RAM is generally much less important than CPU performance for this workload.
+
+A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. A very short spike may affect only one or a few ticks and can recover immediately afterward. However, MSPT persistently above 50 will result in sustained TPS loss, and busy servers or systems with weaker CPUs may still experience brief slowdowns during particularly complex situations.
+
+Spin visualization remains one of the more computationally expensive visual features. Disabling it can further reduce load on systems by **~30%** where additional performance headroom is needed.
 
 ---
 # Frequently Asked Questions
