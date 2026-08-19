@@ -26,7 +26,7 @@ const translations = {
     chineseReadme: "中文说明",
     
     resourcepackNote:
-      "请记得下载并启用配套资源包。",
+      "请记得下载并启用配套资源包（可点我获取）",
 
     botTitle: "与电脑玩家对战",
     botCopy: "八球和九球支持可调整难度的电脑玩家。",
@@ -66,7 +66,7 @@ const translations = {
     chineseReadme: "中文说明",
 
     resourcepackNote:
-      "Please remember to download and activate a required resourcepack.",
+      "Please remember to download and activate a required resourcepack (click here to obtain)",
 
     botTitle: "Play Against a Bot",
     botCopy: "8-Ball and 9-Ball support a bot with configurable difficulty.",

@@ -17,7 +17,6 @@ execute if score #holdingcue swMath_V matches 1 if score #rot1 swMath_V matches 
 scoreboard players set #headstring swPool_var00 0
 execute if score #breakshot swPool_v matches 1 run scoreboard players set #headstring swPool_var00 1
 execute if score Stroke swPool_hidScore matches 1 run scoreboard players set #headstring swPool_var00 1
-# execute if first ball in hand after break set run scoreboard players set #headstring swPool_var00 1
 
 execute if score #holdingcue swMath_V matches 1 if score swPool_cn8ballmode swMath_V matches 1 unless score #headstring swPool_var00 matches 1 at @s run function pool:classes/ballinhand/practice/main
 execute if score #holdingcue swMath_V matches 1 if score swPool_cn8ballmode swMath_V matches 1 if score #headstring swPool_var00 matches 1 at @s run function pool:classes/ballinhand/uk8ball/main
