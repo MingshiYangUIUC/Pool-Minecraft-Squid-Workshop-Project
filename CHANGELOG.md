@@ -1,3 +1,14 @@
+### <span style="color:orange">August 2026</span> — Faster Physics, Smoother Games!
+
+The **v1.3 series** come with major performance improvements.
+- Heavily optimized physics, math functions, collision filtering, and background processing.
+- Significantly reduced both normal-shot and multi-ball peak load.
+- Bot simulations are also considerably faster, allowing **Full-strength Bot Player** to run smoothly on systems with relatively modest CPU performance.
+
+<img src="Gallery/Images/performance_test_EN.webp" alt="Performance Test" width="60%">    
+
+Peak load in the same benchmark was reduced to about **1/4 of v1.0.0**, while physics and visual differences are minimized.
+
 ### <span style="color:orange">July 2026</span> — v1.3: Play Against the Pool Bot!
 
 - Added a playable pool bot for **8-Ball and 9-Ball**.

@@ -7,16 +7,16 @@ execute if score #holdingstick swMath_V matches 1 at @s run function pool:classe
 
 # ball-in-hand commands
 scoreboard players set #holdingcue swMath_V 0
-execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:99},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
-execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:100},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
-
+execute if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:99,swPool_cueball:1b},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
+execute if score #holdingcue swMath_V matches 0 if entity @s[tag=swPool_ballinhand,nbt={SelectedItem:{tag:{CustomModelData:100,swPool_cueball:1b},id:"minecraft:carrot_on_a_stick"}}] run scoreboard players set #holdingcue swMath_V 1
+execute if score #holdingcue swMath_V matches 1 store result score #rot1 swMath_V run data get entity @s Rotation[1] 100
+execute if score #holdingcue swMath_V matches 1 if score #rot1 swMath_V matches ..999 run scoreboard players set #holdingcue swMath_V 0
 
 # cn8ball: two ball-in-hand scenarios:
 # behind headstring (UK 8-ball style) or everywhere (practice style)
 scoreboard players set #headstring swPool_var00 0
 execute if score #breakshot swPool_v matches 1 run scoreboard players set #headstring swPool_var00 1
 execute if score Stroke swPool_hidScore matches 1 run scoreboard players set #headstring swPool_var00 1
-# execute if first ball in hand after break set run scoreboard players set #headstring swPool_var00 1
 
 execute if score #holdingcue swMath_V matches 1 if score swPool_cn8ballmode swMath_V matches 1 unless score #headstring swPool_var00 matches 1 at @s run function pool:classes/ballinhand/practice/main
 execute if score #holdingcue swMath_V matches 1 if score swPool_cn8ballmode swMath_V matches 1 if score #headstring swPool_var00 matches 1 at @s run function pool:classes/ballinhand/uk8ball/main

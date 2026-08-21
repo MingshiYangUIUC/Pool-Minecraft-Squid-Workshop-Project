@@ -1,10 +1,14 @@
-execute at @s run function pool:classes/physics/vseparate
-execute as @e[type=item_display,tag=swPool_a2,limit=1] at @s run function pool:classes/physics/vseparate
+#tellraw @a [{"text":" V before, "},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_vz","name":"@s"}}]
+#tellraw @a [{"text":" Ve before, "},{"score":{"objective":"swPool_vex","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_vez","name":"@s"}}]
 
-scoreboard players operation #vIn2 swMath_V = @e[type=item_display,tag=swPool_a2,limit=1] swPool_vx
-scoreboard players operation #vIn swMath_V = @s swPool_vz
-scoreboard players operation #vIn2 swMath_V -= @s swPool_vx
-scoreboard players operation #vIn swMath_V -= @e[type=item_display,tag=swPool_a2,limit=1] swPool_vz
+#execute at @s run function pool:classes/physics/vseparate
+#execute as @e[type=item_display,tag=swPool_a2,limit=1] at @s run function pool:classes/physics/vseparate
+#tellraw @a [{"text":" V after, "},{"score":{"objective":"swPool_vx","name":"@s"}},{"text":" "},{"score":{"objective":"swPool_vz","name":"@s"}}]
+
+scoreboard players operation #vIn2 swMath_V = @e[type=item_display,tag=swPool_a2,limit=1] swPool_vex
+scoreboard players operation #vIn swMath_V = @s swPool_vez
+scoreboard players operation #vIn2 swMath_V -= @s swPool_vex
+scoreboard players operation #vIn swMath_V -= @e[type=item_display,tag=swPool_a2,limit=1] swPool_vez
 
 function pool:classes/math/arctan2_rad
 function math:classes/core/util/swap

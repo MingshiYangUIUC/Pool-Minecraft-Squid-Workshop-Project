@@ -48,8 +48,7 @@ tag 000c2be1-0001-414d-0000-000000000000 remove swPool_9ballmode
 
 execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand
 execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand_obj
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
+execute as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:101,display:{Name:"\"Red\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:102,display:{Name:"\"Yellow\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:103,display:{Name:"\"Green\""}}
@@ -58,6 +57,21 @@ execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:106,display:{Name:"\"Pink\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:107,display:{Name:"\"Black\""}}
 
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:121,display:{Name:"\"01\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:122,display:{Name:"\"02\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:123,display:{Name:"\"03\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:124,display:{Name:"\"04\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:125,display:{Name:"\"05\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:126,display:{Name:"\"06\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:127,display:{Name:"\"07\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:128,display:{Name:"\"08\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:129,display:{Name:"\"09\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:130,display:{Name:"\"10\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:131,display:{Name:"\"11\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:132,display:{Name:"\"12\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:133,display:{Name:"\"13\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:134,display:{Name:"\"14\""}}
+execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:135,display:{Name:"\"15\""}}
 
 #tag 000c2be1-0001-414d-0000-000000000000 add swPool_start
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_fouled

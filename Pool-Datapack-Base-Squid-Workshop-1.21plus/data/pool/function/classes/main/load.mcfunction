@@ -143,6 +143,8 @@ scoreboard objectives add swPool_ay dummy
 scoreboard objectives add swPool_az dummy
 scoreboard objectives add swPool_amag dummy
 
+scoreboard objectives add swPool_cos dummy
+scoreboard objectives add swPool_sin dummy
 
 #spin stuff
 scoreboard objectives add swPool_vpx dummy
@@ -301,6 +303,9 @@ scoreboard players set i_ball_100 swPool_C 56
 scoreboard players set C_l swPool_C 12500
 scoreboard players set i_stick swPool_C 2700
 
+# quat storage
+data merge storage minecraft:swpool_tmp {quat:[0.0f,0.0f,0.0f,0.0f],posehead:[0.0001f,0.0f,0.0f]}
+
 # tp_duration # default: 1
 execute unless score C_tpdr swPool_C matches 0..59 run scoreboard players set C_tpdr swPool_C 1
 execute if score C_tpdr swPool_C matches ..-1 run scoreboard players set C_tpdr swPool_C 0
@@ -329,9 +334,9 @@ execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tc
 
 # bot default values
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
-execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 4
+execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
-execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 10
+execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 20
 execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
 
 # allow cheat by default, needed by default if trying to play without auto judge
@@ -357,8 +362,8 @@ execute unless data storage minecraft:swpool disallowspin unless data storage mi
 
 function pool:classes/cue/reset
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.4 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.4 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.5 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.5 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","click_event":{"action":"run_command","command":"/function app:help/pool/commandwindow"}}]
 
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","click_event":{"action":"run_command","command":"/function app:help/pool/settings/_help_version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","click_event":{"action":"run_command","command":"/function app:help/pool/settings/_help_version"}}]

@@ -87,6 +87,8 @@ scoreboard objectives remove swPool_ax
 scoreboard objectives remove swPool_ay
 scoreboard objectives remove swPool_az
 scoreboard objectives remove swPool_amag
+scoreboard objectives remove swPool_cos
+scoreboard objectives remove swPool_sin
 scoreboard objectives remove swPool_vpx
 scoreboard objectives remove swPool_vpy
 scoreboard objectives remove swPool_vpz

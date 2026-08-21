@@ -189,9 +189,14 @@ execute if score DT swMath_V matches 1.. run function pool:classes/pose/w2dpdt_l
 ############# iteration ends
 
 # set pose
-data merge entity @s {Pose:{Head:[0.0001f,0.0f,0.0f]}}
+#data merge entity @s {Pose:{Head:[0.0001f,0.0f,0.0f]}}
 execute if score pose0 swPool_pose matches 0 if score pose1 swPool_pose matches 0 if score pose2 swPool_pose matches 0 run scoreboard players add pose0 swPool_pose 2
-execute store result entity @s Pose.Head[0] float 0.0001 run scoreboard players get pose0 swPool_pose
-execute store result entity @s Pose.Head[1] float 0.0001 run scoreboard players get pose1 swPool_pose
-execute store result entity @s Pose.Head[2] float 0.0001 run scoreboard players get pose2 swPool_pose
+#execute store result entity @s Pose.Head[0] float 0.0001 run scoreboard players get pose0 swPool_pose
+#execute store result entity @s Pose.Head[1] float 0.0001 run scoreboard players get pose1 swPool_pose
+#execute store result entity @s Pose.Head[2] float 0.0001 run scoreboard players get pose2 swPool_pose
 
+execute store result storage minecraft:swpool_tmp posehead[0] float 0.0001 run scoreboard players get pose0 swPool_pose
+execute store result storage minecraft:swpool_tmp posehead[1] float 0.0001 run scoreboard players get pose1 swPool_pose
+execute store result storage minecraft:swpool_tmp posehead[2] float 0.0001 run scoreboard players get pose2 swPool_pose
+
+data modify entity @s Pose.Head set from storage minecraft:swpool_tmp posehead

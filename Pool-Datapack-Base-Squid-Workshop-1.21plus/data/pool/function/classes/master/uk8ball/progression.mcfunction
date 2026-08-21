@@ -45,8 +45,8 @@ execute if entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue,tag=swPool_stre
 #execute if entity @a[tag=swPool_foul] run say foul_aim
 tag @a remove swPool_streak
 
-execute if data storage minecraft:swpool feedback_foul if entity @a[tag=!swPool_foul_large,tag=swPool_foul] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中目标球，没有球落袋。"}]
-execute if data storage minecraft:swpool feedback_foul if entity @a[tag=!swPool_foul_large,tag=swPool_foul] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit the correct object balls, did not pot any ball."}]
+execute if score Stroke swPool_hidScore matches 2.. if data storage minecraft:swpool feedback_foul if entity @a[tag=!swPool_foul_large,tag=swPool_foul] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未击中目标球，没有球落袋。"}]
+execute if score Stroke swPool_hidScore matches 2.. if data storage minecraft:swpool feedback_foul if entity @a[tag=!swPool_foul_large,tag=swPool_foul] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Reason of foul: did not hit the correct object balls, did not pot any ball."}]
 
 # if awarded but foul, clear streak
 execute if entity @s[tag=swPool_awarded] as @a[tag=swPool_hitcue] unless entity @s[tag=swPool_aimred,scores={swPool_firsthit=1}] unless entity @s[tag=swPool_aimylw,scores={swPool_firsthit=2}] unless entity @s[tag=swPool_aimblk,scores={swPool_firsthit=7}] run tag @s add swPool_endstreak

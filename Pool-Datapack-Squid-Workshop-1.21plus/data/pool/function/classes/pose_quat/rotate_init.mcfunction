@@ -11,11 +11,12 @@ scoreboard players operation wy swMath_V /= C_20 swPool_C
 scoreboard players operation wz swMath_V /= C_20 swPool_C
 
 # wmag (unit is 0.0001 rad per tick)
-scoreboard players operation #vAi swMath_V = wx swMath_V
-scoreboard players operation #vAj swMath_V = wy swMath_V
-scoreboard players operation #vAk swMath_V = wz swMath_V
-function math:classes/core/vector/magnitude
-scoreboard players operation #wmag swMath_V = #vOut swMath_V
+scoreboard players operation A swPool_Vi = wx swMath_V
+scoreboard players operation A swPool_Vj = wy swMath_V
+scoreboard players operation A swPool_Vk = wz swMath_V
+#function math:classes/core/vector/magnitude
+function pool:classes/physics/vamagnitude
+scoreboard players operation #wmag swMath_V = O swPool_Vmag
 
 #tellraw @a[tag=swPool_debug] [{"text":"wmag: "},{"score":{"name": "#wmag","objective": "swMath_V"}}]
 
@@ -86,10 +87,18 @@ execute if score maxRdt swMath_V matches 1.. run function pool:classes/pose_quat
 
 # loop should finish...
 # set right_rotation with Q
-execute store result entity @s transformation.right_rotation[0] float 0.0001 run scoreboard players get #Q1 swMath_V
-execute store result entity @s transformation.right_rotation[1] float 0.0001 run scoreboard players get #Q2 swMath_V
-execute store result entity @s transformation.right_rotation[2] float 0.0001 run scoreboard players get #Q3 swMath_V
-execute store result entity @s transformation.right_rotation[3] float 0.0001 run scoreboard players get #Q4 swMath_V
+
+execute store result storage minecraft:swpool_tmp quat[0] float 0.0001 run scoreboard players get #Q1 swMath_V
+execute store result storage minecraft:swpool_tmp quat[1] float 0.0001 run scoreboard players get #Q2 swMath_V
+execute store result storage minecraft:swpool_tmp quat[2] float 0.0001 run scoreboard players get #Q3 swMath_V
+execute store result storage minecraft:swpool_tmp quat[3] float 0.0001 run scoreboard players get #Q4 swMath_V
+
+data modify entity @s transformation.right_rotation set from storage minecraft:swpool_tmp quat
+
+#execute store result entity @s transformation.right_rotation[0] float 0.0001 run scoreboard players get #Q1 swMath_V
+#execute store result entity @s transformation.right_rotation[1] float 0.0001 run scoreboard players get #Q2 swMath_V
+#execute store result entity @s transformation.right_rotation[2] float 0.0001 run scoreboard players get #Q3 swMath_V
+#execute store result entity @s transformation.right_rotation[3] float 0.0001 run scoreboard players get #Q4 swMath_V
 
 # update self q values
 scoreboard players operation @s swPool_Q1 = #Q1 swMath_V

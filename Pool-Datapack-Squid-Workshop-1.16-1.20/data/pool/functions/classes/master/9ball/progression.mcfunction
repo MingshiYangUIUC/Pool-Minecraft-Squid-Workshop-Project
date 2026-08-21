@@ -136,7 +136,7 @@ execute if entity @s[tag=!swPool_endgame] if entity @e[tag=swPool_poolplay,tag=s
 # assign smallest ball if not endgame
 execute if entity @s[tag=swPool_endgame] run scoreboard players reset #least_survival swPool_var00
 # recompute smallest ball for message
-function pool:classes/master/9ball/compute_smallest_ball
+execute unless entity @s[tag=swPool_endgame] run function pool:classes/master/9ball/compute_smallest_ball
 
 # Chinese
 execute if score #least_survival swPool_var00 matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_nextturn]"},{"text":"请击球。"},{"text":"目标球为"},{"text":"➀","color":"yellow"},{"text":"号球"}]
@@ -182,8 +182,8 @@ scoreboard players reset #least_survival swPool_var00
 
 
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]
 execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]
 
-execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111211"}}]
+execute if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]
 execute unless score #botmove swMath_V matches 1 if entity @s[tag=!swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110806"}}]

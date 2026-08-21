@@ -55,8 +55,7 @@ tag @e[tag=swPool_pooltable,tag=swPool_vsnake] remove swPool_vsnake
 
 execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand
 execute as 000c2be1-0001-414d-0000-000000000000 at @s run tag @a[distance=..20] add swPool_ballinhand_obj
-execute if data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:99,display:{Name:"\"Cue Ball\""}}
-execute unless data storage minecraft:swpool cueballreddot as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{CustomModelData:100,display:{Name:"\"Cue Ball\""}}
+execute as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:101,display:{Name:"\"Red\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:102,display:{Name:"\"Yellow\""}}
 execute as @a[tag=swPool_ballinhand] at @s run give @s carrot_on_a_stick{swPool_obj:1b,CustomModelData:103,display:{Name:"\"Green\""}}

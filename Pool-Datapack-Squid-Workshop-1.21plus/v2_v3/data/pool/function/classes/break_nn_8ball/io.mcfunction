@@ -67,10 +67,10 @@ execute if score #Xdir swMath_V matches 1 run scoreboard players operation #VELH
 
 # obtain coordinate of rack center (H, V) coord (away from table center - positive H)
 # if uk8ball,set black to 08
-tag @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] add swPool_08
+tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=swPool_black,limit=1] add swPool_08
 # get 8 ball coord scaled by 10000
-execute store result score #8 swPool_posx run data get entity @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] Pos[0] 10000
-execute store result score #8 swPool_posz run data get entity @e[type=item_display,tag=swPool_pool,tag=swPool_08,limit=1] Pos[2] 10000
+execute store result score #8 swPool_posx run data get entity @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=swPool_08,limit=1] Pos[0] 10000
+execute store result score #8 swPool_posz run data get entity @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=swPool_08,limit=1] Pos[2] 10000
 
 # 2R/sqrt(3), scale by R (1443 = 2R/sqrt(3))
 scoreboard players operation #HCoffset swMath_V = C_r swPool_C
@@ -332,14 +332,14 @@ execute unless score #tipregion swMath_V matches 0 run function pool:classes/bre
 # summon area effect cloud helper
 
 # z direction
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 0 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~0.0 ~ ~1.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 1 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~-1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
-execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches -1 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 0 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~0.0 ~ ~1.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches 1 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~-1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 0 if score #tipregion swMath_V matches -1 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
 
 # x direction
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 0 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~1.0 ~ ~0.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 1 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~-1.0 ~ ~1.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
-execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches -1 at @e[tag=swPool_08,tag=swPool_pool,limit=1] positioned ~-1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 0 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~1.0 ~ ~0.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches 1 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~-1.0 ~ ~1.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
+execute if score #Xdir swMath_V matches 1 if score #tipregion swMath_V matches -1 at @e[tag=swPool_08,tag=swPool_pool,tag=!swPool_fake,limit=1] positioned ~-1.0 ~ ~-1.0 run tag @e[tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue,limit=1,type=item_display,sort=nearest] add swPool_tip
 
 #tag @e[tag=swPool_tip] list
 
@@ -363,12 +363,12 @@ execute as @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display] at @
 kill @e[tag=swPool_rackmapper,limit=1,sort=nearest,type=item_display]
 
 # for all balls, map from HV to XZ based on Xdir
-execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes/break_nn_8ball/map_xz
+execute as @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] at @s run function pool:classes/break_nn_8ball/map_xz
 
 # final upscale speed by N digits and combine
-execute as @e[tag=swPool_pool,type=item_display] run scoreboard players operation @s swPool_vx *= #VEL_mtp swMath_V
-execute as @e[tag=swPool_pool,type=item_display] run scoreboard players operation @s swPool_vz *= #VEL_mtp swMath_V
-execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes/physics/vcombine_ultimate
+execute as @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] run scoreboard players operation @s swPool_vx *= #VEL_mtp swMath_V
+execute as @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] run scoreboard players operation @s swPool_vz *= #VEL_mtp swMath_V
+execute as @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] at @s run function pool:classes/physics/vcombine_ultimate
 
 
 # like collision, set T to 0 and change_of_state for all balls (reference collision functions)
@@ -384,17 +384,17 @@ tag @e[tag=swPool_8ball_aibreak,limit=1] remove swPool_8ball_aibreak
 scoreboard players set swPool_8ball_aibreak swMath_V 0
 
 # if uk8ball, remove 08 from black
-tag @e[type=item_display,tag=swPool_pool,tag=swPool_black,limit=1] remove swPool_08
+tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=swPool_black,limit=1] remove swPool_08
 
 # does not really matter for cn8ball
 scoreboard players set @e[tag=swPool_hitcue] swPool_firsthit 1
 
 # get nearest for uk8ball (still @a because there is no bot for uk8ball)
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_red] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
-execute at @s as @e[tag=swPool_pool,limit=1,distance=0.01..] if entity @s[tag=swPool_yellow] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
+execute at @s as @e[tag=swPool_pool,tag=!swPool_fake,limit=1,distance=0.01..] if entity @s[tag=swPool_red] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 1
+execute at @s as @e[tag=swPool_pool,tag=!swPool_fake,limit=1,distance=0.01..] if entity @s[tag=swPool_yellow] run scoreboard players set @a[tag=swPool_hitcue] swPool_firsthit 2
 
-scoreboard players set @e[tag=swPool_pool,type=item_display] swPool_T 0
-execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes/spin/change_of_state
+scoreboard players set @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] swPool_T 0
+execute as @e[tag=swPool_pool,tag=!swPool_fake,type=item_display] at @s run function pool:classes/spin/change_of_state
 
 
 # playsound
