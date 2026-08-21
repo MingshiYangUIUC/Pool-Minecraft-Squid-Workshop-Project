@@ -343,24 +343,23 @@ For version-to-version comparison, an 8-ball break was tested in Minecraft 1.21.
 
 Normal shots are substantially lighter than the break-shot benchmark because the number of moving balls are often limited to one or two. They now add as little as around **1 MSPT** in the most recent version. 
 
-## CPU Frequency Scaling
+## Performance Across Different Systems
 
-CPU frequency also has a substantial effect on performance. The following results are based on the earlier v1.3.4 benchmark using the same Ryzen 9 5900X and 1 GB allocated RAM. Peak-load midpoints are normalized relative to the PBO result.
+To evaluate real-world performance, v1.3.5 was tested on several different systems using the same 8-ball break benchmark.
 
-| CPU Setting |  Relative Peak Load |
-|---|---:|
-| PBO (Up to 4.9 GHZ) | **100%** |
-| FIX 4.4 GHz | **106%** |
-| FIX 3.7 GHz | **133%** |
-| FIX 2.8 GHz | **171%** |
+| System | CPU | Peak MSPT Range | Mean MSPT Range |
+|---|---|---:|---:|
+| Desktop | Ryzen 9 5900X | 08–11 | 03–04 |
+| Tablet | Intel Core i7-1265U | 15-18 | 06-07 |
+| Laptop | Ryzen 5 PRO 4650U | 19-24 | 07-10 |
 
-Lower CPU frequency therefore results in progressively higher MSPT, consistent with the datapack being primarily limited by CPU performance. These percentages are intended to show approximate frequency scaling rather than predict exact performance on other CPUs.
+All tested systems ran comfortably below the 50 MSPT tick-time limit during the benchmark, including the lower-power laptop processors. This suggests that the latest datapack can run smoothly on a fairly wide range of hardware.
 
-Allocating 8 GB instead of 1 GB produced no meaningful performance improvement in other testing, suggesting that additional RAM is generally much less important than CPU performance for this workload.
+Actual performance will still vary depending on CPU performance, power limits, cooling, server load, Minecraft version, allocated memory, and the complexity of the game scenario.
 
-A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. A very short spike may affect only one or a few ticks and can recover immediately afterward. However, MSPT persistently above 50 will result in sustained TPS loss, and busy servers or systems with weaker CPUs may still experience brief slowdowns during particularly complex situations.
+A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. A very short spike may affect only one or a few ticks and recover immediately afterward. However, MSPT persistently above 50 will result in sustained TPS loss.
 
-Spin visualization remains one of the more computationally expensive visual features. Disabling it can further reduce load on systems by **~30%** where additional performance headroom is needed.
+Spin visualization remains one of the most computationally expensive features. Disabling it can further reduce load by around **30%** on systems where additional performance headroom is needed.
 
 ---
 # Frequently Asked Questions

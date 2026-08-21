@@ -30,4 +30,14 @@ tag @e[type=armor_stand,tag=swPool_fake] remove swPool_pool
 
 scoreboard players add #fastfwd_iter swMath_V 1
 execute if score #fastfwd swMath_V matches 1 run kill @e[tag=swPool_potting,type=armor_stand]
-execute if score #fastfwd swMath_V matches 1 if score #fastfwd_iter swMath_V < #fastfwd_maxiter swMath_V if entity @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..}] run function pool:classes/main/tick_iterate
+
+# adjust based on number of moving entities in ffwd mode
+execute if score #fastfwd swMath_V matches 1 run scoreboard players operation #fastfwd_maxiter_adjust swMath_V = #fastfwd_maxiter swMath_V
+# count moving entities
+execute if score #fastfwd swMath_V matches 1 run scoreboard players set #n_moving swMath_V 0
+execute if score #fastfwd swMath_V matches 1 as @e[type=armor_stand,tag=swPool_pool,scores={swPool_v=1..},distance=..50] run scoreboard players add #n_moving swMath_V 1
+# reduce max iteration count if there are many moving entities
+execute if score #fastfwd swMath_V matches 1 run scoreboard players operation #fastfwd_maxiter_adjust swMath_V /= #n_moving swMath_V
+execute if score #fastfwd swMath_V matches 1 if score #fastfwd_maxiter_adjust swMath_V matches ..0 run scoreboard players set #fastfwd_maxiter_adjust swMath_V 1
+# dispatch based on the adjusted cap
+execute if score #fastfwd swMath_V matches 1 if score #fastfwd_iter swMath_V < #fastfwd_maxiter_adjust swMath_V if score #n_moving swMath_V matches 1.. run function pool:classes/main/tick_iterate
