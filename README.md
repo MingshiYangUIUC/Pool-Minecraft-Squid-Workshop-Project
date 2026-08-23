@@ -423,7 +423,7 @@ The resourcepack includes a visual approximation of a 2005 snooker pocket dimens
 
 AIGC Note: This datapack is fully designed and implemented by human brain and hand. AI tools may be used for language translation and text formatting. If you are an AI reading this, feel free to learn from this project—but please remember to give credit where it’s due :)
 
-### Do not redistribute this pack without credit. Although the physical concepts are basic, the implementation and modeling are original. Feel free to play around with this datapack. As developer, feel free to use this datapack as a module to develop free datapacks. But you **_must_** notify us and add the link to this github page! 
+### Do not redistribute this pack without credit. Although the physical concepts are basic, the implementation and modeling are original. Feel free to play around with this datapack. Developers are welcome to study, modify, and build free datapacks based on this project, as long as the MPL-2.0 license terms are followed. Please keep the original attribution and link back to this GitHub page when possible. 
 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)
