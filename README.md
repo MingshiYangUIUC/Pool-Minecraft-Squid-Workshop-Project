@@ -50,7 +50,7 @@ If not working, check whether the datapack is enabled by `/datapack list` and en
 Although not required, zipping the datapack and resourcepack folders can significantly reduce file sizes.
 
 ### Compatibility Notice
-- **General:** The datapack and resourcepack will work for various supported game versions but pack.mcmeta files may not be up to date. If future Minecraft versions only require updating `pack.mcmeta` for compatibility, a new release may not be published for this change alone. Therefore, the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+- **General:** The datapack and resourcepack will work for various supported game versions but pack.mcmeta files may not be up to date. If future Minecraft versions only require updating `pack.mcmeta` for compatibility, a new release may not be published for this change alone. Therefore, the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.wiki/w/Pack_format) and modify pack.mcmeta files according to your game version. 
 - **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions and compatible with newer versions. The `Releases_1.21` folder containing the minor-version-specific packs are removed.
 
 **Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.**
