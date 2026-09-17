@@ -20,15 +20,10 @@ execute if score #x swMath_V matches ..-1 run scoreboard players set #n2 swMath_
 execute if score #x swMath_V matches ..-1 run scoreboard players operation #x swMath_V *= #C_-1 swMath_C
 
 # calculation
-scoreboard players operation #xx swMath_V = #x swMath_V
-# this dispatcher now accept #xx instead of #vIn
-execute if score #xx swMath_V matches 0..80000 run function pool:classes/math/arctan_0_80000
-# other range use old math functions
-execute if score #xx swMath_V matches 80001..320000 run function math:classes/supp/arctan_ranges/320000
-execute if score #xx swMath_V matches 320001..1000000 run function math:classes/supp/arctan_ranges/1000000
-execute if score #xx swMath_V matches 1000001..30000000 run function math:classes/supp/arctan_ranges/30000000
-execute if score #xx swMath_V matches 30000001..100000000 run function math:classes/supp/arctan_ranges/100000000
-execute if score #xx swMath_V matches 100000001.. run scoreboard players set #y swMath_V 15708
+# 0 <= x <= 1
+execute if score #x swMath_V matches 0..10000 store result score #y swMath_V run compute default float {"type":"minecraft:div","left":{"type":"minecraft:mul","inputs":[8.0,{"type":"minecraft:div","left":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}},"right":10000.0}]},"right":{"type":"minecraft:add","inputs":[3.0,{"type":"minecraft:sqrt","input":{"type":"minecraft:add","inputs":[25.0,{"type":"minecraft:mul","inputs":[26.6666667,{"type":"minecraft:mul","inputs":[{"type":"minecraft:div","left":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}},"right":10000.0},{"type":"minecraft:div","left":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}},"right":10000.0}]}]}]}}]}} 10000
+# x > 1
+execute if score #x swMath_V matches 10001.. store result score #y swMath_V run compute default float {"type":"minecraft:add","inputs":[1.5707963,{"type":"minecraft:negate","input":{"type":"minecraft:div","left":{"type":"minecraft:mul","inputs":[8.0,{"type":"minecraft:div","left":10000.0,"right":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}}}]},"right":{"type":"minecraft:add","inputs":[3.0,{"type":"minecraft:sqrt","input":{"type":"minecraft:add","inputs":[25.0,{"type":"minecraft:mul","inputs":[26.6666667,{"type":"minecraft:mul","inputs":[{"type":"minecraft:div","left":10000.0,"right":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}}},{"type":"minecraft:div","left":10000.0,"right":{"type":"minecraft:from_int","input":{"type":"minecraft:score","target":{"type":"fixed","name":"#x"},"score":"swMath_V"}}}]}]}]}}]}}}]} 10000
 
 #tellraw @a[tag=swMath_debug] [{"text":"#y: "},{"score":{"name": "#y","objective": "swMath_V"}}]
 scoreboard players operation #y swMath_V *= #n2 swMath_V

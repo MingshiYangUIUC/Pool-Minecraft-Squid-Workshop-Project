@@ -1,36 +1,51 @@
 {
   "pack": {
-    "description": "[v1.3.5-mc1.21plus] Pool Datapack - YMS2001 - Squid Workshop",
+    "description": "[v1.3.6-mc1.21plus] Pool Datapack - YMS2001 - Squid Workshop",
     "pack_format": 48,
     "supported_formats": {
       "min_inclusive": 48,
-      "max_inclusive": 107
+      "max_inclusive": 121
     },
     "min_format": 48,
-    "max_format": 107
+    "max_format": 121
   },
   "overlays": {
     "entries": [
       {
         "directory": "v0_v1",
         "formats": {
-          "max_inclusive": 48,
-          "min_inclusive": 48
-        }
+          "min_inclusive": 48,
+          "max_inclusive": 48
+        },
+        "min_format": 48,
+        "max_format": 48
       },
       {
         "directory": "v2_v3",
         "formats": {
-          "max_inclusive": 57,
-          "min_inclusive": 57
-        }
+          "min_inclusive": 57,
+          "max_inclusive": 57
+        },
+        "min_format": 57,
+        "max_format": 57
       },
       {
         "directory": "v4_v4",
         "formats": {
-          "max_inclusive": 61,
-          "min_inclusive": 61
-        }
+          "min_inclusive": 61,
+          "max_inclusive": 61
+        },
+        "min_format": 61,
+        "max_format": 61
+      },
+      {
+        "directory": "v5_v262",
+        "formats": {
+          "min_inclusive": 71,
+          "max_inclusive": 107
+        },
+        "min_format": 71,
+        "max_format": 107
       }
     ]
   }

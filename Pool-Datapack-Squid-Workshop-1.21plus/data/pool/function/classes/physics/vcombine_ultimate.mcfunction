@@ -1,29 +1,7 @@
 #combine x z velocities to one vector with direction and magnitude
 #not applicable to swPool_player which is weird
 
-#constant used for calculation: 2000
-scoreboard players set #C_adapt swPool_C 2000
-
-scoreboard players operation #vIn swMath_V = @s swPool_vx
-scoreboard players operation #vz swMath_V = @s swPool_vz
-
-execute unless score #vIn swMath_V matches -50000000..50000000 run scoreboard players set #C_adapt swPool_C 10000
-execute unless score #vz swMath_V matches -50000000..50000000 run scoreboard players set #C_adapt swPool_C 10000
-
-scoreboard players operation #vIn swMath_V /= #C_adapt swPool_C
-scoreboard players operation #vz swMath_V /= #C_adapt swPool_C
-scoreboard players operation #vIn swMath_V *= #vIn swMath_V
-#tellraw @a [{"text":" vz, "},{"score":{"objective":"swMath_V","name":"#vz"}}]
-scoreboard players operation #vz swMath_V *= #vz swMath_V
-
-#tellraw @a [{"text":" vx, "},{"score":{"objective":"swMath_V","name":"#vIn"}}]
-#tellraw @a [{"text":" vz, "},{"score":{"objective":"swMath_V","name":"#vz"}}]
-
-scoreboard players operation #vIn swMath_V += #vz swMath_V
-
-function math:classes/core/operations/sqrt
-scoreboard players operation #vOut swMath_V *= #C_adapt swPool_C
-scoreboard players operation @s swPool_v = #vOut swMath_V
+execute store result score @s swPool_v run compute default float {type:"minecraft:length",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_vx"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_vz"}}]}
 
 #add rotation based on xz values
 

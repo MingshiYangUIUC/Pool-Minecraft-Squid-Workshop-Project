@@ -338,7 +338,7 @@ scoreboard players operation @s swPool_var01 *= @s swPool_var01
 scoreboard players operation @s swPool_var00 += @s swPool_var01
 
 scoreboard players operation #vIn swMath_V = @s swPool_var00
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation @s swPool_var00 = #vOut swMath_V
 
 scoreboard players operation @s swPool_var00 *= C_2000 swPool_C

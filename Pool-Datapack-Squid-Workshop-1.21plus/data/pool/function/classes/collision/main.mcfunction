@@ -19,7 +19,7 @@ scoreboard players operation #vz swMath_V /= #C_adapt swPool_C
 scoreboard players operation #vIn swMath_V *= #vIn swMath_V
 scoreboard players operation #vz swMath_V *= #vz swMath_V
 scoreboard players operation #vIn swMath_V += #vz swMath_V
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #vOut swMath_V *= #C_adapt swPool_C
 scoreboard players operation @s swPool_vr = #vOut swMath_V
 

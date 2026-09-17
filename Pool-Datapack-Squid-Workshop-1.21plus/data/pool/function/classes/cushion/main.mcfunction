@@ -3,7 +3,10 @@
 #prerequisite: swPool_v>0
 #tag is given a1
 
-execute unless score #muteall swPool_C matches 1 run function pool:classes/cushion/detect_out_of_table
+scoreboard players operation #ootdetect swMath_V = #accumulator swMath_V
+scoreboard players operation #ootdetect swMath_V %= C_5 swPool_C
+
+execute if score #ootdetect swMath_V matches 1 unless score #muteall swPool_C matches 1 run function pool:classes/cushion/detect_out_of_table
 
 #get old distance in components
 #pooltable dimensions and position is stored in variable TABLE

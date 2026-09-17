@@ -11,15 +11,11 @@
 #1. sort by comparing sum of v and (distance-0.5) (ideal for stationary balls)
 #2. 
 
-scoreboard players operation vsum swPool_v = @s swPool_v
-scoreboard players operation vsum swPool_v += qs_self swPool_v
-scoreboard players operation vsum swPool_v /= C_10000 swPool_C
+# vsum = (@s v + qs_self v) / 10000
+execute store result score vsum swPool_v run compute default float {type:"minecraft:div",left:{type:"minecraft:add",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_v"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"qs_self"},score:"swPool_v"}}]},right:10000.0}
 
-function pool:classes/master/qs_dist
-
-# QSD_sqr = distance^2
-# scale to avoid overflow:
-scoreboard players operation QSD_sqr swPool_dist /= C_100 swPool_C
+# QSD_sqr = ((tmpposx-D2x_self)^2 + (tmpposz-D2z_self)^2) / 100
+execute store result score QSD_sqr swPool_dist run compute default float {type:"minecraft:div",left:{type:"minecraft:add",inputs:[{type:"minecraft:pow",base:{type:"minecraft:sub",left:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_tmpposx"}},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"D2x_self"},score:"swMath_V"}}},exponent:2.0},{type:"minecraft:pow",base:{type:"minecraft:sub",left:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_tmpposz"}},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"D2z_self"},score:"swMath_V"}}},exponent:2.0}]},right:100.0}
 
 # threshold = vsum + self radius
 scoreboard players operation QS_th swPool_dist = vsum swPool_v

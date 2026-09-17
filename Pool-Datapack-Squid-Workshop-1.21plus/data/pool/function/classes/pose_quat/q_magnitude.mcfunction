@@ -15,4 +15,4 @@ scoreboard players operation #vIn swMath_V += #jSqr swMath_V
 scoreboard players operation #vIn swMath_V += #kSqr swMath_V
 scoreboard players operation #vIn swMath_V += #lSqr swMath_V
 
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
