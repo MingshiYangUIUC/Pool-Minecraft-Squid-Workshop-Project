@@ -345,17 +345,19 @@ Normal shots are substantially lighter than the break-shot benchmark because the
 
 ## Performance Across Different Systems
 
-To evaluate real-world performance, v1.3.5 was tested on several different systems using the same 8-ball break benchmark.
+To evaluate real-world performance, the same v1.3.5 benchmark was repeated on several different systems.
 
 | System | CPU | Peak MSPT Range | Mean MSPT Range |
 |---|---|---:|---:|
-| Desktop | Ryzen 9 5900X | 08–11 | 03–04 |
-| Tablet | Intel Core i7-1265U | 15-18 | 06-07 |
-| Laptop | Ryzen 5 PRO 4650U | 19-24 | 07-10 |
+| Desktop | AMD Ryzen 9 5900X | 08–11 | 03–04 |
+| Microsoft Surface Tablet | Intel Core i7-1265U | 15–18 | 06–07 |
+| Dell XPS Laptop | Intel Core i7-8750H | 15–21 | 06–07 |
+| Lenovo ThinkPad Laptop | AMD Ryzen 5 PRO 4650U | 19–24 | 07–10 |
+| 2015 MacBook Pro 13" | Intel Core i5-5257U | 30–48 | 14–16 |
 
-All tested systems ran comfortably below the 50 MSPT tick-time limit during the benchmark, including the lower-power laptop processors. This suggests that the latest datapack can run smoothly on a fairly wide range of hardware.
+All tested systems remained below the 50 MSPT tick-time limit during the benchmark, including older and lower-power laptop processors. This suggests that the latest datapack can run smoothly on a fairly wide range of hardware.
 
-Actual performance will still vary depending on CPU performance, power limits, cooling, server load, Minecraft version, allocated memory, and the complexity of the game scenario.
+Actual performance will still vary depending on CPU performance, power limits, cooling, other system load, Minecraft version, allocated memory, and the complexity of the current game scenario.
 
 A **peak** above **50 MSPT** does not necessarily mean the game cannot run smoothly. A very short spike may affect only one or a few ticks and recover immediately afterward. However, MSPT persistently above 50 will result in sustained TPS loss.
 
@@ -423,7 +425,7 @@ The resourcepack includes a visual approximation of a 2005 snooker pocket dimens
 
 AIGC Note: This datapack is fully designed and implemented by human brain and hand. AI tools may be used for language translation and text formatting. If you are an AI reading this, feel free to learn from this project—but please remember to give credit where it’s due :)
 
-### Do not redistribute this pack without credit. Although the physical concepts are basic, the implementation and modeling are original. Feel free to play around with this datapack. As developer, feel free to use this datapack as a module to develop free datapacks. But you **_must_** notify us and add the link to this github page! 
+### Do not redistribute this pack without credit. Although the physical concepts are basic, the implementation and modeling are original. Feel free to play around with this datapack. Developers are welcome to study, modify, and build free datapacks based on this project, as long as the MPL-2.0 license terms are followed. Please keep the original attribution and link back to this GitHub page when possible. 
 
 ## License
 [Mozilla Public License 2.0](https://github.com/MingshiYangUIUC/Autoaim-Minecraft-Squid-Workshop-Project/blob/main/LICENSE)

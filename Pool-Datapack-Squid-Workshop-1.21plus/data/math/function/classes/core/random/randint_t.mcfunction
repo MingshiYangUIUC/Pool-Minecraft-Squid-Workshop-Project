@@ -9,7 +9,7 @@ scoreboard players operation #n2 swMath_V = #vIn swMath_V
 
 scoreboard players operation #vIn swMath_V *= #C_10000 swMath_C
 scoreboard players operation #vIn swMath_V *= #C_100 swMath_C
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #vOut swMath_V *= #C_34641 swMath_C
 scoreboard players operation #vOut swMath_V /= #C_1000 swMath_C
 scoreboard players operation #mu swMath_V = #vOut swMath_V

@@ -4,40 +4,14 @@
 # unit of final ve: 200000 -> 1m/tick -> 20 m/s -> 25.46 spins per second -> 160 rad / s
 # unit of w: m/s / r -> rad/s
 
-#function pool:classes/physics/vseparate_1
+# vex = -v * sin / 5,000,000
+execute store result score @s swPool_vex run compute default float {type:"minecraft:div",left:{type:"minecraft:negate",input:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_v"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_sin"}}]}},right:5000000.0}
 
-#scoreboard players operation @s swPool_vex /= C_500 swPool_C
-#scoreboard players operation @s swPool_vez /= C_500 swPool_C
+# vez = v * cos / 5,000,000
+execute store result score @s swPool_vez run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_v"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_cos"}}]},right:5000000.0}
 
-scoreboard players operation #vIn swPool_Vi = @s swPool_v
-scoreboard players operation #vIn swPool_Vk = #vIn swPool_Vi
+# wx = vez * 10000 / r
+execute store result score @s swPool_wx run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_vez"}},10000.0]},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"C_r"},score:"swPool_C"}}}
 
-scoreboard players operation #vIn swPool_Vi /= C_-10000 swPool_C
-scoreboard players operation #vIn swPool_Vi *= @s swPool_sin
-scoreboard players operation #vIn swPool_Vk /= C_10000 swPool_C
-scoreboard players operation #vIn swPool_Vk *= @s swPool_cos
-
-scoreboard players operation #vIn swPool_Vi /= C_500 swPool_C
-scoreboard players operation #vIn swPool_Vk /= C_500 swPool_C
-
-scoreboard players operation @s swPool_vex = #vIn swPool_Vi
-scoreboard players operation @s swPool_vez = #vIn swPool_Vk
-
-#tellraw @a [{"text":"Vex "},{"score":{"objective":"swPool_vex","name":"@s"}}]
-#tellraw @a [{"text":"Vex2 "},{"score":{"objective":"swPool_Vi","name":"#vIn"}}]
-
-#tellraw @a [{"text":"Vez "},{"score":{"objective":"swPool_vez","name":"@s"}}]
-#tellraw @a [{"text":"Vez2 "},{"score":{"objective":"swPool_Vk","name":"#vIn"}}]
-
-scoreboard players operation #vIn swPool_Vk *= C_100 swPool_C
-scoreboard players operation #vIn swPool_Vi *= C_100 swPool_C
-
-scoreboard players operation #vIn swPool_Vk /= C_r swPool_C
-scoreboard players operation #vIn swPool_Vi /= C_r swPool_C
-
-scoreboard players operation #vIn swPool_Vk *= C_100 swPool_C
-scoreboard players operation #vIn swPool_Vi *= C_100 swPool_C
-scoreboard players operation #vIn swPool_Vi *= C_-1 swPool_C
-
-scoreboard players operation @s swPool_wx = #vIn swPool_Vk
-scoreboard players operation @s swPool_wz = #vIn swPool_Vi
+# wz = -vex * 10000 / r
+execute store result score @s swPool_wz run compute default float {type:"minecraft:div",left:{type:"minecraft:negate",input:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"context",target:"this"},score:"swPool_vex"}},10000.0]}},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"C_r"},score:"swPool_C"}}}

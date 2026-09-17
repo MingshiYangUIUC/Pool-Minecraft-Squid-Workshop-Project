@@ -1,13 +1,13 @@
 {
   "pack": {
-    "description": "[v1.3.5-mc1.21plus] Pool Resourcepack - YMS2001 - Squid Workshop",
+    "description": "[v1.3.6-mc1.21plus] Pool Resourcepack - YMS2001 - Squid Workshop",
     "pack_format": 34,
     "supported_formats": {
       "min_inclusive": 34,
-      "max_inclusive": 88
+      "max_inclusive": 97
     },
     "min_format": 34,
-    "max_format": 88
+    "max_format": 97
   },
   "overlays": {
     "entries": [

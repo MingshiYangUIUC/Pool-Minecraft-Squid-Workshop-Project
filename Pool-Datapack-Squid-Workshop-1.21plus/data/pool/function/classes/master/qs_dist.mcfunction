@@ -17,5 +17,5 @@ scoreboard players operation #vIn swMath_V = D1 swPool_var01
 scoreboard players operation #vIn swMath_V += D1 swPool_var02
 
 # removed square root
-#function math:classes/core/operations/sqrt
+#execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation QSD_sqr swPool_dist = #vIn swMath_V

@@ -42,7 +42,7 @@ scoreboard players operation y2 swMath_V *= @s swPool_cuey
 scoreboard players operation #vIn swMath_V = x2 swMath_V
 scoreboard players operation #vIn swMath_V += y2 swMath_V
 
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 
 #tellraw @a [{"text":"sqrt = "},{"score":{"name":"#vOut","objective":"swMath_V"}}]
 

@@ -1,7 +1,7 @@
 # full rotate function
 # get Q elements #Q1 #Q2 #Q3 #Q4 from data
 
-# divide w (radian/s) by 20 to get radian per tick
+# divide w (rad/s) by 20 to get rad/tick
 scoreboard players operation wx swMath_V = @s swPool_wx
 scoreboard players operation wy swMath_V = @s swPool_wy
 scoreboard players operation wz swMath_V = @s swPool_wz
@@ -10,13 +10,9 @@ scoreboard players operation wx swMath_V /= C_20 swPool_C
 scoreboard players operation wy swMath_V /= C_20 swPool_C
 scoreboard players operation wz swMath_V /= C_20 swPool_C
 
-# wmag (unit is 0.0001 rad per tick)
-scoreboard players operation A swPool_Vi = wx swMath_V
-scoreboard players operation A swPool_Vj = wy swMath_V
-scoreboard players operation A swPool_Vk = wz swMath_V
-#function math:classes/core/vector/magnitude
-function pool:classes/physics/vamagnitude
-scoreboard players operation #wmag swMath_V = O swPool_Vmag
+# wmag = sqrt(wx^2 + wy^2 + wz^2)
+execute store result score #wmag swMath_V run compute default float {type:"minecraft:length",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wx"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wy"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wz"},score:"swMath_V"}}]}
+
 
 #tellraw @a[tag=swPool_debug] [{"text":"wmag: "},{"score":{"name": "#wmag","objective": "swMath_V"}}]
 
@@ -43,31 +39,17 @@ scoreboard players set DT swMath_V 10000
 #   q_delta = np.array([ax*s, ay*s, az*s, c], dtype=float)
 
 # half = DT * wmag / 2 (divide by 10000 to scale unit back)
-scoreboard players operation #whalf swMath_V = #wmag swMath_V
-scoreboard players operation #whalf swMath_V *= DT swMath_V
-scoreboard players operation #whalf swMath_V /= #C_2 swMath_C
-scoreboard players operation #whalf swMath_V /= #C_10000 swMath_C
+execute store result score #whalf swMath_V run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wmag"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"DT"},score:"swMath_V"}}]},right:20000.0}
 
 # sin of half
-scoreboard players operation #vIn swMath_V = #whalf swMath_V
-function pool:classes/math/sin_rad_fast
-scoreboard players operation #wms swMath_V = #vOut swMath_V
+execute store result score #wms swMath_V run compute default float {type:"minecraft:sin",input:{type:"minecraft:div",left:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#whalf"},score:"swMath_V"}},right:10000.0}} 10000
 # cos of half
-scoreboard players operation #vIn swMath_V = #whalf swMath_V
-function pool:classes/math/cos_rad_fast
-scoreboard players operation #wmc swMath_V = #vOut swMath_V
+execute store result score #wmc swMath_V run compute default float {type:"minecraft:cos",input:{type:"minecraft:div",left:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#whalf"},score:"swMath_V"}},right:10000.0}} 10000
 
 # qdelta, element/wmag * 100 * s / 100 (s has unit 0.0001)
-scoreboard players operation #dQ1 swMath_V = wx swMath_V
-scoreboard players operation #dQ2 swMath_V = wy swMath_V
-scoreboard players operation #dQ3 swMath_V = wz swMath_V
-
-scoreboard players operation #dQ1 swMath_V *= #wms swMath_V
-scoreboard players operation #dQ2 swMath_V *= #wms swMath_V
-scoreboard players operation #dQ3 swMath_V *= #wms swMath_V
-scoreboard players operation #dQ1 swMath_V /= #wmag swMath_V
-scoreboard players operation #dQ2 swMath_V /= #wmag swMath_V
-scoreboard players operation #dQ3 swMath_V /= #wmag swMath_V
+execute store result score #dQ1 swMath_V run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wx"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wms"},score:"swMath_V"}}]},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wmag"},score:"swMath_V"}}}
+execute store result score #dQ2 swMath_V run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wy"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wms"},score:"swMath_V"}}]},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wmag"},score:"swMath_V"}}}
+execute store result score #dQ3 swMath_V run compute default float {type:"minecraft:div",left:{type:"minecraft:mul",inputs:[{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"wz"},score:"swMath_V"}},{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wms"},score:"swMath_V"}}]},right:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#wmag"},score:"swMath_V"}}}
 scoreboard players operation #dQ4 swMath_V = #wmc swMath_V
 
 # get current Q information

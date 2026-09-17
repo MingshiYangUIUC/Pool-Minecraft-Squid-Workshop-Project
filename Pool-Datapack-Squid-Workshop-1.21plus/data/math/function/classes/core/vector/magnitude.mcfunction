@@ -35,7 +35,7 @@ scoreboard players operation #kSqr swMath_V *= #kMag swMath_V
 #tellraw @a [{"text":"M: "},{"score":{"name": "#maxMag","objective": "swMath_V"}}]
 
 scoreboard players operation #vIn swMath_V = #maxMag swMath_V
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #magSqr swMath_V = #vOut swMath_V
 
 scoreboard players operation #vIn swMath_V = #iSqr swMath_V
@@ -48,6 +48,6 @@ execute unless score #vIn swMath_V >= #iSqr swMath_V unless score #vIn swMath_V 
 
 #tellraw @a [{"text":"Osq: "},{"score":{"name": "#vIn","objective": "swMath_V"}}]
 
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #vOut swMath_V *= #magSqr swMath_V
 #tellraw @a [{"text":"O: "},{"score":{"name": "#vOut","objective": "swMath_V"}}]

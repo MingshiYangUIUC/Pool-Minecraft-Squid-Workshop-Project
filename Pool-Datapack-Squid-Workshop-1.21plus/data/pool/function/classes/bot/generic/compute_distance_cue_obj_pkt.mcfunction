@@ -17,7 +17,7 @@ scoreboard players operation #dz swMath_V *= #dz swMath_V
 scoreboard players operation #vIn swMath_V = #dx swMath_V
 scoreboard players operation #vIn swMath_V += #dz swMath_V
 
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #dcue swMath_V = #vOut swMath_V
 
 # pocket
@@ -37,7 +37,7 @@ scoreboard players operation #dz swMath_V *= #dz swMath_V
 scoreboard players operation #vIn swMath_V = #dx swMath_V
 scoreboard players operation #vIn swMath_V += #dz swMath_V
 
-function math:classes/core/operations/sqrt
+execute store result score #vOut swMath_V run compute default float {type:"minecraft:sqrt",input:{type:"minecraft:from_int",input:{type:"minecraft:score",target:{type:"fixed",name:"#vIn"},score:"swMath_V"}}}
 scoreboard players operation #dpkt swMath_V = #vOut swMath_V
 
 #tellraw @a[tag=swPool_debug] [{"text":"dcue, "},{"score":{"objective":"swMath_V","name":"#dcue"}}]
