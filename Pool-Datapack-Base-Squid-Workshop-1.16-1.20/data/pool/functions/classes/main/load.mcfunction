@@ -64,6 +64,8 @@ scoreboard objectives add swPool_C_tpdr_tr trigger
 scoreboard objectives add swPool_C_r_tr trigger
 #scoreboard players enable @a swPool_C_r_tr
 
+scoreboard objectives add swPool_C_sd_tr trigger
+#scoreboard players enable @a swPool_C_sd_tr
 scoreboard objectives add swPool_C_ne_tr trigger
 #scoreboard players enable @a swPool_C_ne_tr
 scoreboard objectives add swPool_C_te_tr trigger
@@ -331,11 +333,12 @@ execute unless score C_trt swPool_C matches 1..8 run scoreboard players set C_tr
 execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tcc swPool_C 1
 
 # bot default values
+execute unless score C_sd swPool_C matches 1..2 run scoreboard players set C_sd swPool_C 1
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
 execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
 execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 20
-execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
+execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 10
 
 # allow cheat by default, needed by default if trying to play without auto judge
 execute unless data storage minecraft:swpool disallowcheats unless data storage minecraft:swpool allowcheats run function app:settings/pool/cheating/allow
@@ -360,8 +363,8 @@ execute unless data storage minecraft:swpool disallowspin unless data storage mi
 
 function pool:classes/cue/reset
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.6 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.6 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.7 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.7 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]

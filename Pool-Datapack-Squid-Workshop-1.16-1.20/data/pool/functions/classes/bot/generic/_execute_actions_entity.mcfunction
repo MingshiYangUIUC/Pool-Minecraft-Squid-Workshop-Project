@@ -1,5 +1,11 @@
 # executor is the aim point
 
+# stop simulation
+function pool:classes/bot/generic/__clear_simulation_schedule
+
+# restore fast-forward 
+scoreboard players operation #fastfwd swMath_V = #fastfwd_tmp swMath_V
+scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp swMath_V
 scoreboard players reset #fastfwd_bot swMath_V
 
 # create / log rotation to be set for cue ball, force of cue ball, and strike point of cue ball.
@@ -70,4 +76,4 @@ schedule function pool:classes/bot/animation/shoot_helper 28t
 # delay this cleanup
 
 #kill @e[tag=swPool_shooter] moved into __cleanup
-schedule function pool:classes/bot/generic/__cleanup 46t
+schedule function pool:classes/bot/generic/__cleanup_delay 46t

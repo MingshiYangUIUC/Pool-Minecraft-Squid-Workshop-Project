@@ -1,9 +1,16 @@
+# d1 temporary scores
+execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players operation #fastfwd swMath_V = #fastfwd_tmp_d1 swMath_V
+execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp_d1 swMath_V
+execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players set #fastfwd_bot swMath_V 0
 
 kill @e[tag=swPool_aim_pkt]
 kill @e[tag=swPool_aim_obj]
 kill @e[tag=swPool_aim_obj_d0]
+kill @e[tag=swPool_aim_obj_d1]
 kill @e[tag=swPool_aim_obj_rand]
 kill @e[tag=swPool_shooter]
+kill @e[tag=swPool_shooter_d0]
+kill @e[tag=swPool_temppin_d1]
 #execute at @e[tag=swPool_aim_obj,tag=!swPool_pkt_blocked] run particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force
 
 tag @e[tag=swPool_tmp_legal] remove swPool_tmp_legal

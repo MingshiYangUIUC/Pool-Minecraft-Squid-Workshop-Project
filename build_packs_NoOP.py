@@ -947,6 +947,7 @@ variable_names = [
      "swPool_C_r",
 
      # bot
+     "swPool_C_sd",
      "swPool_C_ne",
      "swPool_C_te",
      "swPool_C_as",

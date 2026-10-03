@@ -298,17 +298,20 @@ execute if data storage minecraft:swpool whitelist if score @s swPool__trigger m
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350206 run function app:settings/pool/bot/n_aims_eval
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350206 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/n_aims_eval
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350207 run function app:settings/pool/bot/simulation_asap_off
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350207 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_asap_off
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350207 run function app:settings/pool/bot/search_depth
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350207 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/search_depth
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350208 run function app:settings/pool/bot/simulation_asap_on
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350208 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_asap_on
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350208 run function app:settings/pool/bot/simulation_asap_off
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350208 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_asap_off
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350209 run function app:settings/pool/bot/simulation_steps_per_tick
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350209 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_steps_per_tick
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350209 run function app:settings/pool/bot/simulation_asap_on
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350209 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_asap_on
 
-execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350210 run function app:settings/pool/bot/tick_per_eval
-execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350210 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350210 run function app:settings/pool/bot/simulation_steps_per_tick
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350210 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/simulation_steps_per_tick
+
+execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350211 run function app:settings/pool/bot/tick_per_eval
+execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11350211 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/bot/tick_per_eval
 
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351211 run function app:settings/pool/snooker/display/dialogue
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351211 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/dialogue

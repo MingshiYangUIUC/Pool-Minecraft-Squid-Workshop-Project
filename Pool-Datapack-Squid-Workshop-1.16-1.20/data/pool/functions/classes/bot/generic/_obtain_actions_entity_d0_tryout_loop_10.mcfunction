@@ -26,4 +26,6 @@ execute if score #tryoutloop swMath_V matches 9 as @e[tag=swPool_shooter,limit=1
 execute if score #tryoutloop swMath_V matches 9 as @e[tag=swPool_shooter,limit=1] run function pool:classes/cue/points_v2/p-4000_0
 
 # start shooting
-function pool:classes/bot/generic/_configure_actions_entity_loop
+# configured search depth
+execute unless score C_sd swPool_C matches 2.. run function pool:classes/bot/generic/_configure_actions_entity_loop
+execute if score C_sd swPool_C matches 2.. run function pool:classes/bot/generic/_configure_actions_entity_loop_d2

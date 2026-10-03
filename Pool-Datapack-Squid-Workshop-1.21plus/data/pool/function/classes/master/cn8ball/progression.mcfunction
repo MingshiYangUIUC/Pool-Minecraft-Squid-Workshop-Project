@@ -21,8 +21,11 @@ execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poo
 execute if entity @s[tag=swPool_pkt08] if score Stroke swPool_hidScore matches 1 run tag @s add swPool_rerack
 execute if entity @s[tag=swPool_rerack,tag=!swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Rerack and break again."}]
 execute if entity @s[tag=swPool_rerack,tag=!swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，请重新开球。"}]
-execute if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Opponent please break again."}]
-execute if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，对手重新开球。"}]
+execute if entity @e[tag=swPool_botmode] if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Please break again."}]
+execute if entity @e[tag=swPool_botmode] if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，请重新开球。"}]
+execute unless entity @e[tag=swPool_botmode] if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Pocketed black. Opponent please break again."}]
+execute unless entity @e[tag=swPool_botmode] if entity @s[tag=swPool_rerack,tag=swPool_multiplayer] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"黑球落袋，对手重新开球。"}]
+
 execute if entity @s[tag=swPool_rerack] run tag @e[tag=swPool_spec] add swPool_spectemp
 execute if entity @s[tag=swPool_rerack] run tag @e[tag=swPool_spec] remove swPool_spec
 execute if entity @s[tag=swPool_rerack] run tag @s remove swPool_pkt08
