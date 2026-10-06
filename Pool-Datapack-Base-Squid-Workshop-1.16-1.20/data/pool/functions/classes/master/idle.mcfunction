@@ -25,7 +25,7 @@ tag @s[tag=swPool_snookermode] remove swPool_pocketing
 # use respective rules unless practice mode and auto judge off
 execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_9ballmode,tag=!swPool_pocketing] unless entity @s[tag=swPool_endgame] run function pool:classes/master/9ball/progression
 execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_cn8ballmode,tag=!swPool_pocketing] run function pool:classes/master/cn8ball/progression
-execute unless data storage minecraft:swpool automatic_judge_off if entity @a[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
+execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
 execute unless data storage minecraft:swpool automatic_judge_off if entity @a[tag=swPool_hitcue] as @s[tag=swPool_uk8ballmode,tag=!swPool_pocketing] run function pool:classes/master/uk8ball/progression
 
 # if no rule, by pass replace and progression but use progression_norule

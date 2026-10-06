@@ -130,6 +130,7 @@ scoreboard objectives add swPool_lhidScore dummy
 scoreboard objectives add swPool_pktid dummy
 scoreboard objectives add swPool_objid dummy
 scoreboard objectives add swPool_calcScore dummy
+scoreboard objectives add swPool_scalScore dummy
 scoreboard objectives add swPool_shotScore dummy
 scoreboard objectives add swPool_original dummy
 

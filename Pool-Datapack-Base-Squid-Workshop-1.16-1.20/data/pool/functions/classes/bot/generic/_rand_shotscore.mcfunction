@@ -1,8 +1,15 @@
-scoreboard players operation @s swPool_shotScore = @s swPool_calcScore
+# non snooker
+execute unless score swPool_snookermode swMath_V matches 1 run scoreboard players operation @s swPool_shotScore = @s swPool_calcScore
+# normal snooker
+execute if score swPool_snookermode swMath_V matches 1 unless entity @s[tag=swPool_aim_obj_blocked] run scoreboard players operation @s swPool_shotScore = @s swPool_scalScore
+# snooker blocked
+execute if score swPool_snookermode swMath_V matches 1 if entity @s[tag=swPool_aim_obj_blocked] run scoreboard players operation @s swPool_shotScore = @s swPool_calcScore
 
-# add rand perturb 2500
+# add rand perturb 2500 (non snooker)
+# divide perturb by 5 for snooker (500)
 function math:classes/core/random/randint_base
 scoreboard players operation #vOut swMath_V %= #C_2500 swMath_C
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation #vOut swMath_V /= #C_5 swMath_C
 scoreboard players operation @s swPool_shotScore += #vOut swMath_V
 
 tag @s add swPool_aim_obj_used
