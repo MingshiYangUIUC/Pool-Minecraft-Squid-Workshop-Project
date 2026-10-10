@@ -46,9 +46,14 @@ execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=sw
 
 execute unless entity @e[tag=swPool_free] run scoreboard players set @s swPool_firsthit 1
 scoreboard players set @s swPool_var05 0
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":" may place the cueball and target Red."}]
-execute unless entity @e[tag=swPool_free] run execute if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请"},{"selector":"@a[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":"放置母球，目标球为红球。"}]
 
+# human starts
+execute unless score #bot_turn swMath_V matches 1 unless entity @e[tag=swPool_free] if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":" may place the cue ball and target Red."}]
+execute unless score #bot_turn swMath_V matches 1 unless entity @e[tag=swPool_free] if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"请"},{"selector":"@e[tag=swPool_poolplay,tag=swPool_ballinhand]"},{"text":"放置母球，目标球为红球。"}]
+
+# bot starts
+execute if score #bot_turn swMath_V matches 1 unless entity @e[tag=swPool_free] if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Bot Player will place the cue ball and target Red."}]
+execute if score #bot_turn swMath_V matches 1 unless entity @e[tag=swPool_free] if entity @e[tag=swPool_pool] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"电脑玩家将放置母球，目标球为红球。"}]
 scoreboard players set @e[tag=swPool_pool] swPool_v 0
 
 tag @e[tag=swPool_free] remove swPool_free
@@ -71,5 +76,5 @@ execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 
 
 execute unless score #skiprec swPool_var00 matches 1 run function pool:classes/master/record
 
-execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
-execute unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute unless score #bot_turn swMath_V matches 1 unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute unless score #bot_turn swMath_V matches 1 unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]

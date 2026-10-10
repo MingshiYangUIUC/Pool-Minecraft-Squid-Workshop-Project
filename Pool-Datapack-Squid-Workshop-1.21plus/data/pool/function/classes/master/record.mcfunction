@@ -16,7 +16,7 @@ tag @e[tag=swPool_temppin] remove swPool_pool
 
 scoreboard players reset @e[tag=swPool_pool] swPool_original
 
-execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
+execute as @e[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
 scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_hidScore = Stroke swPool_hidScore
 scoreboard players operation FirstHit swPool_hidScore = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit

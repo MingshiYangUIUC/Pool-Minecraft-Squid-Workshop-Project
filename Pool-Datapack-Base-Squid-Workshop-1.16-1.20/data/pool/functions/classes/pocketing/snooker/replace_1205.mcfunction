@@ -124,8 +124,8 @@ execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pin,tag=swPool_yel
 execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pin,tag=swPool_yellow] unless score @s swPool_dist < C_2r swMath_V run tag @s add swPool_highest
 execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pool,tag=swPool_black] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pintemp"],Duration:1}
 #execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pool,tag=swPool_new] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pintemp"],Duration:1}
-execute as @e[tag=swPool_pintemp] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_pin,tag=swPool_pink,limit=1]
 execute as @e[tag=swPool_pintemp] at @s run tp @s @e[tag=swPool_pool,tag=swPool_new,limit=1]
+execute as @e[tag=swPool_pintemp] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_pin,tag=swPool_brown,limit=1]
 execute if score C_r swPool_C matches ..249 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.026
 execute if score C_r swPool_C matches 250..374 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.052
 execute if score C_r swPool_C matches 375..499 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.078
@@ -135,7 +135,8 @@ execute if score C_r swPool_C matches 750..874 as @e[tag=swPool_pintemp] at @s r
 execute if score C_r swPool_C matches 875..999 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.182
 execute if score C_r swPool_C matches 1000..1124 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.208
 execute if score C_r swPool_C matches 1125..1249 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.234
-execute if score C_r swPool_C matches 1250.. as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.26
+execute if score C_r swPool_C matches 1250 as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.251
+execute if score C_r swPool_C matches 1251.. as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.26
 execute as @e[tag=swPool_pintemp] run function pool:classes/pocketing/snooker/find_nearest_ball
 execute if score C_r swPool_C matches 125..249 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.026
 execute if score C_r swPool_C matches 250..374 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.052
@@ -146,7 +147,8 @@ execute if score C_r swPool_C matches 750..874 as @e[tag=swPool_pintemp] at @s i
 execute if score C_r swPool_C matches 875..999 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.182
 execute if score C_r swPool_C matches 1000..1124 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.208
 execute if score C_r swPool_C matches 1125..1249 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.234
-execute if score C_r swPool_C matches 1250.. as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.26
+execute if score C_r swPool_C matches 1250 as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.251
+execute if score C_r swPool_C matches 1251.. as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run tp @s ^ ^ ^-0.26
 execute as @e[tag=swPool_pintemp] run function pool:classes/pocketing/snooker/find_nearest_ball
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_pintemp] at @s if score @s swPool_dist < C_2r swMath_V run say Cannot find place to place ball
 execute as @e[tag=swPool_pintemp] run function pool:classes/pocketing/snooker/find_nearest_ball

@@ -42,6 +42,9 @@ execute if score #rank_i swMath_V = #topk swMath_V run scoreboard players set #b
 # if finished, not already tried blocked, and no good shot, try blocked
 execute if score #rank_i swMath_V = #topk swMath_V unless score #tryoutloopmax swMath_V matches 1 if score #maxshotscore_d0 swMath_V matches ..-10000 run scoreboard players set #botloopschedule swMath_V 3
 
+# for snooker, do not do 3, directly go to shoot.
+execute if score swPool_snookermode swMath_V matches 1 if score #botloopschedule swMath_V matches 3 run scoreboard players set #botloopschedule swMath_V 2
+
 # run exactly one function
 execute if score #botloopschedule swMath_V matches 0 run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_loop 1t
 execute if score #botloopschedule swMath_V matches 1 run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked_loop 1t

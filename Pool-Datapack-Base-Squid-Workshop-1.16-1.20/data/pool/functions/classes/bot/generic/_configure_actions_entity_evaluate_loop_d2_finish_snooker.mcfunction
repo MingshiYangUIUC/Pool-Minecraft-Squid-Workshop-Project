@@ -37,6 +37,12 @@ scoreboard players operation #simendgame swMath_V = #simendgame_d0 swMath_V
 scoreboard players operation #switchplayer swPool_var00 = #switchplayer_d0 swPool_var00
 scoreboard players operation #maxcalcscore swMath_V = #maxcalcscore_d1 swMath_V
 
+execute if score #abnorm swMath_V matches 1 run scoreboard players operation @s swPool_shotScore -= C_p_instability swPool_C
+execute if score #abnorm swMath_V matches 2 run scoreboard players remove @s swPool_shotScore 15000
+# apply d0 snooker strategy penalty
+execute if score #strategy swMath_V matches 1 if score #simstat_d0 swMath_V matches 0 run scoreboard players operation @s swPool_shotScore -= #strategy_penalty swMath_V
+execute if score #strategy swMath_V matches 2 if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMath_V matches 1 run scoreboard players operation @s swPool_shotScore -= #strategy_penalty swMath_V
+
 function pool:classes/master/undo_run
 scoreboard players set #outoftable_scheduled swPool_var00 1
 

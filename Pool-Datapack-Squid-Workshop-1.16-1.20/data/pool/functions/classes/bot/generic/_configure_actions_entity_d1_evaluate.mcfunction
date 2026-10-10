@@ -32,6 +32,9 @@ execute if score #simendgame swMath_V matches 1 run scoreboard players operation
 execute if score #simstat_d1 swMath_V matches 0 run scoreboard players operation @s swPool_shotScore -= #maxcalcscore_d2 swMath_V
 execute if score #simstat_d1 swMath_V matches -2 run scoreboard players set @s swPool_shotScore -20000
 
+execute if score #abnorm swMath_V matches 1 run scoreboard players operation @s swPool_shotScore -= C_p_instability swPool_C
+execute if score #abnorm swMath_V matches 2 run scoreboard players remove @s swPool_shotScore 15000
+
 # restore only this d1 shot
 function pool:classes/bot/generic/_undo_d1
 kill @e[tag=swPool_shooter]

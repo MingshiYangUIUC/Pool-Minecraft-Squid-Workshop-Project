@@ -263,6 +263,8 @@ execute if score @s swPool__trigger matches 4112009 run function pool:classes/sn
 
 execute if score @s swPool__trigger matches 4112011 run function pool:classes/snooker/startsp_helper
 
+execute if score @s swPool__trigger matches 4112012 run function pool:classes/snooker/startsp_helper_botmode
+
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112201 run function pool:classes/table/check
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112201 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/check
 

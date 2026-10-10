@@ -27,6 +27,9 @@ execute if score #simstat_d1 swMath_V matches 0 run scoreboard players operation
 
 # foul: #simresult already contains the actual negative foul value
 
+execute if score #abnorm swMath_V matches 1 run scoreboard players operation @s swPool_shotScore -= C_p_instability swPool_C
+execute if score #abnorm swMath_V matches 2 run scoreboard players remove @s swPool_shotScore 15000
+
 # restore only this d1 shot
 function pool:classes/bot/generic/_undo_d1
 kill @e[tag=swPool_shooter]

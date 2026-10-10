@@ -6,3 +6,5 @@ execute as @e[tag=swPool_pool,type=item_display] at @s run function pool:classes
 execute as @e[tag=swPool_fake,type=item_display] at @s run function pool:classes/master/read_tmppos
 
 scoreboard players set #outoftable_scheduled swPool_var00 0
+
+scoreboard players reset #abnorm swMath_V

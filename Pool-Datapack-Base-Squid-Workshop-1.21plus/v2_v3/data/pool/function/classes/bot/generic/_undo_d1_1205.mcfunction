@@ -33,6 +33,7 @@ execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_13
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_14,tag=swPool_temppin_d1] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":34}}}
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_15,tag=swPool_temppin_d1] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:custom_model_data":35}}}
 
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_red,tag=swPool_temppin_d1] swPool_rank 1
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin_d1] swPool_rank 2
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_green,tag=swPool_temppin_d1] swPool_rank 3
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_brown,tag=swPool_temppin_d1] swPool_rank 4

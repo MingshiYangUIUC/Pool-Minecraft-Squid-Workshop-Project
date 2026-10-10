@@ -132,6 +132,7 @@ scoreboard objectives add swPool_lhidScore dummy
 scoreboard objectives add swPool_pktid dummy
 scoreboard objectives add swPool_objid dummy
 scoreboard objectives add swPool_calcScore dummy
+scoreboard objectives add swPool_scalScore dummy
 scoreboard objectives add swPool_shotScore dummy
 scoreboard objectives add swPool_original dummy
 
@@ -341,6 +342,10 @@ execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te s
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
 execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 20
 execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 10
+
+# bot tuning values (not in setting for now)
+scoreboard players set C_p_instability swPool_C 2000
+scoreboard players set C_p_strategy swPool_C 2000
 
 # allow cheat by default, needed by default if trying to play without auto judge
 execute unless data storage minecraft:swpool disallowcheats unless data storage minecraft:swpool allowcheats run function app:settings/pool/cheating/allow

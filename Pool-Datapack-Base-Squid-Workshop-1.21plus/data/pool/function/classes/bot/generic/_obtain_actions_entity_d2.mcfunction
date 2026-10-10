@@ -49,6 +49,23 @@ execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival sw
 execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival swPool_var00 matches 8 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_08] add swPool_tmp_legal
 execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival swPool_var00 matches 9 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_09] add swPool_tmp_legal
 
+# snooker criteria, determined using pooltable firsthit
+# ordinary
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation #current_score swMath_V = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 1 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_red] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 2 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_yellow] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 3 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_green] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 4 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_brown] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 5 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_blue] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 6 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_pink] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 7 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_black] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 8 run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_red,tag=!swPool_cue] add swPool_tmp_legal
+# free ball: anything can be nominated legal and score is the actual freeball target (just the supposed firsthit)
+# indicator used in score calculation
+scoreboard players set #bot_freeball swMath_V 0
+execute if score swPool_snookermode swMath_V matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run scoreboard players set #bot_freeball swMath_V 1
+
+
 # for testing
 #tag @e[tag=swPool_pool,tag=!swPool_cue] add swPool_tmp_legal
 
@@ -74,6 +91,8 @@ scoreboard players set #penalize_straight swMath_V 1
 
 # combine each pocket with target ball and these entities to log S. # #n_pkt_blocked_cue counted inside
 execute as @e[tag=swPool_aim_pkt] at @s run function pool:classes/bot/generic/obtain_actions_combination_pkt
+# end of snooker freeball
+scoreboard players set #bot_freeball swMath_V 0
 
 scoreboard players set #penalize_straight swMath_V 0
 
@@ -97,7 +116,8 @@ execute as @e[tag=swPool_aim_obj] run function pool:classes/bot/generic/rank_cal
 scoreboard players operation #best1calcscore swMath_V = #maxcalcscore swMath_V
 # best id
 scoreboard players set #bestobj swPool_objid -1
-execute as @e[tag=swPool_aim_obj] if score @s swPool_calcScore = #best1calcscore swMath_V run scoreboard players operation #bestobj swPool_objid = @s swPool_objid
+execute unless score swPool_snookermode swMath_V matches 1 as @e[tag=swPool_aim_obj] if score @s swPool_calcScore = #best1calcscore swMath_V run scoreboard players operation #bestobj swPool_objid = @s swPool_objid
+execute if score swPool_snookermode swMath_V matches 1 as @e[tag=swPool_aim_obj] if score @s swPool_scalScore = #best1calcscore swMath_V run scoreboard players operation #bestobj swPool_objid = @s swPool_objid
 
 # get best score for second ball if exist, not for 9 ball
 scoreboard players set #maxcalcscore swMath_V -1
@@ -116,26 +136,31 @@ scoreboard players operation #maxcalcscore swMath_V += #best2calcscore swMath_V
 #tellraw @a[tag=swPool_debug] [{"text":"max_S d1-s, "},{"score":{"objective":"swMath_V","name":"#maxcalcscore"}}]
 
 # if there is pocket blocked: minus points
+# do not deduct for snooker since balls are packed often
 # only deduct if simscore is 1 (self next turn) and set a cap
 scoreboard players set #deduct_pktblkaim swMath_V 0
 scoreboard players set #deduct_pktblkcue swMath_V 0
 
-execute if score simstat swMath_V matches 1 run scoreboard players set #deduct_pktblkaim swMath_V 1000
-execute if score simstat swMath_V matches 1 run scoreboard players operation #deduct_pktblkaim swMath_V *= #n_pkt_blocked_aim swMath_V
+execute if score #simstat swMath_V matches 1 run scoreboard players set #deduct_pktblkaim swMath_V 1000
+execute if score #simstat swMath_V matches 1 run scoreboard players operation #deduct_pktblkaim swMath_V *= #n_pkt_blocked_aim swMath_V
 execute if score #deduct_pktblkaim swMath_V matches 2000.. run scoreboard players set #deduct_pktblkaim swMath_V 2000
-execute if score simstat swMath_V matches 1 run scoreboard players operation #maxcalcscore swMath_V -= #deduct_pktblkaim swMath_V
+execute unless score swPool_snookermode swMath_V matches 1 if score #simstat swMath_V matches 1 run scoreboard players operation #maxcalcscore swMath_V -= #deduct_pktblkaim swMath_V
 #tellraw @a[tag=swPool_debug] [{"text":"deduct 1, "},{"score":{"objective":"swMath_V","name":"#deduct_pktblkaim"}}]
-execute if score simstat swMath_V matches 1 run scoreboard players set #deduct_pktblkcue swMath_V 2000
-execute if score simstat swMath_V matches 1 run scoreboard players operation #deduct_pktblkcue swMath_V *= #n_pkt_blocked_cue swMath_V
+execute if score #simstat swMath_V matches 1 run scoreboard players set #deduct_pktblkcue swMath_V 2000
+execute if score #simstat swMath_V matches 1 run scoreboard players operation #deduct_pktblkcue swMath_V *= #n_pkt_blocked_cue swMath_V
 execute if score #deduct_pktblkcue swMath_V matches 4000.. run scoreboard players set #deduct_pktblkcue swMath_V 4000
-execute if score simstat swMath_V matches 1 run scoreboard players operation #maxcalcscore swMath_V -= #deduct_pktblkcue swMath_V
+execute unless score swPool_snookermode swMath_V matches 1 if score #simstat swMath_V matches 1 run scoreboard players operation #maxcalcscore swMath_V -= #deduct_pktblkcue swMath_V
 #tellraw @a[tag=swPool_debug] [{"text":"deduct 2, "},{"score":{"objective":"swMath_V","name":"#deduct_pktblkcue"}}]
 
 # minimum score if all actions are invalid (worst scenario)
-execute if score #n_pkt_valid_aim swMath_V matches 0 if score #n_pkt_blocked_aim swMath_V matches 0 run scoreboard players set #maxcalcscore swMath_V -10000
+execute unless score swPool_snookermode swMath_V matches 1 if score #n_pkt_valid_aim swMath_V matches 0 if score #n_pkt_blocked_aim swMath_V matches 0 run scoreboard players set #maxcalcscore swMath_V -10000
+# give it regular foul value for snooker
+execute if score swPool_snookermode swMath_V matches 1 if score #n_pkt_valid_aim swMath_V matches 0 if score #n_pkt_blocked_aim swMath_V matches 0 run scoreboard players set #maxcalcscore swMath_V -4000
 
 # maximum score if no legal ball left (already win)
-execute if score #simendgame swMath_V matches 1 run scoreboard players set #maxcalcscore swMath_V 20000
+execute unless score swPool_snookermode swMath_V matches 1 if score #simendgame swMath_V matches 1 run scoreboard players set #maxcalcscore swMath_V 20000
+# no effect for snooker since getting all balls out is not tied to win
+execute if score swPool_snookermode swMath_V matches 1 if score #simendgame swMath_V matches 1 run scoreboard players set #maxcalcscore swMath_V 0
 
 #tellraw @a[tag=swPool_debug] [{"text":"max_S d1 adjust, "},{"score":{"objective":"swMath_V","name":"#maxcalcscore"}}]
 

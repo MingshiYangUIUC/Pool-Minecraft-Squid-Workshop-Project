@@ -113,8 +113,8 @@ execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pin,tag=swPool_gre
 execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pin,tag=swPool_yellow] at @s unless entity @e[tag=swPool_pool,distance=..0.25] run tag @s add swPool_highest
 execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pool,tag=swPool_black] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pintemp"],Duration:1}
 #execute unless entity @e[tag=swPool_highest] as @e[tag=swPool_pool,tag=swPool_new] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pintemp"],Duration:1}
-execute as @e[tag=swPool_pintemp] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_pin,tag=swPool_pink,limit=1]
 execute as @e[tag=swPool_pintemp] at @s run tp @s @e[tag=swPool_pool,tag=swPool_new,limit=1]
+execute as @e[tag=swPool_pintemp] at @s run tp @s ~ ~ ~ facing entity @e[tag=swPool_pin,tag=swPool_brown,limit=1]
 execute as @e[tag=swPool_pintemp] at @s run tp @s ^ ^ ^-0.26
 execute as @e[tag=swPool_pintemp] at @s if entity @e[tag=swPool_pool,distance=..0.25] run tp @s ^ ^ ^-0.26
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_pintemp] at @s if entity @e[tag=swPool_pool,distance=..0.25] run say Cannot find place to place ball

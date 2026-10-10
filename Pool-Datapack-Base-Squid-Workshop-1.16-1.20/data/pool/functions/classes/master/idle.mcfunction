@@ -2,6 +2,13 @@
 execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__kill_equip
 execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__cleanup
 
+# cancel all fastfwd anyway during regular turn
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_tmp swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_tmp_d1 swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_maxiter swMath_V 1
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_bot swMath_V 0
+
 # turn end indicator
 execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ --------","color":"white"}]
 execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ --------","color":"white"}]

@@ -39,6 +39,24 @@ execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival sw
 execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival swPool_var00 matches 8 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_08] add swPool_tmp_legal
 execute if score swPool_9ballmode swMath_V matches 1 if score #least_survival swPool_var00 matches 9 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_09] add swPool_tmp_legal
 
+# snooker criteria, determined using pooltable firsthit
+# ordinary
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation #current_score swMath_V = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 1 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_red] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 2 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_yellow] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 3 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_green] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 4 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_brown] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 5 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_blue] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 6 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_pink] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 7 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_black] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 8 run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_red,tag=!swPool_cue] add swPool_tmp_legal
+# free ball: anything can be nominated legal and score is the actual freeball target (just the supposed firsthit)
+execute if score swPool_snookermode swMath_V matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue] add swPool_tmp_legal
+# indicator used in score calculation
+scoreboard players set #bot_freeball swMath_V 0
+execute if score swPool_snookermode swMath_V matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run scoreboard players set #bot_freeball swMath_V 1
+
+
 # for testing
 #tag @e[tag=swPool_pool,tag=!swPool_cue] add swPool_tmp_legal
 
@@ -54,6 +72,8 @@ execute as @e[tag=swPool_cntr] at @s run function pool:classes/bot/generic/obtai
 
 # combine each pocket with target ball and these entities to log S.
 execute as @e[tag=swPool_aim_pkt] at @s run function pool:classes/bot/generic/obtain_actions_combination_pkt
+# end of snooker freeball
+scoreboard players set #bot_freeball swMath_V 0
 
 #execute as @e[tag=swPool_aim_obj,tag=!swPool_pkt_blocked] at @s run particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force
 

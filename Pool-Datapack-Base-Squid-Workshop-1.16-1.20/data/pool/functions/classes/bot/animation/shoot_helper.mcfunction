@@ -1,5 +1,11 @@
 scoreboard players reset #muteall swPool_C
 
+scoreboard players set #fastfwd swMath_V 0
+scoreboard players set #fastfwd_tmp swMath_V 0
+scoreboard players set #fastfwd_tmp_d1 swMath_V 0
+scoreboard players set #fastfwd_maxiter swMath_V 1
+scoreboard players set #fastfwd_bot swMath_V 0
+
 execute as @e[tag=swPool_shooter,limit=1] at @s run function pool:classes/cue/shoot
 
 tag @e[tag=swPool_bot_thinking] remove swPool_aimsolid

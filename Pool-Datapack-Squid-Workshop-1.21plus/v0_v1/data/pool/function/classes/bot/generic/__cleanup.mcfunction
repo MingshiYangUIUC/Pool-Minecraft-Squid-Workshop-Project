@@ -1,7 +1,9 @@
-# d1 temporary scores
-execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players operation #fastfwd swMath_V = #fastfwd_tmp_d1 swMath_V
-execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp_d1 swMath_V
-execute if entity @e[tag=swPool_shooter_d0,limit=1] run scoreboard players set #fastfwd_bot swMath_V 0
+# cancel all fastfwd anyway
+scoreboard players set #fastfwd swMath_V 0
+scoreboard players set #fastfwd_tmp swMath_V 0
+scoreboard players set #fastfwd_tmp_d1 swMath_V 0
+scoreboard players set #fastfwd_maxiter swMath_V 1
+scoreboard players set #fastfwd_bot swMath_V 0
 
 kill @e[tag=swPool_aim_pkt]
 kill @e[tag=swPool_aim_obj]

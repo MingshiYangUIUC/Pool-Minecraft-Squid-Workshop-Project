@@ -4,4 +4,5 @@ scoreboard players set #fastfwd swMath_V 1
 scoreboard players set #fastfwd_maxiter swMath_V 100000
 execute if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] run function pool:classes/main/tick_iterate
 
-function pool:classes/bot/generic/_configure_actions_entity_evaluate
+execute if score swPool_snookermode swMath_V matches 1 run function pool:classes/bot/generic/_configure_actions_entity_evaluate_snooker
+execute unless score swPool_snookermode swMath_V matches 1 run function pool:classes/bot/generic/_configure_actions_entity_evaluate

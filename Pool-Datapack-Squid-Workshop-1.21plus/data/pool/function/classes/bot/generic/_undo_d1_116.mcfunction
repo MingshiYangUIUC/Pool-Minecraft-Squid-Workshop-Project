@@ -33,6 +33,7 @@ execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=s
 execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_14,tag=swPool_temppin_d1] armor.head minecraft:acacia_button{CustomModelData:34}
 execute unless score #muteall swPool_C matches 1 run replaceitem entity @e[tag=swPool_15,tag=swPool_temppin_d1] armor.head minecraft:acacia_button{CustomModelData:35}
 
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_red,tag=swPool_temppin_d1] swPool_rank 1
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin_d1] swPool_rank 2
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_green,tag=swPool_temppin_d1] swPool_rank 3
 execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_brown,tag=swPool_temppin_d1] swPool_rank 4

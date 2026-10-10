@@ -75,11 +75,11 @@ tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktred
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktylw
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_pktblk
 
-scoreboard players reset @a[tag=swPool_poolplay] swPool_Score
-scoreboard players reset @a swPool_Score
+scoreboard players reset @e[tag=swPool_poolplay] swPool_Score
+scoreboard players reset @e swPool_Score
 scoreboard players reset Opponent swPool_Score
 scoreboard players reset Stroke swPool_hidScore
-scoreboard players reset @a swPool_firsthit
+scoreboard players reset @e swPool_firsthit
 
 function pool:classes/bot/generic/__kill_equip
 function pool:classes/bot/generic/__cleanup

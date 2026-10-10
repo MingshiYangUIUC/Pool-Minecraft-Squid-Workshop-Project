@@ -7,3 +7,6 @@ execute as @e[tag=swPool_fake,type=armor_stand] at @s run function pool:classes/
 
 execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 scoreboard players set #outoftable_scheduled swPool_var00 0
+
+# abnormality monitor
+scoreboard players reset #abnorm swMath_V
