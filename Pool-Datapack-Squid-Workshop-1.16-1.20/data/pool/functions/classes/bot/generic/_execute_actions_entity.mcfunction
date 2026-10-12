@@ -64,6 +64,24 @@ scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_cbld = #cbld 
 
 tellraw @a[tag=swPool_debug] [{"text":"cbld "},{"score":{"objective":"swPool_cbld","name":"@e[tag=swPool_shooter,limit=1]"}}]
 
+# random perturbation of force (F *= X%, X = uniform(100-C_fr, 100+C_fr))
+scoreboard players set #cbfr swMath_V 100
+execute if score C_fr swPool_C matches 2.. run function math:classes/core/random/randint_base
+
+execute if score C_fr swPool_C matches 2.. run scoreboard players operation #cbfr_range swMath_V = C_fr swPool_C
+execute if score C_fr swPool_C matches 2.. run scoreboard players operation #cbfr_range swMath_V *= #C_2 swMath_C
+execute if score C_fr swPool_C matches 2.. run scoreboard players add #cbfr_range swMath_V 1
+execute if score C_fr swPool_C matches 2.. run scoreboard players operation #vOut swMath_V %= #cbfr_range swMath_V
+execute if score C_fr swPool_C matches 2.. run scoreboard players operation #cbfr swMath_V += #vOut swMath_V
+execute if score C_fr swPool_C matches 2.. run scoreboard players operation #cbfr swMath_V -= C_fr swPool_C
+
+scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_cstmp *= #cbfr swMath_V
+scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_cstmp /= #C_100 swMath_C
+
+execute as @e[tag=swPool_shooter,limit=1] if score @s swPool_cstmp matches 100.. run scoreboard players set @s swPool_cstmp 100
+execute as @e[tag=swPool_shooter,limit=1] if score @s swPool_cstmp matches ..0 run scoreboard players set @s swPool_cstmp 1
+
+
 scoreboard players operation @e[tag=swPool_shooter,limit=1] swPool_player = @s swPool_player
 
 #tellraw @a[tag=swPool_debug] [{"text":"player, "},{"score":{"objective":"swPool_player","name":"@s"}}]

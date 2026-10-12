@@ -68,12 +68,14 @@ scoreboard objectives add swPool_C_sd_tr trigger
 #scoreboard players enable @a swPool_C_sd_tr
 scoreboard objectives add swPool_C_ne_tr trigger
 #scoreboard players enable @a swPool_C_ne_tr
-scoreboard objectives add swPool_C_te_tr trigger
-#scoreboard players enable @a swPool_C_te_tr
+#scoreboard objectives add swPool_C_te_tr trigger
+##scoreboard players enable @a swPool_C_te_tr
 scoreboard objectives add swPool_C_as_tr trigger
 #scoreboard players enable @a swPool_C_as_tr
 scoreboard objectives add swPool_C_st_tr trigger
 #scoreboard players enable @a swPool_C_st_tr
+scoreboard objectives add swPool_C_fr_tr trigger
+#scoreboard players enable @a swPool_C_fr_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
@@ -336,14 +338,18 @@ execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tc
 # bot default values
 execute unless score C_sd swPool_C matches 1..2 run scoreboard players set C_sd swPool_C 1
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
-execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
+#execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
 execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 20
+execute unless score C_fr swPool_C matches 1..100 run scoreboard players set C_fr swPool_C 1
 execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 10
 
 # bot tuning values (not in setting for now)
 scoreboard players set C_p_instability swPool_C 2000
 scoreboard players set C_p_strategy swPool_C 2000
+
+# remove simulate asap option
+data remove storage minecraft:swpool bot_simulate_asap
 
 # allow cheat by default, needed by default if trying to play without auto judge
 execute unless data storage minecraft:swpool disallowcheats unless data storage minecraft:swpool allowcheats run function app:settings/pool/cheating/allow

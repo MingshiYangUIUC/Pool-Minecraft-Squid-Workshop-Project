@@ -1,17 +1,12 @@
 /function app:unload/pool
 /function app:help/pool/rulewindow
 /function pool:classes/main/load
-/function app:settings/pool/bot/action_space_10
-/function app:settings/pool/bot/action_space_5
 /function app:settings/pool/bot/angle_std
 /function app:settings/pool/bot/instant_mode_on
 /function app:settings/pool/bot/instant_mode_off
 /function app:settings/pool/bot/n_aims_eval
 /function app:settings/pool/bot/search_depth
-/function app:settings/pool/bot/simulation_asap_off
-/function app:settings/pool/bot/simulation_asap_on
 /function app:settings/pool/bot/simulation_steps_per_tick
-/function app:settings/pool/bot/tick_per_eval
 /function app:settings/pool/breakshot/default_break
 /function app:settings/pool/breakshot/nn_break
 /function app:settings/pool/breakshot/nn_complexity
