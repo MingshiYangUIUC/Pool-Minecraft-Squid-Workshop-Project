@@ -1,3 +1,5 @@
+tellraw @a[tag=swPool_debug] [{"text":"D1 evaluation start"}]
+
 # restore fastfwd state
 scoreboard players operation #fastfwd swMath_V = #fastfwd_tmp_d1 swMath_V
 scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp_d1 swMath_V
@@ -39,5 +41,6 @@ execute if score @s swPool_shotScore > #maxshotscore_d1 swMath_V run scoreboard 
 scoreboard players add #rank_i_d1 swMath_V 1
 tag @e[tag=swPool_aim_obj_d1_selected] remove swPool_aim_obj_d1_selected
 
+execute if score #rank_i_d1 swMath_V < #topk_d1 swMath_V run tellraw @a[tag=swPool_debug] [{"text":"D1 to D1"}]
 execute if score #rank_i_d1 swMath_V < #topk_d1 swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d1_itertry 1t
 execute if score #rank_i_d1 swMath_V >= #topk_d1 swMath_V as @e[tag=swPool_aim_obj_d0,tag=swPool_aim_obj_selected,limit=1] at @s run function pool:classes/bot/generic/_configure_actions_entity_evaluate_loop_d2_finish_snooker

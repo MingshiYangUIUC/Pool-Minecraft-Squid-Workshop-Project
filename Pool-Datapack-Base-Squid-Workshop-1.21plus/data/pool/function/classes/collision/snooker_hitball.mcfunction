@@ -13,6 +13,6 @@ execute if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run scoreboa
 # for all downstream rule checks, regard nominated free ball as the actual ball on
 execute if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run scoreboard players operation @e[tag=swPool_hitcue,limit=1] swPool_firsthit = #freeball_target swMath_V
 
-tellraw @a[tag=swPool_debug] [{"text":"firsthit, "},{"score":{"objective":"swPool_firsthit","name":"@a[tag=swPool_hitcue,limit=1]"}}]
+tellraw @a[tag=swPool_debug_snooker] [{"text":"firsthit, "},{"score":{"objective":"swPool_firsthit","name":"@e[tag=swPool_hitcue,limit=1]"}}]
 
-tellraw @a[tag=swPool_debug] [{"text":"first norm, "},{"score":{"objective":"swMath_V","name":"#freeball_nom"}}]
+tellraw @a[tag=swPool_debug_snooker] [{"text":"first norm, "},{"score":{"objective":"swMath_V","name":"#freeball_nom"}}]

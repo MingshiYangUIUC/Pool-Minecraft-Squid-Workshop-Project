@@ -17,6 +17,13 @@ execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,
 execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_hitcue,tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] run scoreboard players set @s[scores={swPool_foul=..3}] swPool_foul 4
+
+# six replace calls to be safe
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
 
 # bypass

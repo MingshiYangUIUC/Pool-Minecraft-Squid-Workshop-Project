@@ -52,4 +52,5 @@ execute if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMa
 # continuing legal result + valid d1 aim + slow mode: physically simulate d1
 execute if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMath_V matches 1 if score #topk_d1 swMath_V matches 1.. unless data storage minecraft:swpool bot_simulate_asap run tag @e[tag=swPool_shooter,limit=1] add swPool_shooter_d0
 execute if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMath_V matches 1 if score #topk_d1 swMath_V matches 1.. unless data storage minecraft:swpool bot_simulate_asap run tag @e[tag=swPool_shooter_d0] remove swPool_shooter
+execute if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMath_V matches 1 if score #topk_d1 swMath_V matches 1.. unless data storage minecraft:swpool bot_simulate_asap run tellraw @a[tag=swPool_debug] [{"text":"D0 to D1"}]
 execute if score #simstat_d0 swMath_V matches 1 unless score #simendgame_d0 swMath_V matches 1 if score #topk_d1 swMath_V matches 1.. unless data storage minecraft:swpool bot_simulate_asap run function pool:classes/bot/generic/_obtain_actions_entity_d1_itertry

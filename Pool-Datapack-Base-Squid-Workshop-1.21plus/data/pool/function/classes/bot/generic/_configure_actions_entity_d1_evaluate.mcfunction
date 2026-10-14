@@ -1,3 +1,5 @@
+tellraw @a[tag=swPool_debug] [{"text":"D1 evaluation start"}]
+
 # restore fastfwd state
 scoreboard players operation #fastfwd swMath_V = #fastfwd_tmp_d1 swMath_V
 scoreboard players operation #fastfwd_maxiter swMath_V = #fastfwd_maxiter_tmp_d1 swMath_V

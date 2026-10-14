@@ -6,4 +6,5 @@ schedule clear pool:classes/bot/generic/_obtain_actions_entity_d0_itertry
 schedule clear pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_loop
 schedule clear pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked
 schedule clear pool:classes/bot/generic/_obtain_actions_entity_d0_itertry_blocked_loop
+schedule clear pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_resume
 schedule clear pool:classes/bot/generic/_demo_action_helper

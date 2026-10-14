@@ -57,3 +57,6 @@ tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_open] add swPool_cn8ball_openrec
 
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
 tag @e[tag=swPool_pooltable,tag=swPool_freeball_turn] add swPool_freeball_turnrec
+
+scoreboard players set #n_collision_normal swMath_V 0
+scoreboard players set #n_collision_pktedge swMath_V 0

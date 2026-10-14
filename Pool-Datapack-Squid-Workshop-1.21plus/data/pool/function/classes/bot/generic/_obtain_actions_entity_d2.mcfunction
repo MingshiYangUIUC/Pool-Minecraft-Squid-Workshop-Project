@@ -152,6 +152,18 @@ execute if score #deduct_pktblkcue swMath_V matches 4000.. run scoreboard player
 execute unless score swPool_snookermode swMath_V matches 1 if score #simstat swMath_V matches 1 run scoreboard players operation #maxcalcscore swMath_V -= #deduct_pktblkcue swMath_V
 #tellraw @a[tag=swPool_debug] [{"text":"deduct 2, "},{"score":{"objective":"swMath_V","name":"#deduct_pktblkcue"}}]
 
+tellraw @a[tag=swPool_debug] [{"text":"D2 ncol, "},{"score":{"objective":"swMath_V","name":"#n_collision_normal"}}, {"text":"  D2 edge, "},{"score":{"objective":"swMath_V","name":"#n_collision_pktedge"}}]
+# extra collision penalty
+scoreboard players operation #collision_extra swMath_V = #n_collision_normal swMath_V
+scoreboard players remove #collision_extra swMath_V 1
+scoreboard players set #penalty_factor swMath_V 80
+execute if score #collision_extra swMath_V matches 1.. run function pool:classes/bot/generic/_penalize_dx_collision
+
+# pocket edge penalty
+scoreboard players operation #collision_extra swMath_V = #n_collision_pktedge swMath_V
+scoreboard players set #penalty_factor swMath_V 60
+execute if score #collision_extra swMath_V matches 1.. run function pool:classes/bot/generic/_penalize_dx_collision
+
 # minimum score if all actions are invalid (worst scenario)
 execute unless score swPool_snookermode swMath_V matches 1 if score #n_pkt_valid_aim swMath_V matches 0 if score #n_pkt_blocked_aim swMath_V matches 0 run scoreboard players set #maxcalcscore swMath_V -10000
 # give it regular foul value for snooker

@@ -68,6 +68,7 @@ scoreboard players reset @e[tag=swPool_pool,tag=!swPool_red] swPool_rank
 tag @s[tag=swPool_foulcolor] add swPool_fouled
 tag @s[tag=swPool_foulred] add swPool_fouled
 tag @s[tag=swPool_foulcue] add swPool_fouled
+execute if entity @s[tag=swPool_foulcue] run tellraw @a[tag=swPool_debug] [{"text":"Cue ball related foul!"}]
 
 # feedback message
 execute unless score #muteall swPool_C matches 1 run execute if data storage minecraft:swpool feedback_foul if entity @s[tag=swPool_foulcolor] run tellraw @a[tag=swPool_hitcue,limit=1,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"犯规原因：未正确使彩球落袋或错误的球落袋。"}]

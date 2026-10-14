@@ -1,8 +1,8 @@
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_multiplayer
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_singleplayer
 
-tellraw @a[tag=swPool_debug] [{"text":"nred, "},{"score":{"objective":"swPool_nred","name":"@s"}}]
-tellraw @a[tag=swPool_debug] [{"text":"ncolor, "},{"score":{"objective":"swPool_ncolor","name":"@s"}}]
+tellraw @a[tag=swPool_debug_snooker] [{"text":"nred, "},{"score":{"objective":"swPool_nred","name":"@s"}}]
+tellraw @a[tag=swPool_debug_snooker] [{"text":"ncolor, "},{"score":{"objective":"swPool_ncolor","name":"@s"}}]
 
 execute as @e[tag=swPool_poolplay,limit=1] at @s if entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_multiplayer
 execute as @e[tag=swPool_poolplay,limit=1] at @s unless entity @e[tag=swPool_poolplay,distance=0.1..] run tag 000c2be1-0001-414d-0000-000000000000 add swPool_singleplayer

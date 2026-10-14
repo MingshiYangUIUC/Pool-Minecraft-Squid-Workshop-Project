@@ -21,18 +21,18 @@ scoreboard players set @e[tag=swPool_pool] swPool_DXX 99000
 tag @s add swPool_moved
 
 
-execute at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_yellow"],Duration:99999999}
-execute at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_green"],Duration:99999999}
+execute at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_yellow"]}
+execute at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_green"]}
 
 execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~-0.1 ~ ~
 execute if entity @s[tag=swPool_z] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~0.1 ~ ~
 execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_yellow,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_yellow] ~ ~ ~0.1
 execute if entity @s[tag=swPool_x] if score TABLE swPool_ds matches 13750 at @e[tag=swPool_pool,tag=swPool_green,tag=!swPool_free,tag=!swPool_placed] run tp @e[type=area_effect_cloud,limit=1,tag=swPool_pin,tag=swPool_green] ~ ~ ~-0.1
 
-execute at @e[tag=swPool_pool,tag=swPool_brown,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_brown"],Duration:99999999}
-execute at @e[tag=swPool_pool,tag=swPool_blue,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_blue"],Duration:99999999}
-execute at @e[tag=swPool_pool,tag=swPool_pink,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_pink"],Duration:99999999}
-execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_free,tag=!swPool_placed] run summon area_effect_cloud ~ ~ ~ {Tags:["swPool_pin","swPool_black"],Duration:99999999}
+execute at @e[tag=swPool_pool,tag=swPool_brown,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_brown"]}
+execute at @e[tag=swPool_pool,tag=swPool_blue,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_blue"]}
+execute at @e[tag=swPool_pool,tag=swPool_pink,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_pink"]}
+execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_black"]}
 
 execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]
 execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111212"}}]

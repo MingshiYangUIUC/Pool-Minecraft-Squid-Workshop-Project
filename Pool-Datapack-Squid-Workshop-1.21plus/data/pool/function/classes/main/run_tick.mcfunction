@@ -11,9 +11,9 @@ execute as 000c2be1-0001-414d-0000-000000000000 if score @s swPool_lifetime matc
 
 # ball physics iteration
 scoreboard players set #fastfwd_iter swMath_V 0
-execute unless score #fastfwd_bot swMath_V matches 1 if score #tick_engine swMath_V matches 0 at 000c2be1-0001-414d-0000-000000000000 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..},distance=..50] run function pool:classes/main/tick_iterate
+execute unless score #muteall swPool_C matches 1 unless score #fastfwd_bot swMath_V matches 1 if score #tick_engine swMath_V matches 0 at 000c2be1-0001-414d-0000-000000000000 if entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..},distance=..50] run function pool:classes/main/tick_iterate
 # end-of-turn
-execute unless score #fastfwd_bot swMath_V matches 1 if score swPool_gameon swMath_V matches 1 as 000c2be1-0001-414d-0000-000000000000 at @s unless entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] if entity @s[tag=!swPool_start,tag=!swPool_progressed] run function pool:classes/master/idle
+execute unless score #muteall swPool_C matches 1 unless score #fastfwd_bot swMath_V matches 1 if score swPool_gameon swMath_V matches 1 as 000c2be1-0001-414d-0000-000000000000 at @s unless entity @e[type=item_display,tag=swPool_pool,scores={swPool_v=1..}] if entity @s[tag=!swPool_start,tag=!swPool_progressed] run function pool:classes/master/idle
 
 # accumulating / resetting score
 scoreboard players add 000c2be1-0001-414d-0000-000000000000 swPool_lifetime 1

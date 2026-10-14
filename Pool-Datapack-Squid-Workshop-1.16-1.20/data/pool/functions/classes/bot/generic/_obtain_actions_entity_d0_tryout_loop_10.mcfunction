@@ -1,5 +1,5 @@
 
-#tellraw @a[tag=swPool_debug] [{"text":"Looping force-spin, "},{"score":{"objective":"swMath_V","name":"#tryoutloop"}},{"text":" max: "},{"score":{"objective":"swMath_V","name":"#tryoutloopmax"}}]
+tellraw @a[tag=swPool_debug] [{"text":"Looping force-spin, "},{"score":{"objective":"swMath_V","name":"#tryoutloop"}},{"text":" max: "},{"score":{"objective":"swMath_V","name":"#tryoutloopmax"}}]
 # start a shooter
 function pool:classes/bot/generic/_configure_shooter
 

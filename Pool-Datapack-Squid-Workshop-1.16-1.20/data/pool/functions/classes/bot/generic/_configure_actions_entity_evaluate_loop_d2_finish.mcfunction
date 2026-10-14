@@ -54,4 +54,4 @@ execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard pl
 execute if score @s swPool_shotScore > #bestshotscore swMath_V run scoreboard players operation #bestshotscore swMath_V = @s swPool_shotScore
 
 execute if score #tryoutloop swMath_V >= #tryoutloopmax swMath_V run function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_loopend_10
-execute if score #tryoutloop swMath_V < #tryoutloopmax swMath_V run function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_loop_10
+execute if score #tryoutloop swMath_V < #tryoutloopmax swMath_V run schedule function pool:classes/bot/generic/_obtain_actions_entity_d0_tryout_resume 1t
