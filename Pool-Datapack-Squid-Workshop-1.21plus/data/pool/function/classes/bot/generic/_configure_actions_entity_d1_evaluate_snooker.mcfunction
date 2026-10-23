@@ -25,6 +25,7 @@ execute if score #simstat_d1 swMath_V matches 1 run scoreboard players operation
 execute if score #simstat_d1 swMath_V matches 1 run scoreboard players operation @s swPool_shotScore /= #C_10000 swMath_C
 
 # legal miss: opponent's next position is negative
+execute if score #simstat_d1 swMath_V matches 0 if score #maxcalcscore_d2 swMath_V matches -4000 run scoreboard players set #maxcalcscore_d2 swMath_V -1000
 execute if score #simstat_d1 swMath_V matches 0 run scoreboard players operation @s swPool_shotScore -= #maxcalcscore_d2 swMath_V
 
 # foul: #simresult already contains the actual negative foul value
