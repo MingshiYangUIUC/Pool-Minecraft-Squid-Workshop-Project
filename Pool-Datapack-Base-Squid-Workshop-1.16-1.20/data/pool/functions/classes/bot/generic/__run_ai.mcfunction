@@ -13,13 +13,13 @@ execute if entity @s[tag=swPool_aim08] run tag @s add swPool_aim08_tmp
 # store snooker target ball
 scoreboard players operation swPool_firsthit_tmp swPool_firsthit = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
 # ensure that rank of snooker ball exist
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_red,tag=swPool_pool] swPool_rank 1
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank 2
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_green,tag=swPool_pool] swPool_rank 3
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_brown,tag=swPool_pool] swPool_rank 4
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_red,tag=swPool_pool] swPool_rank = rank1 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank = rank2 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_green,tag=swPool_pool] swPool_rank = rank3 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_brown,tag=swPool_pool] swPool_rank = rank4 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_blue,tag=swPool_pool] swPool_rank = rank5 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_pink,tag=swPool_pool] swPool_rank = rank6 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_black,tag=swPool_pool] swPool_rank = rank7 swPool_rank
 
 scoreboard players set #muteall swPool_C 1
 scoreboard players set #botthinking swPool_C 1

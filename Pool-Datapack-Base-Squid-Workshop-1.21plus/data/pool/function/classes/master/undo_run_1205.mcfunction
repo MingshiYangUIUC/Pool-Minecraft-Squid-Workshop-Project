@@ -33,13 +33,13 @@ execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_13
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_14,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_14"}}}
 execute unless score #muteall swPool_C matches 1 run execute as @e[tag=swPool_15,tag=swPool_temppin] run data merge entity @s {item:{id:"minecraft:acacia_button",Count:1b,components:{"minecraft:item_model":"swpool:render_ball_15"}}}
 
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_red,tag=swPool_temppin] swPool_rank 1
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank 2
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_green,tag=swPool_temppin] swPool_rank 3
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_brown,tag=swPool_temppin] swPool_rank 4
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_blue,tag=swPool_temppin] swPool_rank 5
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_pink,tag=swPool_temppin] swPool_rank 6
-execute if score swPool_snookermode swMath_V matches 1 run scoreboard players set @e[tag=swPool_black,tag=swPool_temppin] swPool_rank 7
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_red,tag=swPool_temppin] swPool_rank = rank1 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_yellow,tag=swPool_temppin] swPool_rank = rank2 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_green,tag=swPool_temppin] swPool_rank = rank3 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_brown,tag=swPool_temppin] swPool_rank = rank4 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_blue,tag=swPool_temppin] swPool_rank = rank5 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_pink,tag=swPool_temppin] swPool_rank = rank6 swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_black,tag=swPool_temppin] swPool_rank = rank7 swPool_rank
 
 execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=2}] run data merge entity @s {CustomName:"\"2 Pts\""}
 execute if score swPool_snookermode swMath_V matches 1 run execute as @e[scores={swPool_rank=3}] run data merge entity @s {CustomName:"\"3 Pts\""}

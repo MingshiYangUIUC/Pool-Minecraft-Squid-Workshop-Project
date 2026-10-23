@@ -50,6 +50,7 @@ execute if score swPool_snookermode swMath_V matches 1 if score #current_score s
 execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 6 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_pink] add swPool_tmp_legal
 execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 7 run tag @e[type=item_display,tag=swPool_pool,tag=swPool_black] add swPool_tmp_legal
 execute if score swPool_snookermode swMath_V matches 1 if score #current_score swMath_V matches 8 run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_red,tag=!swPool_cue] add swPool_tmp_legal
+execute if score swPool_snookermode swMath_V matches 1 if score #maxbreak swMath_V matches 1 if score #current_score swMath_V matches 8 run tag @e[type=item_display,tag=!swPool_black,tag=swPool_tmp_legal] remove swPool_tmp_legal
 # free ball: anything can be nominated legal and score is the actual freeball target (just the supposed firsthit)
 execute if score swPool_snookermode swMath_V matches 1 if entity @e[tag=swPool_pooltable,tag=swPool_freeball_turn] run tag @e[type=item_display,tag=swPool_pool,tag=!swPool_fake,tag=!swPool_cue] add swPool_tmp_legal
 # indicator used in score calculation

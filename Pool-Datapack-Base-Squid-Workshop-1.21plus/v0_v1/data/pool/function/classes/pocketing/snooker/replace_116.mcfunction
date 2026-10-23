@@ -11,12 +11,12 @@ execute if entity @s[scores={swPool_ncolor=2..}] run tag @s add swPool_foulcolor
 execute if entity @s[scores={swPool_ncolor=2..}] run tag @s remove swPool_firstcolor
 execute if entity @s[scores={swPool_ncolor=1..}] run tag @s[scores={swPool_nred=1..}] add swPool_foulcolor
 #foulcolor if higher swPool_rank is potted first if no red is present
-scoreboard players set @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank 2
-scoreboard players set @e[tag=swPool_green,tag=swPool_pool] swPool_rank 3
-scoreboard players set @e[tag=swPool_brown,tag=swPool_pool] swPool_rank 4
-scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
-scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
-scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
+scoreboard players operation @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank = rank2 swPool_rank
+scoreboard players operation @e[tag=swPool_green,tag=swPool_pool] swPool_rank = rank3 swPool_rank
+scoreboard players operation @e[tag=swPool_brown,tag=swPool_pool] swPool_rank = rank4 swPool_rank
+scoreboard players operation @e[tag=swPool_blue,tag=swPool_pool] swPool_rank = rank5 swPool_rank
+scoreboard players operation @e[tag=swPool_pink,tag=swPool_pool] swPool_rank = rank6 swPool_rank
+scoreboard players operation @e[tag=swPool_black,tag=swPool_pool] swPool_rank = rank7 swPool_rank
 
 execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run tag @s add swPool_foulcolor
 execute unless entity @s[tag=swPool_freeball_potted] unless entity @e[tag=swPool_red,tag=swPool_pool] unless entity @e[tag=swPool_black,tag=swPool_pool] unless entity @s[tag=swPool_firstcolor] if entity @e[scores={swPool_rank=2..6}] run scoreboard players set @s[scores={swPool_foul=..6}] swPool_foul 7
@@ -159,13 +159,13 @@ tag @s[tag=!swPool_pocketing] remove swPool_foulred
 tag @s[tag=!swPool_pocketing] remove swPool_foulcue
 
 #set swPool_rank
-scoreboard players set @e[tag=swPool_red,tag=swPool_pool] swPool_rank 1
-scoreboard players set @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank 2
-scoreboard players set @e[tag=swPool_green,tag=swPool_pool] swPool_rank 3
-scoreboard players set @e[tag=swPool_brown,tag=swPool_pool] swPool_rank 4
-scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
-scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
-scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
+scoreboard players operation @e[tag=swPool_red,tag=swPool_pool] swPool_rank = rank1 swPool_rank
+scoreboard players operation @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank = rank2 swPool_rank
+scoreboard players operation @e[tag=swPool_green,tag=swPool_pool] swPool_rank = rank3 swPool_rank
+scoreboard players operation @e[tag=swPool_brown,tag=swPool_pool] swPool_rank = rank4 swPool_rank
+scoreboard players operation @e[tag=swPool_blue,tag=swPool_pool] swPool_rank = rank5 swPool_rank
+scoreboard players operation @e[tag=swPool_pink,tag=swPool_pool] swPool_rank = rank6 swPool_rank
+scoreboard players operation @e[tag=swPool_black,tag=swPool_pool] swPool_rank = rank7 swPool_rank
 
 
 

@@ -3,6 +3,10 @@ tag @s[tag=swPool_ballinhand] add swPool_placingcue
 kill @e[tag=swPool_temppin]
 
 scoreboard players set @e[tag=swPool_pool] swPool_original 1
+
+# tmp storage of pos_y
+execute store result score #all_balls swPool_tmpposy run data get entity @e[tag=swPool_pool,limit=1] Pos[1] 10000
+
 execute as @e[tag=swPool_pool] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 execute as @e[tag=swPool_temppin] at @s run data modify entity @s transformation.right_rotation set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] transformation.right_rotation

@@ -22,13 +22,13 @@ tellraw @a[tag=swPool_debug_snooker] [{"text":"ncolor, "},{"score":{"objective":
 execute unless entity @e[tag=!swPool_pooltable,scores={swPool_firsthit=1..7}] run scoreboard players set @s[scores={swPool_foul=..3}] swPool_foul 4
 
 execute unless entity @s[scores={swPool_var05=-10000000..10000000}] run scoreboard players set @s swPool_var05 0
-scoreboard players set @e[tag=swPool_red,tag=swPool_pool] swPool_rank 1
-scoreboard players set @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank 2
-scoreboard players set @e[tag=swPool_green,tag=swPool_pool] swPool_rank 3
-scoreboard players set @e[tag=swPool_brown,tag=swPool_pool] swPool_rank 4
-scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
-scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
-scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
+scoreboard players operation @e[tag=swPool_red,tag=swPool_pool] swPool_rank = rank1 swPool_rank
+scoreboard players operation @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank = rank2 swPool_rank
+scoreboard players operation @e[tag=swPool_green,tag=swPool_pool] swPool_rank = rank3 swPool_rank
+scoreboard players operation @e[tag=swPool_brown,tag=swPool_pool] swPool_rank = rank4 swPool_rank
+scoreboard players operation @e[tag=swPool_blue,tag=swPool_pool] swPool_rank = rank5 swPool_rank
+scoreboard players operation @e[tag=swPool_pink,tag=swPool_pool] swPool_rank = rank6 swPool_rank
+scoreboard players operation @e[tag=swPool_black,tag=swPool_pool] swPool_rank = rank7 swPool_rank
 
 
 execute if entity @s[scores={swPool_firsthit=1..7}] unless score @e[tag=swPool_shooter,limit=1] swPool_firsthit = @s swPool_firsthit run tag @s add swPool_fouled1

@@ -945,6 +945,7 @@ variable_names = [
      "swPool_C_nn",
      "swPool_C_tpdr",
      "swPool_C_r",
+     "swPool_C_cda",
 
      # bot
      "swPool_C_sd",
@@ -970,6 +971,7 @@ restricted_variable_names = [
      "swPool_C_nn",
      "swPool_C_tpdr",
      "swPool_C_r",
+     "swPool_C_cda",
 
      # bot
      "swPool_C_sd",

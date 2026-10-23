@@ -10,6 +10,7 @@
 /function app:settings/pool/breakshot/default_break
 /function app:settings/pool/breakshot/nn_break
 /function app:settings/pool/breakshot/nn_complexity
+/function app:settings/pool/collision/detection_accuracy
 /function app:settings/pool/cheating/allow
 /function app:settings/pool/cheating/disallow
 /function app:settings/pool/equipment/ball_radius
