@@ -1304,7 +1304,7 @@ for i, subv in enumerate(['','v0_v1','v2_v3','v4_v4']):
 print('Adding readme to datapack files')
 
 for folder in os.listdir():
-    if os.path.isdir(folder) and 'Pool-Datapack' in folder:
+    if os.path.isdir(folder) and 'Pool-Datapack' in folder and 'Overrides' not in folder:
         shutil.copy2('README.md', os.path.join(folder, 'README.md'))
         shutil.copy2('使用说明.md', os.path.join(folder, '使用说明.md'))
 

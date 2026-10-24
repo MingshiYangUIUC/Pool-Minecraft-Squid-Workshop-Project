@@ -15,9 +15,8 @@ tag 000c2be1-0001-414d-0000-000000000000 add swPool_start
 
 tag @a[tag=swPool_wait_snooker,limit=1] add swPool_poolplay
 
-tag @a[tag=swPool_poolplay,limit=1] add swPool_ballinhand
-
-execute as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
+execute unless score #bot_turn swMath_V matches 1 run tag @a[tag=swPool_poolplay,limit=1] add swPool_ballinhand
+execute unless score #bot_turn swMath_V matches 1 as @a[tag=swPool_ballinhand] at @s run function app:get/pool/cueball_helper
 scoreboard players set Opponent swPool_Score 0
 scoreboard objectives setdisplay sidebar
 

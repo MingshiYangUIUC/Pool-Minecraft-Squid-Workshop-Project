@@ -65,15 +65,21 @@ scoreboard objectives add swPool_C_tpdr_tr trigger
 #scoreboard players enable @a swPool_C_tpdr_tr
 scoreboard objectives add swPool_C_r_tr trigger
 #scoreboard players enable @a swPool_C_r_tr
+scoreboard objectives add swPool_C_cda_tr trigger
+#scoreboard players enable @a swPool_C_cda_tr
 
+scoreboard objectives add swPool_C_sd_tr trigger
+#scoreboard players enable @a swPool_C_sd_tr
 scoreboard objectives add swPool_C_ne_tr trigger
 #scoreboard players enable @a swPool_C_ne_tr
-scoreboard objectives add swPool_C_te_tr trigger
-#scoreboard players enable @a swPool_C_te_tr
+#scoreboard objectives add swPool_C_te_tr trigger
+##scoreboard players enable @a swPool_C_te_tr
 scoreboard objectives add swPool_C_as_tr trigger
 #scoreboard players enable @a swPool_C_as_tr
 scoreboard objectives add swPool_C_st_tr trigger
 #scoreboard players enable @a swPool_C_st_tr
+scoreboard objectives add swPool_C_fr_tr trigger
+#scoreboard players enable @a swPool_C_fr_tr
 
 # snooker score
 scoreboard objectives add swPool_Score_tr trigger
@@ -92,6 +98,7 @@ scoreboard objectives add swPool_posx dummy
 scoreboard objectives add swPool_posy dummy
 scoreboard objectives add swPool_posz dummy
 scoreboard objectives add swPool_tmpposx dummy
+scoreboard objectives add swPool_tmpposy dummy
 scoreboard objectives add swPool_tmpposz dummy
 scoreboard objectives add swPool_var00 dummy
 scoreboard objectives add swPool_var01 dummy
@@ -130,6 +137,7 @@ scoreboard objectives add swPool_lhidScore dummy
 scoreboard objectives add swPool_pktid dummy
 scoreboard objectives add swPool_objid dummy
 scoreboard objectives add swPool_calcScore dummy
+scoreboard objectives add swPool_scalScore dummy
 scoreboard objectives add swPool_shotScore dummy
 scoreboard objectives add swPool_original dummy
 
@@ -304,7 +312,7 @@ scoreboard players set C_l swPool_C 12500
 scoreboard players set i_stick swPool_C 2700
 
 # quat storage
-data merge storage minecraft:swpool_tmp {quat:[0.0f,0.0f,0.0f,0.0f],posehead:[0.0001f,0.0f,0.0f]}
+data merge storage minecraft:swpool_tmp {quat:[0.0f,0.0f,0.0f,0.0f],posehead:[0.0001f,0.0f,0.0f],pos:[0.0d,0.0d,0.0d]}
 
 # tp_duration # default: 1
 execute unless score C_tpdr swPool_C matches 0..59 run scoreboard players set C_tpdr swPool_C 1
@@ -332,12 +340,33 @@ execute unless score C_trt swPool_C matches 1..8 run scoreboard players set C_tr
 # table: cloth color
 execute unless score C_tcc swPool_C matches 1..6 run scoreboard players set C_tcc swPool_C 1
 
+# collision detection accuracy
+execute unless score C_cda swPool_C matches 1..6 run scoreboard players set C_cda swPool_C 1
+
 # bot default values
+execute unless score C_sd swPool_C matches 1..2 run scoreboard players set C_sd swPool_C 1
 execute unless score C_ne swPool_C matches 1.. run scoreboard players set C_ne swPool_C 2
-execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
+#execute unless score C_te swPool_C matches 1.. run scoreboard players set C_te swPool_C 2
 execute unless score C_as swPool_C matches 1.. run scoreboard players set C_as swPool_C 1
-execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 20
-execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 5
+execute unless score C_st swPool_C matches 1.. run scoreboard players set C_st swPool_C 60
+execute unless score C_fr swPool_C matches 1..100 run scoreboard players set C_fr swPool_C 1
+execute unless score n_act_space swPool_C matches 5 unless score n_act_space swPool_C matches 10 run scoreboard players set n_act_space swPool_C 10
+
+# bot tuning values (not in setting for now)
+scoreboard players set C_p_instability swPool_C 2000
+scoreboard players set C_p_strategy swPool_C 2000
+
+# score of snooker balls
+scoreboard players set rank1 swPool_rank 1
+scoreboard players set rank2 swPool_rank 2
+scoreboard players set rank3 swPool_rank 3
+scoreboard players set rank4 swPool_rank 4
+scoreboard players set rank5 swPool_rank 5
+scoreboard players set rank6 swPool_rank 6
+scoreboard players set rank7 swPool_rank 7
+
+# remove simulate asap option
+data remove storage minecraft:swpool bot_simulate_asap
 
 # allow cheat by default, needed by default if trying to play without auto judge
 execute unless data storage minecraft:swpool disallowcheats unless data storage minecraft:swpool allowcheats run function app:settings/pool/cheating/allow
@@ -347,6 +376,9 @@ execute unless data storage minecraft:swpool cleansession unless data storage mi
 
 # ball spinning by default
 execute unless data storage minecraft:swpool disallowspin unless data storage minecraft:swpool allowspin run function app:settings/pool/visuals/enable_ball_spinning
+
+# conventional motion by default
+execute unless data storage minecraft:swpool move_by_tp unless data storage minecraft:swpool move_by_nbt run function app:settings/pool/motion/use_tp
 
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback
@@ -362,8 +394,8 @@ execute unless data storage minecraft:swpool disallowspin unless data storage mi
 
 function pool:classes/cue/reset
 
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.6 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
-execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.6 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack]: Pool-Datapack v1.3.7 from Squid-Workshop Loaded. ","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
+execute unless score Resetf swPool_var00 matches 1 run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包]: 台球数据包 v1.3.7 - 鱿鱼MC工作室 已加载。","italic":true,"color":"gray"},{"underlined":true,"italic":false,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}}]
 
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_EN] [{"text":"➇ ","color":"gray"},{"text":"[Pool Datapack - installer]: Please choose your game version by running one of the suggested commands. ","italic":true,"color":"red"},{"italic":false,"underlined":true,"text":"<Click here to choose>","color":"gray","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]
 execute unless data storage minecraft:swpool {version:[1]} run tellraw @a[tag=swPool_CN] [{"text":"➇ ","color":"gray"},{"text":"[台球数据包 - 安装]: 请选择并运行对应游戏版本的指令。 ","italic":true,"color":"red"},{"italic":false,"underlined":true,"color":"gray","text":"<点此处选择>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/_help_version"}}]

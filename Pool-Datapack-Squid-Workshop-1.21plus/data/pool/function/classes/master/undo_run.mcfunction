@@ -7,4 +7,11 @@ execute as @e[tag=swPool_fake,type=item_display] at @s run function pool:classes
 
 execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 scoreboard players set #outoftable_scheduled swPool_var00 0
+
+# abnormality monitor
+scoreboard players reset #abnorm swMath_V
+
+# collision log
+scoreboard players set #n_collision_pktedge swMath_V 0
+scoreboard players set #n_collision_normal swMath_V 0
 execute as @e[tag=swPool_pool,type=item_display] store result entity @s teleport_duration int 1 run scoreboard players get C_tpdr swPool_C

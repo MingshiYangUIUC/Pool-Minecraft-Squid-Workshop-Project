@@ -3,6 +3,9 @@
 # col2 has infinite mass!!!
 # just reflect col1
 
+# log
+execute if entity @s[tag=swPool_cue] run scoreboard players add #n_collision_pktedge swMath_V 1
+
 ############debug message
 #execute as @e[limit=1,tag=swPool_,scores={swPool_v=100000000..}] run tellraw @a [{"text":"name. "},{"text":"vrx, "},{"score":{"objective":"swPool_vrx","name":"@s"}},{"text":"vrz, "},{"score":{"objective":"swPool_vrz","name":"@s"}},{"text":"v, "},{"score":{"objective":"swPool_v","name":"@s"}}]
 ############

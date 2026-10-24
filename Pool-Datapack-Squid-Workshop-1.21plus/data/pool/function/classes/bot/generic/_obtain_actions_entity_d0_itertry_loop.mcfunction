@@ -13,7 +13,8 @@ execute if score #rank_i swMath_V < #topk swMath_V run scoreboard players set #m
 execute if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj,tag=!swPool_aim_obj_used] run function pool:classes/bot/generic/rank_topk
 #tellraw @a[tag=swPool_debug] [{"text":"sel "},{"score":{"objective":"swMath_V","name":"#maxcalcscore_d0sel"}}]
 # select one action with current max
-execute if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj,tag=!swPool_aim_obj_used] if score @s swPool_calcScore = #maxcalcscore_d0sel swMath_V run tag @s add swPool_aim_obj_selected
+execute unless score swPool_snookermode swMath_V matches 1 if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj,tag=!swPool_aim_obj_used] if score @s swPool_calcScore = #maxcalcscore_d0sel swMath_V run tag @s add swPool_aim_obj_selected
+execute if score swPool_snookermode swMath_V matches 1 if score #rank_i swMath_V < #topk swMath_V as @e[tag=swPool_aim_obj,tag=!swPool_aim_obj_used] if score @s swPool_scalScore = #maxcalcscore_d0sel swMath_V run tag @s add swPool_aim_obj_selected
 
 # mark selected as used
 execute if score #rank_i swMath_V < #topk swMath_V run tag @e[tag=swPool_aim_obj_selected] add swPool_aim_obj_used

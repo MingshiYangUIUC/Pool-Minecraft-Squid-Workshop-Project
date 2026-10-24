@@ -1,0 +1,2 @@
+execute unless score swPool_snookermode swMath_V matches 1 if score @s swPool_calcScore > #maxcalcscore_d1sel swMath_V run scoreboard players operation #maxcalcscore_d1sel swMath_V = @s swPool_calcScore
+execute if score swPool_snookermode swMath_V matches 1 if score @s swPool_scalScore > #maxcalcscore_d1sel swMath_V run scoreboard players operation #maxcalcscore_d1sel swMath_V = @s swPool_scalScore

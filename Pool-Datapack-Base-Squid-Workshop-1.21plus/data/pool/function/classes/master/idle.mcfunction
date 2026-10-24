@@ -2,6 +2,13 @@
 execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__kill_equip
 execute unless score #muteall swPool_C matches 1 if entity @e[tag=swPool_botmode] if entity @e[tag=swPool_bot_thinking] run function pool:classes/bot/generic/__cleanup
 
+# cancel all fastfwd anyway during regular turn
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_tmp swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_tmp_d1 swMath_V 0
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_maxiter swMath_V 1
+execute unless score #muteall swPool_C matches 1 run scoreboard players set #fastfwd_bot swMath_V 0
+
 # turn end indicator
 execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ --------","color":"white"}]
 execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ --------","color":"white"}]
@@ -10,6 +17,13 @@ execute unless score #muteall swPool_C matches 1 run tellraw @a[tag=swPool_spec,
 execute unless score #muteall swPool_C matches 1 as @a[tag=swPool_hitcue,tag=swPool_poolplay,gamemode=!creative] run function app:get/pool/arrow_helper
 
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] run scoreboard players set @s[scores={swPool_foul=..3}] swPool_foul 4
+
+# six replace calls to be safe
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
+execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
 execute unless data storage minecraft:swpool automatic_judge_off if entity @s[tag=swPool_snookermode] as @s[tag=swPool_pocketing] run function pool:classes/pocketing/snooker/replace
 
 # bypass
@@ -25,7 +39,7 @@ tag @s[tag=swPool_snookermode] remove swPool_pocketing
 # use respective rules unless practice mode and auto judge off
 execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_9ballmode,tag=!swPool_pocketing] unless entity @s[tag=swPool_endgame] run function pool:classes/master/9ball/progression
 execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_cn8ballmode,tag=!swPool_pocketing] run function pool:classes/master/cn8ball/progression
-execute unless data storage minecraft:swpool automatic_judge_off if entity @a[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
+execute unless data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_hitcue] as @s[tag=swPool_snookermode,tag=!swPool_pocketing] run function pool:classes/master/snooker/progression
 execute unless data storage minecraft:swpool automatic_judge_off if entity @a[tag=swPool_hitcue] as @s[tag=swPool_uk8ballmode,tag=!swPool_pocketing] run function pool:classes/master/uk8ball/progression
 
 # if no rule, by pass replace and progression but use progression_norule

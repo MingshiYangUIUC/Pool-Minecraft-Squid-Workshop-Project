@@ -120,7 +120,11 @@ scoreboard players operation #vIn swMath_V += #tmp swMath_V
 function pool:classes/bot/sigmoid
 scoreboard players operation #S swMath_V = #vOut swMath_V
 
-# penalize too straight shot (#acut (0.001deg) too low) (*0.9 and *0.7)
+# penalize close to cushion
+scoreboard players operation #S swMath_V *= #cushion_penalty swMath_V
+scoreboard players operation #S swMath_V /= #C_100 swMath_C
+
+# penalize too straight shot? (for debug only) (#acut (0.001deg) too low) (*0.9 and *0.7)
 execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches 50000..99999 run scoreboard players operation #S swMath_V *= C_9 swPool_C
 execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches 50000..99999 run scoreboard players operation #S swMath_V /= C_10 swPool_C
 execute if score #penalize_straight swMath_V matches 1 if score #acut swMath_V matches ..49999 run scoreboard players operation #S swMath_V *= C_7 swPool_C
@@ -134,6 +138,14 @@ scoreboard players operation #vOut swMath_V %= #C_10 swMath_C
 scoreboard players operation #S swMath_V += #vOut swMath_V
 
 scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_calcScore = #S swMath_V
+
+# provide a scaling to calcscore by /=10 and *=points if snooker
+# because execute location is right at the object ball
+# snooker scaled score probability * ball value / 10
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_scalScore = #S swMath_V
+execute if score swPool_snookermode swMath_V matches 1 if score #bot_freeball swMath_V matches 0 run scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_scalScore *= @e[tag=swPool_tmp_legal,tag=swPool_pool,distance=..0.001,limit=1] swPool_rank
+execute if score swPool_snookermode swMath_V matches 1 if score #bot_freeball swMath_V matches 1 run scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_scalScore *= #freeball_target swMath_V
+execute if score swPool_snookermode swMath_V matches 1 run scoreboard players operation @e[tag=swPool_aim_obj_new,limit=1] swPool_scalScore /= #C_10 swMath_C
 
 # remove new tag to wrap up
 tag @e[tag=swPool_aim_obj_new,limit=1] remove swPool_aim_obj_new

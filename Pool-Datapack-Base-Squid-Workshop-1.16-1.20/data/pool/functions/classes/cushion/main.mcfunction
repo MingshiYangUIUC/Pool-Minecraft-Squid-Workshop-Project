@@ -6,7 +6,11 @@
 scoreboard players operation #ootdetect swMath_V = #accumulator swMath_V
 scoreboard players operation #ootdetect swMath_V %= C_5 swPool_C
 
+scoreboard players operation #ootdetect_bot swMath_V = #accumulator swMath_V
+scoreboard players operation #ootdetect_bot swMath_V %= C_10 swPool_C
+
 execute if score #ootdetect swMath_V matches 1 unless score #muteall swPool_C matches 1 run function pool:classes/cushion/detect_out_of_table
+execute if score #ootdetect_bot swMath_V matches 1 if score #muteall swPool_C matches 1 run function pool:classes/cushion/detect_out_of_table_bot
 
 #get old distance in components
 #pooltable dimensions and position is stored in variable TABLE

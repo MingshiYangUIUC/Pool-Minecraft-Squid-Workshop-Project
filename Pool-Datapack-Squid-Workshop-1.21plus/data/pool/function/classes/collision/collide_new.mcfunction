@@ -9,14 +9,16 @@
 #execute as @e[limit=1,tag=swPool_,scores={swPool_v=100000000..}] run tellraw @a [{"text":"name. "},{"text":"vrx, "},{"score":{"objective":"swPool_vrx","name":"@s"}},{"text":"vrz, "},{"score":{"objective":"swPool_vrz","name":"@s"}},{"text":"v, "},{"score":{"objective":"swPool_v","name":"@s"}}]
 ############
 
-
-
 #set uuuuuuuuuuuuup
 tag @s add swPool_colliding
 
 #set information of first hit ball to swPool_player
 tag @s add swPool_c
 tag @e[tag=swPool_col2] add swPool_c
+
+# log
+execute if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run scoreboard players add #n_collision_normal swMath_V 1
+
 execute if entity @e[tag=swPool_snookermode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/snooker_hitball
 execute if entity @e[tag=swPool_uk8ballmode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..7}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/uk8ball_hitball
 execute if entity @e[tag=swPool_cn8ballmode,limit=1] unless entity @e[tag=swPool_hitcue,scores={swPool_firsthit=1..8}] if entity @e[tag=swPool_c,tag=swPool_cue,limit=1] run function pool:classes/collision/cn8ball_hitball

@@ -68,6 +68,14 @@ execute unless data storage minecraft:swpool whitelist run scoreboard players en
 execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_r_tr
 execute as @a[scores={swPool_C_r_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_r
 
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_cda_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_cda_tr
+execute as @a[scores={swPool_C_cda_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_cda
+
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_sd_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_sd_tr
+execute as @a[scores={swPool_C_sd_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_sd
+
 execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_ne_tr
 execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_ne_tr
 execute as @a[scores={swPool_C_ne_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_ne
@@ -83,6 +91,10 @@ execute as @a[scores={swPool_C_as_tr=1..}] at @s run function pool:classes/main/
 execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_st_tr
 execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_st_tr
 execute as @a[scores={swPool_C_st_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_st
+
+execute unless data storage minecraft:swpool whitelist run scoreboard players enable @a swPool_C_fr_tr
+execute if data storage minecraft:swpool whitelist run scoreboard players enable @a[tag=swPool_whitelisted] swPool_C_fr_tr
+execute as @a[scores={swPool_C_fr_tr=1..}] at @s run function pool:classes/main/triggers/swpool_c_fr
 
 scoreboard players enable @a swPool_Score_tr
 execute as @a[scores={swPool_Score_tr=1..}] at @s run function pool:classes/main/triggers/swpool_score

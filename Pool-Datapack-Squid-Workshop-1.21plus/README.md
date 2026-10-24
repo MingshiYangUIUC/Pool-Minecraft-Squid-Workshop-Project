@@ -11,6 +11,7 @@ Content creator: **YMS2001** at [_Squid Workshop_](https://github.com/Squid-Work
 Contact: mingshi3@illinois.edu
 
 > [中文版使用说明](使用说明.md)   
+> [Project Website](https://mingshiyanguiuc.github.io/Pool-Minecraft-Squid-Workshop-Project/)    
 > [Modrinth Page](https://modrinth.com/datapack/pool-and-billiards) [Recommended for auto dependency download]   
 > [CurseForge Page](https://www.curseforge.com/minecraft/data-packs/pool-and-billiards)   
 > [Recent Updates](CHANGELOG.md)
@@ -50,7 +51,7 @@ If not working, check whether the datapack is enabled by `/datapack list` and en
 Although not required, zipping the datapack and resourcepack folders can significantly reduce file sizes.
 
 ### Compatibility Notice
-- **General:** The datapack and resourcepack will work for various supported game versions but pack.mcmeta files may not be up to date. If future Minecraft versions only require updating `pack.mcmeta` for compatibility, a new release may not be published for this change alone. Therefore, the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.fandom.com/wiki/Pack_format) and modify pack.mcmeta files according to your game version. 
+- **General:** The datapack and resourcepack will work for various supported game versions but pack.mcmeta files may not be up to date. If future Minecraft versions only require updating `pack.mcmeta` for compatibility, a new release may not be published for this change alone. Therefore, the game may notify you the packs are incompatible when you install them. To remove the compatibility warning, you can follow this [page](https://minecraft.wiki/w/Pack_format) and modify pack.mcmeta files according to your game version. 
 - **1.21:** A set of unified datapack `Pool-Datapack-Squid-Workshop-1.21` and resourcepack `Pool-ResourcepackFolder-Squid-Workshop-1.21` are now provided and intended to work for all 1.21 versions and compatible with newer versions. The `Releases_1.21` folder containing the minor-version-specific packs are removed.
 
 **Please let me know if the packs are actually incompatible (broken) with any versions higher than Java Edition 1.16.**
@@ -160,18 +161,18 @@ If the cue ball is off the table (e.g. before breaking), you need to place it. W
 https://github.com/user-attachments/assets/d7817aeb-15a8-4d24-804d-e45923f18459
 
 
-The datapack supports computer-controlled opponents in **8-Ball and 9-Ball**.
+The datapack supports computer-controlled opponents in **Snooker, 8-Ball and 9-Ball**.
 
 1. Place a table and open the game lobby.
-2. Choose an 8-Ball or 9-Ball single-player game.
+2. Choose a Snooker, 8-Ball or 9-Ball single-player game.
 3. Select **Play with Bot**.
 4. Confirm the game and play normally when it is your turn.
 
 The bot's strength and performance can be configured through the bot settings in the menu.
 
 > Automatic judge must be enabled when playing against the bot.   
-> By default since v1.3.4, the bot player distributes its simulation calculations across multiple game ticks to reduce short lag spikes. Avoid setting the number of simulations per tick (Simulation Steps per Tick in the settings) too high, and adjust it according to the current performance and load of the client or server.
-> If noticeable lag occurs, try lowering the number of simulations per tick first. If this makes the bot player's thinking time too long, or if it is still unsuitable for the current game environment, use instant mode, which performs no simulation calculations. Instant mode has the lowest computational load and responds the fastest, but the bot player's performance may be noticeably weaker.
+> The bot player distributes its simulation calculations across multiple game ticks to reduce short lag spikes. Avoid setting the number of simulations per tick (Simulation Steps per Tick in the settings) too high, and adjust it according to the current performance and load of the client or server.
+> If noticeable lag occurs, or the bot player's thinking time is too long, please enable and use instant mode in the bot settings, which performs no simulation calculations. Instant mode has the lowest computational load and responds the fastest, but the bot player's performance may be noticeably weaker.
 
 ### 9. Start a Multiplayer Game
 <video src="Gallery/Videos/user_guides_EN/09_join_multiplayer_game_EN.mp4" alt="_MingshiYangUIUC_" width="75%" autoplay loop muted playsinline></video>

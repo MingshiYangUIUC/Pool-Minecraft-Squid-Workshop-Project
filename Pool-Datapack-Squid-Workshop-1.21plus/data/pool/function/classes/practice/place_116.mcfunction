@@ -52,12 +52,13 @@ tag @e[tag=swPool_free] remove swPool_free
 tag @e[tag=swPool_pool] add swPool_placed
 tag @e[tag=swPool_start] remove swPool_start
 
-scoreboard players set @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank 2
-scoreboard players set @e[tag=swPool_green,tag=swPool_pool] swPool_rank 3
-scoreboard players set @e[tag=swPool_brown,tag=swPool_pool] swPool_rank 4
-scoreboard players set @e[tag=swPool_blue,tag=swPool_pool] swPool_rank 5
-scoreboard players set @e[tag=swPool_pink,tag=swPool_pool] swPool_rank 6
-scoreboard players set @e[tag=swPool_black,tag=swPool_pool] swPool_rank 7
+scoreboard players operation @e[tag=swPool_red,tag=swPool_pool] swPool_rank = rank1 swPool_rank
+scoreboard players operation @e[tag=swPool_yellow,tag=swPool_pool] swPool_rank = rank2 swPool_rank
+scoreboard players operation @e[tag=swPool_green,tag=swPool_pool] swPool_rank = rank3 swPool_rank
+scoreboard players operation @e[tag=swPool_brown,tag=swPool_pool] swPool_rank = rank4 swPool_rank
+scoreboard players operation @e[tag=swPool_blue,tag=swPool_pool] swPool_rank = rank5 swPool_rank
+scoreboard players operation @e[tag=swPool_pink,tag=swPool_pool] swPool_rank = rank6 swPool_rank
+scoreboard players operation @e[tag=swPool_black,tag=swPool_pool] swPool_rank = rank7 swPool_rank
 
 execute as @e[scores={swPool_rank=2}] run data merge entity @s {CustomName:"\"2 Pts\""}
 execute as @e[scores={swPool_rank=3}] run data merge entity @s {CustomName:"\"3 Pts\""}

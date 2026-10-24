@@ -70,6 +70,9 @@ execute if score #simstat swMath_V matches -2 run scoreboard players set @s swPo
 #tellraw @a[tag=swPool_debug] [{"text":"Full eval, "},{"score":{"objective":"swPool_shotScore","name":"@s"}}]
 
 # undo and cleanup
+execute if score #abnorm swMath_V matches 1 run scoreboard players operation @s swPool_shotScore -= C_p_instability swPool_C
+execute if score #abnorm swMath_V matches 2 run scoreboard players remove @s swPool_shotScore 15000
+
 function pool:classes/master/undo_run
 scoreboard players set #outoftable_scheduled swPool_var00 1
 

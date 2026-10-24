@@ -29,7 +29,7 @@ const translations = {
       "请记得下载并启用配套资源包（可点我获取）",
 
     botTitle: "与电脑玩家对战",
-    botCopy: "八球和九球支持可调整难度的电脑玩家。",
+    botCopy: "斯诺克、八球、九球支持可调整难度的电脑玩家。",
 
     physicsTitle: "真实的杆法效果",
 
@@ -69,7 +69,7 @@ const translations = {
       "Please remember to download and activate a required resourcepack (click here to obtain)",
 
     botTitle: "Play Against a Bot",
-    botCopy: "8-Ball and 9-Ball support a bot with configurable difficulty.",
+    botCopy: "Snooker, 8-Ball, and 9-Ball support a bot with configurable difficulty.",
 
     physicsTitle: "Realistic Spin Effects",
 

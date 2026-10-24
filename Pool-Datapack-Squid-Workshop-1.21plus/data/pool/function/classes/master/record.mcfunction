@@ -3,6 +3,10 @@ tag @s[tag=swPool_ballinhand] add swPool_placingcue
 kill @e[tag=swPool_temppin]
 
 scoreboard players set @e[tag=swPool_pool] swPool_original 1
+
+# tmp storage of pos_y
+execute store result score #all_balls swPool_tmpposy run data get entity @e[tag=swPool_pool,limit=1] Pos[1] 10000
+
 execute as @e[tag=swPool_pool] at @s run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_temppin"],NoGravity:1b,Small:1b,Invisible:1b,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 execute as @e[tag=swPool_temppin] at @s run data modify entity @s transformation.right_rotation set from entity @e[distance=..0.01,limit=1,tag=swPool_pool] transformation.right_rotation
@@ -16,7 +20,7 @@ tag @e[tag=swPool_temppin] remove swPool_pool
 
 scoreboard players reset @e[tag=swPool_pool] swPool_original
 
-execute as @a[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
+execute as @e[tag=swPool_poolplay] run scoreboard players operation @s swPool_hidScore = @s swPool_Score
 scoreboard players operation Opponent swPool_hidScore = Opponent swPool_Score
 scoreboard players operation StrokeRec swPool_hidScore = Stroke swPool_hidScore
 scoreboard players operation FirstHit swPool_hidScore = 000c2be1-0001-414d-0000-000000000000 swPool_firsthit
@@ -57,3 +61,6 @@ tag @e[tag=swPool_pooltable,tag=swPool_cn8ball_open] add swPool_cn8ball_openrec
 
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
 tag @e[tag=swPool_pooltable,tag=swPool_freeball_turn] add swPool_freeball_turnrec
+
+scoreboard players set #n_collision_normal swMath_V 0
+scoreboard players set #n_collision_pktedge swMath_V 0
