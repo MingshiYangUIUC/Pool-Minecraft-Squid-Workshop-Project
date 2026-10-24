@@ -1,7 +1,7 @@
 ### <span style="color:orange">August 2026</span> — Snooker Bot Online!
 
-- Added a playable pool bot for **Snooker**. It can even make century breaks!
-- Thanks to performance improvements, the bot players can think harder and play stronger.
+- Added a playable pool bot for **Snooker**. It can even make an 147 break!
+- Thanks to performance improvements, all the bot players can think harder and play stronger.
 
 ### <span style="color:orange">August 2026</span> — Faster Physics, Smoother Games!
 

@@ -26,6 +26,8 @@
 /function app:settings/pool/friction/rolling
 /function app:settings/pool/friction/sliding
 /function app:settings/pool/friction/striking
+/function app:settings/pool/motion/use_nbt
+/function app:settings/pool/motion/use_tp
 /function app:settings/pool/need_recipes/recipe_off
 /function app:settings/pool/need_recipes/recipe_on
 /function app:settings/pool/reload/cleanongoingsession

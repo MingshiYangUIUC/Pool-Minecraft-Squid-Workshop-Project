@@ -1,5 +1,5 @@
 # create bot
-execute if entity @a[tag=swPool_poolplay,tag=swPool_CN] at 000c2be1-0001-414d-0000-000000000000 run summon item_display ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"电脑玩家"',interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if entity @a[tag=swPool_poolplay,tag=swPool_CN] at 000c2be1-0001-414d-0000-000000000000 run summon item_display ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"电脑玩家_147"',interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 execute if entity @a[tag=swPool_poolplay,tag=swPool_EN,tag=!swPool_CN] at 000c2be1-0001-414d-0000-000000000000 run summon item_display ~ ~ ~ {Marker:1b,Invisible:1b,NoGravity:1b,Small:1b,Tags:["swPool_botmode","swPool_poolplay"],CustomName:'"Bot Player"',interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.727f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 
 scoreboard players set @e[tag=swPool_botmode] swPool_Score 0

@@ -377,6 +377,9 @@ execute unless data storage minecraft:swpool cleansession unless data storage mi
 # ball spinning by default
 execute unless data storage minecraft:swpool disallowspin unless data storage minecraft:swpool allowspin run function app:settings/pool/visuals/enable_ball_spinning
 
+# conventional motion by default
+execute unless data storage minecraft:swpool move_by_tp unless data storage minecraft:swpool move_by_nbt run function app:settings/pool/motion/use_tp
+
 # rule: foul reason feedback. data merge storage minecraft:swpool {feedback_foul:1}
 # default: not feedback
 
