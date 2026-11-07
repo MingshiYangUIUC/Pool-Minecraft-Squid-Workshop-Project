@@ -71,6 +71,9 @@ scoreboard players operation #ontgt swPool_var01 = C_r swPool_C
 #execute as @e[type=armor_stand,tag=swPool_a2,limit=1,distance=..3] run function pool:classes/physics/target_helper
 scoreboard players operation #ontgt swPool_var01 += #ontgt_add swPool_var01
 
+scoreboard players operation #penetration swPool_var01 = #ontgt swPool_var01
+scoreboard players operation #penetration swPool_var01 -= @s swPool_dist
+
 #execute if entity @e[tag=swPool_a2,limit=1,tag=!swPool_fake] run scoreboard players operation #ontgt swPool_var01 += C_r swPool_C
 
 #execute if entity @e[type=armor_stand,tag=swPool_a2,limit=1,tag=swPool_pktedge_c] run scoreboard players operation #ontgt swPool_var01 += C_r2_edge_c swPool_C
@@ -102,6 +105,15 @@ scoreboard players operation @s swPool_ontgt = #ontgt swPool_var01
 #find relative distance
 execute if entity @s[scores={swPool_ontgt=1..}] at @s run function pool:classes/physics/relativedist
 execute unless entity @s[scores={swPool_ontgt=1..}] run scoreboard players set @s swPool_drel -1
+
+scoreboard players operation #overlap_cap swMath_V = C_r swPool_C
+scoreboard players operation #overlap_cap swMath_V /= C_2 swPool_C
+scoreboard players operation #overlap_cap swMath_V /= C_2 swPool_C
+
+execute if score #penetration swPool_var01 matches 1.. if score #penetration swPool_var01 < #overlap_cap swMath_V run tellraw @a[tag=swPool_debug] [{"text":"overlap!"}]
+
+execute if score #penetration swPool_var01 matches 1.. if score #penetration swPool_var01 < #overlap_cap swMath_V if score @s swPool_drot matches 0..899999 run scoreboard players set @s swPool_drel 0
+execute if score #penetration swPool_var01 matches 1.. if score #penetration swPool_var01 < #overlap_cap swMath_V if score @s swPool_drot matches 2700001..3599999 run scoreboard players set @s swPool_drel 0
 
 #tellraw @a [{"text":"variable drel is "},{"score":{"objective":"swPool_drel","name":"@s"}}]
 

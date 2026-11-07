@@ -25,9 +25,10 @@ scoreboard players operation @s swPool_vr = #vOut swMath_V
 
 #get swPool_hittime
 scoreboard players operation @s swPool_var00 = @s swPool_vr
-scoreboard players operation @s swPool_var00 /= @s swPool_drel
+execute if score @s swPool_drel matches 1.. run scoreboard players operation @s swPool_var00 /= @s swPool_drel
 scoreboard players set @s swPool_var04 100000000
-scoreboard players operation @s swPool_var04 /= @s swPool_var00
+execute if score @s swPool_drel matches 1.. if score @s swPool_var00 matches 1.. run scoreboard players operation @s swPool_var04 /= @s swPool_var00
+execute if score @s swPool_drel matches 0 run scoreboard players set @s swPool_var04 0
 scoreboard players operation @s swPool_hittime = @s swPool_var04
 scoreboard players operation @e[tag=swPool_c2,limit=1] swPool_hittime = @s swPool_hittime
 

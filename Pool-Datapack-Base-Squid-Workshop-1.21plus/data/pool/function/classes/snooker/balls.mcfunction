@@ -217,6 +217,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##2
@@ -247,6 +260,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##3
@@ -277,6 +303,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##4
@@ -284,7 +323,7 @@ execute store result score @s[tag=swPool_x] swPool_var00 run data get entity @s 
 execute store result score @s[tag=swPool_x] swPool_var01 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var00 run data get entity @s Pos[2] 10000
 execute store result score @s[tag=swPool_z] swPool_var01 run data get entity @s Pos[0] 10000
-execute if score #dl2 swPool_dl matches 43750.. run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+execute if score #dl2 swPool_dl matches 43750.. run summon item_display ~ ~ ~ {Marker:1b,Tags:["swPool_pool","swPool_red","swPool_new","swPool_bk","swPool_rackidx"],NoGravity:1,Small:1,Invisible:1,interpolation_duration:1,teleport_duration:2,transformation:{translation:[0.0f,0.707f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.5f,0.5f,0.5f],left_rotation:[0.0f,0.0f,0.0f,1.0f]}}
 scoreboard players set @s swPool_var05 2
 scoreboard players operation @s swPool_var02 = @s swPool_dl
 scoreboard players operation @s swPool_var02 /= @s swPool_var05
@@ -305,6 +344,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##5
@@ -335,6 +387,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##6
@@ -365,6 +430,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##7
@@ -395,6 +473,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##8
@@ -425,6 +516,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##9
@@ -455,6 +559,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##10
@@ -485,6 +602,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##11
@@ -513,6 +643,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##12
@@ -543,6 +686,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##13
@@ -573,6 +729,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##14
@@ -603,6 +772,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 ##15
@@ -633,6 +815,19 @@ execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPoo
 execute if entity @s[tag=swPool_x] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 = @s swPool_var01
 execute if entity @s[tag=swPool_z] run scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 = @s swPool_var00
+
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var00 += #vOut swMath_V
+function math:classes/core/random/randint_base
+scoreboard players operation #vOut swMath_V %= C_20 swPool_C
+scoreboard players remove #vOut swMath_V 10
+scoreboard players operation #vOut swMath_V *= C_r swPool_C
+scoreboard players operation #vOut swMath_V /= old_r swMath_V
+scoreboard players operation @e[tag=swPool_red,tag=swPool_new,limit=1] swPool_var01 += #vOut swMath_V
 tag @e[tag=swPool_red,tag=swPool_new,limit=1] remove swPool_new
 
 

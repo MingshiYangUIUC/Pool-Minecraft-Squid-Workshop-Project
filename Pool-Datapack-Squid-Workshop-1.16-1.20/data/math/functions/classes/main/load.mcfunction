@@ -15,6 +15,7 @@ scoreboard players set #C_300 swMath_C 300
 scoreboard players set #C_200 swMath_C 200
 scoreboard players set #C_100 swMath_C 100
 scoreboard players set #C_40 swMath_C 40
+scoreboard players set #C_20 swMath_C 20
 scoreboard players set #C_10 swMath_C 10
 scoreboard players set #C_5 swMath_C 5
 scoreboard players set #C_3 swMath_C 3
