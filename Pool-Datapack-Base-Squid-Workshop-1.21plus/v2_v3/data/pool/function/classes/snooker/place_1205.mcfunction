@@ -34,7 +34,7 @@ execute at @e[tag=swPool_pool,tag=swPool_blue,tag=!swPool_free,tag=!swPool_place
 execute at @e[tag=swPool_pool,tag=swPool_pink,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_pink"]}
 execute at @e[tag=swPool_pool,tag=swPool_black,tag=!swPool_free,tag=!swPool_placed] run summon minecraft:marker ~ ~ ~ {Tags:["swPool_pin","swPool_black"]}
 
-execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Replace the last ball>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
+execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<Remove the last ball>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 execute if data storage minecraft:swpool automatic_judge_off if entity @e[tag=swPool_pool,tag=swPool_free,tag=!swPool_placed] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销本次摆球>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 
 # skip record if balls are placed freely
@@ -80,7 +80,7 @@ execute as @e[scores={swPool_rank=7}] run data merge entity @s {CustomName:"\"7 
 
 execute unless score #skiprec swPool_var00 matches 1 run function pool:classes/master/record
 
-execute unless score #bot_turn swMath_V matches 1 unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+execute unless score #bot_turn swMath_V matches 1 unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the Next Shot>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 execute unless score #bot_turn swMath_V matches 1 unless entity @a[tag=swPool_ballinhand] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
 
 execute as @e[type=item_display,tag=swPool_pool,tag=!swPool_fake] at @s run function pool:classes/pose_quat/modify_r

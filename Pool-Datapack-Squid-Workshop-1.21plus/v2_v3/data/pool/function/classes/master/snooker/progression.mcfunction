@@ -55,6 +55,36 @@ scoreboard players operation @e[tag=swPool_poolplay,tag=!swPool_hitcue] swPool_S
 execute if entity @s[tag=swPool_singleplayer] run scoreboard players operation Opponent swPool_Score += @s[tag=swPool_fouled] swPool_foul
 
 
+# check if bot should retry 
+scoreboard players set #undo_bot swMath_V 0
+
+# remaining max score
+scoreboard players set #score_rem swMath_V 0
+execute as @e[tag=swPool_pool,tag=swPool_black] run scoreboard players add #score_rem swMath_V 7
+execute as @e[tag=swPool_pool,tag=swPool_pink] run scoreboard players add #score_rem swMath_V 6
+execute as @e[tag=swPool_pool,tag=swPool_blue] run scoreboard players add #score_rem swMath_V 5
+execute as @e[tag=swPool_pool,tag=swPool_brown] run scoreboard players add #score_rem swMath_V 4
+execute as @e[tag=swPool_pool,tag=swPool_green] run scoreboard players add #score_rem swMath_V 3
+execute as @e[tag=swPool_pool,tag=swPool_yellow] run scoreboard players add #score_rem swMath_V 2
+# normal red-color combo: 8
+execute as @e[tag=swPool_pool,tag=swPool_red] run scoreboard players add #score_rem swMath_V 8
+# shooting ANY color right now: + 8
+execute if score @s swPool_firsthit matches 8 run scoreboard players add #score_rem swMath_V 7
+
+# score difference
+execute if entity @e[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_botmode] run scoreboard players operation #score_diff swMath_V = @e[tag=swPool_poolplay,tag=!swPool_botmode,limit=1] swPool_Score
+execute if entity @e[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_botmode] run scoreboard players operation #score_diff swMath_V -= @e[tag=swPool_poolplay,tag=swPool_botmode,limit=1] swPool_Score
+
+# Eligible only if bot fouled and neither player needs snookers (not overrun)
+scoreboard players set #score_rem_neg swMath_V 0
+scoreboard players operation #score_rem_neg swMath_V -= #score_rem swMath_V
+execute if entity @s[tag=swPool_fouled] if entity @e[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_botmode] if score #score_diff swMath_V <= #score_rem swMath_V if score #score_diff swMath_V >= #score_rem_neg swMath_V run scoreboard players set #undo_bot swMath_V 1
+
+execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<给对手复位>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 411132102"}}]
+execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Restore>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 411132102"}}]
+
+# reset
+scoreboard players set #undo_bot swMath_V 0
 
 #score messages:
 execute if entity @s[tag=swPool_singleplayer,tag=swPool_dialogue] as @e[tag=swPool_poolplay,limit=1] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@s"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@s"}},{"text":" | Opponent: "},{"score":{"objective":"swPool_Score","name":"Opponent"}}]
@@ -179,7 +209,7 @@ tag @a[tag=swPool_spectemp] remove swPool_spectemp
 #end messages
 
 execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Command Window>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<undo>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111312"}}]
-execute unless score #botmove swMath_V matches 1 unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the next strike.>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110906"}}]
+execute unless score #botmove swMath_V matches 1 unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"<Adjust the Next Shot>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110906"}}]
 
 execute unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 1"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4111312"}}]
 execute unless score #botmove swMath_V matches 1 unless entity @e[type=item_display,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/trigger swPool__trigger set 4110906"}}]

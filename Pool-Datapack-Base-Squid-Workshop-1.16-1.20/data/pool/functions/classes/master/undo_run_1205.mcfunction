@@ -114,6 +114,7 @@ execute as 000c2be1-0001-414d-0000-000000000000 run tag @s[tag=swPool_cn8ball_op
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_breakingrec
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_cn8ball_openrec
 
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turn
 tag @e[tag=swPool_pooltable,tag=swPool_freeball_turnrec] add swPool_freeball_turn
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turnrec
 

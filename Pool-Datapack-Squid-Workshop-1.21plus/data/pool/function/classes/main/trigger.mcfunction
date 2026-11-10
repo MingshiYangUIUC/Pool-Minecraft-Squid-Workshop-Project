@@ -304,13 +304,21 @@ execute if data storage minecraft:swpool whitelist if score @s swPool__trigger m
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112313 run function pool:classes/table/start
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 4112313 if entity @s[tag=swPool_whitelisted] run function pool:classes/table/start
 
-execute if score @s swPool__trigger matches 4112406 run function pool:classes/uk8ball/start
+execute if score @s swPool__trigger matches 4112401 run function pool:classes/tutorial/begin
 
-execute if score @s swPool__trigger matches 4112408 run function pool:classes/uk8ball/start_helper
+execute if score @s swPool__trigger matches 4112402 run function pool:classes/tutorial/begin_check
 
-execute if score @s swPool__trigger matches 4112409 run function pool:classes/uk8ball/startsp
+execute if score @s swPool__trigger matches 4112403 run function pool:classes/tutorial/end
 
-execute if score @s swPool__trigger matches 4112411 run function pool:classes/uk8ball/startsp_helper
+execute if score @s swPool__trigger matches 4112409 run function pool:classes/tutorial/step2_maketable
+
+execute if score @s swPool__trigger matches 4112506 run function pool:classes/uk8ball/start
+
+execute if score @s swPool__trigger matches 4112508 run function pool:classes/uk8ball/start_helper
+
+execute if score @s swPool__trigger matches 4112509 run function pool:classes/uk8ball/startsp
+
+execute if score @s swPool__trigger matches 4112511 run function pool:classes/uk8ball/startsp_helper
 
 execute unless data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351411 run function app:settings/pool/snooker/display/dialogue
 execute if data storage minecraft:swpool whitelist if score @s swPool__trigger matches 11351411 if entity @s[tag=swPool_whitelisted] run function app:settings/pool/snooker/display/dialogue
@@ -524,11 +532,13 @@ execute if score @s swPool__trigger matches 411091121 run function pool:classes/
 
 execute if score @s swPool__trigger matches 411091122 run function pool:classes/cue/speed/ps_009
 
-execute if score @s swPool__trigger matches 411132111 run function pool:classes/master/snooker/progression_norule_control
+execute if score @s swPool__trigger matches 411132102 run function pool:classes/master/snooker/bot_retry
 
-execute if score @s swPool__trigger matches 411132112 run function pool:classes/master/snooker/progression_norule_control_1205
+execute if score @s swPool__trigger matches 411132112 run function pool:classes/master/snooker/progression_norule_control
 
-execute if score @s swPool__trigger matches 411132113 run function pool:classes/master/snooker/progression_norule_refresh_score
+execute if score @s swPool__trigger matches 411132113 run function pool:classes/master/snooker/progression_norule_control_1205
+
+execute if score @s swPool__trigger matches 411132114 run function pool:classes/master/snooker/progression_norule_refresh_score
 
 execute if score @s swPool__trigger matches 411201351 run function pool:classes/practice/balls/settings/snake_15
 
