@@ -80,11 +80,6 @@ scoreboard players set #score_rem_neg swMath_V 0
 scoreboard players operation #score_rem_neg swMath_V -= #score_rem swMath_V
 execute if entity @s[tag=swPool_fouled] if entity @e[tag=swPool_poolplay,tag=swPool_hitcue,tag=swPool_botmode] if score #score_diff swMath_V <= #score_rem swMath_V if score #score_diff swMath_V >= #score_rem_neg swMath_V run scoreboard players set #undo_bot swMath_V 1
 
-execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<给对手复位>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/snooker/bot_retry"}}]
-execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Restore>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/snooker/bot_retry"}}]
-
-# reset
-scoreboard players set #undo_bot swMath_V 0
 
 #score messages:
 execute if entity @s[tag=swPool_singleplayer,tag=swPool_dialogue] as @e[tag=swPool_poolplay,limit=1] run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"selector":"@s"},{"text":": "},{"score":{"objective":"swPool_Score","name":"@s"}},{"text":" | Opponent: "},{"score":{"objective":"swPool_Score","name":"Opponent"}}]
@@ -213,3 +208,8 @@ execute unless score #botmove swMath_V matches 1 unless entity @e[type=armor_sta
 
 execute unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<命令窗口>","color":"white","clickEvent":{"action":"run_command","value":"/function app:help/pool/commandwindow"}},{"text":" ","underlined":false},{"underlined":true,"text":"<撤销上次击球>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/undo"}}]
 execute unless score #botmove swMath_V matches 1 unless entity @e[type=armor_stand,tag=swPool_pooltable,tag=swPool_endgame] run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"<调整下一次击球>","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/cue/map"}}]
+
+execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<给对手复位>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/snooker/bot_retry"}}]
+execute if score #undo_bot swMath_V matches 1 run tellraw @a[tag=swPool_spec,tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":""},{"underlined":true,"text":"<Restore>","color":"white","clickEvent":{"action":"run_command","value":"/function pool:classes/master/snooker/bot_retry"}}]
+# reset
+scoreboard players set #undo_bot swMath_V 0
