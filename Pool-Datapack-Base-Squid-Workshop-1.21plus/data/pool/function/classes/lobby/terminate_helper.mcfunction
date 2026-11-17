@@ -6,6 +6,10 @@ tag 000c2be1-0001-414d-0000-000000000000 remove swPool_9ballmode
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_8ball_aibreak
 tag 000c2be1-0001-414d-0000-000000000000 remove swPool_9ball_aibreak
 
+tag 000c2be1-0001-414d-0000-000000000000 remove swPool_freeball_turn
+scoreboard players set #freeball_target swMath_V 0
+
+
 scoreboard players set swPool_9ballmode swMath_V 0
 scoreboard players set swPool_cn8ballmode swMath_V 0
 scoreboard players set swPool_snookermode swMath_V 0

@@ -1,0 +1,2 @@
+scoreboard players set #tutorial_holdingstick swMath_V 0
+execute if items entity @s weapon.mainhand bow[minecraft:custom_data={swPool_cuestick:1b}] run scoreboard players set #tutorial_holdingstick swMath_V 1

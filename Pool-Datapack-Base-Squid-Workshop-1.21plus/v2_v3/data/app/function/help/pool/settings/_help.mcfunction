@@ -1,7 +1,9 @@
-tellraw @s[tag=swPool_EN] [{"text": "➇ ", "color": "gold"},{"text": "<User Guide>", "color": "gold", "underlined":true,"clickEvent":{"action":"run_command","value":"/function app:help/pool/about/guide"}}]
-tellraw @s[tag=swPool_CN] [{"text": "➇ ", "color": "gold"},{"text": "<用户指南>", "color": "gold", "underlined":true,"clickEvent":{"action":"run_command","value":"/function app:help/pool/about/guide"}}]
-tellraw @s[tag=swPool_EN] [{"text":"➇ Pool Datapack settings menu. Click a category to open it.","color":"yellow"}]
-tellraw @s[tag=swPool_CN] [{"text":"➇ 台球数据包设置菜单。 点击分类以打开。","color":"yellow"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ → ","color":"gold"},{"text":"<Interactive Tutorial>","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/tutorial/begin_check"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ → ","color":"gold"},{"text":"<互动教程>","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function pool:classes/tutorial/begin_check"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ → ","color":"gold"},{"text":"<User Guide>","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function app:help/pool/about/guide"}}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ → ","color":"gold"},{"text":"<用户指南>","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function app:help/pool/about/guide"}}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ↓ Pool Datapack settings menu. Click a category to open it.","color":"yellow"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ↓ 台球数据包设置菜单。 点击分类以打开。","color":"yellow"}]
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"color":"white","text":"<Player Control>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/player_control"}}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"color":"white","text":"<玩家控制>","clickEvent":{"action":"run_command","value":"/function app:help/pool/settings/player_control"}}]

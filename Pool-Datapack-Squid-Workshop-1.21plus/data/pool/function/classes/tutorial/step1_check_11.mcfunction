@@ -1,0 +1,2 @@
+scoreboard players set #tutorial_holdingstick swMath_V 0
+execute if entity @s[nbt={SelectedItem:{id:"minecraft:bow",tag:{swPool_cuestick:1b}}}] run scoreboard players set #tutorial_holdingstick swMath_V 1

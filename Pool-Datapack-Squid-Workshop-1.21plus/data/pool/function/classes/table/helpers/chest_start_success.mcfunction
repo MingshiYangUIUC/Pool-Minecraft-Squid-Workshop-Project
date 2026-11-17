@@ -11,9 +11,9 @@ tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Choose z tab
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"text":"Suggested sizes: ","color":"white"},{"text":"4*6(Easy) ","color":"green"},{"text":"6*10(Moderate) ","color":"yellow"},{"text":"8*14(Hard)","color":"dark_red"},{"text":" ","color":"white"},{"underlined":true,"text":"<Notice>","color":"red","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11214"}}]
 
-tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Preview>","color":"green","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122156"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122151"}},{"underlined":false,"text":" to place the table. Table will be placed at the chest location","color":"aqua"}]
+tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Preview>","color":"green","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123156"}},{"text":" ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123151"}},{"underlined":false,"text":" to place the table. Table will be placed at the chest location","color":"aqua"}]
 
-#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122151"}},{"underlined":false,"text":" to place the table. Table will be placed at the chest location","color":"aqua"}]
+#tellraw @s[tag=swPool_EN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<Click>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123151"}},{"underlined":false,"text":" to place the table. Table will be placed at the chest location","color":"aqua"}]
 
 #CN version
 
@@ -23,9 +23,9 @@ tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"点击选择
 
 tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"text":"建议大小： ","color":"white"},{"text":"4*6（简单） ","color":"green"},{"text":"6*10（中等） ","color":"yellow"},{"text":"8*14（困难）","color":"dark_red"},{"text":" ","color":"white"},{"underlined":true,"text":"<注意事项>","color":"red","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 11214"}}]
 
-tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<预览大小>","color":"green","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122156"}},{"text":" ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122151"}},{"underlined":false,"text":" 尝试放置球桌。球桌会放置于箱子处。","color":"aqua"}]
+tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<预览大小>","color":"green","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123156"}},{"text":" ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123151"}},{"underlined":false,"text":" 尝试放置球桌。球桌会放置于箱子处。","color":"aqua"}]
 
-#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41122151"}},{"underlined":false,"text":" 尝试放置球桌。球桌会放置于箱子处。","color":"aqua"}]
+#tellraw @s[tag=swPool_CN] [{"text":"➇ ","color":"white"},{"underlined":true,"text":"<点击此处>","color":"aqua","click_event":{"action":"run_command","command":"/trigger swPool__trigger set 41123151"}},{"underlined":false,"text":" 尝试放置球桌。球桌会放置于箱子处。","color":"aqua"}]
 
 tellraw @s[tag=swPool_EN] [{"text":"➇ If you no longer want to place the table, take the item out of the chest to keep it for later use.","color":"gold"}]
 tellraw @s[tag=swPool_CN] [{"text":"➇ 如果暂时不想摆放球桌，请将箱子中的物品取出，以便下次继续使用。","color":"gold"}]
